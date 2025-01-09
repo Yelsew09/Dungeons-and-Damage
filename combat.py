@@ -62,7 +62,7 @@ def critnum(AD,num1,num2,show):
     if show:
         confirm("You rolled a " + str(critnumber) + "\n")
     return critnumber
-def ask(question):
+def ask(question, temporal_distance = .5):
     
     #Ask. Replaces error correct
     #Asks a question and repeats until the user gives a numerical input
@@ -71,6 +71,7 @@ def ask(question):
         try:
             q(question)
             option = int(input(''))
+            time.sleep(temporal_distance)
             ec = 1
         except ValueError:
             wait(.5)
@@ -123,7 +124,6 @@ while ac == 0:
     q("4: Quit\n")
     wait()
     option = ask("What would you like to do? ")
-    wait(.5)
 
     #Guide
     if option == 2:
@@ -561,12 +561,14 @@ while ac == 0:
                     turn = turn + 1
                     q("This is turn " + str(turn) + "\n")
                     wait(.3)
-                    confirm("Player 1 has + " + str(P1HP) + "/" + str(P1MAXHP) + "HP left, and " + str(P1MP) + "/" + str(P1MAXMP) + "MP left", .3)
+                    q("Player 1 has + " + str(P1HP) + "/" + str(P1MAXHP) + "HP left, and " + str(P1MP) + "/" + str(P1MAXMP) + "MP left")
                     confirm("Player 2 has + " + str(P2HP) + "/" + str(P2MAXHP) + "HP left, and " + str(P2MP) + "/" + str(P2MAXMP) + "MP left", .3)
 
                     #OptionCorrect to mark the start of the turn
                     oc = 0
                     while oc == 0:
+                        q("This is Player 1's turn\n")
+                        wait()
                         q("1: Attack\n")
                         wait()
                         q("2: Magic\n")
@@ -761,16 +763,16 @@ while ac == 0:
                                         confirm("You gained advantage on your next turn.")
                                         P1AD = 1
                                         P1ADTR = 2
-                                        oc = 0
+                                        oc = 1
                                         P1MP = P1MP - 5
-                                    mc = 0
+                                        mc = 1
                                     
                                 #Impose disadvantage - 5MP
                                 elif option == 4:
 
                                     #Not enough MP
                                     if P1MP < 5:
-                                        confirm("You don't have enough MP for that")
+                                        confirm("You don't have enough MP for that.")
 
                                     else:
 
@@ -780,14 +782,20 @@ while ac == 0:
                                             P2AD = 0
                                             P2ADTR = 0
 
-                                        #If Player 2 already had disadvantage or neutral advantage
-                                        else:
+                                        #If Player 2 had no advantage
+                                        elif P2AD == 0:
                                             confirm("You gave Player 2 disadvantage on their next turn.")
+                                            P2AD = 2
+                                            P2ADTR = 1
+
+                                        #If Player 2 already had disadvantage
+                                        elif P2AD == 2:
+                                            confirm("You continued Player 2's disadvantage into their next turn.")
                                             P2AD = 2
                                             P2ADTR = 1
                                         oc = 0
                                         P1MP = P1MP - 5
-                                    mc = 0
+                                    mc = 1
 
                                 #Heal 20% of max HP - 5MP
                                 elif option == 5:
@@ -796,6 +804,7 @@ while ac == 0:
                                     if P1MP < 5:
                                         confirm("You don't have enough MP for that.")
                                     
+                                    #Already at max health
                                     elif P1HP >= P1MAXHP:
                                         confirm("You are already at maximum HP.")
                                         P1HP = P1MAXHP
@@ -822,10 +831,9 @@ while ac == 0:
                                         confirm("You have no MP, so therefor you cannot use this spell.")
 
                                     else:
-                                        q("For every MP you put into this spell, you will get a +2 damage boost to your next attack.\n")
+                                        q("For every 4 MP you put into this spell, you will get a +1.25 damage boost to your next attack.\n")
                                         wait()
-                                        P1DMGBOOST = ask("How much MP would you like to put into this spell? ")
-                                        wait(.5)
+                                        P1DMGBOOST = ask("How much MP would you like to put into this spell (0 to cancel)? ")
 
                                         #Cancel
                                         if P1DMGBOOST == 0:
@@ -840,11 +848,10 @@ while ac == 0:
                                             #Sucess!
                                             else:
                                                 P1MP = P1MP - P1DMGBOOST
-                                                P1DMGBOOST = P1DMGBOOST * 1.25
+                                                P1DMGBOOST = round(P1DMGBOOST * 1.25)
                                                 confirm("You gained a buff of +" + str(P1DMGBOOST) + " damage on your next attack.")
                                                 mc = 1
                                                 oc = 1
-                                    wait(.5)
                                                 
                                 #Spell descriptions
                                 elif option == 7:
@@ -1063,13 +1070,15 @@ while ac == 0:
                     
                     #Everyone's healthy
                     else:
-                        confirm("Player 1 has + " + str(P1HP) + "/" + str(P1MAXHP) + "HP left, and " + str(P1MP) + "/" + str(P1MAXMP) + "MP left", .3)
+                        q("Player 1 has + " + str(P1HP) + "/" + str(P1MAXHP) + "HP left, and " + str(P1MP) + "/" + str(P1MAXMP) + "MP left")
                         confirm("Player 2 has + " + str(P2HP) + "/" + str(P2MAXHP) + "HP left, and " + str(P2MP) + "/" + str(P2MAXMP) + "MP left", .3)
 
                         #OptionCorrect to mark the start of the turn
                         oc = 0
                         items_left = 3
                         while oc == 0:
+                            q("Player 2's turn\n")
+                            wait()
                             q("1: Attack\n")
                             wait()
                             q("2: Magic\n")
@@ -1135,7 +1144,6 @@ while ac == 0:
                                 mc = 0
                                 while mc == 0:
                                     option = ask("What would you like to do")
-                                    wait(.5)
                                     
                                     #Fireball - 5MP
                                     if option == 1:
@@ -1246,12 +1254,132 @@ while ac == 0:
                                         
                                     #Gain advantage - 5MP
                                     elif option == 3:
+                                        
                                         #Not enough MP
                                         if P2MP < 5:
                                             confirm("You don't have enough MP for that.")
+                                        
                                         else:
                                             confirm("You gained advantage on your next turn.")
+                                            P2AD = 1
+                                            P2ADTR = 2
+                                            oc = 1
+                                            P2MP = P2MP - 5
+                                            mc = 1
+                                    
+                                    #Impose disadvantage - 5MP
+                                    elif option == 4:
+
+                                        #Not enough MP
+                                        if P2MP < 5:
+                                            confirm("You don't have enough MP for that.")
+
+                                        else:
+
+                                            #If Player 1 already had advantage
+                                            if P1AD == 1:
+                                                confirm("You got rid of player 1's advantage.")
+                                                P1AD = 0
+                                                P1ADTR = 0
                                             
+                                            #If Player 1 had no advantage
+                                            elif P1AD == 0:
+                                                confirm("You gave Player 1 disadvantage on their next turn.")
+                                                P1AD = 2
+                                                P1ADTR = 1
+                                            
+                                            #If Player 1 already had disadvantage
+                                                confirm("You continued Player 1's disadvantage through their next turn.")
+                                                P1AD = 2
+                                                P1ADTR = 1
+                                            oc = 0
+                                            P1MP = P1MP - 5
+                                        mc = 1
+
+                                    #Heal 20% of max HP - 5MP
+                                    elif option == 5:
+
+                                        #Not enough MP
+                                        if P2MP < 5:
+                                            confirm("You don't have enough MP for that.")
+                                        
+                                        #Already at max health
+                                        elif P2HP >= P2MAXHP:
+                                            confirm("You are already at maximum HP.")
+                                            P2HP = P2MAXHP
+                                        
+                                        else:
+                                            HEAL = round(P2MAXHP/5)
+                                            confirm("You healed " + str(HEAL) + " damage.", .2)
+                                            P2HP = P2HP + HEAL
+
+                                            #If healing would put you over your MAXHP
+                                            if P2HP > P2MAXHP:
+                                                confirm("But, that would've brought you over your maximum health.", .2)
+                                                P2HP = P2MAXHP
+                                            wait(.3)
+                                            P2MP = P2MP - 5
+                                            oc = 1
+                                        mc = 1
+                                    
+                                    #Damage boost - Varies
+                                    elif option == 6:
+
+                                        #If P2 has NO MP
+                                        if P1MP < 1:
+                                            confirm("You have no MP, so therefor you cannot use this spell.")
+                                        
+                                        else:
+                                            q("For every MP you put into this spell, you will get a +1.25 damage boost to your next attack.\n")
+                                            wait()
+                                            P2DMGBOOST = ask("How much MP would you like to put into the spell (0 to cancel)? ")
+                                        
+                                        #Cancel
+                                        if P2DMGBOOST == 0:
+                                            q("You canceled your damage boost.\n")
+                                        
+                                        else:
+
+                                            #If P2 tries to spend more MP than they have
+                                            if P2MP < P2DMGBOOST:
+                                                confirm("You don't have enough MP for that amount of a damage boost.")
+                                            
+                                            #Sucess!
+                                            else:
+                                                P2MP = P2MP - P2DMGBOOST
+                                                P2DMGBOOST = round(P2DMGBOOST * 1.25)
+                                                confirm("You gained a buff of +" + str(P2DMGBOOST) + " damage on your next attack.")
+                                                mc = 1
+                                                oc = 1
+                                    
+                                    #Spell descriptions
+                                    elif option == 7:
+                                        q("Spell descriptions: \n")
+                                        wait()
+                                        q("Fireball - 5MP. Create a ball of fire that crashes down on the target. This will do anywhere from half of your MAXMP to your MAXMP of almost unblockable damage. If you are to create a fireball that does so little damage, it will get blocked\n")
+                                        wait()
+                                        q("Conjure a random item - 2 MP. Conjure a random item that can be used on your next turn.\n")
+                                        wait()
+                                        q("Gain advantage - 5MP. Gain advantage until the end of your next turn. For more information on advantage, visit the guide in the Main Menu.\n")
+                                        wait()
+                                        q("Impose disavantage - 5MP. Give your opponent disavnatage on their next turn, or get rid of thier advantage. For more information on advnatages, visit the guide in the Main Menu.\n")
+                                        wait()
+                                        q("Heal 20 percent of MAXHP - 5MP. Heal 20 percent of your max HP. This cannot take you above your maximum, though.\n")
+                                        wait()
+                                        confirm("Damage boost - Varies. Put as much MP as you want (and can) into this move, and have that amount multiplied by 1.25 and added to your next attack.")
+                                    
+                                    #Cancel
+                                    elif option == 0:
+                                        q("You cenceled your magic\n")
+                                        wait()
+                                        mc = 1
+                                    
+                                    else:
+                                        q("Please give an option we can use.\n")
+                                        wait(.5)
+                                    
+
+
                 elif P2SPD > P1SPD:
                     q("Player 2 first, then player 1\n")
                 
