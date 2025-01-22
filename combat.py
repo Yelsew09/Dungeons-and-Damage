@@ -20,14 +20,14 @@ def explode():
     #A command used for crashing the game. Very useful if something seems impossible
     #Basically a failsafe
     #I have no clue how it works
-    print("Something went wrong. explodeing...")
+    print("Something went wrong. exploding...")
     try:
         explode()
     except:
         explode()
 def wait(temporal_distance = .15):
     
-    #Literally just laziness. I don't want to type time.sleep(.15) every 5 seconds
+    #Literally just laziness. I don't want to type time.sleep(.15) every second
     time.sleep(temporal_distance)
 def confirm(str, temporal_distance = .5):
     
@@ -881,22 +881,16 @@ while ac == 0:
 
                         #Item
                         elif option == 3:
-                            yesorno = 1
 
                             #If there are no item uses left and you just selected it from the menu
-                            if items_left == 0 and yesorno == 1:
+                            if items_left == 0:
                                 confirm("You've used all your items this turn.")
                                 ic = 0
-                                yesorno = 0
-                            
-                            #If that was your last item usage
-                            elif items_left == 0 and not yesorno == 1:
-                                ic = 0
-                                yesorno = 0
                             
                             #If you have items left to use
                             else:
-                                confirm("You can use " + str(items_left) + " more items on this turn", .3)
+                                if not items_left == 3:
+                                    confirm("You can use " + str(items_left) + " more items on this turn", .3)
                                 q("1: Spoons - " + str(P1SPOONS) + "\n")
                                 wait()
                                 q("2: Knives - " + str(P1KNIVES) + "\n")
@@ -941,14 +935,14 @@ while ac == 0:
                                                 
                                                 #The 1 in 1000 chance to kill player 2 with tetanus
                                                 if critnumber == 1000:
-                                                    confirm("Player 2 got tetanus, dying on the spot.")
+                                                    confirm("Player 2 got tetanus from being hit with the spoon, dying on the spot.")
                                                     ic = 1
                                                     oc = 1
                                                     P2HP = P2HP - P2HP
                                                 
                                                 #The 1 in 1000 chance to die from tetanus due to holding the spoon
                                                 elif critnumber == 1:
-                                                    confirm("Player 1 got tetanus, dying on the spot.")
+                                                    confirm("Player 1 got tetanus from holding the spoon, dying on the spot.")
                                                     ic = 1
                                                     oc = 1
                                                     P1HP = P1HP - P1HP
@@ -1378,7 +1372,87 @@ while ac == 0:
                                         q("Please give an option we can use.\n")
                                         wait(.5)
                                     
+                            #Item
+                            elif option == 3:
 
+                                #If you've already used all your items this turn
+                                if items_left == 0:
+                                    confirm("You've used all your items this turn.")
+                                    ic = 0
+
+                                #If you can use more items
+                                else:
+                                    if not items_left == 3:
+                                        confirm("You can use " + str(items_left) + " more items on this turn", .3)
+                                    q("1: Spoons - " + str(P2SPOONS) + "\n")
+                                    wait()
+                                    q("2: Knives - " + str(P2KNIVES) + "\n")
+                                    wait()
+                                    q("3: Healing Potions - " + str(P2POTS) + "\n")
+                                    wait()
+                                    
+                                    #Print properly whether the gun is in play or not
+                                    if P2GLOCK >= 1:
+                                        q("4: Glock - 19\n")
+                                        wait()
+                                        q("5: Cancel\n")
+                                    else:
+                                        q("4: Cancel\n")
+                                    wait()
+                                    
+                                    #ItemCorrect
+                                    ic = 0
+                                    while ic == 0:
+
+                                        #If there are no more items to be used
+                                        if items_left == 0:
+                                            ic = 1
+                                            option = 0
+                                        else:
+                                            option = ask("What would you like to use?")
+
+                                            #Spoons
+                                            if option == 1:
+                                                
+                                                #If there are no spoons to use
+                                                if P2SPOONS < 1:
+                                                    confirm("You have no spoons. No soup for you.")
+                                                
+                                                #Spoons are at the ready
+                                                else:
+                                                    critnumber = critnum(0,1,1000,print_random)
+
+                                                    #The 1 in 1000 chance to have P1 die from tetanus
+                                                    if critnumber == 1000:
+                                                        confirm("Player 1 got tetanus from being hit with the spoon, dying on the spot.")
+                                                        ic = 1
+                                                        oc = 1
+                                                        P1HP = P1HP - P1HP
+                                                    
+                                                    #The 1 in 1000 chance to die from tetanus due to holding the spoon
+                                                    elif critnumber == 1:
+                                                        confirm("Player 2 got tetanus from holding the spoon, dying on the spot.")
+                                                        ic = 1
+                                                        oc = 1
+                                                        P2HP = P2HP - P2HP
+                                                    
+                                                    #If it all goes normally
+                                                    else:
+                                                        confirm("You threw a spoon, doing 1 point of damage to Player 1")
+                                                        P1HP = P1HP - 1
+                                                    items_left = items_left - 1
+                                                    P2SPOON = P2SPOON - 1
+                                            
+                                            #Knives
+                                            if option == 2:
+
+                                                #If there are no knives
+                                                if P2KNIVES < 1:
+                                                    confirm("You have no knives.")
+                                                
+                                                #Knives at the ready
+                                                else:
+                                                    critnumber = critnum(0, 1, 5, print_random)
 
                 elif P2SPD > P1SPD:
                     q("Player 2 first, then player 1\n")
