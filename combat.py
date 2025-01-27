@@ -731,6 +731,7 @@ while ac == 0:
                                                 
                                             #The first gun in the game
                                             elif P1GLOCK == 0 and not P2GLOCK == 1:
+                                                q("a ")
                                                 wait(.3)
                                                 print("GUN?!?!?!?")
                                                 wait(.3)
