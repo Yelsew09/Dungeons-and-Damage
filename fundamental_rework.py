@@ -210,22 +210,156 @@ def combat():
                 q("It's a critical hit!\n")
                 wait(.3)
                 confirm("Player " + str(atkP) + " did " + str(atkATK*2) + " damage to player " + str(defP) + ".")
-                defHP = defHP - (atkATK*2)
-                oc = False
+                defHP = defHP - (atkATK*2 + atkDMG_BON)
             
             elif critnumber + atkATK_BON >= defDEF:
                 confirm("You landed a hit, doing " + str(atkATK) + " damage to player " + str(defP) + ".")
-                defHP = defHP - atkATK
-                oc = False
+                defHP = defHP - (atkATK + atkDMG_BON)
             
             elif critnumber + atkATK_BON < defDEF:
                 confirm("You missed your attack.")
-                oc = False
             
             else:
                 explode()
+            atkDMG_BON = 0
+            oc = False
+        #Magic
+        if option == 2:
+            
+            #MagicCorrect
+            mc = True
+            while mc:
+                q("1: Fireball - 5MP\n")
+                wait()
+                q("2: Summon item - 2MP\n")
+                wait()
+                q("3: Gain advantage\n")
+                wait()
+                q("4: Impose disadvantage\n")
+                wait()
+                q("5: Heal 20%\n")
+                wait()
+                q("6: Damage boost\n")
+                wait()
+                q("7: Spell descriptions\n")
+                wait()
+                option = ask("What would you like to do?")
 
+                #Fireball - 5MP
+                if option == 1:
+                    
+                    #Not enough MP
+                    if atkMP < 5:
+                        confirm("You don't have enough MP for that.")
+                    
+                    else:
+                        critnumber = random_num(round(atkMAX_MP/2),atkMAX_MP,show)
+                        atkMP = atkMP - 5
+                        
+                        #If the magic is weak enough, it will get blocked
+                        if round(defDEF/4) >= critnumber:
+                            confirm("Your opponent's defence blocked the " + str(critnumber) + " damage you tried to do.")
 
+                        else:
+                            confirm("Player " + str(atkP) + " did " + str(critnumber) + " damage to player " + str(defP) + ".")
+                            defHP = defHP - critnumber
+                            oc = False
+                            mc = False
+                
+                #Summon random item - 2MP
+                elif option == 2:
+                    
+                    #Not enough MP
+                    if atkMP < 2:
+                        confirm("You don't have enough MP for that.")
+                    
+                    else:
+                        critnumber = random_num(1,100,show)
+                        atkMP = atkMP - 2
+                        q("You conjured up ")
+
+                        #Spoon
+                        if critnumber >= 1 and critnumber <= 10:
+                            q("a... ")
+                            wait(.5)
+                            q("rusty... ", .5)
+                            wait(.6)
+                            confirm("spoon?")
+                            atkSPOON = atkSPOON + 1
+
+                        #Knife
+                        elif critnumber >= 11 and critnumber <= 50:
+                            confirm("a few throwing knives!")
+                            atkKNIFE = atkKNIFE + 3
+                        
+                        #Healing Potion
+                        elif critnumber >= 51 and critnumber <= 89:
+                            confirm("a healing potion!")
+                            atkPOTS = atkPOTS + 1
+
+                        #Chain link fence
+                        elif critnumber >= 90 and critnumber <= 99:
+                            q("a chain link fence.\n")
+                            wait(.3)
+                            confirm("Probably could block something with that.")
+                            atkFENCE = atkFENCE + 1
+                        
+                        #HE HAS A GUN
+                        elif critnumber == 100:
+                            
+                            #The other player had a gun
+                            if atkGLOCK == 0 and defGLOCK >= 1:
+                                q("Great. Now the other guy has a gun")
+                                q("Ok, great. Now the OTHER guy has a gun.\n", .2)
+                                wait(.5)
+                                confirm("I'm leaving.", .2)
+                                atkGLOCK = atkGLOCK + 1
+                            
+                            #The current player already had a gun
+                            elif atkGLOCK >= 1:
+                                q("You did it again.\n", .4)
+                                wait(1)
+                                q("Landed a 1 in 100 chance to get a literal GUN.\n", .3)
+                                wait(.5)
+                                q("That thing could've won you the game intstanly.\n", .1)
+                                wait(.3)
+                                wait()
+                                q("And you kept going.\n", .1)
+                                wait(2)
+                                q("\n")
+                                print("WHY?!?!?")
+                                wait(.5)
+                                q("Alright, I'm ending this here and now.\n")
+                                wait(.8)
+                                confirm("God landed a destructive hit, doing " + str(999+P2HP) + " damage to player " + str(defP) + ".", 1)
+                                defHP = defHP - defHP
+                                for i in range (5):
+                                    print("Calculating, please wait.")
+                                    wait(.5)
+                                    print("Calculating failed.")
+                                    wait(.3)
+                                    if i > 5:
+                                        print("Retrying...")
+                                        wait(.2)
+                                confirm("Player " + str(defP) + " has ValueError HP left.")
+                            
+                            #The first gun in the game
+                            elif atkGLOCK == 0 and defGLOCK == 0:
+                                q("a ")
+                                wait(.3)
+                                print("GUN?!?!")
+                                wait(.3)
+                                q("Not even an old gun, like a musket.\n")
+                                wait(.3)
+                                q("Just a Glock-19\n")
+                                wait(.3)
+                                confirm("I quit.")
+                                atkGLOCK = atkGLOCK + 1
+                            else:
+                                explode()
+                            oc = 1
+                            mc = 1
+                        
 
 
 #Setting default rule values
