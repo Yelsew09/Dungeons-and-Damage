@@ -233,15 +233,17 @@ def combat():
                 wait()
                 q("2: Summon item - 2MP\n")
                 wait()
-                q("3: Gain advantage\n")
+                q("3: Gain advantage - 3MP\n")
                 wait()
-                q("4: Impose disadvantage\n")
+                q("4: Impose disadvantage - 4MP\n")
                 wait()
-                q("5: Heal 20%\n")
+                q("5: Heal 20% - 4MP\n")
                 wait()
                 q("6: Damage boost\n")
                 wait()
                 q("7: Spell descriptions\n")
+                wait()
+                q("0: Cancel\n")
                 wait()
                 option = ask("What would you like to do?")
 
@@ -359,7 +361,112 @@ def combat():
                                 explode()
                             oc = 1
                             mc = 1
+                
+                #Gain advantage - 3MP
+                elif option == 3:
+                    
+                    #Not enough MP
+                    if atkMP < 3:
+                        confirm("You don't have enough MP for this.\n")
+                    
+                    else:
+
+                        #If defending Player has advantage
+                        if defAD == 1:
+                            confirm("You gained advantage on your next turn.\n")
+                            atkMP = atkMP - 3
+                            atkAD = 1
+                            atkADTR = 2
+                            oc = False
+                            mc = False
+                
+                #Impose disadvantage - 4MP
+                elif option == 4:
+
+                    #Not enough MP
+                    if atkMP < 4:
+                        confirm("You don't have enough MP for that.")
+                    
+                    else:
+                        atkMP = atkMP - 4
+                        oc = False
+                        mc = False
+                        #If the defending player already had advantage
+                        if defAD == 1:
+                            confirm("You got rid of player " + str(defP) + "'s advantage.")
+                            defAD = 0
+                            defADTR = 0
+
+                        #If the defending player has no hit modifiers
+                        elif defAD == 0:
+                            confirm("You gave player " + str(defP) + " disadvantage on their next turn.")
+                            defAD = 2
+                            defADTR = 1
                         
+                        #If the defending player has disadvantage
+                        elif defAD == 2:
+                            confirm("You continuted player " + str(defP) + "'s disadvantage by one more turn.")
+                            defAD = 2
+                            defADTR = 1
+                        
+                        else:
+                            explode()
+                    
+                #Heal 20% - 4MP
+                elif option == 5:
+                    
+                    #Not enough MP
+                    if atkMP < 4:
+                        confirm("You don't have enough MP for that.")
+                    
+                    #Already at max HP
+                    elif atkHP == atkMAX_HP:
+                        confirm("You're already at max HP.")
+                    
+                    else:
+                        atkMP = atkMP - 4
+                        HEAL = atkMAX_HP/5
+                        confirm("You healed " + str(HEAL) + " points of damage.",.2)
+                        atkHP = atkHP + HEAL
+                        if atkHP > atkMAX_HP:
+                            q("But that would've taken you over your max HP.",.2)
+                            atkHP = atkMAX_HP
+                        wait(.3)
+                        oc = False
+                        mc = False
+
+                #Damage boost - 2MP
+                elif option == 6:
+                    
+                    #Not enough MP
+                    if atkMP < 2:
+                        confirm("You don't have enough MP.")
+                    
+                    #Already have the boost
+                    elif atkDMG_BON > 0:
+                        q("You are already under the effect of this.")
+                    
+                    else:
+                        atkMP = atkMP - 2
+                        atkDMG_BON = round(atkATK/3)
+                        confirm("You gained a damage boost of " + str(atkDMG_BON) + " damage.")
+                        oc = False
+                        mc = False
+                
+                #Spell descriptions
+                elif option == 7:
+                    q("Descriptions coming soon.")
+                
+                #Cancel
+                elif option == 0:
+                    q("You canceled your magic usage.\n")
+                    wait(.3)
+                
+                else:
+                    q("Please give a valid option.\n")
+                    wait(.3)
+                
+
 
 
 #Setting default rule values
