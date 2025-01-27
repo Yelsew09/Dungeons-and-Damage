@@ -1468,8 +1468,7 @@ while ac == 0:
                     
                     else:
                         explode()
-            
-    
+              
     else:
         q("Please give an option we can use.\n")
         wait(.5)
