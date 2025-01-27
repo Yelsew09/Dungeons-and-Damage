@@ -166,7 +166,7 @@ def charSelect(player):
                 q("Please give a valid option\n")
                 ync = True
     return stats
-def random_num(min,max,ad,show):
+def random_num(min,max,show,ad = 0):
     if ad == 1:
         num1 = random.randint(min,max)
         num2 = random.randint(min,max)
@@ -181,22 +181,52 @@ def random_num(min,max,ad,show):
         q("You rolled a: " + str(critnum))
     return critnum
 def combat():
-    q("1: Attack\n")
-    wait()
-    q("2: Magic\n")
-    wait()
-    q("3: Item\n")
-    wait()
-    q("4: Pass\n")
-    wait()
-    q("5: Run\n")
-    wait()
-    option = ask("What would you like to do? ")
-    if option == 1:
-        critnumber = random_num(1,20,atk_ad,show)
-        if critnumber == 20:
-            q("")
     
+    #OptionCorrect
+    oc = True
+    while oc:
+        q("1: Attack\n")
+        wait()
+        q("2: Magic\n")
+        wait()
+        q("3: Item\n")
+        wait()
+        q("4: Pass\n")
+        wait()
+        q("5: Run\n")
+        wait()
+        option = ask("What would you like to do? ")
+        
+        #Attack
+        if option == 1:
+            critnumber = random_num(1,20,atk_ad,show)
+            
+            #You need to see what you rolled here
+            if not show:
+                q("You rolled a " + str(critnumber) + "!\n")
+            
+            #Critical hit
+            if critnumber == 20:
+                q("It's a critical hit!\n")
+                wait(.3)
+                confirm("Player " + str(atkP) + " did " + str(atkATK*2) + " damage to player " + str(defP) + ".")
+                defHP = defHP - (atkATK*2)
+                oc = False
+            
+            elif critnumber + atkATK_BON >= defDEF:
+                confirm("You landed a hit, doing " + str(atkATK) + " damage to player " + str(defP) + ".")
+                defHP = defHP - atkATK
+                oc = False
+            
+            elif critnumber + atkATK_BON < defDEF:
+                confirm("You missed your attack.")
+                oc = False
+            
+            else:
+                explode()
+
+
+
 
 #Setting default rule values
 print_random = False
