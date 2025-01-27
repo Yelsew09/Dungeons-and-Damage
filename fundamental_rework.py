@@ -184,6 +184,7 @@ def combat():
     
     #OptionCorrect
     oc = True
+    items_left = 3
     while oc:
         q("1: Attack\n")
         wait()
@@ -465,7 +466,34 @@ def combat():
                 else:
                     q("Please give a valid option.\n")
                     wait(.3)
-                
+                    mc = False
+            
+        #Items
+        elif option == 3:
+
+            #If there are no more item uses left and you just selected it from the menus
+            if items_left == 0:
+                confirm("You've used all your items this turn.")
+            
+            #If you have items left to use, start the loop
+            else:
+                ic = True
+                while ic:
+                    if items_left == 0:
+                        confirm("You've used all your items this turn.")
+                        ic = False
+                    else:
+                        confirm("You can use " + str(items_left) + " more items this turn.")
+                        q("1: Spoon - " + str(atkSPOON) + "\n")
+                        wait()
+                        q("2: Knife - " + str(atkKNIFE) + "\n")
+                        wait()
+                        q("3: Potion - " + str(atkPOTS) + "\n")
+                        wait()
+                        q("4: Chain Fence - " + str(atkFENCE) + "\n")
+                        wait()
+                        if atkGLOCK >= 1:
+                            q("5: Glock")
 
 
 
