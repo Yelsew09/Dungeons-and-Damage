@@ -1,3 +1,31 @@
+"""
+atkP
+atkHP
+atkMAX_HP
+atkMP
+atkMAX_MP
+atkATK
+atkDMG_BON
+atkAD
+atkADTR
+atkSPOON
+atkKNIFE
+atkPOTS
+atkFENCE
+atkFENCE_SET
+atkGLOCK
+
+defP
+defHP
+defDEF
+defAD
+defADTR
+defFENCE_SET
+defGLOCK
+show
+"""
+
+
 #Just a reminder, the tuples are in the order of:
 #HP,MAXHP,ATK,ATKBON,DEF,MP,MAXMP,MPBON,SPD
 
@@ -78,7 +106,7 @@ def charSelect(player):
     wait()
     q("7: Barbarian\n")
     wait()
-    q("8: Random")
+    q("8: Random\n")
     wait()
 
     #CharacterCorrect
@@ -91,32 +119,37 @@ def charSelect(player):
         while rc:
             #Knight
             if option == 1:
+                option = "Knight"
                 stats = tuple[35,35,7,5,16,5,5,2,3]
                 rc = False
             
             #Peashooter
             elif option == 2:
+                option = "Peashooter"
                 stats = tuple[26,26,9,4,14,7,7,3,5]
                 rc = False
             
             #Rouge
             elif option == 3:
+                option = "Rouge"
                 stats = tuple[20,20,10,6,13,6,6,2,7]
                 rc = False
 
             #Mage
             elif option == 4:
+                option = "Mage"
                 stats = tuple[21,21,5,2,11,10,10,5,4]
                 rc = False
             
             #Skele
             elif option == 5:
+                option = "Skele"
                 stats = tuple[30,30,7,3,12,7,7,5,6]
                 rc = False
             
             #Bard
             elif option == 6:
-                option = ""
+                option = "Bard"
                 stats = tuple[27,27,6,4,14,4,4,2,2]
                 rc = False
             
@@ -145,7 +178,7 @@ def charSelect(player):
             wait()
             q("2: No\n")
             wait()
-            yesorno = ask("You have chosen the " + str(option) + " class, is this correct?")
+            yesorno = ask("You have chosen the " + str(option) + " class, is this correct? ")
             
             #Yes
             if yesorno == 1:
@@ -205,7 +238,7 @@ def combat():
                 defFENCE_SET = False
 
             else:
-                critnumber = random_num(1,20,atk_ad,show)
+                critnumber = random_num(1,20,atkAD,show)
                 
                 #You need to see what you rolled here
                 if not show:
@@ -752,11 +785,14 @@ while ac:
     elif option == 3:
         q("Options coming soon\n")
     
+    #Quit
     elif option == 4:
         ac = False
     
+    #Game Start
     elif option == 1:
-        q("Set character classes and then let the combat commence")
+        P1HP,P1MAXHP,P1ATK,P1ATKBON,P1DEF,P1MP,P1MAXMP,P1MPBON,P1SPD = charSelect(1)
+        
     
     else:
         q("Please give a provided number\n")
