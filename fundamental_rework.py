@@ -200,30 +200,36 @@ def combat():
         
         #Attack
         if option == 1:
-            critnumber = random_num(1,20,atk_ad,show)
-            
-            #You need to see what you rolled here
-            if not show:
-                q("You rolled a " + str(critnumber) + "!\n")
-            
-            #Critical hit
-            if critnumber == 20:
-                q("It's a critical hit!\n")
-                wait(.3)
-                confirm("Player " + str(atkP) + " did " + str(atkATK*2) + " damage to player " + str(defP) + ".")
-                defHP = defHP - (atkATK*2 + atkDMG_BON)
-            
-            elif critnumber + atkATK_BON >= defDEF:
-                confirm("You landed a hit, doing " + str(atkATK) + " damage to player " + str(defP) + ".")
-                defHP = defHP - (atkATK + atkDMG_BON)
-            
-            elif critnumber + atkATK_BON < defDEF:
-                confirm("You missed your attack.")
-            
+            if defFENCE_SET:
+                confirm("You struck player " + str(defP) + "'s fence they set up.")
+                defFENCE_SET = False
+
             else:
-                explode()
+                critnumber = random_num(1,20,atk_ad,show)
+                
+                #You need to see what you rolled here
+                if not show:
+                    q("You rolled a " + str(critnumber) + "!\n")
+                
+                #Critical hit
+                if critnumber == 20:
+                    q("It's a critical hit!\n")
+                    wait(.3)
+                    confirm("Player " + str(atkP) + " did " + str(atkATK*2) + " damage to player " + str(defP) + ".")
+                    defHP = defHP - (atkATK*2 + atkDMG_BON)
+                
+                elif critnumber + atkATK_BON >= defDEF:
+                    confirm("You landed a hit, doing " + str(atkATK) + " damage to player " + str(defP) + ".")
+                    defHP = defHP - (atkATK + atkDMG_BON)
+                
+                elif critnumber + atkATK_BON < defDEF:
+                    confirm("You missed your attack.")
+                
+                else:
+                    explode()
             atkDMG_BON = 0
             oc = False
+        
         #Magic
         if option == 2:
             
@@ -477,25 +483,159 @@ def combat():
             
             #If you have items left to use, start the loop
             else:
+                q("1: Spoon - " + str(atkSPOON) + "\n")
+                wait()
+                q("2: Knife - " + str(atkKNIFE) + "\n")
+                wait()
+                q("3: Potion - " + str(atkPOTS) + "\n")
+                wait()
+                q("4: Chain Fence (uses 3 item uses) - " + str(atkFENCE) + "\n")
+                wait()
+                if atkGLOCK >= 1:
+                    q("5: Glock")
+                    wait()
+                    q("6: Cancel")
+                else:
+                    q("5: Cancel")
+                wait()
                 ic = True
                 while ic:
                     if items_left == 0:
-                        confirm("You've used all your items this turn.")
+                        option = 0
                         ic = False
                     else:
-                        confirm("You can use " + str(items_left) + " more items this turn.")
-                        q("1: Spoon - " + str(atkSPOON) + "\n")
-                        wait()
-                        q("2: Knife - " + str(atkKNIFE) + "\n")
-                        wait()
-                        q("3: Potion - " + str(atkPOTS) + "\n")
-                        wait()
-                        q("4: Chain Fence - " + str(atkFENCE) + "\n")
-                        wait()
-                        if atkGLOCK >= 1:
-                            q("5: Glock")
 
+                        #Spoons
+                        if option == 1:
+                            
+                            #No spoons
+                            if atkSPOON < 1:
+                                confirm("You don't have any spoons. No soup for you.")
+                            
+                            else:
+                                critnumber = random_num(1,1000,False)
 
+                                #The chance to instantly kill the defending player due to tetanus
+                                if critnumber == 1000:
+                                    confirm("Player " + str(defP) + " got tetanus from being hit with the spoon, dying on the spot.")
+                                    defHP = defHP - defHP
+                                    atkSPOON = atkSPOON - 1
+                                    items_left = 0
+                                    ic = False
+                                    oc = False
+                                
+                                #The chance to instally die due to tetanus from holding the spoon
+                                elif critnumber == 1:
+                                    confirm("Player " + str(atkP) + " wasn't safe from the spoon. While they were holding it, they got tetanus and died.")
+                                    atkHP = atkHP - atkHP
+                                    atkSPOON = atkSPOON - 1
+                                    items_left = 0
+                                    ic = False
+                                    oc = False
+                                
+                                #Everything is good
+                                else:
+                                    confirm("Player " + str(atkP) + " did 1 point of damage to player " + str(defP) + ".")
+                                    defHP = defHP - 1
+                                    items_left = items_left - 1
+                                    atkSPOON = atkSPOON - 1
+                        
+                        #Knife
+                        elif option == 2:
+                            
+                            #No knife
+                            if atkKNIFE < 1:
+                                ask("You don't have any knives. Want a pencil instead? ",.3)
+                                q("Well I don't have any.\n")
+                                wait(.5)
+                            
+                            else:
+                                critnumber = random_num(1,50,show)
+
+                                #Miss
+                                if critnumber == 1:
+                                    confirm("You threw a knife, completely missing your opponent.")
+
+                                #Hit
+                                else:
+                                    critnumber = random_num(1,5,show)
+                                    confirm("You threw a knife, doing " + str(critnumber) + " damage to player " + str(defP) + ".")
+                                    defHP = defHP - critnumber
+                                atkKNIFE = atkKNIFE - 1
+                                items_left = items_left - 1
+                        
+                        #Healing Potion
+                        elif option == 3:
+
+                            #No potions
+                            if atkPOTS < 1:
+                                q("You don't have any healing poitions.")
+                                wait(.3)
+                                confirm("str(potion_joke) + '.'")
+                            
+                            else:
+                                HEAL = round(atkMAX_HP/10)
+                                confirm("You healed " + str(HEAL) + " points of damage.",.2)
+                                atkHP = atkHP + HEAL
+                                if atkHP > atkMAX_HP:
+                                    confirm("But that woul've taken you over your maximum HP.\n",.2)
+                                    atkHP = atkMAX_HP
+                                wait(.3)
+                                atkPOTS = atkPOTS - 1
+                                items_left = items_left - 1
+                        
+                        #Chain link fence
+                        elif option == 4:
+                            
+                            #No fence
+                            if atkFENCE < 1:
+                                confirm("You don't have a fence. Besides, who carries whole fences on them?")
+                            
+                            elif not items_left == 3:
+                                confirm("You need three item uses to set this up.")
+
+                            else:
+                                confirm("You set up an enitre fence in front of you. Looks like it could block a hit")
+                                atkFENCE_SET = True
+                                atkFENCE = atkFENCE - 1
+                                items_left = items_left - 3
+                                ic = False
+                        
+                        #Gun if possible
+                        elif option == 5 and atkGLOCK >= 1:
+                            critnumber = random_num(1,1000)
+                            
+                            #Miss
+                            if critnumber == 1:
+                                confirm("You missed.",.2)
+                                q("And that's the last shot in the clip.\n")
+                                wait(1)
+                                confirm("My man really summoned a one-shot weapon with one shot.")
+                                atkGLOCK = atkGLOCK - 1
+                            
+                            #So anyway, I started blasting
+                            else:
+                                confirm("You shot your gun, hitting player " + str(defP) + " and doing ValueError damage to them.")
+                                atkGLOCK = atkGLOCK - 1
+                                defHP = defHP - defHP
+                                items_left = 0
+                                ic = False
+                        
+                        #Cancel if gun
+                        elif option == 6 and atkGLOCK >= 1:
+                            q("You canceled your item usage.\n")
+                            wait(.5)
+                        
+                        #Cancel if no gun
+                        elif option == 5 and atkGLOCK == 0:
+                            q("You canceled your item usage.\n")
+                            wait(.5)
+
+                        else:
+                            q("Please give a valid option.\n")
+                            wait(.3)
+        
+        
 
 #Setting default rule values
 print_random = False
