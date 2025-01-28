@@ -163,7 +163,7 @@ def charSelect(player):
             
             #Invalid input
             else:
-                q("Please give a valid option\n")
+                q("Please give a provided number\n")
                 ync = True
     return stats
 def random_num(min,max,show,ad = 0):
@@ -341,7 +341,7 @@ def combat():
                                 q("Alright, I'm ending this here and now.\n")
                                 wait(.8)
                                 confirm("God landed a destructive hit, doing " + str(999+P2HP) + " damage to player " + str(defP) + ".", 1)
-                                defHP = defHP - defHP
+                                defHP = 0
                                 for i in range (5):
                                     print("Calculating, please wait.")
                                     wait(.5)
@@ -470,7 +470,7 @@ def combat():
                     wait(.3)
                 
                 else:
-                    q("Please give a valid option.\n")
+                    q("Please give a provided number.\n")
                     wait(.3)
                     mc = False
             
@@ -518,7 +518,7 @@ def combat():
                                 #The chance to instantly kill the defending player due to tetanus
                                 if critnumber == 1000:
                                     confirm("Player " + str(defP) + " got tetanus from being hit with the spoon, dying on the spot.")
-                                    defHP = defHP - defHP
+                                    defHP = 0
                                     atkSPOON = atkSPOON - 1
                                     items_left = 0
                                     ic = False
@@ -527,7 +527,7 @@ def combat():
                                 #The chance to instally die due to tetanus from holding the spoon
                                 elif critnumber == 1:
                                     confirm("Player " + str(atkP) + " wasn't safe from the spoon. While they were holding it, they got tetanus and died.")
-                                    atkHP = atkHP - atkHP
+                                    atkHP = 0
                                     atkSPOON = atkSPOON - 1
                                     items_left = 0
                                     ic = False
@@ -617,7 +617,7 @@ def combat():
                             else:
                                 confirm("You shot your gun, hitting player " + str(defP) + " and doing ValueError damage to them.")
                                 atkGLOCK = atkGLOCK - 1
-                                defHP = defHP - defHP
+                                defHP = 0
                                 items_left = 0
                                 ic = False
                         
@@ -632,10 +632,69 @@ def combat():
                             wait(.5)
 
                         else:
-                            q("Please give a valid option.\n")
+                            q("Please give a provided number.\n")
                             wait(.3)
         
+        #Pass
+        elif option == 4:
+            q("1: Yes\n")
+            wait()
+            q("2: No\n")
+            wait()
+            
+            #YesNoCorrect
+            ync = True
+            while ync:
+                yesorno = ask("Are you sure you want to pass your turn? ")
+                
+                #Yes
+                if yesorno == 1:
+                    q("You passed your turn.\n")
+                    wait(.5)
+                    ync = False
+                    oc = False
+                
+                #No
+                elif yesorno == 2:
+                    q("You did not pass your turn.\n")
+                    wait(.5)
+                    ync = False
+                    oc = True
+
+                else:
+                    q("Please give a provided number\n")
+                    wait(.3)
+
+        #Forfeit
+        elif option == 5:
+            q("1: Yes\n")
+            wait()
+            q("2: No\n")
+            wait()
+            
+            #YesNoCorrect
+            ync = True
+            while ync:
+                yesorno = ask("Are you sure you want to run away (forfeit the match)? ")
+                
+                #Yes
+                if yesorno == 1:
+                    q("You forfeit the match.")
+                    atkHP = 0
+                
+                #No
+                elif yesorno == 2:
+                    q("You did not forfeit the match.")
+
+                else:
+                    q("Please give a provided number.\n")
+                    wait(.3)
         
+        else:
+            q("Please give a provided number.\n")
+            wait(.3)
+
+
 
 #Setting default rule values
 print_random = False
@@ -700,4 +759,5 @@ while ac:
         q("Set character classes and then let the combat commence")
     
     else:
-        q("Please provide a given number")
+        q("Please give a provided number\n")
+        wait(.3)
