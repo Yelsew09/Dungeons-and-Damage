@@ -10,12 +10,15 @@ def next_text():
 def combat():
     q("Combat")
 
+
 root = tk.Tk()
 visual = tk.Canvas(root, width = "640", height = "480")
 root.title("nondescript_rpg")
 root.geometry("1280x720")
 root.maxsize(1920,1080)
 root.minsize(640,480)
+
+
 
 #Labels
 lblText = tk.Label(root, text = "")
