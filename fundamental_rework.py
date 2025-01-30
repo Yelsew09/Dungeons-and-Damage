@@ -25,6 +25,7 @@ defGLOCK
 show
 """
 
+show = False
 
 #Just a reminder, the tuples are in the order of:
 #HP,MAXHP,ATK,ATKBON,DEF,MP,MAXMP,MPBON,SPD
@@ -120,43 +121,99 @@ def charSelect(player):
             #Knight
             if option == 1:
                 option = "Knight"
-                stats = tuple[35,35,7,5,16,5,5,2,3]
+                hp = 35
+                maxHP = hp
+                atk = 7
+                atkBON = 5
+                de = 16
+                mp = 5
+                maxMP = mp
+                mpBON = 2
+                spd = 3
                 rc = False
             
             #Peashooter
             elif option == 2:
                 option = "Peashooter"
-                stats = tuple[26,26,9,4,14,7,7,3,5]
+                hp = 26
+                maxHP = hp
+                atk = 9
+                atkBON = 4
+                de = 14
+                mp = 7
+                maxMP = mp
+                mpBON = 3
+                spd = 5
                 rc = False
             
             #Rouge
             elif option == 3:
                 option = "Rouge"
-                stats = tuple[20,20,10,6,13,6,6,2,7]
+                hp = 20
+                maxHP = hp
+                atk = 10
+                atkBON = 6
+                de = 13
+                mp = 6
+                maxMP = mp
+                mpBON = 2
+                spd = 7
                 rc = False
 
             #Mage
             elif option == 4:
                 option = "Mage"
-                stats = tuple[21,21,5,2,11,10,10,5,4]
+                hp = 21
+                maxHP = hp
+                atk = 5
+                atkBON = 2
+                de = 11
+                mp = 10
+                maxMP = mp
+                mpBON = 5
+                spd = 4
                 rc = False
             
             #Skele
             elif option == 5:
                 option = "Skele"
-                stats = tuple[30,30,7,3,12,7,7,5,6]
+                hp = 30
+                maxHP = hp
+                atk = 7
+                atkBON = 3
+                de = 12
+                mp = 7
+                maxMP = mp
+                mpBON = 5
+                spd = 6
                 rc = False
             
             #Bard
             elif option == 6:
                 option = "Bard"
-                stats = tuple[27,27,6,4,14,4,4,2,2]
+                hp = 27
+                maxHP = hp
+                atk = 6
+                atkBON = 4
+                de = 14
+                mp = 4
+                maxMP = mp
+                mpBON = 2
+                spd = 2
                 rc = False
             
             #Barbarian
             elif option == 7:
                 option = "Barbarian"
-                stats = tuple[40,40,12,2,15,2,2,1,1]
+                hp = 40
+                maxHP = hp
+                atk = 12
+                atkBON = 2
+                de = 15
+                mp = 2
+                maxMP = mp
+                mpBON = 1
+                spd = 1
                 rc = False
             
             #Random
@@ -166,7 +223,15 @@ def charSelect(player):
             #-.- --- -. .- -- .. ....... -.-. --- -.. .
             elif option == 88224646790:
                 option = "-.- --- -. .- -- .. ....... -.-. --- -.. ."
-                stats = tuple[88224646790,88224646790,88224646790,88224646790,88224646790,88224646790,88224646790,88224646790,88224646790]
+                hp = 88224646790
+                maxHP = hp
+                atk = 88224646790
+                atkBON = 88224646790
+                de = 88224646790
+                mp = 88224646790
+                maxMP = mp
+                mpBON = 88224646790
+                spd = 88224646790
                 rc = False
             
             else:
@@ -198,7 +263,7 @@ def charSelect(player):
             else:
                 q("Please give a provided number\n")
                 ync = True
-    return stats
+    return hp, maxHP, atk, atkBON, de, mp, maxMP, mpBON, spd
 def random_num(min,max,show,ad = 0):
     if ad == 1:
         num1 = random.randint(min,max)
@@ -213,7 +278,7 @@ def random_num(min,max,show,ad = 0):
     if show:
         q("You rolled a: " + str(critnum))
     return critnum
-def combat():
+def combat(atkP, atkHP, atkMAX_HP, atkMP, atkMAX_MP, atkATK, atkDMG_BON, atkAD, atkADTR, atkSPOON, atkKNIFE, atkPOTS, atkFENCE, atkFENCE_SET, atkGLOCK,  defP, defHP, defDEF, defAD, defADTR, defFENCE_SET, defGLOCK, show):
     
     #OptionCorrect
     oc = True
@@ -233,33 +298,41 @@ def combat():
         
         #Attack
         if option == 1:
+
+            #Fence
             if defFENCE_SET:
                 confirm("You struck player " + str(defP) + "'s fence they set up.")
                 defFENCE_SET = False
 
             else:
-                critnumber = random_num(1,20,atkAD,show)
                 
-                #You need to see what you rolled here
-                if not show:
-                    q("You rolled a " + str(critnumber) + "!\n")
-                
-                #Critical hit
-                if critnumber == 20:
-                    q("It's a critical hit!\n")
-                    wait(.3)
-                    confirm("Player " + str(atkP) + " did " + str(atkATK*2) + " damage to player " + str(defP) + ".")
-                    defHP = defHP - (atkATK*2 + atkDMG_BON)
-                
-                elif critnumber + atkATK_BON >= defDEF:
-                    confirm("You landed a hit, doing " + str(atkATK) + " damage to player " + str(defP) + ".")
-                    defHP = defHP - (atkATK + atkDMG_BON)
-                
-                elif critnumber + atkATK_BON < defDEF:
-                    confirm("You missed your attack.")
+                #Defending player had their fence set up
+                if defFENCE_SET == 1:
+                    confirm("You struck player " + str(defP) + "'s fence.")
                 
                 else:
-                    explode()
+                    critnumber = random_num(1,20,atkAD,show)
+                    
+                    #You need to see what you rolled here
+                    if not show:
+                        q("You rolled a " + str(critnumber) + "!\n")
+                    
+                    #Critical hit
+                    if critnumber == 20:
+                        q("It's a critical hit!\n")
+                        wait(.3)
+                        confirm("Player " + str(atkP) + " did " + str(atkATK*2) + " damage to player " + str(defP) + ".")
+                        defHP = defHP - (atkATK*2 + atkDMG_BON)
+                    
+                    elif critnumber + atkATK_BON >= defDEF:
+                        confirm("You landed a hit, doing " + str(atkATK) + " damage to player " + str(defP) + ".")
+                        defHP = defHP - (atkATK + atkDMG_BON)
+                    
+                    elif critnumber + atkATK_BON < defDEF:
+                        confirm("You missed your attack.")
+                    
+                    else:
+                        explode()
             atkDMG_BON = 0
             oc = False
         
@@ -301,6 +374,12 @@ def combat():
                         #If the magic is weak enough, it will get blocked
                         if round(defDEF/4) >= critnumber:
                             confirm("Your opponent's defence blocked the " + str(critnumber) + " damage you tried to do.")
+
+                        #Fence
+                        elif defFENCE_SET == 1:
+                            confirm("You struck player " + str(defP) + "'s fence.")
+                            oc = False
+                            mc = False
 
                         else:
                             confirm("Player " + str(atkP) + " did " + str(critnumber) + " damage to player " + str(defP) + ".")
@@ -397,6 +476,7 @@ def combat():
                                 wait(.3)
                                 confirm("I quit.")
                                 atkGLOCK = atkGLOCK + 1
+                            
                             else:
                                 explode()
                             oc = 1
@@ -468,6 +548,8 @@ def combat():
                         HEAL = atkMAX_HP/5
                         confirm("You healed " + str(HEAL) + " points of damage.",.2)
                         atkHP = atkHP + HEAL
+
+                        #Going over max hp
                         if atkHP > atkMAX_HP:
                             q("But that would've taken you over your max HP.",.2)
                             atkHP = atkMAX_HP
@@ -524,6 +606,8 @@ def combat():
                 wait()
                 q("4: Chain Fence (uses 3 item uses) - " + str(atkFENCE) + "\n")
                 wait()
+
+                #Print Properly if the gun is in play
                 if atkGLOCK >= 1:
                     q("5: Glock")
                     wait()
@@ -533,6 +617,8 @@ def combat():
                 wait()
                 ic = True
                 while ic:
+                    
+                    #No more items
                     if items_left == 0:
                         option = 0
                         ic = False
@@ -550,10 +636,16 @@ def combat():
 
                                 #The chance to instantly kill the defending player due to tetanus
                                 if critnumber == 1000:
-                                    confirm("Player " + str(defP) + " got tetanus from being hit with the spoon, dying on the spot.")
-                                    defHP = 0
+                                    
+                                    #Fence
+                                    if defFENCE_SET == 1:
+                                        confirm("You struck " + str(defP) + "'s fence.")
+                                        items_left = items_left - 1
+                                    else:
+                                        confirm("Player " + str(defP) + " got tetanus from being hit with the spoon, dying on the spot.")
+                                        defHP = 0
+                                        items_left = 0
                                     atkSPOON = atkSPOON - 1
-                                    items_left = 0
                                     ic = False
                                     oc = False
                                 
@@ -568,8 +660,13 @@ def combat():
                                 
                                 #Everything is good
                                 else:
-                                    confirm("Player " + str(atkP) + " did 1 point of damage to player " + str(defP) + ".")
-                                    defHP = defHP - 1
+
+                                    #Fence
+                                    if defFENCE_SET == 1:
+                                        confirm("You struck player " + str(defP) + "'s fence.")
+                                    else:
+                                        confirm("Player " + str(atkP) + " did 1 point of damage to player " + str(defP) + ".")
+                                        defHP = defHP - 1
                                     items_left = items_left - 1
                                     atkSPOON = atkSPOON - 1
                         
@@ -591,9 +688,14 @@ def combat():
 
                                 #Hit
                                 else:
-                                    critnumber = random_num(1,5,show)
-                                    confirm("You threw a knife, doing " + str(critnumber) + " damage to player " + str(defP) + ".")
-                                    defHP = defHP - critnumber
+                                    
+                                    #Fence
+                                    if defFENCE_SET == 1:
+                                        confirm("You struck player " + str(defP) + "'s fence.")
+                                    else:
+                                        critnumber = random_num(1,5,show)
+                                        confirm("You threw a knife, doing " + str(critnumber) + " damage to player " + str(defP) + ".")
+                                        defHP = defHP - critnumber
                                 atkKNIFE = atkKNIFE - 1
                                 items_left = items_left - 1
                         
@@ -648,11 +750,17 @@ def combat():
                             
                             #So anyway, I started blasting
                             else:
-                                confirm("You shot your gun, hitting player " + str(defP) + " and doing ValueError damage to them.")
+                                
+                                #FENCE
+                                if defFENCE_SET == 1:
+                                    confirm("You shot player " + str(defP) + "'s fence.")
+                                    items_left = items_left - 1
+                                else:
+                                    confirm("You shot your gun, hitting player " + str(defP) + " and doing ValueError damage to them.")
+                                    defHP = 0
+                                    items_left = 0
+                                    ic = False
                                 atkGLOCK = atkGLOCK - 1
-                                defHP = 0
-                                items_left = 0
-                                ic = False
                         
                         #Cancel if gun
                         elif option == 6 and atkGLOCK >= 1:
@@ -762,6 +870,10 @@ while ac:
         P2KNIVES = 0
         P1POTS = 0
         P2POTS = 0
+        P1FENCE = 0
+        P2FENCE = 0
+        P1FENCESET = 0
+        P2FENCESET = 0
         P1GLOCK = 0
         P2GLOCK = 0
         P1WINS = 0
@@ -792,7 +904,24 @@ while ac:
     #Game Start
     elif option == 1:
         P1HP,P1MAXHP,P1ATK,P1ATKBON,P1DEF,P1MP,P1MAXMP,P1MPBON,P1SPD = charSelect(1)
+        P2HP,P2MAXHP,P2ATK,P2ATKBON,P2DEF,P2MP,P2MAXMP,P2MPBON,P2SPD = charSelect(2)
         
+        #GameCorrect
+        gc = True
+        while gc:
+        
+            #P1 is faster than P2
+            if P1SPD > P2SPD:
+                P1HP, P1MAXHP, P1MP, P1MAXMP, P1ATK, P1DMGBOOST, P1AD, P1ADTR, P1SPOONS, P1KNIVES, P1POTS, P1FENCE, P1FENCESET, P1GLOCK,  P2HP, P2DEF, P2AD, P2ADTR, P2FENCESET, P2GLOCK = combat(1, P1HP, P1MAXHP, P1MP, P1MAXMP, P1ATK, P1DMGBOOST, P1AD, P1ADTR, P1SPOONS, P1KNIVES, P1POTS, P1FENCE, P1FENCESET, P1GLOCK,  2, P2HP, P2DEF, P2AD, P2ADTR, P2FENCESET, P2GLOCK, show)
+                if P1HP <= 0:
+                    confirm("Player 1 is out of HP. They have lost the game.")
+                    gc = False
+                    P2WINS = P2WINS + 1
+                elif P2HP <= 0:
+                    confirm("Player 2 is out of HP. They have lost the game.")
+                    gc = False
+                    P1WINDS = P1WINS + 1
+            
     
     else:
         q("Please give a provided number\n")
