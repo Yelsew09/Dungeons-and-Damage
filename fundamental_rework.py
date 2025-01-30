@@ -878,6 +878,7 @@ while ac:
         P2GLOCK = 0
         P1WINS = 0
         P2WINS = 0
+        round = 1
 
     q("1: Game Start\n")
     wait()
@@ -912,16 +913,85 @@ while ac:
         
             #P1 is faster than P2
             if P1SPD > P2SPD:
+                
+                confirm("This is the start of round " + str(round) + ".",.3)
+                confirm("Player 1 has " + str(P1HP) + "/" + str(P1MAXHP) + " HP left, and " + str(P1MP) + "/" + str(P1MAXMP) + " MP left",.15)
+                confirm("Player 2 has " + str(P2HP) + "/" + str(P2MAXHP) + " HP left, and " + str(P2MP) + "/" + str(P2MAXMP) + " MP left",.15)
+                
+                #Player 1's turn
                 P1HP, P1MAXHP, P1MP, P1MAXMP, P1ATK, P1DMGBOOST, P1AD, P1ADTR, P1SPOONS, P1KNIVES, P1POTS, P1FENCE, P1FENCESET, P1GLOCK,  P2HP, P2DEF, P2AD, P2ADTR, P2FENCESET, P2GLOCK = combat(1, P1HP, P1MAXHP, P1MP, P1MAXMP, P1ATK, P1DMGBOOST, P1AD, P1ADTR, P1SPOONS, P1KNIVES, P1POTS, P1FENCE, P1FENCESET, P1GLOCK,  2, P2HP, P2DEF, P2AD, P2ADTR, P2FENCESET, P2GLOCK, show)
+                
+                #If P1 has no more HP
                 if P1HP <= 0:
                     confirm("Player 1 is out of HP. They have lost the game.")
                     gc = False
                     P2WINS = P2WINS + 1
+                
+                #If P2 has no more HP
                 elif P2HP <= 0:
                     confirm("Player 2 is out of HP. They have lost the game.")
                     gc = False
-                    P1WINDS = P1WINS + 1
+                    P1WINS = P1WINS + 1
+                
+                else:
+
+                    #Player 2's turn
+                    P2HP, P2MAXHP, P2MP, P2MAXMP, P2ATK, P2DMGBOOST, P2AD, P2ADTR, P2SPOONS, P2KNIVES, P2POTS, P2FENCE, P2FENCESET, P2GLOCK,  P1HP, P1DEF, P1AD, P1ADTR, P1FENCESET, P1GLOCK = combat(2, P2HP, P2MAXHP, P2MP, P2MAXMP, P2ATK, P2DMGBOOST, P2AD, P2ADTR, P2SPOONS, P2KNIVES, P2POTS, P2FENCE, P2FENCESET, P2GLOCK,  1, P1HP, P1DEF, P1AD, P1ADTR, P1FENCESET, P1GLOCK, show)
+                    
+                    #If P1 has no more HP
+                    if P1HP <= 0:
+                        confirm("Player 1 is out of HP. They have lost the game.")
+                        gc = False
+                        P2WINS = P2WINS + 1
+                    
+                    #If P2 has no more HP
+                    elif P2HP <= 0:
+                        confirm("PLayer 2 is out of HP. They have lost the game.")
+                        gc = False
+                        P1WINS = P1WINS + 1
+                    
+                    else:
+                        round = round + 1
             
+            #If P2 is faster than P1
+            elif P2SPD > P1SPD:
+                confirm("This is the start of round " + str(round) + ".",.3)
+                confirm("Player 2 has " + str(P2HP) + "/" + str(P2MAXHP) + " HP left, and " + str(P2MP) + "/" + str(P2MAXMP) + " MP left",.15)
+                confirm("Player 1 has " + str(P1HP) + "/" + str(P1MAXHP) + " HP left, and " + str(P1MP) + "/" + str(P1MAXMP) + " MP left",.15)
+                
+                #Player 2's turn
+                P2HP, P2MAXHP, P2MP, P2MAXMP, P2ATK, P2DMGBOOST, P2AD, P2ADTR, P2SPOONS, P2KNIVES, P2POTS, P2FENCE, P2FENCESET, P2GLOCK,  P1HP, P1DEF, P1AD, P1ADTR, P1FENCESET, P1GLOCK = combat(2, P2HP, P2MAXHP, P2MP, P2MAXMP, P2ATK, P2DMGBOOST, P2AD, P2ADTR, P2SPOONS, P2KNIVES, P2POTS, P2FENCE, P2FENCESET, P2GLOCK,  1, P1HP, P1DEF, P1AD, P1ADTR, P1FENCESET, P1GLOCK, show)
+                
+                #P2 has no more HP
+                if P2HP <= 0:
+                    confirm("Player 2 is out of HP. They have lost the game.")
+                    gc = False
+                    P1WINS = P1WINS + 1
+                
+                #P1 has no more HP
+                elif P1HP <= 0:
+                    confirm("Player 1 is out of HP. They have lost the game.")
+                    gc = False
+                    P2WINS = P2WINS + 1
+                
+                else:
+                    
+                    #Player 1's turn
+                    P1HP, P1MAXHP, P1MP, P1MAXMP, P1ATK, P1DMGBOOST, P1AD, P1ADTR, P1SPOONS, P1KNIVES, P1POTS, P1FENCE, P1FENCESET, P1GLOCK,  P2HP, P2DEF, P2AD, P2ADTR, P2FENCESET, P2GLOCK = combat(1, P1HP, P1MAXHP, P1MP, P1MAXMP, P1ATK, P1DMGBOOST, P1AD, P1ADTR, P1SPOONS, P1KNIVES, P1POTS, P1FENCE, P1FENCESET, P1GLOCK,  2, P2HP, P2DEF, P2AD, P2ADTR, P2FENCESET, P2GLOCK, show)
+                    
+                    #If P2 has no more HP
+                    if P2HP <= 0:
+                        confirm("Player 2 is out of HP. They have lost the game.")
+                        gc = False
+                        P1WINS = P1WINS + 1
+                    
+                    #If P1 has no more HP
+                    elif P1HP <= 0:
+                        confirm("Player 1 is out of HP. They have lost the game.")
+                        gc = False
+                        P2WINS = P2WINS + 1
+                    else:
+                        round = round + 1
     
     else:
         q("Please give a provided number\n")
