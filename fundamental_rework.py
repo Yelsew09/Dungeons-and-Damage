@@ -265,17 +265,17 @@ def charSelect(player):
                 q("Please give a provided number. === === \n")
                 ync = True
     return hp, maxHP, atk, atkBON, de, mp, maxMP, mpBON, spd
-def random_num(min,max,show,ad = 0):
+def random_num(minimum,maximum,show,ad = 0):
     if ad == 1:
-        num1 = random.randint(min,max)
-        num2 = random.randint(min,max)
+        num1 = random.randint(minimum,maximum)
+        num2 = random.randint(minimum,maximum)
         critnum = max(num1,num2)
     elif ad == 2:
-        num1 = random.randint(min,max)
-        num2 = random.randint(min,max)
+        num1 = random.randint(minimum,maximum)
+        num2 = random.randint(minimum,maximum)
         critnum = min(num1,num2)
     else:
-        critnum = random.randint(min,max)
+        critnum = random.randint(minimum,maximum)
     if show:
         q("You rolled a: " + str(critnum))
     return critnum
@@ -360,7 +360,7 @@ def combat(atkP, atkHP, atkMAX_HP, atkMP, atkMAX_MP, atkATK, atkATK_BON, atkDMG_
                 wait()
                 q("0: Cancel\n")
                 wait()
-                option = ask("What would you like to do?")
+                option = ask("What would you like to do? ")
 
                 #Fireball - 5MP
                 if option == 1:
@@ -370,7 +370,7 @@ def combat(atkP, atkHP, atkMAX_HP, atkMP, atkMAX_MP, atkATK, atkATK_BON, atkDMG_
                         confirm("You don't have enough MP for that.")
                     
                     else:
-                        critnumber = random_num(int(round(atkMAX_MP/2)),atkMAX_MP,show)
+                        critnumber = random_num(round(atkMAX_MP/2),atkMAX_MP,show)
                         atkMP = atkMP - 5
                         
                         #If the magic is weak enough, it will get blocked
@@ -879,7 +879,7 @@ while ac:
         P2GLOCK = 0
         P1WINS = 0
         P2WINS = 0
-        round = 1
+        roundnum = 1
 
     q("1: Game Start\n")
     wait()
@@ -952,7 +952,7 @@ while ac:
                         P1WINS = P1WINS + 1
                     
                     else:
-                        round = round + 1
+                        roundnum = round + 1
                         P1MP = P1MP + P1MPBON
                         
                         #Over MAXMP
@@ -1002,7 +1002,7 @@ while ac:
                         gc = False
                         P2WINS = P2WINS + 1
                     else:
-                        round = round + 1
+                        roundnum = round + 1
                         P1MP = P1MP + P1MPBON
                         
                         #Over MAXMP
