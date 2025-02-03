@@ -835,8 +835,7 @@ def combat(atkP, atkHP, atkMAX_HP, atkMP, atkMAX_MP, atkATK, atkATK_BON, atkDMG_
         else:
             q("Please give a provided number.\n")
             wait(.3)
-
-
+    return atkHP, atkMP, atkATK_BON, atkDMG_BON, atkAD, atkADTR, atkSPOON, atkKNIFE, atkPOTS, atkFENCE, atkFENCE_SET, atkGLOCK,  defHP, defAD, defADTR, defFENCE_SET, defGLOCK
 
 #Setting default rule values
 print_random = False
@@ -920,7 +919,7 @@ while ac:
                 confirm("Player 2 has " + str(P2HP) + "/" + str(P2MAXHP) + " HP left, and " + str(P2MP) + "/" + str(P2MAXMP) + " MP left",.15)
                 
                 #Player 1's turn
-                P1HP, P1MAXHP, P1MP, P1MAXMP, P1ATK, P1ATKBON, P1DMGBOOST, P1AD, P1ADTR, P1SPOONS, P1KNIVES, P1POTS, P1FENCE, P1FENCESET, P1GLOCK,  P2HP, P2DEF, P2AD, P2ADTR, P2FENCESET, P2GLOCK = combat(1, P1HP, P1MAXHP, P1MP, P1MAXMP, P1ATK, P1DMGBOOST, P1AD, P1ADTR, P1SPOONS, P1KNIVES, P1POTS, P1FENCE, P1FENCESET, P1GLOCK,  2, P2HP, P2DEF, P2AD, P2ADTR, P2FENCESET, P2GLOCK, show)
+                P1HP, P1MP, P1ATKBON, P1DMGBOOST, P1AD, P1ADTR, P1SPOONS, P1KNIVES, P1POTS, P1FENCE, P1FENCESET, P1GLOCK,  P2HP, P2AD, P2ADTR, P2FENCESET, P2GLOCK = combat(1, P1HP, P1MAXHP, P1MP, P1MAXMP, P1ATK, P1DMGBOOST, P1AD, P1ADTR, P1SPOONS, P1KNIVES, P1POTS, P1FENCE, P1FENCESET, P1GLOCK,  2, P2HP, P2DEF, P2AD, P2ADTR, P2FENCESET, P2GLOCK, show)
                 
                 #If P1 has no more HP
                 if P1HP <= 0:
@@ -937,7 +936,7 @@ while ac:
                 else:
 
                     #Player 2's turn
-                    P2HP, P2MAXHP, P2MP, P2MAXMP, P2ATK, P2ATKBON, P2DMGBOOST, P2AD, P2ADTR, P2SPOONS, P2KNIVES, P2POTS, P2FENCE, P2FENCESET, P2GLOCK,  P1HP, P1DEF, P1AD, P1ADTR, P1FENCESET, P1GLOCK = combat(2, P2HP, P2MAXHP, P2MP, P2MAXMP, P2ATK, P2DMGBOOST, P2AD, P2ADTR, P2SPOONS, P2KNIVES, P2POTS, P2FENCE, P2FENCESET, P2GLOCK,  1, P1HP, P1DEF, P1AD, P1ADTR, P1FENCESET, P1GLOCK, show)
+                    P2HP, P2MP, P2ATKBON, P2DMGBOOST, P2AD, P2ADTR, P2SPOONS, P2KNIVES, P2POTS, P2FENCE, P2FENCESET, P2GLOCK,  P1HP, P1AD, P1ADTR, P1FENCESET, P1GLOCK = combat(2, P2HP, P2MAXHP, P2MP, P2MAXMP, P2ATK, P2DMGBOOST, P2AD, P2ADTR, P2SPOONS, P2KNIVES, P2POTS, P2FENCE, P2FENCESET, P2GLOCK,  1, P1HP, P1DEF, P1AD, P1ADTR, P1FENCESET, P1GLOCK, show)
                     
                     #If P1 has no more HP
                     if P1HP <= 0:
@@ -953,6 +952,16 @@ while ac:
                     
                     else:
                         round = round + 1
+                        P1MP = P1MP + P1MPBON
+                        
+                        #Over MAXMP
+                        if P1MP > P1MAXMP:
+                            P1MP = P1MAXMP
+                        P2MP = P2MP + P2MPBON
+                        
+                        #Over MAXMP
+                        if P2MP > P2MAXMP:
+                            P2MP = P2MAXMP
             
             #If P2 is faster than P1
             elif P2SPD > P1SPD:
@@ -961,7 +970,7 @@ while ac:
                 confirm("Player 1 has " + str(P1HP) + "/" + str(P1MAXHP) + " HP left, and " + str(P1MP) + "/" + str(P1MAXMP) + " MP left",.15)
                 
                 #Player 2's turn
-                P2HP, P2MAXHP, P2MP, P2MAXMP, P2ATK, P2ATKBON, P2DMGBOOST, P2AD, P2ADTR, P2SPOONS, P2KNIVES, P2POTS, P2FENCE, P2FENCESET, P2GLOCK,  P1HP, P1DEF, P1AD, P1ADTR, P1FENCESET, P1GLOCK = combat(2, P2HP, P2MAXHP, P2MP, P2MAXMP, P2ATK, P2DMGBOOST, P2AD, P2ADTR, P2SPOONS, P2KNIVES, P2POTS, P2FENCE, P2FENCESET, P2GLOCK,  1, P1HP, P1DEF, P1AD, P1ADTR, P1FENCESET, P1GLOCK, show)
+                P2HP, P2MP, P2ATKBON, P2DMGBOOST, P2AD, P2ADTR, P2SPOONS, P2KNIVES, P2POTS, P2FENCE, P2FENCESET, P2GLOCK,  P1HP, P1AD, P1ADTR, P1FENCESET, P1GLOCK = combat(2, P2HP, P2MAXHP, P2MP, P2MAXMP, P2ATK, P2DMGBOOST, P2AD, P2ADTR, P2SPOONS, P2KNIVES, P2POTS, P2FENCE, P2FENCESET, P2GLOCK,  1, P1HP, P1DEF, P1AD, P1ADTR, P1FENCESET, P1GLOCK, show)
                 
                 #P2 has no more HP
                 if P2HP <= 0:
@@ -978,7 +987,7 @@ while ac:
                 else:
                     
                     #Player 1's turn
-                    P1HP, P1MAXHP, P1MP, P1MAXMP, P1ATK, P1ATKBON, P1DMGBOOST, P1AD, P1ADTR, P1SPOONS, P1KNIVES, P1POTS, P1FENCE, P1FENCESET, P1GLOCK,  P2HP, P2DEF, P2AD, P2ADTR, P2FENCESET, P2GLOCK = combat(1, P1HP, P1MAXHP, P1MP, P1MAXMP, P1ATK, P1DMGBOOST, P1AD, P1ADTR, P1SPOONS, P1KNIVES, P1POTS, P1FENCE, P1FENCESET, P1GLOCK,  2, P2HP, P2DEF, P2AD, P2ADTR, P2FENCESET, P2GLOCK, show)
+                    P1HP, P1MP, P1ATKBON, P1DMGBOOST, P1AD, P1ADTR, P1SPOONS, P1KNIVES, P1POTS, P1FENCE, P1FENCESET, P1GLOCK,  P2HP, P2AD, P2ADTR, P2FENCESET, P2GLOCK = combat(1, P1HP, P1MAXHP, P1MP, P1MAXMP, P1ATK, P1DMGBOOST, P1AD, P1ADTR, P1SPOONS, P1KNIVES, P1POTS, P1FENCE, P1FENCESET, P1GLOCK,  2, P2HP, P2DEF, P2AD, P2ADTR, P2FENCESET, P2GLOCK, show)
                     
                     #If P2 has no more HP
                     if P2HP <= 0:
@@ -993,6 +1002,16 @@ while ac:
                         P2WINS = P2WINS + 1
                     else:
                         round = round + 1
+                        P1MP = P1MP + P1MPBON
+                        
+                        #Over MAXMP
+                        if P1MP > P1MAXMP:
+                            P1MP = P1MAXMP
+                        P2MP = P2MP + P2MPBON
+                        
+                        #Over MAXMP
+                        if P2MP > P2MAXMP:
+                            P2MP = P2MAXMP
             else:
                 q("Player 1 and player 2 are tied for speed. Choosing a random character to go first.\n")
                 wait(.5)
@@ -1010,7 +1029,6 @@ while ac:
 
                 else:
                     explode()
-
 
     else:
         q("Please give a provided number\n")
