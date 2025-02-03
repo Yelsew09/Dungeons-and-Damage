@@ -370,7 +370,7 @@ def combat(atkP, atkHP, atkMAX_HP, atkMP, atkMAX_MP, atkATK, atkATK_BON, atkDMG_
                         confirm("You don't have enough MP for that.")
                     
                     else:
-                        critnumber = random_num(round(atkMAX_MP/2),atkMAX_MP,show)
+                        critnumber = random_num(int(round(atkMAX_MP/2)),atkMAX_MP,show)
                         atkMP = atkMP - 5
                         
                         #If the magic is weak enough, it will get blocked
