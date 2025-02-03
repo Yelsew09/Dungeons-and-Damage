@@ -915,7 +915,7 @@ while ac:
             #P1 is faster than P2
             if P1SPD > P2SPD:
                 
-                confirm("This is the start of round " + str(round) + ".",.3)
+                confirm("This is the start of round " + str(roundnum) + ".",.3)
                 confirm("Player 1 has " + str(P1HP) + "/" + str(P1MAXHP) + " HP left, and " + str(P1MP) + "/" + str(P1MAXMP) + " MP left",.15)
                 confirm("Player 2 has " + str(P2HP) + "/" + str(P2MAXHP) + " HP left, and " + str(P2MP) + "/" + str(P2MAXMP) + " MP left",.15)
                 
@@ -966,7 +966,7 @@ while ac:
             
             #If P2 is faster than P1
             elif P2SPD > P1SPD:
-                confirm("This is the start of round " + str(round) + ".",.3)
+                confirm("This is the start of round " + str(roundnum) + ".",.3)
                 confirm("Player 2 has " + str(P2HP) + "/" + str(P2MAXHP) + " HP left, and " + str(P2MP) + "/" + str(P2MAXMP) + " MP left",.15)
                 confirm("Player 1 has " + str(P1HP) + "/" + str(P1MAXHP) + " HP left, and " + str(P1MP) + "/" + str(P1MAXMP) + " MP left",.15)
                 
