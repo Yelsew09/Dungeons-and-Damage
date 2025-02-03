@@ -262,7 +262,7 @@ def charSelect(player):
             
             #Invalid input
             else:
-                q("Please give a provided number\n")
+                q("Please give a provided number. === === \n")
                 ync = True
     return hp, maxHP, atk, atkBON, de, mp, maxMP, mpBON, spd
 def random_num(min,max,show,ad = 0):
@@ -284,6 +284,7 @@ def combat(atkP, atkHP, atkMAX_HP, atkMP, atkMAX_MP, atkATK, atkATK_BON, atkDMG_
     #OptionCorrect
     oc = True
     items_left = 3
+    confirm("This is the start of player " + str(atkP) + "'s turn.",.3)
     while oc:
         q("1: Attack\n")
         wait()
@@ -338,7 +339,7 @@ def combat(atkP, atkHP, atkMAX_HP, atkMP, atkMAX_MP, atkATK, atkATK_BON, atkDMG_
             oc = False
         
         #Magic
-        if option == 2:
+        elif option == 2:
             
             #MagicCorrect
             mc = True
@@ -586,7 +587,7 @@ def combat(atkP, atkHP, atkMAX_HP, atkMP, atkMAX_MP, atkATK, atkATK_BON, atkDMG_
                     wait(.3)
                 
                 else:
-                    q("Please give a provided number.\n")
+                    q("Please give a provided number. Gun\n")
                     wait(.3)
                     mc = False
             
@@ -774,7 +775,7 @@ def combat(atkP, atkHP, atkMAX_HP, atkMP, atkMAX_MP, atkATK, atkATK_BON, atkDMG_
                             wait(.5)
 
                         else:
-                            q("Please give a provided number.\n")
+                            q("Please give a provided number.ajldkfjdsalkfjldsk\n")
                             wait(.3)
         
         #Pass
@@ -804,7 +805,7 @@ def combat(atkP, atkHP, atkMAX_HP, atkMP, atkMAX_MP, atkATK, atkATK_BON, atkDMG_
                     oc = True
 
                 else:
-                    q("Please give a provided number\n")
+                    q("Please give a provided number. 898908097\n")
                     wait(.3)
 
         #Forfeit
@@ -829,11 +830,11 @@ def combat(atkP, atkHP, atkMAX_HP, atkMP, atkMAX_MP, atkATK, atkATK_BON, atkDMG_
                     q("You did not forfeit the match.")
 
                 else:
-                    q("Please give a provided number.\n")
+                    q("Please give a provided number. Deletus\n")
                     wait(.3)
         
         else:
-            q("Please give a provided number.\n")
+            q("Please give a provided number. Banana\n")
             wait(.3)
     return atkHP, atkMP, atkATK_BON, atkDMG_BON, atkAD, atkADTR, atkSPOON, atkKNIFE, atkPOTS, atkFENCE, atkFENCE_SET, atkGLOCK,  defHP, defAD, defADTR, defFENCE_SET, defGLOCK
 
@@ -1031,5 +1032,5 @@ while ac:
                     explode()
 
     else:
-        q("Please give a provided number\n")
+        q("Please give a provided number. Yeet\n")
         wait(.3)
