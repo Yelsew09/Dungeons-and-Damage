@@ -611,11 +611,11 @@ def combat(atkP, atkHP, atkMAX_HP, atkMP, atkMAX_MP, atkATK, atkATK_BON, atkDMG_
 
                 #Print Properly if the gun is in play
                 if atkGLOCK >= 1:
-                    q("5: Glock")
+                    q("5: Glock\n")
                     wait()
-                    q("6: Cancel")
+                    q("6: Cancel\n")
                 else:
-                    q("5: Cancel")
+                    q("5: Cancel\n")
                 wait()
                 ic = True
                 while ic:
@@ -625,7 +625,8 @@ def combat(atkP, atkHP, atkMAX_HP, atkMP, atkMAX_MP, atkATK, atkATK_BON, atkDMG_
                         option = 0
                         ic = False
                     else:
-
+                        option = ask("What would you like to use? ")
+                        
                         #Spoons
                         if option == 1:
                             
@@ -952,7 +953,7 @@ while ac:
                         P1WINS = P1WINS + 1
                     
                     else:
-                        roundnum = round + 1
+                        roundnum = roundnum + 1
                         P1MP = P1MP + P1MPBON
                         
                         #Over MAXMP
@@ -1002,7 +1003,7 @@ while ac:
                         gc = False
                         P2WINS = P2WINS + 1
                     else:
-                        roundnum = round + 1
+                        roundnum = roundnum + 1
                         P1MP = P1MP + P1MPBON
                         
                         #Over MAXMP
