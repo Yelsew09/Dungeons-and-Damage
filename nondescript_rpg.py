@@ -45,14 +45,14 @@ import random, time, sys
 
 #COMMANDS#
 #Commands used everywhere
-def q(str, temporal_distance = 0.02):
+def q(str, t = 0.02):
 
     #Not sure how this works, all I know is that it does
     #Lets the text roll instead of being printed all at once
     for char in str:
         print(char, end='')
         sys.stdout.flush()
-        time.sleep(temporal_distance)
+        time.sleep(t)
 def explode():
 
     #Basically a self destruct button
@@ -64,10 +64,10 @@ def explode():
         explode()
     except:
         explode()
-def wait(temporal_distance = .15):
+def wait(t = .15):
 
     #Literally just laziness. I don't want to write time.sleep(.15) every second when I can just write wait()
-    time.sleep(temporal_distance)
+    time.sleep(t)
 def confirm(str, temporal_distance = .5):
     
     #Used to provide a visual indicator that the user needs to continue
@@ -90,6 +90,22 @@ def ask(question, temporal_distance = .5):
             q("Please give a number.\n")
             ec = True
     return option
+def random_num(minimum,maximum,show,ad = 0):
+    
+    #Generates a random number with advantage in mind
+    if ad == 1:
+        num1 = random.randint(minimum,maximum)
+        num2 = random.randint(minimum,maximum)
+        critnum = max(num1,num2)
+    elif ad == 2:
+        num1 = random.randint(minimum,maximum)
+        num2 = random.randint(minimum,maximum)
+        critnum = min(num1,num2)
+    else:
+        critnum = random.randint(minimum,maximum)
+    if show:
+        q("You rolled a: " + str(critnum))
+    return critnum
 
 #Commands used as chunks of the game
 def charSelect(player):
@@ -262,23 +278,9 @@ def charSelect(player):
             
             #Invalid input
             else:
-                q("Please give a provided number. === === \n")
+                q("Please give a provided number.\n")
                 ync = True
     return hp, maxHP, atk, atkBON, de, mp, maxMP, mpBON, spd
-def random_num(minimum,maximum,show,ad = 0):
-    if ad == 1:
-        num1 = random.randint(minimum,maximum)
-        num2 = random.randint(minimum,maximum)
-        critnum = max(num1,num2)
-    elif ad == 2:
-        num1 = random.randint(minimum,maximum)
-        num2 = random.randint(minimum,maximum)
-        critnum = min(num1,num2)
-    else:
-        critnum = random.randint(minimum,maximum)
-    if show:
-        q("You rolled a: " + str(critnum))
-    return critnum
 def combat(atkP, atkHP, atkMAX_HP, atkMP, atkMAX_MP, atkATK, atkATK_BON, atkDMG_BON, atkAD, atkADTR, atkSPOON, atkKNIFE, atkPOTS, atkFENCE, atkFENCE_SET, atkGLOCK,  defP, defHP, defDEF, defAD, defADTR, defFENCE_SET, defGLOCK, show):
     
     #OptionCorrect
@@ -587,7 +589,7 @@ def combat(atkP, atkHP, atkMAX_HP, atkMP, atkMAX_MP, atkATK, atkATK_BON, atkDMG_
                     wait(.3)
                 
                 else:
-                    q("Please give a provided number. Gun\n")
+                    q("Please give a provided number.\n")
                     wait(.3)
                     mc = False
             
@@ -768,15 +770,17 @@ def combat(atkP, atkHP, atkMAX_HP, atkMP, atkMAX_MP, atkATK, atkATK_BON, atkDMG_
                         #Cancel if gun
                         elif option == 6 and atkGLOCK >= 1:
                             q("You canceled your item usage.\n")
+                            ic = False
                             wait(.5)
                         
                         #Cancel if no gun
                         elif option == 5 and atkGLOCK == 0:
                             q("You canceled your item usage.\n")
+                            ic = False
                             wait(.5)
 
                         else:
-                            q("Please give a provided number.ajldkfjdsalkfjldsk\n")
+                            q("Please give a provided number.\n")
                             wait(.3)
         
         #Pass
@@ -806,7 +810,7 @@ def combat(atkP, atkHP, atkMAX_HP, atkMP, atkMAX_MP, atkATK, atkATK_BON, atkDMG_
                     oc = True
 
                 else:
-                    q("Please give a provided number. 898908097\n")
+                    q("Please give a provided number.\n")
                     wait(.3)
 
         #Forfeit
@@ -831,11 +835,11 @@ def combat(atkP, atkHP, atkMAX_HP, atkMP, atkMAX_MP, atkATK, atkATK_BON, atkDMG_
                     q("You did not forfeit the match.")
 
                 else:
-                    q("Please give a provided number. Deletus\n")
+                    q("Please give a provided number.\n")
                     wait(.3)
         
         else:
-            q("Please give a provided number. Banana\n")
+            q("Please give a provided number.\n")
             wait(.3)
     return atkHP, atkMP, atkATK_BON, atkDMG_BON, atkAD, atkADTR, atkSPOON, atkKNIFE, atkPOTS, atkFENCE, atkFENCE_SET, atkGLOCK,  defHP, defAD, defADTR, defFENCE_SET, defGLOCK
 
@@ -843,11 +847,13 @@ def combat(atkP, atkHP, atkMAX_HP, atkMP, atkMAX_MP, atkATK, atkATK_BON, atkDMG_
 print_random = False
 
 #THE GAME#
+#Insert loading sequence here when you figure out how to do that
+
 q("Welcome to Dungeons and Damage\n")
 wait(.5)
 q("Not to be confused with Dungeons and Dragons\n")
 wait(.5)
-q("Although this game does feel like it.")
+q("Although this game does feel like it\n")
 wait(.5)
 q("\n")
 wait(.3)
@@ -1033,5 +1039,5 @@ while ac:
                     explode()
 
     else:
-        q("Please give a provided number. Yeet\n")
+        q("Please give a provided number.\n")
         wait(.3)
