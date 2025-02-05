@@ -24,4 +24,12 @@
 ### Barbarian
 <p>The barbarian has no identity, so we can’t really give him a proper story, but he kinda just broke in to the arena for the thrill of the fight</p>
 
+### -.- --- -. .- -- .. ....... -.-. --- -.. .
+<p>.. ... ....... .- ....... .-.. .. - . .-. .- .-.. ....... --. --- -..</p>
+<p>.- .-.. .-.. ....... --- ..-. ....... .... .. ... ....... ... - .- - ... ....... .- .-. . ....... ---.. ---.. ..--- ..--- ....- -.... ....- -.... --... ----. ----- --..-- ....... .-- .... .. -.-. .... ....... .. ... ....... - .... . ....... -.- --- -. .- -- .. ....... -.-. --- -.. . ....... --- -. ....... - .... . ....... -.- . -.-- .--. .- -..</p>
+
+## Plans
+<p>I want to add a new gun interaction, where if you missed your shot, the narrator will remember that and laugh whenever the next gun comes into play</p>
+
+
 <p>⚔️⚔️⚔️⚔️⚔️⚔️⚔️⚔️⚔️⚔️⚔️⚔️
