@@ -110,7 +110,7 @@ def random_num(minimum,maximum,show,ad = 0):
 #Commands used as chunks of the game
 def charSelect(player):
     
-    q("1: Knight\n")
+    q("1: Knight")
     wait()
     q("2: Peashooter\n")
     wait()
@@ -252,8 +252,9 @@ def charSelect(player):
                 rc = False
             
             else:
-                q("Please give a valid opiton\n")
+                q("Please give a valid opiton")
                 wait(.3)
+                q("\n")
         ync = True
         while ync:
             q("1: Yes\n")
@@ -264,21 +265,25 @@ def charSelect(player):
             
             #Yes
             if yesorno == 1:
-                q("Player " + str(player) + " has chosen the " + str(option) + " class\n")
+                q("Player " + str(player) + " has chosen the " + str(option) + " class")
                 wait(.5)
+                q("\n")
                 ync = False
                 cc = False
             
             #No
             elif yesorno == 2:
-                q("Repick your character\n")
+                q("Repick your character")
                 wait(.3)
+                q("\n")
                 ync = False
                 cc = True
             
             #Invalid input
             else:
-                q("Please give a provided number.\n")
+                q("Please give a provided number.")
+                wait(.3)
+                q("\n")
                 ync = True
     return hp, maxHP, atk, atkBON, de, mp, maxMP, mpBON, spd
 def combat(atkP, atkHP, atkMAX_HP, atkMP, atkMAX_MP, atkATK, atkATK_BON, atkDMG_BON, atkAD, atkADTR, atkSPOON, atkKNIFE, atkPOTS, atkFENCE, atkFENCE_SET, atkGLOCK,  defP, defHP, defDEF, defAD, defADTR, defFENCE_SET, defGLOCK, show):
@@ -309,34 +314,30 @@ def combat(atkP, atkHP, atkMAX_HP, atkMP, atkMAX_MP, atkATK, atkATK_BON, atkDMG_
                 defFENCE_SET = False
 
             else:
+                critnumber = random_num(1,20,atkAD,show)
                 
-                #Defending player had their fence set up
-                if defFENCE_SET == 1:
-                    confirm("You struck player " + str(defP) + "'s fence.")
+                #You need to see what you rolled here
+                if not show:
+                    q("You rolled a " + str(critnumber) + "!")
+                    wait(.5)
+                    q("\n")
+                
+                #Critical hit
+                if critnumber == 20:
+                    q("It's a critical hit!")
+                    wait(.3)
+                    confirm("\nPlayer " + str(atkP) + " did " + str(atkATK*2) + " damage to player " + str(defP) + ".")
+                    defHP = defHP - (atkATK*2 + atkDMG_BON)
+                
+                elif critnumber + atkATK_BON >= defDEF:
+                    confirm("You landed a hit, doing " + str(atkATK) + " damage to player " + str(defP) + ".")
+                    defHP = defHP - (atkATK + atkDMG_BON)
+                
+                elif critnumber + atkATK_BON < defDEF:
+                    confirm("You missed your attack.")
                 
                 else:
-                    critnumber = random_num(1,20,atkAD,show)
-                    
-                    #You need to see what you rolled here
-                    if not show:
-                        q("You rolled a " + str(critnumber) + "!\n")
-                    
-                    #Critical hit
-                    if critnumber == 20:
-                        q("It's a critical hit!\n")
-                        wait(.3)
-                        confirm("Player " + str(atkP) + " did " + str(atkATK*2) + " damage to player " + str(defP) + ".")
-                        defHP = defHP - (atkATK*2 + atkDMG_BON)
-                    
-                    elif critnumber + atkATK_BON >= defDEF:
-                        confirm("You landed a hit, doing " + str(atkATK) + " damage to player " + str(defP) + ".")
-                        defHP = defHP - (atkATK + atkDMG_BON)
-                    
-                    elif critnumber + atkATK_BON < defDEF:
-                        confirm("You missed your attack.")
-                    
-                    else:
-                        explode()
+                    explode()
             atkDMG_BON = 0
             oc = False
         
@@ -424,9 +425,9 @@ def combat(atkP, atkHP, atkMAX_HP, atkMP, atkMAX_MP, atkATK, atkATK_BON, atkDMG_
 
                         #Chain link fence
                         elif critnumber >= 90 and critnumber <= 99:
-                            q("a chain link fence.\n")
+                            q("a chain link fence.")
                             wait(.3)
-                            confirm("Probably could block something with that.")
+                            confirm("\nProbably could block something with that.")
                             atkFENCE = atkFENCE + 1
                         
                         #HE HAS A GUN
@@ -434,32 +435,34 @@ def combat(atkP, atkHP, atkMAX_HP, atkMP, atkMAX_MP, atkATK, atkATK_BON, atkDMG_
                             
                             #The other player had a gun
                             if atkGLOCK == 0 and defGLOCK >= 1:
-                                q("Great. Now the other guy has a gun")
-                                q("Ok, great. Now the OTHER guy has a gun.\n", .2)
+                                q("Ok, great. Now the OTHER guy has a gun.")
                                 wait(.5)
-                                confirm("I'm leaving.", .2)
+                                confirm("\nI'm leaving.", .2)
                                 atkGLOCK = atkGLOCK + 1
                             
                             #The current player already had a gun
                             elif atkGLOCK >= 1:
-                                q("You did it again.\n", .4)
+                                q("You did it again.")
                                 wait(1)
-                                q("Landed a 1 in 100 chance to get a literal GUN.\n", .3)
-                                wait(.5)
-                                q("That thing could've won you the game intstanly.\n", .1)
-                                wait(.3)
-                                wait()
-                                q("And you kept going.\n", .1)
-                                wait(2)
+                                q("\nLanded a 1 in 100 chance to get a literal GUN.")
+                                wait(1)
+                                q("\nThat thing could've won you the game intstanly.")
+                                wait(1)
+                                q("\nAnd you kept going.")
+                                wait(1)
                                 q("\n")
-                                print("WHY?!?!?")
-                                wait(.5)
-                                q("Alright, I'm ending this here and now.\n")
-                                wait(.8)
-                                confirm("God landed a destructive hit, doing " + str(999+P2HP) + " damage to player " + str(defP) + ".", 1)
+                                print("\nWHY?!?!?")
+                                wait(1)
+                                q("Alright, I'm ending this here and now.")
+                                wait(1)
+                                confirm("\nGod landed a destructive hit, doing " + str(999+P2HP) + " damage to player " + str(defP) + ".", 1)
                                 defHP = 0
                                 for i in range (5):
                                     print("Calculating, please wait.")
+                                    wait(.5)
+                                    q("\n")
+                                    wait(1)
+                                    q("\n")
                                     wait(.5)
                                     print("Calculating failed.")
                                     wait(.3)
@@ -849,14 +852,16 @@ print_random = False
 #THE GAME#
 #Insert loading sequence here when you figure out how to do that
 
-q("Welcome to Dungeons and Damage\n")
+q("Welcome to Dungeons and Damage")
 wait(.5)
-q("Not to be confused with Dungeons and Dragons\n")
+q("\nNot to be confused with Dungeons and Dragons")
 wait(.5)
-q("Although this game does feel like it\n")
+q("\nAlthough this game does feel like it")
 wait(.5)
 q("\n")
-wait(.3)
+wait(.5)
+q("\n")
+wait(.5)
 
 #The big ol' all correct
 #The main loop that lets the people playing go back to the start of the game if they so wish
@@ -874,10 +879,10 @@ while ac:
         P2DMGBOOST = 0
         P1SPOONS = 0
         P2SPOONS = 0
-        P1KNIVES = 0
-        P2KNIVES = 0
-        P1POTS = 0
-        P2POTS = 0
+        P1KNIVES = 5
+        P2KNIVES = 5
+        P1POTS = 1
+        P2POTS = 1
         P1FENCE = 0
         P2FENCE = 0
         P1FENCESET = 0
@@ -900,8 +905,61 @@ while ac:
     
     #Guide
     if option == 2:
-        q("Guide coming soon\n")
-    
+        
+        #OptionCorrect
+        oc = True
+        while oc:
+            q("On your turn, you may do 1 of 5 things:")
+            wait(.3)
+            q("\n1: Attack\n")
+            wait()
+            q("2: Use magic\n")
+            wait()
+            q("3: Use an item\n")
+            wait()
+            q("4/5: Pass/Run\n")
+            wait()
+            option = ask("What would you like to learn more about? ")
+
+            #Attack details
+            if option == 1:
+                q("\n")
+                wait(.5)
+                q("When you attack, there are 3 numbers at play:")
+                wait(.5)
+                q("\natkATK, ")
+                wait(.3)
+                q("atkATK_BON, ")
+                wait(.3)
+                confirm("and defDEF.")
+                q("\n")
+                wait(.5)
+                q("When you attack, you generate a random number 1-20 based on your advantage.")
+                wait(1)
+                q("\nIf you have advantage, the game generates 2 numbers and spits out the higher number.")
+                wait(1)
+                q("\nIf you have disadvantage, 2 numbers are generated and the smaller one is outputted.")
+                wait(1)
+                confirm("\nNeutral advantage just generates one number.")
+                q("\n")
+                wait(.5)
+                q("If that number is 20, then the attack will hit.")
+                wait(.5)
+                q(" Guarenteed.")
+                wait(.5)
+                confirm("\nThe resulting damage is double the atkATK + atkDMG_BON")
+                q("Your atkBON is then added to this number and compared to your opponent's defence.")
+                wait(1)
+                q("\nIf the number meets or beats the defence, then the attack hits. If it falls short, the attack misses.")
+                wait(1)
+                q("\nIf the attack hits, then it will do atkATK + atkDMG_BON damage.")
+                wait(1)
+                confirm("\nIf you hit a fence, all damage will be negated, regardless of how much damage it would've done, and all damage buff will be used up.")
+                wait(.5)
+                q("\n")
+                wait(.5)
+                oc = False
+
     #Options
     elif option == 3:
         q("Options coming soon\n")
@@ -1021,8 +1079,9 @@ while ac:
                         if P2MP > P2MAXMP:
                             P2MP = P2MAXMP
             else:
-                q("Player 1 and player 2 are tied for speed. Choosing a random character to go first.\n")
+                q("Player 1 and player 2 are tied for speed. Choosing a random character to go first.")
                 wait(.5)
+                q("\n")
                 first = random.randint(1,2)
                 
                 #Player 1 goes first now
@@ -1039,5 +1098,6 @@ while ac:
                     explode()
 
     else:
-        q("Please give a provided number.\n")
+        q("Please give a provided number.")
         wait(.3)
+        q("\n")
