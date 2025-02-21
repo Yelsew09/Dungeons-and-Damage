@@ -68,14 +68,14 @@ def wait(t = .15):
 
     #Literally just laziness. I don't want to write time.sleep(.15) every second when I can just write wait()
     time.sleep(t)
-def confirm(str, temporal_distance = .5):
+def confirm(str, t = .5):
     
     #Used to provide a visual indicator that the user needs to continue
     #All games have an arrow that tells you you need to press A to continue
     q(str)
     input(' >')
-    time.sleep(temporal_distance)
-def ask(question, temporal_distance = .5):
+    time.sleep(t)
+def ask(question, t = .5):
 
     #Asks a question an keeps asking until the user gives a numerical input
     ec = True
@@ -83,7 +83,7 @@ def ask(question, temporal_distance = .5):
         try:
             q(question)
             option = int(input(''))
-            time.sleep(temporal_distance)
+            time.sleep(t)
             ec = False
         except ValueError:
             wait(.5)
@@ -326,11 +326,11 @@ def combat(atkP, atkHP, atkMAX_HP, atkMP, atkMAX_MP, atkATK, atkATK_BON, atkDMG_
                 if critnumber == 20:
                     q("It's a critical hit!")
                     wait(.3)
-                    confirm("\nPlayer " + str(atkP) + " did " + str(atkATK*2) + " damage to player " + str(defP) + ".")
+                    confirm("\nPlayer " + str(atkP) + " did " + str(atkATK*2 + atkDMG_BON) + " damage to player " + str(defP) + ".")
                     defHP = defHP - (atkATK*2 + atkDMG_BON)
                 
                 elif critnumber + atkATK_BON >= defDEF:
-                    confirm("You landed a hit, doing " + str(atkATK) + " damage to player " + str(defP) + ".")
+                    confirm("You landed a hit, doing " + str(atkATK + atkDMG_BON) + " damage to player " + str(defP) + ".")
                     defHP = defHP - (atkATK + atkDMG_BON)
                 
                 elif critnumber + atkATK_BON < defDEF:
@@ -373,7 +373,7 @@ def combat(atkP, atkHP, atkMAX_HP, atkMP, atkMAX_MP, atkATK, atkATK_BON, atkDMG_
                         confirm("You don't have enough MP for that.")
                     
                     else:
-                        critnumber = random_num(round(atkMAX_MP/2),atkMAX_MP,show)
+                        critnumber = random_num(atkMAX_MP,round(atkMAX_MP*1.5),show)
                         atkMP = atkMP - 5
                         
                         #If the magic is weak enough, it will get blocked
@@ -954,11 +954,118 @@ while ac:
                 wait(1)
                 q("\nIf the attack hits, then it will do atkATK + atkDMG_BON damage.")
                 wait(1)
-                confirm("\nIf you hit a fence, all damage will be negated, regardless of how much damage it would've done, and all damage buff will be used up.")
+                confirm("\nIf you hit a fence, all damage will be negated, regardless of how much damage it would've done, and all damage buffs will be used up.")
                 wait(.5)
                 q("\n")
                 wait(.5)
                 oc = False
+
+            #Magic details
+            elif option == 2:
+                confirm("Just fyi, you can use the spell descriptions option in game for a refresher.")
+                q("When selecting magic, you are given these options: ")
+                
+                mc = True
+                while mc:
+                    q("\n1: Fireball - 5MP\n")
+                    wait()
+                    q("2: Summon item - 2MP\n")
+                    wait()
+                    q("3: Gain advantage - 3MP\n")
+                    wait()
+                    q("4: Impose disadvantage - 4MP\n")
+                    wait()
+                    q("5: Heal 20% - 4MP\n")
+                    wait()
+                    q("6: Damage Boost - Varies\n")
+                    wait(1)
+                    q("You may cast any of the spells as long as you have the corresponding amount of MP.")
+                    
+                    option = ask("What would you like to learn more about? ")
+                    
+                    #Fireball description
+                    if option == 1:
+                        q("\nFireball summons a ball of fire that is thrown at your opponent. The damage is based on your MAXMP, the minimum being your MAXMP and the maximum being your MAXMP*1.5 (rounded up).")
+                        wait(3)
+                        confirm("\nIf that damage is less than a fourth of your opponent's DEF, then the fireball will be blocked.")
+                        mc = False
+                    
+                    #Item descriptions
+                    elif option == 2:
+                        q("\nSummoning a random item generates a random item from the loot table:")
+                        wait(1)
+                        q("\nRusty Spoon - 10%\n")
+                        wait()
+                        q("3 Knives - 40%\n")
+                        wait()
+                        q("Healing potion - 40%\n")
+                        wait()
+                        confirm("Chain link fence - 10%")
+                        q("\n")
+                        confirm("The Rusty Spoon can be thrown, doing 1 point of guarenteed, unblockable damage. Be careful, as you aren't immune to tetanus!")
+                        confirm("Knives have a 1 in 50 chance to miss, but they do 1-5 unblockable damage when they hit.")
+                        confirm("Healing potions restore 3-7 HP.")
+                        confirm("A chain link fence will block one hit, eating any damage buffs.")
+                        mc = False
+                    
+                    #Advantage Description
+                    elif option == 3:
+                        q("\nWhen you are given advantage, the next time you attack the game generates 2 numbers.")
+                        wait(1)
+                        q("\nThese numbers are then compared, and the higher number is taken.")
+                        wait(1)
+                        confirm("\nWhen you use this spell, you gain advantage until the end of your next turn.")
+                        q("Disadvantage is the opposite.")
+                        wait(1)
+                        confirm("\n2 numbers are generated, but the game will output the lower number.")
+                        mc = False
+                    
+                    #Disadvantage description
+                    elif option == 4:
+                        q("\nWhen you are given disadvantage, the next time you attack the game generates 2 numbers.")
+                        wait(1)
+                        q("\nThese numbers are then compared, and the lower number is taken.")
+                        wait(1)
+                        confirm("\nWhen you use this spell, your opponent will gain disadvantage until the end of their next turn.")
+                        q("Advantage is the opposite.")
+                        wait(1)
+                        confirm("\n2 numbers are generated, but the game will output the higher number.")
+                        mc = False
+                    
+                    #Heal 20% desription
+                    elif option == 5:
+                        q("\nThis spell heals you by 1/5 of your maximum HP.")
+                        wait(2)
+                        confirm("\nThat's it.")
+                        mc = False
+                    
+                    #Damage Boost description
+                    elif option == 6:
+                        q("\nWhen you activate this spell, you will be prompted to put MP into this spell.")
+                        wait(.5)
+                        q("\nIf you wish to cancel, provide it with 0.")
+                        wait(1)
+                        confirm("\nThis amount is then multiplied by 1.5 and added to your next attack (after doubling from a crit).")
+                        confirm("If you try to put more MP than you have into the spell, it won't work.")
+                        mc = False
+                    
+                    else:
+                        confirm("Please give an option we can use")
+
+            #Item details
+            elif option == 3:
+                q("\nOn your turn")
+                
+                q("\n1: Spoon\n")
+                wait()
+                q("2: Knives\n")
+                wait()
+                q("3: Healing potion\n")
+                wait()
+                q("4: Chain link fence\n")
+                option = ask("What would you like to know more about? ")
+
+
 
     #Options
     elif option == 3:
