@@ -27,10 +27,11 @@ def game_start():
         ]
         option = tk.StringVar()
         option.set("Select a class")
-        classelect = tk.OptionMenu(root, option, *classes)
+        menClasSelect = tk.OptionMenu(root, option, *classes)
+        btnSetClass = tk.Button(root, text = "Select Class", command = lockclass)
         def lockclass():
             global option
-            option = classelect.get()
+            option = menClasSelect.get()
             rc = True
             while rc:
                 if option == "Knight":
@@ -112,6 +113,9 @@ def game_start():
                     rc = False
                 elif option == "Random":
                     option = random.choice("Knight", "Peashooter", "Rouge", "Mage", "Skele", "Bard", "Barbarian")
+            lblInfo = tk.Label(root, text = "You have chosen the " + str(option) + " class. Confirm Yes or No")
+            btnConfirm = tk.Button(root, text = "Confirm", command = confirm)
+
 
             
 root = tk.Tk()
