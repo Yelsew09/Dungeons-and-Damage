@@ -2,6 +2,14 @@ import tkinter as tk
 from tkinter import messagebox
 import time, sys, random
 
+def q(label, text, t = .02):
+    string = ''
+    for i in range(len(text)):
+        add = text[i]
+        string = string + add
+        label.config(text = string)
+        time.sleep(t)
+
 P1HP = 0
 P1MAXHP = 0
 P1ATK = 0
@@ -51,16 +59,25 @@ def options():
 def quit():
     root.destroy()
 def game_start():
+
+    #GETS RID OF OLD BUTTONS#
     btnOne.grid_forget()
     btnTwo.grid_forget()
     btnThree.grid_forget()
     btnFour.grid_forget()
+    btnConfirm.grid_forget()
+    #########################
+
+    #SHOWS THAT THERE ARE STATS TO BE DIPLAYED LATER#
     lblInfo1 = tk.Label(root, text = "HP: -/-")
     lblInfo2 = tk.Label(root, text = "Attack Damage: -")
     lblInfo3 = tk.Label(root, text = "Attack Roll Bonus: -")
     lblInfo4 = tk.Label(root, text = "Defence: -")
     lblInfo5 = tk.Label(root, text = "MP: -/-. Refresh: -")
     lblInfo6 = tk.Label(root, text = "Speed = -")
+    ##################################################
+    
+    #SETTING UP CHARACTER SELECT DROPDOWN MENU#
     classes = [
         "Knight"
         "Peashooter"
@@ -73,6 +90,9 @@ def game_start():
     selected_class = tk.StringVar()
     selected_class.set("Please select a class")
     optClassSelect = tk.OptionMenu(root, selected_class, *classes)
+    ###########################################
+
+    #Updates tags to show stats, and shows new button
     def view_class(player):
         option = selected_class.get()
         if option == "Knight":
@@ -89,6 +109,13 @@ def game_start():
             HP = 4
         elif option == "Barbarian":
             HP = 6
+        else:
+            btnClassSelect.config(text = "Please select a class")
+    
+    #NEW BUTTONS#
+    btnClassSelect = tk.Button(root, text = "View Class", command = view_class)
+    btnConfirm = tk.Button(root, text = "Confirm Class", command = confirm_class)
+    #############
 
 
 root = tk.Tk()
