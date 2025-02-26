@@ -1,6 +1,48 @@
 import tkinter as tk
-import random
-import commands as cm
+from tkinter import messagebox
+import time, sys, random
+
+P1HP = 0
+P1MAXHP = 0
+P1ATK = 0
+P1ATKBON = 0
+P1DEF = 0
+P1MP = 0
+P1MAXMP = 0
+P1MPBON = 0
+P1SPD = 0
+P2HP = 0
+P2MAXHP = 0
+P2ATK = 0
+P2ATKBON = 0
+P2DEF = 0
+P2MP = 0
+P2MAXMP = 0
+P2MPBON = 0
+P2SPD = 0
+
+def wait(t):
+    time.sleep(t)
+def explode(errornum):
+    print("Logging error.")
+    print("error num " + str(errornum))
+    try:
+        explode(errornum)
+    except:
+        explode(errornum)
+def random_num(minimum,maximum,show,ad = 0):
+    if ad == 1:
+        num1 = random.randint(minimum,maximum)
+        num2 = random.randint(minimum,maximum)
+        critnumber = max(num1,num2)
+    elif ad == 2:
+        num1 = random.randint(minimum,maximum)
+        num2 = random.randint(minimum,maximum)
+        critnumber = min(num1,num2)
+    else:
+        critnumber = random.randint(minimum,maximum)
+    if show:
+        messagebox.showinfo("number_generated", "You rolled a:\n" + str(critnumber))
 
 def guide():
     btnTwo.config(text = "Guide coming soon")
@@ -13,111 +55,42 @@ def game_start():
     btnTwo.grid_forget()
     btnThree.grid_forget()
     btnFour.grid_forget()
-    def charselect(player):
-        global option
-        classes = [
-            "Knight"
-            "Peashooter"
-            "Rouge"
-            "Mage"
-            "Skele"
-            "Bard"
-            "Barbarian"
-            "Random"
-        ]
-        option = tk.StringVar()
-        option.set("Select a class")
-        menClasSelect = tk.OptionMenu(root, option, *classes)
-        btnSetClass = tk.Button(root, text = "Select Class", command = lockclass)
-        def lockclass():
-            global option
-            option = menClasSelect.get()
-            rc = True
-            while rc:
-                if option == "Knight":
-                    HP = 35
-                    MAXHP = HP
-                    ATK = 7
-                    ATKBON = 5
-                    DEF = 16
-                    MP = 5
-                    MAXMP = MP
-                    MPBON = 3
-                    SPD = 3
-                    rc = False
-                elif option == "Peashooter":
-                    HP = 26
-                    MAXHP = HP
-                    ATK = 9
-                    ATKBON = 4
-                    DEF = 14
-                    MP = 7
-                    MAXMP = MP
-                    MPBON = 3
-                    SPD = 5
-                    rc = False
-                elif option == "Rouge":
-                    HP = 20
-                    MAXHP = HP
-                    ATK = 10
-                    ATKBON = 6
-                    DEF = 13
-                    MP = 6
-                    MAXMP = MP
-                    MPBON = 2
-                    SPD = 7
-                    rc = False
-                elif option == "Mage":
-                    HP = 21
-                    MAXHP = HP
-                    ATK = 5
-                    ATKBON = 2
-                    DEF = 11
-                    MP = 10
-                    MAXMP = MP
-                    MPBON = 5
-                    SPD = 4
-                    rc = False
-                elif option == "Skele":
-                    HP = 30
-                    MAXHP = HP
-                    ATK = 7
-                    ATKBON = 3
-                    DEF = 12
-                    MP = 7
-                    MAXMP = MP
-                    MPBON = 5
-                    SPD = 6
-                    rc = False
-                elif option == "Bard":
-                    HP = 27
-                    MAXHP = HP
-                    ATK = 6
-                    ATKBON = 4
-                    DEF = 14
-                    MP = 4
-                    MAXMP = MP
-                    MPBON = 2
-                    SPD = 2
-                    rc = False
-                elif option == "Barbarian":
-                    HP = 40
-                    MAXHP = HP
-                    ATK = 12
-                    ATKBON = 2
-                    DEF = 15
-                    MP = 2
-                    MAXMP = MP
-                    MPBON = 1
-                    SPD = 1
-                    rc = False
-                elif option == "Random":
-                    option = random.choice("Knight", "Peashooter", "Rouge", "Mage", "Skele", "Bard", "Barbarian")
-            lblInfo = tk.Label(root, text = "You have chosen the " + str(option) + " class. Confirm Yes or No")
-            btnConfirm = tk.Button(root, text = "Confirm", command = confirm)
+    lblInfo1 = tk.Label(root, text = "HP: -/-")
+    lblInfo2 = tk.Label(root, text = "Attack Damage: -")
+    lblInfo3 = tk.Label(root, text = "Attack Roll Bonus: -")
+    lblInfo4 = tk.Label(root, text = "Defence: -")
+    lblInfo5 = tk.Label(root, text = "MP: -/-. Refresh: -")
+    lblInfo6 = tk.Label(root, text = "Speed = -")
+    classes = [
+        "Knight"
+        "Peashooter"
+        "Rouge"
+        "Mage"
+        "Skele"
+        "Bard"
+        "Barbarian"
+    ]
+    selected_class = tk.StringVar()
+    selected_class.set("Please select a class")
+    optClassSelect = tk.OptionMenu(root, selected_class, *classes)
+    def view_class(player):
+        option = selected_class.get()
+        if option == "Knight":
+            HP = 5
+        elif option == "Peashooter":
+            HP = 4
+        elif option == "Rouge":
+            HP = 3
+        elif option == "Mage":
+            HP = 4
+        elif option == "Skele":
+            HP = 3
+        elif option == "Bard":
+            HP = 4
+        elif option == "Barbarian":
+            HP = 6
 
 
-            
 root = tk.Tk()
 root.geometry("1280x720")
 root.title("dungeons_and_damage")
