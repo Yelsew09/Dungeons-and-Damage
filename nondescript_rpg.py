@@ -587,6 +587,7 @@ def combat(atkP, atkHP, atkMAX_HP, atkMP, atkMAX_MP, atkATK, atkATK_BON, atkDMG_
                 elif option == 0:
                     q("You canceled your magic usage.\n")
                     wait(.3)
+                    mc = False
                 
                 else:
                     q("Please give a provided number.\n")
