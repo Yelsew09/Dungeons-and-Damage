@@ -1054,17 +1054,26 @@ while ac:
 
             #Item details
             elif option == 3:
-                q("\nOn your turn")
-                
-                q("\n1: Spoon\n")
-                wait()
-                q("2: Knives\n")
-                wait()
-                q("3: Healing potion\n")
-                wait()
-                q("4: Chain link fence\n")
-                option = ask("What would you like to know more about? ")
+                q("\nOn your turn, you may use 3 items.")
+                wait(1)
+                mc = True
+                while mc:
+                    q("\n1: Spoon\n")
+                    wait()
+                    q("2: Knives\n")
+                    wait()
+                    q("3: Healing potion\n")
+                    wait()
+                    q("4: Chain link fence\n")
+                    option = ask("What would you like to know more about? ")
 
+                    #Spoon
+                    if option == 1:
+                        q("A metal spoon that appears to have been left out in the rain for a while.")
+                        wait(1)
+                        confirm("\nLooks throwable.")
+                        mc = False
+                    
 
 
     #Options
