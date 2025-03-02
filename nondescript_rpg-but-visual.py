@@ -1,6 +1,6 @@
 import tkinter as tk
 from tkinter import messagebox
-import time, sys, random
+import time, random
 
 def q(label, text, t = .02):
     string = ''
@@ -10,24 +10,26 @@ def q(label, text, t = .02):
         label.config(text = string)
         time.sleep(t)
 
-P1HP = 0
-P1MAXHP = 0
-P1ATK = 0
-P1ATKBON = 0
-P1DEF = 0
-P1MP = 0
-P1MAXMP = 0
-P1MPBON = 0
-P1SPD = 0
-P2HP = 0
-P2MAXHP = 0
-P2ATK = 0
-P2ATKBON = 0
-P2DEF = 0
-P2MP = 0
-P2MAXMP = 0
-P2MPBON = 0
-P2SPD = 0
+#Here to make stuff collapseable
+for i in range (1):
+    P1HP = 0
+    P1MAXHP = 0
+    P1ATK = 0
+    P1ATKBON = 0
+    P1DEF = 0
+    P1MP = 0
+    P1MAXMP = 0
+    P1MPBON = 0
+    P1SPD = 0
+    P2HP = 0
+    P2MAXHP = 0
+    P2ATK = 0
+    P2ATKBON = 0
+    P2DEF = 0
+    P2MP = 0
+    P2MAXMP = 0
+    P2MPBON = 0
+    P2SPD = 0
 
 def wait(t):
     time.sleep(t)
@@ -61,6 +63,7 @@ def quit():
 def game_start():
 
     #VARIABLE STUFF#
+    global player
     player = 1
     ################
 
@@ -72,6 +75,7 @@ def game_start():
     #########################
 
     #SHOWS THAT THERE ARE STATS TO BE DIPLAYED LATER#
+    lblTitle = tk.Label(root, text = "Player " + str(player) + ", please select a class", font = ("Arial", 14))
     lblInfo1 = tk.Label(root, text = "HP: -/-")
     lblInfo2 = tk.Label(root, text = "Attack Damage: -")
     lblInfo3 = tk.Label(root, text = "Attack Roll Bonus: -")
@@ -91,15 +95,17 @@ def game_start():
         "Barbarian"
     ]
     selected_class = tk.StringVar()
-    selected_class.set("Please select a class")
+    selected_class.set("Select a class")
     optClassSelect = tk.OptionMenu(root, selected_class, *classes)
     ###########################################
 
+    #CLASS SELECT COMMANDS#
     #Updates tags to show stats
-    def view_class():
+    def view_class(option = 0):
         global HP, MAXHP, ATK, ATKBON, DEF, MP, MAXMP, MPBON, SPD
         HP = 0
-        option = selected_class.get()
+        if option == 0:
+            option = selected_class.get()
 
         #SETS VARIABLES TO CORRECT VALUES FOR USAGE LATER#
         if option == "Knight":
@@ -111,8 +117,7 @@ def game_start():
             MP = 5
             MAXMP = MP
             MPBON = 3
-            SPD = 3
-            btnConfirm.grid()
+            SPD = 2
         elif option == "Peashooter":
             HP = 26
             MAXHP = HP
@@ -162,7 +167,7 @@ def game_start():
             MP = 4
             MAXMP = MP
             MPBON = 2
-            SPD = 2
+            SPD = 3
         elif option == "Barbarian":
             HP = 40
             MAXHP = HP
@@ -173,8 +178,6 @@ def game_start():
             MAXMP = MP
             MPBON = 1
             SPD = 1
-        elif option == "Random":
-            option = random.choice(classes)
         ##################################################
 
         if not HP == 0:
@@ -209,28 +212,53 @@ def game_start():
             P2MAXMP = MP
             P2MPBON = MPBON
             P2SPD = SPD
-        player = player + 1
-
+        if player == 2:
+            print("Update screen to start")
+        else:
+            player = player + 1
+            lblTitle.config(text = "Player " + str(player) + ", please select a class.")
+    def random_class():
+        clas = random.choice(classes)
+        view_class(clas)
+        selected_class.set(clas)
+    ####################### 
 
     #NEW BUTTONS#
     btnClassSelect = tk.Button(root, text = "View Class", command = view_class)
     btnConfirm = tk.Button(root, text = "Confirm Class", command = confirm_class)
-    btnRandom = tk.Button(root, text = "Random Class", command = view_class)
+    btnRandom = tk.Button(root, text = "Random Class", command = random_class)
     #############
 
     #PUTTING THINGS IN THE WINDOW#
-    optClassSelect.grid(row = 0, column = 0, columnspan = 2)
-    btnConfirm.grid(row = 2, column = 0)
-    btnClassSelect.grid(row = 1, column = 0)
-    btnRandom.grid(row = 1, column = 1)
-    lblInfo1.grid(row = 0, column = 2)
-    lblInfo2.grid(row = 1, column = 2)
-    lblInfo3.grid(row = 2, column = 2)
-    lblInfo4.grid(row = 3, column = 2)
-    lblInfo5.grid(row = 4, column = 2)
-    lblInfo6.grid(row = 5, column = 2)
+    optClassSelect.grid(row = 1, column = 0, columnspan = 2)
+    btnConfirm.grid(row = 3, column = 0)
+    btnClassSelect.grid(row = 2, column = 0)
+    btnRandom.grid(row = 2, column = 1)
+    lblTitle.grid(row = 0, column = 0, columnspan = 3)
+    lblInfo1.grid(row = 1, column = 2)
+    lblInfo2.grid(row = 2, column = 2)
+    lblInfo3.grid(row = 3, column = 2)
+    lblInfo4.grid(row = 4, column = 2)
+    lblInfo5.grid(row = 5, column = 2)
+    lblInfo6.grid(row = 6, column = 2)
     ##############################
     print("Need this here to get colapse to work")
+
+    #-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
+    #VARIABLE THINGS#
+    items_left = 3
+    #################
+    def attack(atkHP,atkMAX_HP,atkMP,atkMAX_MP,atkATK,atkATK_BON,atkDMG_BON,)
+
+    #NEW STUFF#
+    visuals = tk.Canvas(root, width = "1280", height = "610", bg = "white")
+    btnAttack = tk.Button(root, text = "Attack", command = lambda: press_attack(atkP))
+    btnMagic = tk.Button(root, text = "Magic", command = lambda: press_magic(atkP))
+    btnItem = tk.Button(root, text = "Item: " + str(items_left), command = lambda: press_item(atkP, items_left))
+    btnPass = tk.Button(root, text = "Pass", command = lambda: pass_turn(atkP))
+    ###########
+
+
 
 #WINDOW STUFF#
 root = tk.Tk()

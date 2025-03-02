@@ -1,7 +1,7 @@
 # Character Stats:
 
 ## Knight stats:
-    HP: 35  ATK: 7(+5)  DEF: 16  MP: 5(+3)  SPD: 3
+    HP: 35  ATK: 7(+5)  DEF: 16  MP: 5(+3)  SPD: 2
 
 ## Peashooter stats:
     HP: 26  ATK: 9(+4)  DEF: 14  MP: 7(+3)  SPD: 5
@@ -16,7 +16,7 @@
     HP: 30  ATK: 7(+3)  DEF: 12  MP: 7(+5)  SPD: 6
 
 ## Bard stats:
-    HP: 27  ATK: 6(+4)  DEF: 14  MP: 4(+2)  SPD: 2
+    HP: 27  ATK: 6(+4)  DEF: 14  MP: 4(+2)  SPD: 3
 
 ## Barbarian stats:
     HP: 40 ATK: 12(+2) DEF: 15 MP: 2(+1) SPD: 1
