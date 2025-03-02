@@ -615,10 +615,8 @@ def combat(atkP, atkHP, atkMAX_HP, atkMP, atkMAX_MP, atkATK, atkATK_BON, atkDMG_
                 #Print Properly if the gun is in play
                 if atkGLOCK >= 1:
                     q("5: Glock\n")
-                    wait()
-                    q("6: Cancel\n")
-                else:
-                    q("5: Cancel\n")
+                wait()
+                q("0: Cancel\n")
                 wait()
                 ic = True
                 while ic:
@@ -768,14 +766,8 @@ def combat(atkP, atkHP, atkMAX_HP, atkMP, atkMAX_MP, atkATK, atkATK_BON, atkDMG_
                                     ic = False
                                 atkGLOCK = atkGLOCK - 1
                         
-                        #Cancel if gun
-                        elif option == 6 and atkGLOCK >= 1:
-                            q("You canceled your item usage.\n")
-                            ic = False
-                            wait(.5)
-                        
-                        #Cancel if no gun
-                        elif option == 5 and atkGLOCK == 0:
+                        #Cancel
+                        elif option == 0:
                             q("You canceled your item usage.\n")
                             ic = False
                             wait(.5)
