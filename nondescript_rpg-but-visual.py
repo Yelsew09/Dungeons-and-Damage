@@ -9,28 +9,6 @@ def q(label, text, t = .02):
         string = string + add
         label.config(text = string)
         time.sleep(t)
-
-#Here to make stuff collapseable
-for i in range (1):
-    P1HP = 0
-    P1MAXHP = 0
-    P1ATK = 0
-    P1ATKBON = 0
-    P1DEF = 0
-    P1MP = 0
-    P1MAXMP = 0
-    P1MPBON = 0
-    P1SPD = 0
-    P2HP = 0
-    P2MAXHP = 0
-    P2ATK = 0
-    P2ATKBON = 0
-    P2DEF = 0
-    P2MP = 0
-    P2MAXMP = 0
-    P2MPBON = 0
-    P2SPD = 0
-
 def wait(t):
     time.sleep(t)
 def explode(errornum):
@@ -53,6 +31,27 @@ def random_num(minimum,maximum,show,ad = 0):
         critnumber = random.randint(minimum,maximum)
     if show:
         messagebox.showinfo("number_generated", "You rolled a:\n" + str(critnumber))
+
+#Here to make stuff collapseable
+for i in range (1):
+    P1HP = 0
+    P1MAXHP = 0
+    P1ATK = 0
+    P1ATKBON = 0
+    P1DEF = 0
+    P1MP = 0
+    P1MAXMP = 0
+    P1MPBON = 0
+    P1SPD = 0
+    P2HP = 0
+    P2MAXHP = 0
+    P2ATK = 0
+    P2ATKBON = 0
+    P2DEF = 0
+    P2MP = 0
+    P2MAXMP = 0
+    P2MPBON = 0
+    P2SPD = 0
 
 def guide():
     btnTwo.config(text = "Guide coming soon")
@@ -98,6 +97,31 @@ def game_start():
     selected_class.set("Select a class")
     optClassSelect = tk.OptionMenu(root, selected_class, *classes)
     ###########################################
+
+    #GAME START BECAUSE ORDERING IS BAD#
+    def game_start():
+        optClassSelect.grid_forget()
+        btnConfirm.grid_forget()
+        btnClassSelect.grid_forget()
+        btnRandom.grid_forget()
+        lblTitle.grid_forget()
+        lblInfo1.grid_forget()
+        lblInfo2.grid_forget()
+        lblInfo3.grid_forget()
+        lblInfo4.grid_forget()
+        lblInfo5.grid_forget()
+        lblInfo6.grid_forget()
+        def attack(atkATK,atkATK_BON,atkDMG_BOOST,atkAD,defDEF,defHP):
+            critnumber = random_num(1,20,atkAD)
+            if critnumber == 20:
+                print("Critical hit")
+            elif critnumber + atkATK_BON > defDEF:
+                print("Normal hit")
+            elif critnumber + atkATK_BON < defDEF:
+                print("Missed hit")
+            else:
+                explode(1)
+    ####################################
 
     #CLASS SELECT COMMANDS#
     #Updates tags to show stats
@@ -214,6 +238,7 @@ def game_start():
             P2SPD = SPD
         if player == 2:
             print("Update screen to start")
+            game_start()
         else:
             player = player + 1
             lblTitle.config(text = "Player " + str(player) + ", please select a class.")
@@ -221,7 +246,6 @@ def game_start():
         clas = random.choice(classes)
         view_class(clas)
         selected_class.set(clas)
-    ####################### 
 
     #NEW BUTTONS#
     btnClassSelect = tk.Button(root, text = "View Class", command = view_class)
@@ -243,22 +267,6 @@ def game_start():
     lblInfo6.grid(row = 6, column = 2)
     ##############################
     print("Need this here to get colapse to work")
-
-    #-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
-    #VARIABLE THINGS#
-    items_left = 3
-    #################
-    def attack(atkHP,atkMAX_HP,atkMP,atkMAX_MP,atkATK,atkATK_BON,atkDMG_BON,)
-
-    #NEW STUFF#
-    visuals = tk.Canvas(root, width = "1280", height = "610", bg = "white")
-    btnAttack = tk.Button(root, text = "Attack", command = lambda: press_attack(atkP))
-    btnMagic = tk.Button(root, text = "Magic", command = lambda: press_magic(atkP))
-    btnItem = tk.Button(root, text = "Item: " + str(items_left), command = lambda: press_item(atkP, items_left))
-    btnPass = tk.Button(root, text = "Pass", command = lambda: pass_turn(atkP))
-    ###########
-
-
 
 #WINDOW STUFF#
 root = tk.Tk()
