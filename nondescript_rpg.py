@@ -1196,13 +1196,13 @@ while ac:
                     
                     else:
                         roundnum = roundnum + 1
-                        P1MP = P1MP + P1MPBON
                         
+                        P1MP = P1MP + P1MPBON
                         #Over MAXMP
                         if P1MP > P1MAXMP:
                             P1MP = P1MAXMP
-                        P2MP = P2MP + P2MPBON
                         
+                        P2MP = P2MP + P2MPBON
                         #Over MAXMP
                         if P2MP > P2MAXMP:
                             P2MP = P2MAXMP
