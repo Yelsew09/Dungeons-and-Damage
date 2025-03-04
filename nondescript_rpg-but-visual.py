@@ -132,8 +132,47 @@ def game_start():
                 explode(1)
             atkATK_BON = 0
         def magic(atkMP,atkMAX_MP,defDEF,defFENCE_SET,defP):
-            def FIREBALL(atkMP,atkMAX_MP,defDEF,defFENCE_SET,defP):
+            def FIREBALL(mp,max_mp,fence_set,defP):
                 print("FIREBALL")
+            def random_item(mp,spoons,knives,potions,fences):
+                print("Random item")
+            def advantage_spell(mp,ad,adtr):
+                print("Gain advantage")
+            def disadvantage_spell(mp,defAD,defADTR):
+                print("Impose disadvantage")
+            def heal(mp,hp,max_hp):
+                print("Heal 20%")
+            def damage_boost(mp):
+                print("Damage boost")
+            
+            spells = [
+                "Fireball - 5MP",
+                "Summon Random Item - 2MP",
+                "Gain Advantage - 3MP",
+                "Impose Disadvantage - 4MP",
+                "Heal 20% - 5MP",
+                "Damage Boost - Varies"
+            ]
+            selected_spell = tk.StringVar()
+            selected_spell.set("Select a spell")
+            optSpellSelect = tk.OptionMenu(root, selected_spell, *spells)
+
+            def spell_select():
+                option = selected_spell.get()
+                if option == "Fireball - 5MP":
+                    print("Do a fireball")
+                elif option == "Summon Random Item - 2MP":
+                    print("Summon a random item")
+                elif option == "Gain Advantage - 3MP":
+                    print("Give user advantage")
+                elif option == "Impose Disadvantage - 4MP":
+                    print("Give defending player disadvantage")
+                elif option == "Heal 20% - 5MP":
+                    print("Heal user by 20 percent of their max_hp")
+                elif option == "Damage Boost - Varies":
+                    print("Do damage boost shenanagains")
+                else:
+                    q(lblInfo1, "Please select a spell.")
     ####################################
 
     #CLASS SELECT COMMANDS#
