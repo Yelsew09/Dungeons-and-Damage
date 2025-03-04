@@ -111,16 +111,29 @@ def game_start():
         lblInfo4.grid_forget()
         lblInfo5.grid_forget()
         lblInfo6.grid_forget()
-        def attack(atkATK,atkATK_BON,atkDMG_BOOST,atkAD,defDEF,defHP):
+        def attack(atkATK,atkATK_BON,atkDMG_BOOST,atkAD,defDEF,defHP,defFENCE_SET,defP):
             critnumber = random_num(1,20,atkAD)
-            if critnumber == 20:
-                print("Critical hit")
-            elif critnumber + atkATK_BON > defDEF:
-                print("Normal hit")
-            elif critnumber + atkATK_BON < defDEF:
-                print("Missed hit")
+            if defFENCE_SET:
+                q(lblInfo1, "You stuck player " + str(defP) + "'s fence.")
+            elif not defFENCE_SET:
+                if critnumber == 20:
+                    damage = atkATK*2 + atkDMG_BOOST
+                    defHP = defHP - damage
+                    q(lblInfo1, "You did " + str(damage) + " damage to player " + str(defP))
+                elif critnumber + atkATK_BON > defDEF:
+                    damage = atkATK + atkDMG_BOOST
+                    defHP = defHP - damage
+                    q(lblInfo1, "You did " + str(damage) + " damage to player " + str(defP))
+                elif critnumber + atkATK_BON < defDEF:
+                    q(lblInfo1, "You missed your attack")
+                else:
+                    explode(1)
             else:
                 explode(1)
+            atkATK_BON = 0
+        def magic(atkMP,atkMAX_MP,defDEF,defFENCE_SET,defP):
+            def FIREBALL(atkMP,atkMAX_MP,defDEF,defFENCE_SET,defP):
+                print("FIREBALL")
     ####################################
 
     #CLASS SELECT COMMANDS#
