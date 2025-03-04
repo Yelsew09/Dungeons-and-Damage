@@ -819,12 +819,14 @@ def combat(atkP, atkHP, atkMAX_HP, atkMP, atkMAX_MP, atkATK, atkATK_BON, atkDMG_
                 
                 #Yes
                 if yesorno == 1:
-                    q("You forfeit the match.")
+                    q("You forfeit the match.\n")
                     atkHP = 0
+                    ync = False
+                    oc = False
                 
                 #No
                 elif yesorno == 2:
-                    q("You did not forfeit the match.")
+                    q("You did not forfeit the match.\n")
 
                 else:
                     q("Please give a provided number.\n")
@@ -1120,10 +1122,14 @@ while ac:
                 if print_random:
                     print_random == False
                     q("print_random has been set to False")
+                    wait(.5)
+                    q("\n")
                 
                 elif not print_random:
                     print_random == True
                     q("print_random has been set to True")
+                    wait(.5)
+                    q("\n")
                 
                 else:
                     explode()
