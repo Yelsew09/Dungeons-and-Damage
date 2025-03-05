@@ -1,6 +1,8 @@
 import tkinter as tk
 import references as ref
+import random
 
+#Setting up variables
 classes = [
     "Knight",
     "Peashooter",
@@ -21,32 +23,38 @@ spells = [
 global player
 player = 1
 
-def setup_window(window):
-    print("Buch of if commands. Sets up windows when needed")
-def option_menu():
-    lblInfo1.config(text = "Options coming soon")
-def guide():
-    lblInfo1.config(text = "Guide coming soon")
-def quit_game():
-    root.destroy()
-def game_start():
+#Setting up stuff
+root = tk.Tk()
+root.geometry("1280x720")
+root.title("dungeons_and_damage")
+root.resizable(False,False)
 
-    #New stuff for window
-    lblTitle.config(root, text = "Player " + str(player) + ", please select a class", font = ("Arial", 14))
+#Starts the game
+def class_select():
+    
+    #Updating screen
+    lblTitle.config("Player " + str(player) + ", please select a class")
+    lblGeneral.grid_forget()
+    btnStart.grid_forget()
+    btnGuide.grid_forget()
+    btnOptions.grid_forget()
+    btnQuit.grid_forget()
+    #########
+
+    #Everything that isn't a button
     lblInfo1 = tk.Label(root, text = "HP: -/-")
     lblInfo2 = tk.Label(root, text = "Attack Damage: -")
     lblInfo3 = tk.Label(root, text = "Attack Roll Bonus: -")
     lblInfo4 = tk.Label(root, text = "Defence: -")
     lblInfo5 = tk.Label(root, text = "MP: -/-. Refresh: -")
-    lblInfo6 = tk.Label(root, text = "Speed -")
-    btnVeiwClass = tk.Button(root, text = "View Class", command = view_class)
-    btnConfirm = tk.Button(root, text = "Confirm Class", command = lambda: btnConfirm.config(text = ""))
-    #Dropdown menu for class select
+    lblInfo6 = tk.Label(root, text = "Speed: -")
+    #Dropdown
     selected_class = tk.StringVar()
-    selected_class.set("Select a class")
     optClassSelect = tk.OptionMenu(root, selected_class, *classes)
+    ###########
+
+    #New commands
     def view_class():
-        
         option = selected_class.get()
         if player == 1:
             if option == "Knight":
@@ -90,28 +98,51 @@ def game_start():
             lblInfo4.config(text = "Defence: " + str(P2.defence))
             lblInfo5.config(text = "MP: " + str(P2.mp) + "/" + str(P2.maxmp) + ". Refresh: " + str(P2.mpbon))
             lblInfo6.config(text = "Speed: " + str(P2.speed))
+    def confirm_class():
+        if player == 2:
+            def game_start():
+
+                #Clearing screen
+                lblInfo1.grid_forget()
+                lblInfo2.grid_forget()
+                lblInfo3.grid_forget()
+                lblInfo4.grid_forget()
+                lblInfo5.grid_forget()
+                lblInfo6.grid_forget()
+                #########
+            
+            game_start()
+        else:
+            player = player + 1
+    def random_class():
+        selected_class.set(random.choice(classes))
+        view_class()
+
+    #Defining Buttons
+    btnViewClass = tk.Button(root, text = "Show Class", command = view_class)
+    btnConfirmClass = tk.Button(root, text = "Confirm Class", command = confirm_class)
+    btnRandomClass = tk.Button(root, text = "Random Class", command = random_class)
+    #########
+
+    #Placing thing in window
+    
+    ########
 
 
-#Window Details
-root = tk.Tk()
-root.geometry("1280x720")
-root.title("dungeons_and_damage")
-root.resizable(False,False)
-
-#Window Elements
+#Defining things for main menu
 lblTitle = tk.Label(root, text = "Dungeons and Damage", font = ("Arial", 16))
-lblInfo1 = tk.Label(root, text = "Further information will be displayed here")
-btnOptions = tk.Button(root, text = "Options", command = option_menu)
-btnGuide = tk.Button(root, text = "Guide", command = guide)
-btnQuit = tk.Button(root, text = "Quit", command = quit_game)
-btnStart = tk.Button(root, text = "Game Start", command = game_start)
-
-#Placing things in window
+lblGeneral = tk.Label(root, text = "Further info here")
+btnStart = tk.Button(root, text = "Game Start", command = class_select, font = ("Arial", 14))
+btnGuide = tk.Button(root, text = "Guide", command = lambda: lblGeneral.config(text = "Guide coming soon"), font = ("Arial", 12))
+btnOptions = tk.Button(root, text = "Options", command = lambda: lblGeneral.config(text = "Options coming soon"), font = ("Arial", 12))
+btnQuit = tk.Button(root, text = "Quit", command = lambda: root.destroy(), font = ("Arial", 12))
+#Placing things in main menu
 lblTitle.grid(row = 0, column = 0)
 btnStart.grid(row = 1, column = 0)
 btnGuide.grid(row = 2, column = 0)
 btnOptions.grid(row = 3, column = 0)
 btnQuit.grid(row = 4, column = 0)
-lblInfo1.grid(row = 5, column = 0)
+lblGeneral.grid(row = 5, column = 0)
+#########
 
 root.mainloop()
