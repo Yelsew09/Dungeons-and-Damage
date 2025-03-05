@@ -46,8 +46,7 @@ def game_start():
     selected_class.set("Select a class")
     optClassSelect = tk.OptionMenu(root, selected_class, *classes)
     def view_class():
-
-        #New stuff for window
+        
         option = selected_class.get()
         if player == 1:
             if option == "Knight":
@@ -91,6 +90,7 @@ def game_start():
             lblInfo4.config(text = "Defence: " + str(P2.defence))
             lblInfo5.config(text = "MP: " + str(P2.mp) + "/" + str(P2.maxmp) + ". Refresh: " + str(P2.mpbon))
             lblInfo6.config(text = "Speed: " + str(P2.speed))
+
 
 #Window Details
 root = tk.Tk()
