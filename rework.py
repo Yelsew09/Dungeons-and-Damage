@@ -125,7 +125,17 @@ def class_select():
     #########
 
     #Placing thing in window
-    
+    lblTitle.grid(row = 0, column = 0, columnspan = 3)
+    optClassSelect.grid(row = 1, column = 0, columnspan = 2)
+    btnViewClass.grid(row = 2, column = 0)
+    btnConfirmClass.grid(row = 3, column = 0)
+    btnRandomClass.grid(row = 2, column = 1)
+    lblInfo1.grid(row = 1, column = 2)
+    lblInfo2.grid(row = 2, column = 2)
+    lblInfo3.grid(row = 3, column = 2)
+    lblInfo4.grid(row = 4, column = 2)
+    lblInfo5.grid(row = 5, column = 2)
+    lblInfo6.grid(row = 6, column = 2)
     ########
 
 
