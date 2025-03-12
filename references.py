@@ -2,7 +2,7 @@ import random, time
 import tkinter as tk
 from tkinter import messagebox
 
-def q(label, text, starting, t = .02):
+def q(label, text, starting = "", t = .02):
     string = str(starting)
     for i in range(len(text)):
         add = text[i]
