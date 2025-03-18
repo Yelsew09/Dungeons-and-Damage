@@ -101,7 +101,23 @@ def random_num(minimum,maximum,show,ad = 0):
     if show:
         q("You rolled a: " + str(critnum))
     return critnum
-
+def y_or_n(asking):
+    ync = True
+    while ync:
+        q("1: Yes\n")
+        wait()
+        q("2: No\n")
+        wait()
+        option = ask(str(asking))
+        if option == 1:
+            loop = False
+            ync = False
+        elif option == 2:
+            loop = True
+            ync = False
+        else:
+            q("Please give a valid option\n")
+    return loop
 
 #Commands used as chunks of the game
 def charSelect(player):
@@ -122,6 +138,8 @@ def charSelect(player):
     wait()
     q("8: Random\n")
     wait()
+    q("9: Custom\n")
+    wait()
 
     #CharacterCorrect
     cc = True
@@ -131,6 +149,7 @@ def charSelect(player):
         #RandomCorrect
         rc = True
         while rc:
+
             #Knight
             if option == 1:
                 option = "Knight"
@@ -232,7 +251,95 @@ def charSelect(player):
             #Random
             elif option == 8:
                 option = random.randint(1,7)
-            
+
+            #Custom
+            elif option == 9:
+                q("With this system you may create a custom character using the point buy system.")
+                wait(1)
+                confirm("\nThis is where you are given points, and you add points to different stats")
+                
+                hp = 0
+                maxHP = 0
+                atk = 0
+                atkBON = 0
+                de = 0
+                mp = 0
+                maxMP = 0
+                mpBON = 0
+                spd = 0
+                points = 40
+                confirm("All calculations for things like trying to spend more points than you have or get a stat below 0 will be calculated behind the scenes.")
+                oc = True
+                while oc:
+                    q("1: Heath Points - " + str(hp) + "\n")
+                    wait()
+                    q("2: Attack Damage - " + str(atk) + "\n")
+                    wait()
+                    q("3: Attack Roll Bonus (can be up to 1/2 of your attack damage) - " + str(atkBON) + "\n")
+                    wait()
+                    q("4: Defence - " + str(de) + "\n")
+                    wait()
+                    q("5: Magic Points (or Magic Power) - " + str(mp) + "\n")
+                    wait()
+                    q("6: Magic Point Bonus (can be up to 1/2 of your MP) - " + str(mpBON) + "\n")
+                    wait()
+                    q("7: Speed - " + str(spd) + "\n")
+                    wait()
+                    q("8: I'm done\n")
+                    wait()
+                    q("0: Back\n")
+                    option = ask("What would you like to boost? ")
+                    if not option == 8 or not option == 0:
+                        spent = ask("How much would you like to change this by (negative for bringing points back back)? ")
+                    
+                    #Doesn't have enough points
+                    if spent > points:
+                        spent = points
+                    elif option == 1:
+                        if hp + spent < 0:
+                            spent = hp
+                        hp += spent
+                        points -= spent
+                    elif option == 2:
+                        if atk + spent < 0:
+                            spent = atk
+                        atk += spent
+                        points -= spent
+                    elif option == 3:
+                        if atkBON + spent < 0:
+                            spent = atkBON
+                        if atkBON + spent > atk / 2:
+                            spent = atk / 2
+                        atkBON += spent
+                        points -= spent
+                    elif option == 4:
+                        if de + spent < 0:
+                            spent = de
+                        de += spent
+                        points -= spent
+                    elif option == 5:
+                        if mp + spent < 0:
+                            spent = mp
+                        mp += spent
+                        points -= spent
+                    elif option == 6:
+                        if mpBON + spent < 0:
+                            spent = mpBON
+                        if mpBON + spent > mp / 2:
+                            spent = mp / 2
+                        mpBON += spent
+                        points -= spent
+                    elif option == 7:
+                        if spd + spent < 0:
+                            spent = spd
+                        spd += spent
+                        points -= spent
+                    elif option == 8:
+                        if points > 0:
+                            oc = y_or_n("You still have points to spend, are you sure you are done? ")
+                rc = False
+                cc = False
+
             #-.- --- -. .- -- .. ....... -.-. --- -.. .
             elif option == 88224646790:
                 option = "-.- --- -. .- -- .. ....... -.-. --- -.. ."
@@ -848,8 +955,10 @@ print_random = False
 
 #THE GAME#
 #Insert loading sequence here when you figure out how to do that
-
-q("Welcome to Dungeons and Damage")
+q("If you are a new player, please consult the guide")
+wait(3)
+q("\n")
+q("\nWelcome to Dungeons and Damage")
 wait(.5)
 q("\nNot to be confused with Dungeons and Dragons")
 wait(.5)
