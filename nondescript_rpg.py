@@ -149,7 +149,8 @@ def charSelect(player):
         #RandomCorrect
         rc = True
         while rc:
-
+            
+            skip = False
             #Knight
             if option == 1:
                 option = "Knight"
@@ -289,7 +290,8 @@ def charSelect(player):
                     wait()
                     q("0: Back\n")
                     option = ask("What would you like to boost? ")
-                    if not option == 8 or not option == 0:
+                    spent = 0
+                    if not option == 8 and not option == 0:
                         spent = ask("How much would you like to change this by (negative for bringing points back back)? ")
                     
                     #Doesn't have enough points
@@ -337,6 +339,9 @@ def charSelect(player):
                     elif option == 8:
                         if points > 0:
                             oc = y_or_n("You still have points to spend, are you sure you are done? ")
+                    elif option == 0:
+                        oc = False
+                        skip = True
                 rc = False
                 cc = False
 
@@ -358,36 +363,37 @@ def charSelect(player):
                 q("Please give a valid opiton")
                 wait(.3)
                 q("\n")
-        ync = True
-        while ync:
-            q("1: Yes\n")
-            wait()
-            q("2: No\n")
-            wait()
-            yesorno = ask("You have chosen the " + str(option) + " class, is this correct? ")
-            
-            #Yes
-            if yesorno == 1:
-                q("Player " + str(player) + " has chosen the " + str(option) + " class")
-                wait(.5)
-                q("\n")
-                ync = False
-                cc = False
-            
-            #No
-            elif yesorno == 2:
-                q("Repick your character")
-                wait(.3)
-                q("\n")
-                ync = False
-                cc = True
-            
-            #Invalid input
-            else:
-                q("Please give a provided number.")
-                wait(.3)
-                q("\n")
-                ync = True
+        if not skip:
+            ync = True
+            while ync:
+                q("1: Yes\n")
+                wait()
+                q("2: No\n")
+                wait()
+                yesorno = ask("You have chosen the " + str(option) + " class, is this correct? ")
+                
+                #Yes
+                if yesorno == 1:
+                    q("Player " + str(player) + " has chosen the " + str(option) + " class")
+                    wait(.5)
+                    q("\n")
+                    ync = False
+                    cc = False
+                
+                #No
+                elif yesorno == 2:
+                    q("Repick your character")
+                    wait(.3)
+                    q("\n")
+                    ync = False
+                    cc = True
+                
+                #Invalid input
+                else:
+                    q("Please give a provided number.")
+                    wait(.3)
+                    q("\n")
+                    ync = True
     return hp, maxHP, atk, atkBON, de, mp, maxMP, mpBON, spd
 def combat(atkP, atkHP, atkMAX_HP, atkMP, atkMAX_MP, atkATK, atkATK_BON, atkDMG_BON, atkAD, atkADTR, atkSPOON, atkKNIFE, atkPOTS, atkFENCE, atkFENCE_SET, atkGLOCK,  defP, defHP, defDEF, defAD, defADTR, defFENCE_SET, defGLOCK, show):
     
