@@ -259,7 +259,7 @@ def charSelect(player):
                 wait(1)
                 confirm("\nThis is where you are given points, and you add points to different stats")
                 
-                hp = 0
+                hp = 10
                 maxHP = 0
                 atk = 0
                 atkBON = 0
@@ -268,8 +268,8 @@ def charSelect(player):
                 maxMP = 0
                 mpBON = 0
                 spd = 0
-                points = 40
-                confirm("All calculations for things like trying to spend more points than you have or get a stat below 0 will be calculated behind the scenes.")
+                points = 35
+                confirm("Don't worry about points going below 0, the game will keep track of that")
                 oc = True
                 while oc:
                     q("1: Heath Points - " + str(hp) + "\n")
@@ -289,59 +289,66 @@ def charSelect(player):
                     q("8: I'm done\n")
                     wait()
                     q("0: Back\n")
-                    option = ask("What would you like to boost? ")
+                    option = ask("What would you like to boost (you have " + str(points) + " points left)? ")
                     spent = 0
-                    if not option == 8 and not option == 0:
+                    if option >= 1 and option <= 7:
                         spent = ask("How much would you like to change this by (negative for bringing points back back)? ")
                     
-                    #Doesn't have enough points
-                    if spent > points:
-                        spent = points
-                    elif option == 1:
-                        if hp + spent < 0:
-                            spent = hp
-                        hp += spent
-                        points -= spent
-                    elif option == 2:
-                        if atk + spent < 0:
-                            spent = atk
-                        atk += spent
-                        points -= spent
-                    elif option == 3:
-                        if atkBON + spent < 0:
-                            spent = atkBON
-                        if atkBON + spent > atk / 2:
-                            spent = atk / 2
-                        atkBON += spent
-                        points -= spent
-                    elif option == 4:
-                        if de + spent < 0:
-                            spent = de
-                        de += spent
-                        points -= spent
-                    elif option == 5:
-                        if mp + spent < 0:
-                            spent = mp
-                        mp += spent
-                        points -= spent
-                    elif option == 6:
-                        if mpBON + spent < 0:
-                            spent = mpBON
-                        if mpBON + spent > mp / 2:
-                            spent = mp / 2
-                        mpBON += spent
-                        points -= spent
-                    elif option == 7:
-                        if spd + spent < 0:
-                            spent = spd
-                        spd += spent
-                        points -= spent
-                    elif option == 8:
-                        if points > 0:
-                            oc = y_or_n("You still have points to spend, are you sure you are done? ")
-                    elif option == 0:
-                        oc = False
-                        skip = True
+                        #Doesn't have enough points
+                        if spent > points:
+                            spent = points
+                        elif option == 1:
+                            if hp + spent < 0:
+                                spent = hp
+                            hp += spent
+                            points -= spent
+                        elif option == 2:
+                            if atk + spent < 0:
+                                spent = atk
+                            atk += spent
+                            points -= spent
+                        elif option == 3:
+                            if atkBON + spent < 0:
+                                spent = atkBON
+                            if atkBON + spent > atk / 2:
+                                spent = atk / 2
+                            atkBON += spent
+                            points -= spent
+                        elif option == 4:
+                            if de + spent < 0:
+                                spent = de
+                            de += spent
+                            points -= spent
+                        elif option == 5:
+                            if mp + spent < 0:
+                                spent = mp
+                            mp += spent
+                            points -= spent
+                        elif option == 6:
+                            if mpBON + spent < 0:
+                                spent = mpBON
+                            if mpBON + spent > mp / 2:
+                                spent = mp / 2
+                            mpBON += spent
+                            points -= spent
+                        elif option == 7:
+                            if spd + spent < 0:
+                                spent = spd
+                            spd += spent
+                            points -= spent
+                    else:
+                        if option == 8:
+                            if points > 0:
+                                oc = y_or_n("You still have points to spend, are you sure you are done? ")
+                                q("Please name your class: ")
+                                option = str(input(''))
+                        elif option == 0:
+                            oc = False
+                            skip = True
+                        else:
+                            q("Please give a valid option.")
+                            wait(1)
+                            q("\n")
                 rc = False
                 cc = False
 
@@ -394,6 +401,8 @@ def charSelect(player):
                     wait(.3)
                     q("\n")
                     ync = True
+        else:
+            cc = True
     return hp, maxHP, atk, atkBON, de, mp, maxMP, mpBON, spd
 def combat(atkP, atkHP, atkMAX_HP, atkMP, atkMAX_MP, atkATK, atkATK_BON, atkDMG_BON, atkAD, atkADTR, atkSPOON, atkKNIFE, atkPOTS, atkFENCE, atkFENCE_SET, atkGLOCK,  defP, defHP, defDEF, defAD, defADTR, defFENCE_SET, defGLOCK, show):
     
@@ -961,9 +970,7 @@ print_random = False
 
 #THE GAME#
 #Insert loading sequence here when you figure out how to do that
-q("If you are a new player, please consult the guide")
-wait(3)
-q("\n")
+confirm("If you are a new player, please consult the guide",1)
 q("\nWelcome to Dungeons and Damage")
 wait(.5)
 q("\nNot to be confused with Dungeons and Dragons")
