@@ -155,16 +155,130 @@ class Player():
         if self.mp > self.mpMAX:
             self.mp = self.mpMAX
 class Knight():
-    ability = "Fortitude"
+    passive = "Fortitude"
     def __init__(self,p):
         Player.__init__(35,7,5,16,5,2,3,p,"Knight",2)
-        self.ability = Knight.ability
+        self.passive = Knight.passive
         self.knives = 3
         self.potions = 5
         self.fences = 1
-    def __damage__(self,damage):
+    def heal(self,heal):
+        Player.heal(self,heal)
+    def damage(self,damage):
         damage -= 2
-        
+        Player.damage(self,damage)
+    def next_turn(self):
+        Player.next_turn(self)
+class Peashooter():
+    passive = "Charge"
+    def __init__(self,p):
+        Player.__init__(26,9,4,14,7,3,5,p,"Peashooter",3)
+        self.passive = Peashooter.passive
+        self.spoons = 1
+        self.knives = 2
+        self.potions = 2
+    def heal(self,heal):
+        Player.heal(self,heal)
+    def damage(self,damage):
+        Player.damage(self,damage)
+    def next_turn(self):
+        if self.mp == self.mpMAX:
+            self.dmgBON += 2
+        else:
+            Player.next_turn(self)
+class Rouge():
+    passive = "Accelerate"
+    def __init__(self,p):
+        Player.__init__(20,10,6,13,6,2,4,p,"Rouge",4)
+        self.passive = Rouge.passive
+        self.spoons = 2
+        self.knives = 3
+        self.potions = 1
+        self.fences = 1
+    def heal(self,heal):
+        Player.heal(self,heal)
+    def damage(self,damage):
+        Player.damage(self,damage)
+    def next_turn(self):
+        self.spd += 1
+        if self.spd > 7:
+            self.spd = 7
+        Player.next_turn(self)
+class Mage():
+    passive = "Zoning in"
+    def __init__(self,p):
+        Player.__init__(21,5,2,11,5,2,4,p,"Mage",2)
+        self.passive = Mage.passive
+        self.spoons = 1
+        self.knives = 1
+        self.potions = 4
+        self.fences = 2
+    def heal(self,heal):
+        Player.heal(self,heal)
+    def damage(self,damage):
+        Player.damage(self,damage)
+    def next_turn(self):
+        self.mpMAX += 1
+        if self.mpMAX > 10:
+            self.mpMAX = 10
+        else:
+            self.mp += 1
+        self.mpBON += 1
+        if self.mpBON > self.mpMAX / 2:
+            self.mpBON = round(self.mpMAX / 2)
+        Player.next_turn(self)
+class Skele():
+    passive = "Focused"
+    def __init__(self,p):
+        Player.__init__(30,7,3,12,7,5,6,p,"Skele",4)
+        self.passive = Skele.passive
+        self.knives = 6
+    def heal(self,heal):
+        Player.heal(self,heal)
+    def damage(self,damage):
+        if damage >= 15:
+            damage = 0
+        Player.damage(self,damage)
+    def next_turn(self):
+        Player.next_turn(self)
+class Bard():
+    passive = "Jack of all Trades"
+    def __init__(self,p):
+        Player.__init__(27,6,4,14,4,2,2,p,"Bard",5)
+        self.passive = Bard.passive
+        self.spoons = 5
+        self.knives = 5
+        self.potions = 3
+        self.fences = 2
+    def heal(self,heal):
+        Player.heal(self,heal)
+    def damage(self,damage):
+        Player.damage(self,damage)
+    def next_turn(self):
+        Player.next_turn(self)
+class Barbarian():
+    passive = "Stronk"
+    def __init__(self,p):
+        Player.__init__(40,12,2,15,2,1,1,p,"Barbarian",1)
+        self.passive = Barbarian.passive
+    def heal(self,heal):
+        Player.heal(self,heal)
+    def damage(self,damage):
+        Player.damage(self,damage)
+    def next_turn(self):
+        confirm("As a bard, you may change around some stats to fit a type of playstyle.")
+        q("1: Offensive\n")
+        wait()
+        q("2: Defensive\n")
+        wait()
+        q("3: Utility\n")
+        wait()
+        q("4: Magical\n")
+        wait()
+        option = ask("What would you like to change to (damage carries over)?")
+class Custom():
+    def __init__(self,p,n):
+        Player.__init__()
 
 #Commands used as chunks of the game
 def charSelect(player):
