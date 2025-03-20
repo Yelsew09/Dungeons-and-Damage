@@ -29,7 +29,7 @@
 <p>.- .-.. .-.. ....... --- ..-. ....... .... .. ... ....... ... - .- - ... ....... .- .-. . ....... ---.. ---.. ..--- ..--- ....- -.... ....- -.... --... ----. ----- --..-- ....... .-- .... .. -.-. .... ....... .. ... ....... - .... . ....... -.- --- -. .- -- .. ....... -.-. --- -.. . ....... --- -. ....... - .... . ....... -.- . -.-- .--. .- -..</p>
 
 ## Plans
-<p>I want to add a new gun interaction, where if you missed your shot, the narrator will remember that and laugh whenever the next gun comes into play</p>
+<p>Visuals have been put on hold. I still think that TKinter is the best way to go about making visuals for a game like this, I have a school project that requires a WAAAAY more fleshed-out version of the terminal-based version (this means more variety between classes)</p>
 
 
 <p>⚔️⚔️⚔️⚔️⚔️⚔️⚔️⚔️⚔️⚔️⚔️⚔️
