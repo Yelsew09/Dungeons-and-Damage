@@ -38,7 +38,6 @@ print_random
 #Imports sys, IDK what it does. All I know is that it's used in the q command
 import random, time, sys
 
-#COMMANDS#
 #Commands used everywhere
 def q(str, t = 0.02):
 
@@ -118,6 +117,54 @@ def y_or_n(asking):
         else:
             q("Please give a valid option\n")
     return loop
+
+#Class for characters
+class Player():
+    def __init__(self,h,a,aB,d,m,mB,s,p,n,i):
+        self.hp = h
+        self.hpMAX = h
+        self.atk = a
+        self.atkBON = aB
+        self.defence = d
+        self.mp = m
+        self.mpMAX = m
+        self.mpBON = mB
+        self.spd = s
+        self.playernum = p
+        self.classname = str(n)
+        self.item_uses = i
+        self.spoons = 0
+        self.knives = 0
+        self.potions = 0
+        self.fences = 0
+        self.fence_set = False
+        self.alive = True
+        self.adv = 0
+        self.adtr = 0
+        self.dmgBON = 0
+    def damage(self,damage):
+        self.hp -= damage
+        if self.hp <= 0:
+            self.alive = False
+    def heal(self,heal):
+        self.hp += heal
+        if self.hp > self.hpMAX:
+            self.hp = self.hpMAX
+    def next_turn(self):
+        self.mp += self.mpBON
+        if self.mp > self.mpMAX:
+            self.mp = self.mpMAX
+class Knight():
+    ability = "Fortitude"
+    def __init__(self,p):
+        Player.__init__(35,7,5,16,5,2,3,p,"Knight",2)
+        self.ability = Knight.ability
+        self.knives = 3
+        self.potions = 5
+        self.fences = 1
+    def __damage__(self,damage):
+        damage -= 2
+        
 
 #Commands used as chunks of the game
 def charSelect(player):
