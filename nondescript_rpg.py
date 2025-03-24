@@ -274,8 +274,17 @@ class Barbarian():
         q("3: Utility\n")
         wait()
         q("4: Magical\n")
-        wait()
-        option = ask("What would you like to change to (damage carries over)?")
+        
+        oc = True
+        while oc:
+            wait()
+            option = ask("What would you like to change to (damage carries over)?")
+
+            #Offensive
+            if option == 1:
+                damage = self.hpMAX - self.hp
+                if 20 - damage <= 0:
+                    q("You cannot use that, you would be put down to 0HP")
 class Custom():
     def __init__(self,p,n):
         Player.__init__()
