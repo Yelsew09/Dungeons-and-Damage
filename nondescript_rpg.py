@@ -157,7 +157,7 @@ class Player():
 class Knight():
     passive = "Fortitude"
     def __init__(self,p):
-        Player.__init__(35,7,5,16,5,2,3,p,"Knight",2)
+        Player.__init__(self,35,7,5,16,5,2,3,p,"Knight",2)
         self.passive = Knight.passive
         self.knives = 3
         self.potions = 5
@@ -172,7 +172,7 @@ class Knight():
 class Peashooter():
     passive = "Charge"
     def __init__(self,p):
-        Player.__init__(26,9,4,14,7,3,5,p,"Peashooter",3)
+        Player.__init__(self,26,9,4,14,7,3,5,p,"Peashooter",3)
         self.passive = Peashooter.passive
         self.spoons = 1
         self.knives = 2
@@ -189,7 +189,7 @@ class Peashooter():
 class Rouge():
     passive = "Accelerate"
     def __init__(self,p):
-        Player.__init__(20,10,6,13,6,2,4,p,"Rouge",4)
+        Player.__init__(self,20,10,3,13,6,2,4,p,"Rouge",4)
         self.passive = Rouge.passive
         self.spoons = 2
         self.knives = 3
@@ -203,11 +203,14 @@ class Rouge():
         self.spd += 1
         if self.spd > 7:
             self.spd = 7
+        self.atkBON += 1
+        if self.atkBON > 9:
+            self.atkBON = 9
         Player.next_turn(self)
 class Mage():
     passive = "Zoning in"
     def __init__(self,p):
-        Player.__init__(21,5,2,11,5,2,4,p,"Mage",2)
+        Player.__init__(self,21,5,2,11,5,2,4,p,"Mage",2)
         self.passive = Mage.passive
         self.spoons = 1
         self.knives = 1
@@ -230,7 +233,7 @@ class Mage():
 class Skele():
     passive = "Focused"
     def __init__(self,p):
-        Player.__init__(30,7,3,12,7,5,6,p,"Skele",4)
+        Player.__init__(self,30,7,3,12,7,5,6,p,"Skele",4)
         self.passive = Skele.passive
         self.knives = 6
     def heal(self,heal):
@@ -244,7 +247,7 @@ class Skele():
 class Bard():
     passive = "Jack of all Trades"
     def __init__(self,p):
-        Player.__init__(25,5,5,14,4,2,2,p,"Bard",5)
+        Player.__init__(self,25,5,5,14,4,2,2,p,"Bard",5)
         self.passive = Bard.passive
         self.spoons = 5
         self.knives = 5
@@ -274,7 +277,7 @@ class Bard():
             if option == 1:
                 damage = self.hpMAX - self.hp
                 if 20 - damage <= 0:
-                    q("You cannot select that preset; you would be out of HP")
+                    confirm("You cannot select that preset; you would be out of HP")
                 else:
                     self.hp = 20 - damage
                     self.hpMAX = 20
@@ -286,6 +289,7 @@ class Bard():
                     self.mpMAX = 5
                     if self.mp < 0:
                         self.mp = 0
+                    self.mpMAX = 5
                     self.mpBON = 3
                     self.item_uses = 4
                     oc = False
@@ -294,7 +298,7 @@ class Bard():
             elif option == 2:
                 damage = self.hpMAX - self.hp
                 if 30 - damage <= 0:
-                    q("You cannot select that preset; you would run out of HP")
+                    confirm("You cannot select that preset; you would run out of HP")
                 else:
                     self.hp = 30 - damage
                     self.hpMAX = 30
@@ -305,6 +309,7 @@ class Bard():
                     self.mp = 2 - damage
                     if self.mp < 0:
                         self.mp = 0
+                    self.mpMAX = 2
                     self.mpBON = 1
                     self.item_uses = 1
                     oc = False
@@ -313,7 +318,7 @@ class Bard():
             elif option == 3:
                 damage = self.hpMAX - self.hp
                 if 25 - damage <= 0:
-                    q("You cannot select that preset; you would run out of HP")
+                    confirm("You cannot select that preset; you would run out of HP")
                 else:
                     self.hp = 25 - damage
                     self.hpMAX = 25
@@ -324,6 +329,7 @@ class Bard():
                     self.mp = 2 - damage
                     if self.mp < 0:
                         self.mp = 0
+                    self.mpMAX = 2
                     self.mpBON = 2
                     self.item_uses = 10
                     oc = False
@@ -332,7 +338,7 @@ class Bard():
             elif option == 4:
                 damage = self.hpMAX - self.hp
                 if 22 - damage <= 0:
-                    q("You cannot select that preset; you would run out of HP")
+                    confirm("You cannot select that preset; you would run out of HP")
                 else:
                     self.hp = 22 - damage
                     self.hpMAX = 22
@@ -343,36 +349,52 @@ class Bard():
                     self.mp = 6 - damage
                     if self.mp < 0:
                         self.mp = 0
+                    self.mpMAX = 6
                     self.mpBON = 4
+                    self.item_uses = 3
                     oc = False
             
             #All-Rounded
             elif option == 5:
                 damage = self.hpMAX - self.hpMAX
                 if 25 - damage <= 0:
-                    q("You cannot select that prest; you would run out of HP")
+                    confirm("You cannot select that prest; you would run out of HP")
                 else:
                     self.hp = 25 - damage
                     self.hpMAX = 25
                     self.atk = 5
                     self.atkBON = 5
                     self.defence = 14
-                    damage
+                    damage = self.mpMAX - self.mp
+                    self.mp = 4
+                    if self.mp < 0:
+                        self.mp = 0
+                    self.mpMAX = 4
+                    self.mpBON = 2
+                    self.item_uses = 5
+                    oc = False
 
+            else:
+                q("Please give a valid option")
+                wait(1)
+                q("\n")
+        Player.next_turn()
 class Barbarian():
-    passive = "Stronk"
+    passive = "Healthy"
     def __init__(self,p):
-        Player.__init__(40,12,2,15,2,1,1,p,"Barbarian",1)
+        Player.__init__(self,40,12,2,15,2,2,1,p,"Barbarian",1)
         self.passive = Barbarian.passive
     def heal(self,heal):
+        heal = round(heal * 1.5)
         Player.heal(self,heal)
     def damage(self,damage):
         Player.damage(self,damage)
-    #Next turn for barb
-                        
+    def next_turn(self):
+        self.heal(2)
+        Player.next_turn(self)                     
 class Custom():
-    def __init__(self,p,n):
-        Player.__init__()
+    def __init__(self,h,a,aB,d,m,mB,s,p,n,i):
+        Player.__init__(self,h,a,aB,d,m,mB,s,p,n,i)
 
 #Commands used as chunks of the game
 def charSelect(player):
@@ -408,100 +430,37 @@ def charSelect(player):
             skip = False
             #Knight
             if option == 1:
-                option = "Knight"
-                hp = 35
-                maxHP = hp
-                atk = 7
-                atkBON = 5
-                de = 16
-                mp = 5
-                maxMP = mp
-                mpBON = 2
-                spd = 3
+                character = Knight(player)
                 rc = False
             
             #Peashooter
             elif option == 2:
-                option = "Peashooter"
-                hp = 26
-                maxHP = hp
-                atk = 9
-                atkBON = 4
-                de = 14
-                mp = 7
-                maxMP = mp
-                mpBON = 3
-                spd = 5
+                character = Peashooter(player)
                 rc = False
             
             #Rouge
             elif option == 3:
-                option = "Rouge"
-                hp = 20
-                maxHP = hp
-                atk = 10
-                atkBON = 6
-                de = 13
-                mp = 6
-                maxMP = mp
-                mpBON = 2
-                spd = 7
+                character = Rouge(player)
                 rc = False
 
             #Mage
             elif option == 4:
-                option = "Mage"
-                hp = 21
-                maxHP = hp
-                atk = 5
-                atkBON = 2
-                de = 11
-                mp = 10
-                maxMP = mp
-                mpBON = 5
-                spd = 4
+                character = Mage(player)
                 rc = False
             
             #Skele
             elif option == 5:
-                option = "Skele"
-                hp = 30
-                maxHP = hp
-                atk = 7
-                atkBON = 3
-                de = 12
-                mp = 7
-                maxMP = mp
-                mpBON = 5
-                spd = 6
+                character = Skele(player)
                 rc = False
             
             #Bard
             elif option == 6:
-                option = "Bard"
-                hp = 27
-                maxHP = hp
-                atk = 6
-                atkBON = 4
-                de = 14
-                mp = 4
-                maxMP = mp
-                mpBON = 2
-                spd = 2
+                character = Bard(player)
                 rc = False
             
             #Barbarian
             elif option == 7:
-                option = "Barbarian"
-                hp = 40
-                maxHP = hp
-                atk = 12
-                atkBON = 2
-                de = 15
-                mp = 2
-                maxMP = mp
-                mpBON = 1
-                spd = 1
+                character = Barbarian(player)
                 rc = False
             
             #Random
@@ -523,6 +482,7 @@ def charSelect(player):
                 maxMP = 0
                 mpBON = 0
                 spd = 0
+                item_uses = 3
                 points = 35
                 confirm("Don't worry about points going below 0, the game will keep track of that")
                 oc = True
@@ -541,12 +501,14 @@ def charSelect(player):
                     wait()
                     q("7: Speed - " + str(spd) + "\n")
                     wait()
-                    q("8: I'm done\n")
+                    q("8: Item Uses - " + str(item_uses) + "\n")
+                    wait()
+                    q("9: I'm done\n")
                     wait()
                     q("0: Back\n")
                     option = ask("What would you like to boost (you have " + str(points) + " points left)? ")
                     spent = 0
-                    if option >= 1 and option <= 7:
+                    if option >= 1 and option <= 8:
                         spent = ask("How much would you like to change this by (negative for bringing points back back)? ")
                     
                         #Doesn't have enough points
@@ -591,12 +553,18 @@ def charSelect(player):
                                 spent = spd
                             spd += spent
                             points -= spent
+                        elif option == 8:
+                            if item_uses + spent < 1:
+                                spent = item_uses - 1
+                            elif item_uses + spent >= 6:
+                                spent = 6
+                            item_uses += spent
+                            points -= spent
                     else:
-                        if option == 8:
+                        if option == 9:
                             if points > 0:
                                 oc = y_or_n("You still have points to spend, are you sure you are done? ")
-                                q("Please name your class: ")
-                                option = str(input(''))
+                                name = ask("Please name your class: ")
                         elif option == 0:
                             oc = False
                             skip = True
@@ -604,6 +572,7 @@ def charSelect(player):
                             q("Please give a valid option.")
                             wait(1)
                             q("\n")
+                character = Custom(hp,atk,atkBON,de,mp,mpBON,spd,name,item_uses)
                 rc = False
                 cc = False
 
@@ -632,7 +601,7 @@ def charSelect(player):
                 wait()
                 q("2: No\n")
                 wait()
-                yesorno = ask("You have chosen the " + str(option) + " class, is this correct? ")
+                yesorno = ask("You have chosen the " + character.classname + " class, is this correct? ")
                 
                 #Yes
                 if yesorno == 1:
