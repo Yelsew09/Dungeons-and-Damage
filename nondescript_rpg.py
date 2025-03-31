@@ -510,56 +510,81 @@ def charSelect(player):
                     spent = 0
                     if option >= 1 and option <= 8:
                         spent = ask("How much would you like to change this by (negative for bringing points back back)? ")
-                    
+
                         #Doesn't have enough points
                         if spent > points:
                             spent = points
+
+                        #Health Points
                         elif option == 1:
                             if hp + spent < 0:
                                 spent = hp
                             hp += spent
                             points -= spent
+
+                        #Attack Damage
                         elif option == 2:
                             if atk + spent < 0:
                                 spent = atk
                             atk += spent
                             points -= spent
+
+                        #Attack Roll Bonus
                         elif option == 3:
                             if atkBON + spent < 0:
                                 spent = atkBON
-                            if atkBON + spent > atk / 2:
-                                spent = atk / 2
-                            atkBON += spent
-                            points -= spent
+                            if atkBON + spent > round(atk/2):
+                                difference = atkBON + spent - round(atk/2)
+                                atkBON = round(atk/2)
+                                points -= difference
+                            else:
+                                atkBON += spent
+                                points -= spent
+
+                        #Defence
                         elif option == 4:
                             if de + spent < 0:
                                 spent = de
                             de += spent
                             points -= spent
+                        
+                        #Magic Power (or Magic Points)
                         elif option == 5:
                             if mp + spent < 0:
                                 spent = mp
                             mp += spent
                             points -= spent
+
+                        #Magic Power Refresh
                         elif option == 6:
                             if mpBON + spent < 0:
                                 spent = mpBON
-                            if mpBON + spent > mp / 2:
-                                spent = mp / 2
-                            mpBON += spent
-                            points -= spent
+                            if mpBON + spent > round(mp/2):
+                                difference = mpBON + spent - round(mp/2)
+                                atkBON = round(atk/2)
+                                points -= difference
+                            else:
+                                mpBON += spent
+                                points -= spent
+
+                        #Speed
                         elif option == 7:
                             if spd + spent < 0:
                                 spent = spd
                             spd += spent
                             points -= spent
+
+                        #Item Uses
                         elif option == 8:
                             if item_uses + spent < 1:
                                 spent = item_uses - 1
                             elif item_uses + spent >= 6:
-                                spent = 6
-                            item_uses += spent
-                            points -= spent
+                                difference = item_uses + spent - 6
+                                item_uses = 6
+                                points -= difference
+                            else:
+                                item_uses += spent
+                                points -= spent
                     else:
                         if option == 9:
                             if points > 0:
