@@ -244,7 +244,7 @@ class Skele():
 class Bard():
     passive = "Jack of all Trades"
     def __init__(self,p):
-        Player.__init__(27,6,4,14,4,2,2,p,"Bard",5)
+        Player.__init__(25,5,5,14,4,2,2,p,"Bard",5)
         self.passive = Bard.passive
         self.spoons = 5
         self.knives = 5
@@ -255,7 +255,110 @@ class Bard():
     def damage(self,damage):
         Player.damage(self,damage)
     def next_turn(self):
-        Player.next_turn(self)
+        confirm("As a bard, you may change around some stats to fit a type of playstyle.")
+        oc = True
+        while oc:
+            q("1: Offensive\n")
+            wait()
+            q("2: Defensive\n")
+            wait()
+            q("3: Utility\n")
+            wait()
+            q("4: Magical\n")
+            wait()
+            q("5: All-Rounded\n")
+            wait()
+            option = ask("What would you like to change to (damage carries over)?")
+            
+            #Offensive
+            if option == 1:
+                damage = self.hpMAX - self.hp
+                if 20 - damage <= 0:
+                    q("You cannot select that preset; you would be out of HP")
+                else:
+                    self.hp = 20 - damage
+                    self.hpMAX = 20
+                    self.atk = 10
+                    self.atkBON = 4
+                    self.defence = 12
+                    damage = self.mpMAX - self.mp
+                    self.mp = 5 - damage
+                    self.mpMAX = 5
+                    if self.mp < 0:
+                        self.mp = 0
+                    self.mpBON = 3
+                    self.item_uses = 4
+                    oc = False
+            
+            #Defensive
+            elif option == 2:
+                damage = self.hpMAX - self.hp
+                if 30 - damage <= 0:
+                    q("You cannot select that preset; you would run out of HP")
+                else:
+                    self.hp = 30 - damage
+                    self.hpMAX = 30
+                    self.atk = 3
+                    self.atkBON = 1
+                    self.defence = 17
+                    damage = self.mpMAX - self.mp
+                    self.mp = 2 - damage
+                    if self.mp < 0:
+                        self.mp = 0
+                    self.mpBON = 1
+                    self.item_uses = 1
+                    oc = False
+            
+            #Utility
+            elif option == 3:
+                damage = self.hpMAX - self.hp
+                if 25 - damage <= 0:
+                    q("You cannot select that preset; you would run out of HP")
+                else:
+                    self.hp = 25 - damage
+                    self.hpMAX = 25
+                    self.atk = 4
+                    self.atkBON = 4
+                    self.defence = 13
+                    damage = self.mpMAX - self.mp
+                    self.mp = 2 - damage
+                    if self.mp < 0:
+                        self.mp = 0
+                    self.mpBON = 2
+                    self.item_uses = 10
+                    oc = False
+            
+            #Magical
+            elif option == 4:
+                damage = self.hpMAX - self.hp
+                if 22 - damage <= 0:
+                    q("You cannot select that preset; you would run out of HP")
+                else:
+                    self.hp = 22 - damage
+                    self.hpMAX = 22
+                    self.atk = 3
+                    self.atkBON = 4
+                    self.defence = 13
+                    damage = self.mpMAX - self.mp
+                    self.mp = 6 - damage
+                    if self.mp < 0:
+                        self.mp = 0
+                    self.mpBON = 4
+                    oc = False
+            
+            #All-Rounded
+            elif option == 5:
+                damage = self.hpMAX - self.hpMAX
+                if 25 - damage <= 0:
+                    q("You cannot select that prest; you would run out of HP")
+                else:
+                    self.hp = 25 - damage
+                    self.hpMAX = 25
+                    self.atk = 5
+                    self.atkBON = 5
+                    self.defence = 14
+                    damage
+
 class Barbarian():
     passive = "Stronk"
     def __init__(self,p):
@@ -265,26 +368,8 @@ class Barbarian():
         Player.heal(self,heal)
     def damage(self,damage):
         Player.damage(self,damage)
-    def next_turn(self):
-        confirm("As a bard, you may change around some stats to fit a type of playstyle.")
-        q("1: Offensive\n")
-        wait()
-        q("2: Defensive\n")
-        wait()
-        q("3: Utility\n")
-        wait()
-        q("4: Magical\n")
-        
-        oc = True
-        while oc:
-            wait()
-            option = ask("What would you like to change to (damage carries over)?")
-
-            #Offensive
-            if option == 1:
-                damage = self.hpMAX - self.hp
-                if 20 - damage <= 0:
-                    q("You cannot use that, you would be put down to 0HP")
+    #Next turn for barb
+                        
 class Custom():
     def __init__(self,p,n):
         Player.__init__()
