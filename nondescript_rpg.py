@@ -393,8 +393,16 @@ class Barbarian():
         self.heal(2)
         Player.next_turn(self)                     
 class Custom():
+    passive = "None"
     def __init__(self,h,a,aB,d,m,mB,s,p,n,i):
         Player.__init__(self,h,a,aB,d,m,mB,s,p,n,i)
+        self.passive = Custom.passive
+    def heal(self,heal):
+        Player.heal(self,heal)
+    def damage(self,damage):
+        Player.damage(self,damage)
+    def next_turn(self):
+        Player.next_turn(self)
 
 #Commands used as chunks of the game
 def charSelect(player):
@@ -586,13 +594,19 @@ def charSelect(player):
                                 item_uses += spent
                                 points -= spent
                     else:
+                        
+                        #I'm done
                         if option == 9:
                             if points > 0:
                                 oc = y_or_n("You still have points to spend, are you sure you are done? ")
-                                name = ask("Please name your class: ")
+                                q("Please name your class: ")
+                                name = str(input(''))
+                        
+                        #Back
                         elif option == 0:
                             oc = False
                             skip = True
+                        
                         else:
                             q("Please give a valid option.")
                             wait(1)
@@ -652,7 +666,7 @@ def charSelect(player):
                     ync = True
         else:
             cc = True
-    return hp, maxHP, atk, atkBON, de, mp, maxMP, mpBON, spd
+    return 
 def combat(atkP, atkHP, atkMAX_HP, atkMP, atkMAX_MP, atkATK, atkATK_BON, atkDMG_BON, atkAD, atkADTR, atkSPOON, atkKNIFE, atkPOTS, atkFENCE, atkFENCE_SET, atkGLOCK,  defP, defHP, defDEF, defAD, defADTR, defFENCE_SET, defGLOCK, show):
     
     #OptionCorrect
