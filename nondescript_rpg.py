@@ -1,37 +1,17 @@
-"""
-atkP
-atkHP
-atkMAX_HP
-atkMP
-atkMAX_MP
-atkATK
-atkATK_BON
-atkDMG_BON
-atkAD
-atkADTR
-atkSPOON
-atkKNIFE
-atkPOTS
-atkFENCE
-atkFENCE_SET
-atkGLOCK
+#I learned about classes and how to use them properly in coding class recently
+#It allows for more control over what does what, and cuts down on space for certain actions
+#This wouldn't have been a thing if it wasn't for a school project,
+#where one of the options was to create a program that lets you make a custom character,
+#with bonus points if you make an inventory system or an attack system. Guess what I had lying around.
+#So, I then made the characters class-based, with minor passives being added and room for more differentiation
 
-defP
-defHP
-defDEF
-defAD
-defADTR
-defFENCE_SET
-defGLOCK
-print_random
-"""
-
-#The rework of this on a basic level
-#We learned that we can set multiple variables with one def command
-#So a combat command will be the main center of this
-#Along with an attack command, magic command, etc.
 #The main control structures we use in this utilize Correct variables
-#They are used for controling which while loop we are in, and they are all just Booleans
+#This is the best control structure for text-based games with menus
+#They are used for controling which "menu" the game is in
+#Each Correct Boolean corrosponds to a seperate menu,
+#so if someone presses back, we go to the previous menu
+#If someone attacks, we break all needed loops to get to the other player's turn
+#Game's over? Loop back to the big ol' AllCorrect loop, putting you back at the main menu
 
 #Imports random, which is used to generate random numbers used for combat within the game
 #Imports time, which is used in a LOT of spots in the code, it's used for timings between text
@@ -675,7 +655,7 @@ def combat(atkP,defP,show):
     
     #OptionCorrect
     oc = True
-    items_left = 3
+    items_left = atkP.item_uses
     confirm("This is the start of player " + str(atkP.id) + "'s turn.",.3)
     while oc:
         q("1: Attack\n")
@@ -699,7 +679,7 @@ def combat(atkP,defP,show):
                 defP.fence_set = False
 
             else:
-                critnumber = random_num(1,20,atkP.ad,show)
+                critnumber = random_num(1,20,atkP.adv,show)
                 
                 #You need to see what you rolled here
                 if not show:
@@ -754,7 +734,7 @@ def combat(atkP,defP,show):
                 if option == 1:
                     
                     #Not enough MP
-                    if atkMP < 5:
+                    if atkP.mp < 5:
                         confirm("You don't have enough MP for that.")
                     
                     else:
@@ -822,7 +802,7 @@ def combat(atkP,defP,show):
                                 confirm("\nI'm leaving.", .2)
                             
                             #The current player already had a gun
-                            elif atkGLOCK >= 1:
+                            elif atkP.mp >= 1:
                                 q("You did it again.")
                                 wait(1)
                                 q("\nLanded a 1 in 100 chance to get a literal GUN.")
@@ -880,7 +860,7 @@ def combat(atkP,defP,show):
                     else:
                         confirm("You gained advantage on your next turn.\n")
                         atkP.mp -= 3
-                        atkP.ad = 1
+                        atkP.adv = 1
                         atkP.adtr = 2
                         oc = False
                         mc = False
@@ -889,30 +869,30 @@ def combat(atkP,defP,show):
                 elif option == 4:
 
                     #Not enough MP
-                    if atkMP < 4:
+                    if atkP.mp < 4:
                         confirm("You don't have enough MP for that.")
                     
                     else:
-                        atkMP -= 4
+                        atkP.mp -= 4
                         oc = False
                         mc = False
                         #If the defending player already had advantage
-                        if defAD == 1:
+                        if defP.adv == 1:
                             confirm("You got rid of player " + str(defP) + "'s advantage.")
-                            defAD = 0
-                            defADTR = 0
+                            defP.adv = 0
+                            defP.adtr = 0
 
                         #If the defending player has no hit modifiers
-                        elif defAD == 0:
-                            confirm("You gave player " + str(defP) + " disadvantage on their next turn.")
-                            defAD = 2
-                            defADTR = 1
+                        elif defP.adv == 0:
+                            confirm("You gave player " + str(defP.id) + " disadvantage on their next turn.")
+                            defP.adv = 2
+                            defP.adv = 1
                         
                         #If the defending player has disadvantage
-                        elif defAD == 2:
-                            confirm("You continuted player " + str(defP) + "'s disadvantage by one more turn.")
-                            defAD = 2
-                            defADTR = 1
+                        elif defP.adv == 2:
+                            confirm("You continuted player " + str(defP.id) + "'s disadvantage by one more turn.")
+                            defP.adv = 2
+                            defP.adtr = 1
                         
                         else:
                             explode()
@@ -921,24 +901,18 @@ def combat(atkP,defP,show):
                 elif option == 5:
                     
                     #Not enough MP
-                    if atkMP < 4:
+                    if atkP.mp < 4:
                         confirm("You don't have enough MP for that.")
                     
                     #Already at max HP
-                    elif atkHP == atkMAX_HP:
+                    elif atkP.hp == atkP.hpMAX:
                         confirm("You're already at max HP.")
                     
                     else:
-                        atkMP -= 4
-                        HEAL = atkMAX_HP/5
-                        confirm("You healed " + str(HEAL) + " points of damage.",.2)
-                        atkHP += HEAL
-
-                        #Going over max hp
-                        if atkHP > atkMAX_HP:
-                            q("But that would've taken you over your max HP.",.2)
-                            atkHP = atkMAX_HP
-                        wait(.3)
+                        atkP.mp -= 4
+                        HEAL = round(atkP.hpMAX/5)
+                        confirm("You healed " + str(HEAL) + " points of damage.")
+                        atkP.heal(HEAL)
                         oc = False
                         mc = False
 
@@ -946,17 +920,17 @@ def combat(atkP,defP,show):
                 elif option == 6:
                     
                     #Not enough MP
-                    if atkMP < 2:
+                    if atkP.mp < 2:
                         confirm("You don't have enough MP.")
                     
                     #Already have the boost
-                    elif atkDMG_BON > 0:
+                    elif atkP.dmgBON > 0:
                         q("You are already under the effect of this.")
                     
                     else:
-                        atkMP -= 2
-                        atkDMG_BON = round(atkATK/3)
-                        confirm("You gained a damage boost of " + str(atkDMG_BON) + " damage.")
+                        atkP.mp -= 2
+                        atkP.dmgBON = round(atkP.atk/3)
+                        confirm("You gained a damage boost of " + str(atkP.dmgBON) + " damage.")
                         oc = False
                         mc = False
                 
@@ -994,17 +968,17 @@ def combat(atkP,defP,show):
             
             #If you have items left to use, start the loop
             else:
-                q("1: Spoon - " + str(atkSPOON) + "\n")
+                q("1: Spoon - " + str(atkP.spoons) + "\n")
                 wait()
-                q("2: Knife - " + str(atkKNIFE) + "\n")
+                q("2: Knife - " + str(atkP.knives) + "\n")
                 wait()
-                q("3: Potion - " + str(atkPOTS) + "\n")
+                q("3: Potion - " + str(atkP.potions) + "\n")
                 wait()
-                q("4: Chain Fence (uses 3 item uses) - " + str(atkFENCE) + "\n")
+                q("4: Chain Fence (uses 3 item uses) - " + str(atkP.fences) + "\n")
                 wait()
 
                 #Print Properly if the gun is in play
-                if atkGLOCK >= 1:
+                if atkP.glocks >= 1:
                     q("5: Glock\n")
                 wait()
                 q("0: Cancel\n")
@@ -1023,53 +997,43 @@ def combat(atkP,defP,show):
                         if option == 1:
                             
                             #No spoons
-                            if atkSPOON < 1:
+                            if atkP.spoons < 1:
                                 confirm("You don't have any spoons. No soup for you.")
                             
                             else:
                                 critnumber = random_num(1,1000,False)
 
-                                #The chance to instantly kill the defending player due to tetanus
-                                if critnumber == 1000:
-                                    
-                                    #Fence
-                                    if defFENCE_SET == 1:
-                                        confirm("You struck " + str(defP) + "'s fence.")
-                                        items_left -= 1
-                                    else:
-                                        confirm("Player " + str(defP) + " got tetanus from being hit with the spoon, dying on the spot.")
-                                        defHP = 0
-                                        items_left = 0
-                                    atkSPOON -= 1
-                                    ic = False
-                                    oc = False
-                                
-                                #The chance to instally die due to tetanus from holding the spoon
-                                elif critnumber == 1:
-                                    confirm("Player " + str(atkP) + " wasn't safe from the spoon. While they were holding it, they got tetanus and died.")
-                                    atkHP = 0
-                                    atkSPOON -= 1
-                                    items_left = 0
-                                    ic = False
-                                    oc = False
-                                
-                                #Everything is good
+                                #Fence
+                                if defP.fence_set:
+                                    confirm("You struck player " + str(defP.id) + "'s fence")
+                                    defP.fence_set = False
                                 else:
 
-                                    #Fence
-                                    if defFENCE_SET == 1:
-                                        confirm("You struck player " + str(defP) + "'s fence.")
+                                    #The chance to instantly kill the other player due to tetanus
+                                    if critnumber == 1000:
+                                        confirm("Player " + str(defP) + " got tetanus from being hit with the spoon, dying on the spot.")
+                                        defP.damage(defP.hp)
+                                        items_left = 1
+                                
+                                    #The chance to intantly die due to tetanus from holding the spoon
+                                    elif critnumber == 1:
+                                        confirm("Player " + str(atkP.id) + " wasn't safe from the spoon. While they were holding it, they got tetanus and died.")
+                                        atkP.damage(atkP.hp)
+                                        items_left = 1
+                                
+                                    #Everything is good
                                     else:
-                                        confirm("Player " + str(atkP) + " did 1 point of damage to player " + str(defP) + ".")
-                                        defHP -= 1
+                                        confirm("Player " + str(atkP.id) + " did 1 point of damage to player " + str(defP.id) + ".")
+                                        defP.damage(1)
+                                    
                                     items_left -= 1
-                                    atkSPOON -= 1
+                                    atkP.spoons -= 1
                         
                         #Knife
                         elif option == 2:
                             
                             #No knife
-                            if atkKNIFE < 1:
+                            if atkP.knives < 1:
                                 ask("You don't have any knives. Want a pencil instead? ",.3)
                                 q("Well I don't have any.\n")
                                 wait(.5)
@@ -1080,59 +1044,60 @@ def combat(atkP,defP,show):
                                 #Miss
                                 if critnumber == 1:
                                     confirm("You threw a knife, completely missing your opponent.")
+                                
+                                #Fence
+                                elif defP.fence_set:
+                                    confirm("You stuck player " + str(defP.id) + "'s fence")
+                                    defP.fence_set = False
 
                                 #Hit
                                 else:
-                                    
-                                    #Fence
-                                    if defFENCE_SET == 1:
-                                        confirm("You struck player " + str(defP) + "'s fence.")
-                                    else:
-                                        critnumber = random_num(1,5,show)
-                                        confirm("You threw a knife, doing " + str(critnumber) + " damage to player " + str(defP) + ".")
-                                        defHP -= critnumber
-                                atkKNIFE -= 1
+                                    critnumber = random_num(1,5,show)
+                                    confirm("You threw a knife, doing " + str(critnumber) + " damage to player " + str(defP.id) + ".")
+                                    defP.damage(critnumber)
+                                atkP.knives -= 1
                                 items_left -= 1
                         
                         #Healing Potion
                         elif option == 3:
 
                             #No potions
-                            if atkPOTS < 1:
+                            if atkP.potions < 1:
                                 q("You don't have any healing poitions.")
                                 wait(.3)
-                                confirm("str(potion_joke) + '.'")
+                                confirm("\nstr(potion_joke) + '.'")
                             
                             else:
-                                HEAL = round(atkMAX_HP/10)
-                                confirm("You healed " + str(HEAL) + " points of damage.",.2)
-                                atkHP += HEAL
-                                if atkHP > atkMAX_HP:
-                                    confirm("But that woul've taken you over your maximum HP.\n",.2)
-                                    atkHP = atkMAX_HP
-                                wait(.3)
-                                atkPOTS -= 1
+                                HEAL = round(atkP.hpMAX/10)
+                                confirm("You healed " + str(HEAL) + " points of damage.")
+                                atkP.heal(HEAL)
+                                atkP.potions -= 1
                                 items_left -= 1
                         
                         #Chain link fence
                         elif option == 4:
                             
                             #No fence
-                            if atkFENCE < 1:
-                                confirm("You don't have a fence. Besides, who carries whole fences on them?")
+                            if atkP.fences < 1:
+                                confirm("You don't have a fence. Besides, who carries entire fences with them?")
                             
-                            elif not items_left == 3:
+                            #Not enough item uses
+                            elif items_left < 3:
                                 confirm("You need three item uses to set this up.")
+                            
+                            #Already have a fence set up
+                            elif atkP.fence_set:
+                                confirm("You already have a fence set up.")
 
                             else:
                                 confirm("You set up an enitre fence in front of you. Looks like it could block a hit")
-                                atkFENCE_SET = True
-                                atkFENCE -= 1
+                                atkP.fence_set = True
+                                atkP.fences -= 1
                                 items_left -= 3
                                 ic = False
                         
                         #Gun if possible
-                        elif option == 5 and atkGLOCK >= 1:
+                        elif option == 5 and atkP.glocks >= 1:
                             critnumber = random_num(1,1000)
                             
                             #Miss
@@ -1141,21 +1106,22 @@ def combat(atkP,defP,show):
                                 q("And that's the last shot in the clip.\n")
                                 wait(1)
                                 confirm("My man really summoned a one-shot weapon with one shot.")
-                                atkGLOCK -= 1
+                                atkP.glocks -= 1
                             
                             #So anyway, I started blasting
                             else:
                                 
                                 #FENCE
-                                if defFENCE_SET == 1:
-                                    confirm("You shot player " + str(defP) + "'s fence.")
+                                if defP.fence_set == 1:
+                                    confirm("You shot player " + str(defP.id) + "'s fence.")
                                     items_left -= 1
                                 else:
-                                    confirm("You shot your gun, hitting player " + str(defP) + " and doing ValueError damage to them.")
-                                    defHP = 0
+                                    confirm("You shot your gun, hitting player " + str(defP.id) + " and doing ValueError damage to them.")
+                                    defP.hp = 0
                                     items_left = 0
                                     ic = False
-                                atkGLOCK -= 1
+                                    oc = False  
+                                atkP.glock -= 1
                         
                         #Cancel
                         elif option == 0:
@@ -1212,7 +1178,7 @@ def combat(atkP,defP,show):
                 #Yes
                 if yesorno == 1:
                     q("You forfeit the match.\n")
-                    atkHP = 0
+                    atkP.hp = 0
                     ync = False
                     oc = False
                 
@@ -1227,8 +1193,7 @@ def combat(atkP,defP,show):
         else:
             q("Please give a provided number.\n")
             wait(.3)
-    return atkHP, atkMP, atkATK_BON, atkDMG_BON, atkAD, atkADTR, atkSPOON, atkKNIFE, atkPOTS, atkFENCE, atkFENCE_SET, atkGLOCK,  defHP, defAD, defADTR, defFENCE_SET, defGLOCK
-##########
+    return atkP, defP
 
 #Setting default rule values
 print_random = False
@@ -1253,29 +1218,7 @@ ac = True
 while ac:
     
     #Reseting variables
-    #Under the for loop to be colapsable
-    for i in range(1):
-        P1AD = 0
-        P2AD = 0
-        P1ADTR = 0
-        P2ADTR = 0
-        P1DMGBOOST = 0
-        P2DMGBOOST = 0
-        P1SPOONS = 0
-        P2SPOONS = 0
-        P1KNIVES = 5
-        P2KNIVES = 5
-        P1POTS = 1
-        P2POTS = 1
-        P1FENCE = 0
-        P2FENCE = 0
-        P1FENCESET = 0
-        P2FENCESET = 0
-        P1GLOCK = 0
-        P2GLOCK = 0
-        P1WINS = 0
-        P2WINS = 0
-        roundnum = 1
+    roundnum = 1
 
     q("1: Game Start\n")
     wait()
@@ -1543,7 +1486,109 @@ while ac:
         
         #GameCorrect
         gc = True
-        #while gc:
+        while gc:
+            
+            #Player 1 is faster than Player 2
+            if player1.spd > player2.spd:
+                confirm("Player 1 has " + str(player1.hp) + "/" + str(player1.hpMAX) + "HP remaining; " + str(player1.mp) + "/" + str(player1.mpMAX) + "MP remaining.")
+                confirm("Player 2 has " + str(player2.hp) + "/" + str(player2.hpMAX) + "HP remaining; " + str(player2.mp) + "/" + str(player2.mpMAX) + "MP remaining.")
+                player1,player2 = combat(player1,player2,print_random)
+                
+                #If both Players are alive
+                if player1.alive and player2.alive:
+                    player2,player1 = combat(player2,player1,print_random)
+                    
+                    #If both Players are alive
+                    if player2.alive and player1.alive:
+                        player1.next_turn()
+                        player2.next_turn()
+                    
+                    #At least one of them is dead
+                    else:
+
+                        #Both are dead
+                        if not player1.alive and not player2.alive:
+                            confirm("Both players are out of HP. The game is resulting in a tie.")
+                        
+                        #Just Player 2 is dead
+                        elif not player2.alive:
+                            confirm("Player 2 is out of HP. They have lost the game.")
+                        
+                        #Just Player 1 is dead
+                        elif not player1.alive:
+                            confirm("Player 1 is out of HP. They have lost the game.")
+                        gc = False
+                
+                #At least one of them is dead
+                else:
+                    
+                    #Both are dead
+                    if not player2.alive and not player1.alive:
+                        confirm("Both players are out of HP. The game is resulting in a tie.")
+                    
+                    #Just Player 1 is dead
+                    elif not player1.alive:
+                        confirm("Player 1 is out of HP. They have lost the game.")
+                    
+                    #Just Player 2 is dead
+                    elif not player2.alive:
+                        confirm("Player 2 is out of HP. They have lost the game")
+                    gc = False
+            elif player2.spd > player1.spd:
+                confirm("Player 2 has " + str(player2.hp) + "/" + str(player2.hpMAX) + "HP remaining; " + str(player2.mp) + "/" + str(player2.mpMAX) + "MP remaining.")
+                confirm("Player 1 has " + str(player1.hp) + "/" + str(player1.hpMAX) + "HP remaining; " + str(player1.mp) + "/" + str(player1.mpMAX) + "MP remaining.")
+                player2,player1 = combat(player2,player1,print_random)
+                
+                #If both Players are alive
+                if player2.alive and player1.alive:
+                    player1,player2 = combat(player1,player2,print_random)
+                    
+                    #If both Players are alive
+                    if player1.alive and player2.alive:
+                        player2.next_turn()
+                        player1.next_turn()
+                    
+                    #At least one of them is dead
+                    else:
+
+                        #Both are dead
+                        if not player2.alive and not player1.alive:
+                            confirm("Both players are out of HP. The game is resulting in a tie.")
+                        
+                        #Just Player 1 is dead
+                        elif not player1.alive:
+                            confirm("Player 1 is out of HP. They have lost the game.")
+                        
+                        #Just Player 2 is dead
+                        elif not player2.alive:
+                            confirm("Player 2 is out of HP. They have lost the game.")
+                        gc = False
+                
+                #At least one of them is dead
+                else:
+                    
+                    #Both are dead
+                    if not player1.alive and not player2.alive:
+                        confirm("Both players are out of HP. The game is resulting in a tie.")
+                    
+                    #Just Player 2 is dead
+                    elif not player2.alive:
+                        confirm("Player 2 is out of HP. They have lost the game.")
+                    
+                    #Just Player 1 is dead
+                    elif not player1.alive:
+                        confirm("Player 1 is out of HP. They have lost the game")
+                    gc = False
+            elif player1.spd == player2.spd:
+                first = random.randint(1,2)
+                if first == 1:
+                    player1.spd += 1
+                elif first == 2:
+                    player2.spd += 1
+                else:
+                    explode()
+            else:
+                explode()
 
     else:
         q("Please give a provided number.")
