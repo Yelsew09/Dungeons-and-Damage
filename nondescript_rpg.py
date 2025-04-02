@@ -135,6 +135,8 @@ class Player():
         self.mp += self.mpBON
         if self.mp > self.mpMAX:
             self.mp = self.mpMAX
+        if self.hp <= 0:
+            self.alive = False
 class Knight():
     passive = "Fortitude"
     def __init__(self,p):
@@ -165,8 +167,7 @@ class Peashooter():
     def next_turn(self):
         if self.mp == self.mpMAX:
             self.dmgBON += 2
-        else:
-            Player.next_turn(self)
+        Player.next_turn(self)
 class Rouge():
     passive = "Accelerate"
     def __init__(self,p):
