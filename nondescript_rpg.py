@@ -221,7 +221,9 @@ class Skele():
     def heal(self,heal):
         Player.heal(self,heal)
     def damage(self,damage):
-        if damage >= 15:
+        if damage == self.hp:
+            damage = self.hp
+        elif damage >= 15:
             damage = 0
         Player.damage(self,damage)
     def next_turn(self):
