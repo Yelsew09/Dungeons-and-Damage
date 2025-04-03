@@ -1,6 +1,11 @@
 # Dungeons & Damage
 <p>This is an experimental rpg that will get updated as time goes on</p>
-<p>Also there are no dungeons. It's a pvp game set in a gladiator arena</p>
+<p>It's meant to be a space to put things we've learned to the test as we learn more things in Python</p>
+<p>As of this release, I don't really have an idea as to where I should go from here. I don't want to add visuals, as the terminal is much more unique</p>
+<p>Also, it's kinda just Excalibur on this right now. Emilio isn't in Python 2 and went to go take game design. I hope he comes back with the ability to make this game better.</p>
+<p>It started as a fun little thing and as of now is evolving</p>
+
+## Characters
 <p>You can play as:</p>
 
 ### Knight
@@ -30,6 +35,17 @@
 
 ## Plans
 <p>I want to add a new gun interaction, where if you missed your shot, the narrator will remember that and laugh whenever the next gun comes into play</p>
+<p>Abilites for each character are in the works, and right now each fighter has a very simple passive ability that won't determine the outcome of the match</p>
+<p>A computer. Idk how this would work, and it would probably be a lot of if statements and easily exploitable.</p>
+<p>More magic options maybe?</p>
+<p>More than 2 players. I think this would be cool. Maybe a 4-player FFA</p>
+<p>Or maybe a 2v2 mode where you can cast benificial spells for allies</p>
+<p>I like how this is becoming closer to Pokemon with every update</p>
 
+<p>⚔️⚔️⚔️⚔️⚔️⚔️⚔️⚔️⚔️⚔️⚔️⚔️</p>
 
-<p>⚔️⚔️⚔️⚔️⚔️⚔️⚔️⚔️⚔️⚔️⚔️⚔️
+## Credits
+<p>Coder - Excalibur</p>
+<p>Coder - Emilio</p>
+<p>Teacher - Mr. Young</p>
+<p>Assistant Teacher - CodeHS</p>
