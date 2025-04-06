@@ -104,16 +104,19 @@ class Player():
     def __init__(self,h,a,aB,d,m,mR,s,i,iM,p,n):
         Player.num_players += 1
         self.hp = h
+        self.hpMAX = h
         self.atk = a
         self.atkBON = aB
         self.defence = d
         self.mp = m
+        self.mpMAX = m
         self.mpREF = mR
         self.spd = s
         self.items = i
         self.itemMAX = iM
         self.id = p
         self.classname = str(n)
+        self.alive = True
         self.dmgBON = 0
         self.spoons = 0
         self.knives = 0
@@ -135,3 +138,31 @@ class Player():
             confirm("You missed your attack.")
         else:
             explode()
+    def damage(self,damage):
+        self.hp -= damage
+        if self.hp <= 0:
+            self.alive = False
+    def heal(self,heal):
+        self.hp += heal
+        if self.hp > self.hpMAX:
+            self.hp = self.hpMAX
+    def next_turn(self):
+        self.mp += self.mpREF
+        if self.mp > self.mpMAX:
+            self.mp = self.mpMAX
+class Knight():
+    passive = "Fortitude"
+    activated = "Second Wind"
+    options = [
+        {'number': 1, 'option': "Attack"},
+        {'number': 2, 'option': "Magic"},
+        {'number': 3, 'option': "Second Wind"},
+        {'number': 4, 'option': "Items"},
+        {'number': 5, 'option': "Pass"},
+    ]
+    spells = [
+        {'number': 1, 'name': ""},
+        {'number': 2, 'name': ""},
+        {'number': 3, 'name': ""},
+        {'number': 4, 'name': ""},
+    ]
