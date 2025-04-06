@@ -1,6 +1,7 @@
 import random,time,sys
 print_random = True
 
+#Commands that help with the program
 def q(str, t = .02):
 
     #I have no idea how this works, it just does
@@ -71,6 +72,32 @@ def y_or_n(asking):
         else:
             q("Please give a valid option\n")
     return loop
+def diceroll(amount,sides):
+
+    #Dice rolls
+    final_number = 0
+    for i in range (amount):
+        final_number += random.randint(1,sides)
+    return final_number
+def explode():
+    
+    #Boom
+    try:
+        explode()
+    except:
+        explode()
+
+#Spell commands
+def Fireball(attacker,target):
+    if attacker.mp < 5:
+        confirm("You don't have enough mp for that.")
+    else:
+        damage = diceroll(3,8)
+        if damage < round(target.defence/2):
+            confirm("The magic was too weak, and it was blocked by player " + str(target.id) + "'s armor.")
+        else:
+            confirm("You did " + str(damage) + " points of damage to player " + str(target.id) + ".")
+            target.damage(damage)
 
 class Player():
     num_players = 0
@@ -99,4 +126,12 @@ class Player():
         if critnum == 20:
             q("IT'S A CRITICAL HIT!!!")
             wait()
-        target.damage(damage)
+            confirm("\nYou did " + str(damage*2) + " damage to player " + str(target.id) + "!")
+            target.damage(damage*2)
+        elif critnum + self.atkBON >= target.defence:
+            confirm("You landed a hit, doing " + str(damage) + " damage to player " + str(target.id) + "!")
+            target.damage(damage)
+        elif critnum + self.atkBON < target.defence:
+            confirm("You missed your attack.")
+        else:
+            explode()
