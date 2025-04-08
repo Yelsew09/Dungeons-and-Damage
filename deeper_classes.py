@@ -260,6 +260,7 @@ actions = ['Attack', 'Magic', 'Second Wind', 'Items', 'Pass']
 # Storing items in a list allows you to retrieve them using
 # numerical values.
 option = 0
+#Just use a correct loop here
 while option <= 0 or option > len(actions):
     try:
         option = int(input("Give an attack option: "))
@@ -279,3 +280,124 @@ for action in range(len(actions)):
     q(str(action + 1) + " - " + str(actions[action]) + "\n")
     wait()
 """
+
+class Player():
+    numplayers = 0
+    def __init__(self,h,a,aB,d,m,mR,s,i,n):
+        Player.numplayers += 1
+        self.hp = h
+        self.hpMAX = h
+        self.atk = a
+        self.atkBON = aB
+        self.defence = d
+        self.mp = m
+        self.mpMAX = m
+        self.mpREF = mR
+        self.spd = s
+        self.itemuses = i
+        self.classname = str(n)
+        self.id = Player.numplayers
+        self.spoons = 0
+        self.knives = 0
+        self.potions = 0
+        self.fences = 0
+        self.dmgBON = 0
+        self.defBON = 0
+        self.fence_set = False
+        self.alive = True
+        #Add status variables here
+        self.adv = 0
+        self.advtr = 0
+    def heal(self,amount):
+        self.hp += amount
+        if self.hp > self.hpMAX:
+            self.hp = self.hpMAX
+    def damage(self,amount):
+        self.hp -= amount
+        if self.hp <= 0:
+            self.alive = False
+    def next_turn(self):
+        print("Reset variables for next turn.")
+class Knight():
+    passive = "Fortitude"
+    activated = "Second Wind"
+    stats = {
+        'hp': 35,
+        'atk': 7,
+        'atkBON': 5,
+        'def': 16,
+        'mp': 5,
+        'mpREF': 2,
+        'spd': 3,
+        'items': 2,
+    }
+    actions = [
+        "Attack",
+        "Magic",
+        "Second Wind",
+        "Items",
+        "Pass",
+        "Run",
+    ]
+    spells = [
+        "",
+        ",",
+    ]
+    def __init__(self):
+        self.stats = Knight.stats
+        Player.__init__(self,self.stats['hp'],self.stats['atk'],self.stats['atkBON'],self.stats['def'], \
+            self.stats['mp'],self.stats['mpREF'],self.stats['spd'],self.stats['items'],"Knight")
+        self.passive = Knight.passive
+        self.activated = Knight.activated
+        self.actions = Knight.actions
+        self.spells = Knight.spells
+        self.knives = 3
+        self.potions = 5
+        self.fences = 1
+    def heal(self,amount):
+        Player.heal(self,amount)
+    def damage(self,amount):
+        if amount >= 3:
+            amount -= 2
+        Player.damage(self,amount)
+    def next_turn(self):
+        Player.next_turn(self)
+class Peashooter ():
+    passive = "Charge"
+    activated = "Volley"
+    stats = {
+        'hp': 26,
+        'atk': 9,
+        'atkBON': 4,
+        'def': 14,
+        'mp': 7,
+        'mpREF': 3,
+        'spd': 5,
+        'items': 3,
+    }
+    actions = [
+        "Attack",
+        "Magic",
+        "Volley",
+        "Items",
+        "Pass",
+        "Run",
+    ]
+    spells = [
+        "",
+        ",",
+    ]
+    def __init__(self):
+        self.stats = Peashooter.stats
+        Player.__init__(self,self.stats['hp'],self.stats['atk'],self.stats['atkBON'],self.stats['def'], \
+            self.stats['mp'],self.stats['mpREF'],self.stats['spd'],self.stats['items'],"Knight")
+        self.passive = Peashooter.passive
+        self.activated = Peashooter.activated
+        self.spoons = 1
+        self.knives = 2
+        self.potions = 2
+    def heal(self,amount):
+        self.hp += amount
+        if self.hp > self.hpMAX:
+            self.hp = self.hpMAX
+    def damage
