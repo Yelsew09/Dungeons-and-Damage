@@ -95,8 +95,8 @@ def explode():
         explode()
 
 #Spell commands
-def Fireball(attacker,target):
-    if attacker.mp < 5:
+def Fireball(user,target):
+    if user.mp < 5:
         confirm("You don't have enough MP for that.")
         loop = True
     else:
@@ -107,11 +107,11 @@ def Fireball(attacker,target):
         else:
             confirm("You did " + str(damage) + " points of damage to player " + str(target.id) + ".")
             target.damage(damage)
-            attacker.mp -= 5
+            user.mp -= 5
             loop = False
-    return attacker,target,loop
-def Frostshot(attacker,target):
-    if attacker.mp < 3:
+    return user,target,loop
+def Frostshot(user,target):
+    if user.mp < 3:
         confirm("You don't have enough MP for that.")
         loop = True
     else:
@@ -120,11 +120,11 @@ def Frostshot(attacker,target):
         target.damage(damage)
         target.frost = True
         target.frostr = 2
-        attacker.mp -= 3
+        user.mp -= 3
         loop = False
-    return attacker,target,loop
-def Firebolt(attacker,target):
-    if attacker.mp < 3:
+    return user,target,loop
+def Firebolt(user,target):
+    if user.mp < 3:
         confirm("You don't have enough MP for that.")
         loop = True
     else:
@@ -132,32 +132,32 @@ def Firebolt(attacker,target):
         confirm("You did " + str(damage) + " damage to player " + str(target.id) + ".")
         target.damage(damage)
         loop = False
-    return attacker,target,loop
-def MagicArmor(attacker,target):
-    if attacker.mp < 2:
+    return user,target,loop
+def MagicArmor(user,target):
+    if user.mp < 2:
         confirm("You don't have enough MP for that.")
         loop = True
     else:
         target.defBON = diceroll(2,4)
         confirm("Player " + str(target.id) + " gained a defence bonus of " + str(target.defBON) + ".")
-        attacker.mp -= 2
+        user.mp -= 2
         loop = False
-    return attacker,target,loop
-def DaggerCloud(attacker,target):
-    if attacker.mp < 2:
+    return user,target,loop
+def DaggerCloud(user,target):
+    if user.mp < 2:
         confirm("You don't have enough MP for that.")
         loop = True
-    elif attacker.knives < 5:
-        confirm("You need at least 5 knives to cast this spell. You have " + str(attacker.knives) + ".")
+    elif user.knives < 5:
+        confirm("You need at least 5 knives to cast this spell. You have " + str(user.knives) + ".")
     else:
         damage = diceroll(5,5)
         confirm("You did " + str(damage) + " damage to player " + str(target.id) + ".")
-        attacker.knives -= 5
-        attacker.mp -= 2
+        user.knives -= 5
+        user.mp -= 2
         loop = False
-    return attacker,target,loop
-def PoisonDart(attacker,target):
-    if attacker.mp < 6:
+    return user,target,loop
+def PoisonDart(user,target):
+    if user.mp < 6:
         confirm("You don't have enough MP for that.")
         loop = True
     else:
@@ -165,117 +165,44 @@ def PoisonDart(attacker,target):
         target.poisontr = random.randint + 1
         confirm("You did " + str(target.poison + 2) + " damage to player " + str(target.id) + ".")
         target.damage(target.poison)
-        attacker.mp -= 6
+        user.mp -= 6
         loop = False
-    return attacker,target,loop
-def Dispel(attacker,target):
-    if attacker.mp < 5:
+    return user,target,loop
+def Dispel(user,target):
+    if user.mp < 5:
         confirm("You don't have enough MP for that.")
         loop = True
     else:
         target.mp = round(target.mp/2)
         confirm("You halved player " + str(target.id) + "'s MP, leaving them on " + str(target.mp) + "MP.")
-        attacker.mp -= 5
+        user.mp -= 5
         loop = False
-    return attacker,target,loop
-def Slow(attacker,target):
-    if attacker.mp < 7:
+    return user,target,loop
+def Slow(user,target):
+    if user.mp < 7:
         confirm("You don't have enough MP for that.")
         loop = True
     else:
         target.spd = round(target.spd/2)
         confirm("You halved player " + str(target.id) + "'s MP, leaving them with a speed of " + str(target.spd) + " for a turn.")
         target.slowtr = 2
-        attacker.mp -= 7
+        user.mp -= 7
         loop = False
-    return attacker,target,loop
+    return user,target,loop
+def TrueStrike(user,target):
+    if user.mp < 4:
+        confirm("You don't have enough MP for that.")
+        loop = True
+    elif target.TrueHit:
+        confirm("The target is already guaranteed to hit their next attack.")
+        loop = True
+    else:
+        confirm("You will hit your next attack, guarenteed.")
+        target.TrueHit = True
+        user.mp -= 4
+        loop = False
+    return user,target,loop
 
-#Classes
-class Player():
-    num_players = 0
-    def __init__(self,h,a,aB,d,m,mR,s,i,iM,p,n):
-        Player.num_players += 1
-        self.hp = h
-        self.hpMAX = h
-        self.atk = a
-        self.atkBON = aB
-        self.defence = d
-        self.mp = m
-        self.mpMAX = m
-        self.mpREF = mR
-        self.spd = s
-        self.items = i
-        self.itemMAX = iM
-        self.id = p
-        self.classname = str(n)
-        self.alive = True
-        self.dmgBON = 0
-        self.defBON = 0
-        self.spoons = 0
-        self.knives = 0
-        self.potions = 0
-        self.fences = 0
-        self.adv = 0
-        self.adtr = 0
-        self.frost = False
-        self.frostr = 0
-        self.poison = 0
-        self.poisontr = 0
-    def attack(self,target,damage):
-        critnum = random_num(1,20,self.adv,print_random)
-        if critnum == 20:
-            q("IT'S A CRITICAL HIT!!!")
-            wait()
-            confirm("\nYou did " + str(damage*2) + " damage to player " + str(target.id) + "!")
-            target.damage(damage*2)
-        elif critnum + self.atkBON >= target.defence + target.defBON:
-            confirm("You landed a hit, doing " + str(damage) + " damage to player " + str(target.id) + "!")
-            target.damage(damage)
-        elif critnum + self.atkBON < target.defence + target.defBON:
-            confirm("You missed your attack.")
-        else:
-            explode()
-        self.dmgBON = 0
-        target.defBON = 0
-    def damage(self,damage):
-        self.hp -= damage
-        if self.hp <= 0:
-            self.alive = False
-    def heal(self,heal):
-        self.hp += heal
-        if self.hp > self.hpMAX:
-            self.hp = self.hpMAX
-    def next_turn(self):
-        self.mp += self.mpREF
-        if self.mp > self.mpMAX:
-            self.mp = self.mpMAX
-            self.adtr -= 1
-        if self.adtr == 0:
-            self.adv = 0
-            self.frostr -= 1
-        if self.frostr == 0:
-            self.frost = False
-        if self.poisontr > 0:
-            self.damage(random.randint(0,self.poison))
-            self.poisontr -= 1
-        if self.slowtr > 0:
-            self.spd = self.reset(self.spd)
-class Knight():
-    passive = "Fortitude"
-    activated = "Second Wind"
-    options = [
-        {'number': 1, 'option': "Attack"},
-        {'number': 2, 'option': "Magic"},
-        {'number': 3, 'option': "Second Wind"},
-        {'number': 4, 'option': "Items"},
-        {'number': 5, 'option': "Pass"},
-    ]
-    spells = [
-        {'number': 1, 'name': ""},
-        {'number': 2, 'name': ""},
-        {'number': 3, 'name': ""},
-        {'number': 4, 'name': ""},
-    ]
 
 
 testing = [
