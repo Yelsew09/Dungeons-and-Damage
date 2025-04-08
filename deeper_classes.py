@@ -1,6 +1,8 @@
 import random,time,sys
-global print_random
+global print_random,AntiMagic,AntiMagictr
 print_random = True
+AntiMagic = False
+AntiMagictr = 0
 
 #Commands that help with the program
 def q(str, t = .02):
@@ -95,6 +97,54 @@ def explode():
         explode()
 
 #Spell commands
+def AntiMagicArea(user):
+    if user.mp < 10:
+        confirm("You don't have enough MP for that.")
+        loop = True
+    elif AntiMagic:
+        confirm("There is already an Antimagic Bubble up.")
+        loop = True
+    else:
+        confirm("You set up an Antimagic Bubble. Spells are now uncastable for the next 2 turns.")
+        user.mp -= 10
+        AntiMagic = True
+        AntiMagictr = 3
+    return user,loop
+def BladeWard(user,target):
+    if user.mp < 7:
+        confirm("You don't have enough MP for that.")
+        loop = True
+    elif target.BladeWard:
+        confirm("Player " + str(target.id) + " is already under the effect of that spell.")
+        loop = True
+    else:
+        confirm("Player " + str(target.id) + " will take 1/2 damage the next time they are damaged by a physical attack.")
+        target.BladeWard = True
+        user.mp -= 7
+        loop = False
+    return user,target,loop
+def Frost(user,target):
+    if user.mp < 3:
+        confirm("You don't have enough MP for that.")
+        loop = True
+    else:
+        confirm("You slowed player " + str(target.id) + " for a turn.")
+        target.frost = True
+        target.frostr = 2
+        user.mp -= 3
+        loop = False
+    return user,target,loop
+def CounterSpell(user):
+    if user.mp < 3:
+        confirm("You don't have enough MP for that.")
+        loop = True
+    elif user.counterspell:
+        confirm("You are already under the effect of this spell.")
+        loop = True
+    else:
+        confirm("The next spell that you are the target of just won't work.")
+        user.counterspell = True
+        loop = True
 def Fireball(user,target):
     if user.mp < 5:
         confirm("You don't have enough MP for that.")
@@ -111,16 +161,16 @@ def Fireball(user,target):
             loop = False
     return user,target,loop
 def Frostshot(user,target):
-    if user.mp < 3:
+    if user.mp < 5:
         confirm("You don't have enough MP for that.")
         loop = True
     else:
         damage = diceroll(2,4)
-        confirm("You did " + str(damage) + " damage to player " + str(target.id) + ", and gave them a -1 to their atkBON for a turn.")
+        confirm("You did " + str(damage) + " damage to player " + str(target.id) + ", and slowed them for a turn.")
         target.damage(damage)
         target.frost = True
         target.frostr = 2
-        user.mp -= 3
+        user.mp -= 5
         loop = False
     return user,target,loop
 def Firebolt(user,target):
@@ -203,17 +253,29 @@ def TrueStrike(user,target):
         loop = False
     return user,target,loop
 
+"""    
+# With what you're doing here, it seems like you want to map
+# a specific number to a specific action.
+actions = ['Attack', 'Magic', 'Second Wind', 'Items', 'Pass']
+# Storing items in a list allows you to retrieve them using
+# numerical values.
+option = 0
+while option <= 0 or option > len(actions):
+    try:
+        option = int(input("Give an attack option: "))
+    except ValueError:
+        pass # This try/except is to handle if someone puts in "hi", or the like.
+# Now, you can check what the user put in, and run an action accordingly.
+# Shown here is how you can tell what action a player did.
+print('Option Selected: ' + str(actions[option+1]))
+if option == 1:
+    print("Do what you would for Attack.")
+elif option == 2:
+    print("Do what you would do for Magic.")
+# And so on, for all the other options in correspondence with the items in the array.
 
-
-testing = [
-    {'number': 1, 'option': "Attack"},
-    {'number': 2, 'option': "Magic"},
-    {'number': 3, 'option': "Second Wind"},
-    {'number': 4, 'option': "Items"},
-    {'number': 5, 'option': "Pass"},
-]
-option = int(input("Give an option. "))
-#How to get 1 to change to "Attack", or 2 to "Magic" using the values of testing
-option = str(testing[option])
-if option == "Attack":
-    print("Do this")
+# Extra: If you want to show the user what actions they can do, you can set something up like this.
+for action in range(len(actions)):
+    q(str(action + 1) + " - " + str(actions[action]) + "\n")
+    wait()
+"""
