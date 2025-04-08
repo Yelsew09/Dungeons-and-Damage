@@ -276,4 +276,17 @@ class Knight():
         {'number': 3, 'name': ""},
         {'number': 4, 'name': ""},
     ]
-    
+
+
+testing = [
+    {'number': 1, 'option': "Attack"},
+    {'number': 2, 'option': "Magic"},
+    {'number': 3, 'option': "Second Wind"},
+    {'number': 4, 'option': "Items"},
+    {'number': 5, 'option': "Pass"},
+]
+option = int(input("Give an option. "))
+#How to get 1 to change to "Attack", or 2 to "Magic" using the values of testing
+option = str(testing[option])
+if option == "Attack":
+    print("Do this")
