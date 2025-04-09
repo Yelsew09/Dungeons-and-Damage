@@ -95,6 +95,9 @@ def explode():
         explode()
     except:
         explode()
+def instant_kill(victim):
+    victim.hp -= victim.hpMAX
+    return victim
 
 #Spell commands
 def AntiMagicArea(user):
@@ -253,32 +256,36 @@ def TrueStrike(user,target):
         loop = False
     return user,target,loop
 
-"""    
-# With what you're doing here, it seems like you want to map
-# a specific number to a specific action.
-actions = ['Attack', 'Magic', 'Second Wind', 'Items', 'Pass']
-# Storing items in a list allows you to retrieve them using
-# numerical values.
-option = 0
-#Just use a correct loop here
-while option <= 0 or option > len(actions):
-    try:
-        option = int(input("Give an attack option: "))
-    except ValueError:
-        pass # This try/except is to handle if someone puts in "hi", or the like.
-# Now, you can check what the user put in, and run an action accordingly.
-# Shown here is how you can tell what action a player did.
-print('Option Selected: ' + str(actions[option+1]))
-if option == 1:
-    print("Do what you would for Attack.")
-elif option == 2:
-    print("Do what you would do for Magic.")
-# And so on, for all the other options in correspondence with the items in the array.
+""" FORMAT FOR PRINTING AND USING ACTIONS
 
-# Extra: If you want to show the user what actions they can do, you can set something up like this.
-for action in range(len(actions)):
-    q(str(action + 1) + " - " + str(actions[action]) + "\n")
-    wait()
+#The list of actions
+actions = ["Attack","Magic",etc.]
+
+#Whatever correct variable is being used
+CorrectVar = True
+while CorrectVar:
+
+    #Prints the list of options with a corrosponding number
+    for action in range(len(attacker.actions)):
+        q(str(action + 1) + " - " + str(actions[action]) + "\n")
+        wait()
+    
+    #User input
+    option = ask("What would you like to do? ")
+
+    #Converts option to a string value
+    option = str(attacker.actions[option - 1])
+    
+    #Compares string value to list of given actions
+    if option == "Attack":
+        #Attack
+    elif option == "Magic":
+        #Magic
+    elif option == "etc.":
+        #etc.
+
+Thanks Ian
+I also learned about pass from that
 """
 
 class Player():
@@ -305,6 +312,8 @@ class Player():
         self.defBON = 0
         self.fence_set = False
         self.alive = True
+        self.recharge = 0
+        self.rechargelen = 0
         #Add status variables here
         self.adv = 0
         self.advtr = 0
@@ -362,7 +371,7 @@ class Knight():
         Player.damage(self,amount)
     def next_turn(self):
         Player.next_turn(self)
-class Peashooter ():
+class Peashooter():
     passive = "Charge"
     activated = "Volley"
     stats = {
@@ -390,14 +399,176 @@ class Peashooter ():
     def __init__(self):
         self.stats = Peashooter.stats
         Player.__init__(self,self.stats['hp'],self.stats['atk'],self.stats['atkBON'],self.stats['def'], \
-            self.stats['mp'],self.stats['mpREF'],self.stats['spd'],self.stats['items'],"Knight")
+            self.stats['mp'],self.stats['mpREF'],self.stats['spd'],self.stats['items'],"Peashooter")
         self.passive = Peashooter.passive
         self.activated = Peashooter.activated
         self.spoons = 1
         self.knives = 2
         self.potions = 2
     def heal(self,amount):
-        self.hp += amount
-        if self.hp > self.hpMAX:
-            self.hp = self.hpMAX
-    def damage
+        Player.heal(self,amount)
+    def damage(self,amount):
+        Player.heal(self,amount)
+    def next_turn(self):
+        if self.mp == self.mpMAX:
+            self.dmgBON += 3
+        Player.next_turn(self)
+class Rouge():
+    passive = "Accelerate"
+    activated = "Sneak Attack"
+    stats = {
+        'hp': 20,
+        'atk': 10,
+        'atkBON': 3,
+        'def': 13,
+        'mp': 6,
+        'mpREF': 2,
+        'spd': 4,
+        'items': 4,
+    }
+    actions = [
+        "Attack",
+        "Magic",
+        "Sneak Attack",
+        "Item",
+        "Pass",
+    ]
+    spells = [
+        "",
+        ",",
+    ]
+    def __init__(self):
+        self.stats = Rouge.stats
+        Player.__init__(self,self.stats['hp'],self.stats['atk'],self.stats['atkBON'],self.stats['def'], \
+            self.stats['mp'],self.stats['mpREF'],self.stats['spd'],self.stats['items'],"Rouge")
+        self.passive = Rouge.passive
+        self.activated = Rouge.activated
+        self.spoons = 2
+        self.knives = 3
+        self.potions = 1
+        self.fences = 1
+    def heal(self,amount):
+        Player.heal(self,amount)
+    def damage(self,amount):
+        Player.damage(self,amount)
+    def next_turn(self):
+        if self.spd >= 9:
+            pass
+        else:
+            self.spd += 1
+        Player.next_turn(self)
+class Mage():
+    passive = "Zoning in"
+    activated = "Magical Fury"
+    stats = {
+        'hp': 21,
+        'atk': 5,
+        'atkBON': 2,
+        'def': 11,
+        'mp': 5,
+        'mpREF': 2,
+        'spd': 4,
+        'items': 2,
+    }
+    actions = [
+        "Attack",
+        "Magic",
+        "Magical Fury",
+        "Item",
+        "Pass",
+    ]
+    spells = [
+        "",
+        ",",
+    ]
+    def __init__(self):
+        self.stats = Mage.stats
+        Player.__init__(self,self.stats['hp'],self.stats['atk'],self.stats['atkBON'],self.stats['def'], \
+            self.stats['mp'],self.stats['mpREF'],self.stats['spd'],self.stats['items'],"Mage")
+        self.passive = Mage.passive
+        self.activated = Mage.activated
+        self.spoons = 1
+        self.knives = 1
+        self.potions = 4
+        self.fences = 2
+    def heal(self,amount):
+        Player.heal(self,amount)
+    def damage(self,amount):
+        Player.damage(self,amount)
+    def next_turn(self):
+        if self.mp >= 10:
+            pass
+        else:
+            self.mp += 1
+            self.mpMAX += 1
+            self.mpREF = round(self.mpMAX/2)
+class Skele():
+    passive = "Impervious"
+    activated = "Swirling"
+    stats = {
+        'hp': 30,
+        'atk': 7,
+        'atkBON': 3,
+        'def': 12,
+        'mp': 7,
+        'mpREF': 5,
+        'spd': 6,
+        'items': 4,
+    }
+    actions = [
+        "Attack",
+        "Magic",
+        "Swirl",
+        "Item",
+        "Pass",
+    ]
+    spells = [
+        "",
+        ",",
+    ]
+    def __init__(self):
+        self.stats = Skele.stats
+        Player.__init__(self,self.stats['hp'],self.stats['atk'],self.stats['atkBON'],self.stats['def'], \
+            self.stats['mp'],self.stats['mpREF'],self.stats['spd'],self.stats['items'],"Skele")
+        self.passive = Skele.passive
+        self.activated = Skele.activated
+        self.knives = 6
+    def heal(self,amount):
+        Player.heal(self,amount)
+    def damage(self,amount):
+        if amount > 15:
+            confirm("But Impervious stops Skele from taking more than 15 damage at a time.")
+            amount = 0
+        else:
+            Player.damage(self,amount)
+    def next_turn(self):
+        Player.next_turn(self)
+class Bard():
+    passive = ""
+    actiavted = "Jack of All Trades"
+    stats = {
+        'hp': 25,
+        'atk': 5,
+        'atkBON': 5,
+        'def': 14,
+        'mp': 4,
+        'mpREF': 2,
+        'spd': 2,
+        'items': 5,
+    }
+    actions = [
+        "Attack",
+        "Magic",
+        "Stat Change",
+        "Item",
+        "Pass",
+    ]
+    spells = [
+        "",
+        ",",
+    ]
+    def __init__(self):
+        self.stats = Bard.stats
+        Player.__init__(self,self.stats['hp'],self.stats['atk'],self.stats['atkBON'],self.stats['def'], \
+            self.stats['mp'],self.stats['mpREF'],self.stats['spd'],self.stats['items'],"Bard")
+            
