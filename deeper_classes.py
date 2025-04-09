@@ -544,7 +544,7 @@ class Skele():
     def next_turn(self):
         Player.next_turn(self)
 class Bard():
-    passive = ""
+    passive = "Boosted"
     actiavted = "Jack of All Trades"
     stats = {
         'hp': 25,
@@ -571,4 +571,13 @@ class Bard():
         self.stats = Bard.stats
         Player.__init__(self,self.stats['hp'],self.stats['atk'],self.stats['atkBON'],self.stats['def'], \
             self.stats['mp'],self.stats['mpREF'],self.stats['spd'],self.stats['items'],"Bard")
-            
+        self.spoons = 5
+        self.knives = 5
+        self.potions = 3
+        self.fences = 2
+    def heal(self,heal):
+        Player.heal(self,heal)
+    def damage(self,damage):
+        Player.damage(self,damage)
+    def next_turn(self):
+        Player.next_turn(self)
