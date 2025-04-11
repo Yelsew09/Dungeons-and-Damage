@@ -35,7 +35,7 @@
 
 # Plans
 <p>I want to add a new gun interaction, where if you missed your shot, the narrator will remember that and laugh whenever the next gun comes into play</p>
-<p>Abilites for each character are in the works, and right now each fighter has a very simple passive ability that won't determine the outcome of the match</p>
+<p>Abilites for each character are in the works, and right now each fighter has a very simple passive ability that (hopefully) won't automatically determine the outcome of the match</p>
 <p>A computer. Idk how this would work, and it would probably be a lot of if statements and easily exploitable.</p>
 <p>More magic options maybe?</p>
 <p>More than 2 players. I think this would be cool. Maybe a 4-player FFA</p>
