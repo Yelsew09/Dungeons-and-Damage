@@ -312,7 +312,7 @@ class Player():
         self.defBON = 0
         self.fence_set = False
         self.alive = True
-        self.recharge = 0
+        self.recharge = True
         self.rechargelen = 0
         #Add status variables here
         self.adv = 0
