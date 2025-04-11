@@ -402,6 +402,8 @@ class Peashooter():
             self.stats['mp'],self.stats['mpREF'],self.stats['spd'],self.stats['items'],"Peashooter")
         self.passive = Peashooter.passive
         self.activated = Peashooter.activated
+        self.actions = Peashooter.actions
+        self.spells = Peashooter.spells
         self.spoons = 1
         self.knives = 2
         self.potions = 2
@@ -443,6 +445,8 @@ class Rouge():
             self.stats['mp'],self.stats['mpREF'],self.stats['spd'],self.stats['items'],"Rouge")
         self.passive = Rouge.passive
         self.activated = Rouge.activated
+        self.actions = Rouge.actions
+        self.spells = Rouge.spells
         self.spoons = 2
         self.knives = 3
         self.potions = 1
@@ -487,6 +491,8 @@ class Mage():
             self.stats['mp'],self.stats['mpREF'],self.stats['spd'],self.stats['items'],"Mage")
         self.passive = Mage.passive
         self.activated = Mage.activated
+        self.actions = Mage.actions
+        self.spells = Mage.spells
         self.spoons = 1
         self.knives = 1
         self.potions = 4
@@ -532,6 +538,8 @@ class Skele():
             self.stats['mp'],self.stats['mpREF'],self.stats['spd'],self.stats['items'],"Skele")
         self.passive = Skele.passive
         self.activated = Skele.activated
+        self.actions = Skele.actions
+        self.spells = Skele.spells
         self.knives = 6
     def heal(self,amount):
         Player.heal(self,amount)
@@ -571,13 +579,146 @@ class Bard():
         self.stats = Bard.stats
         Player.__init__(self,self.stats['hp'],self.stats['atk'],self.stats['atkBON'],self.stats['def'], \
             self.stats['mp'],self.stats['mpREF'],self.stats['spd'],self.stats['items'],"Bard")
+        self.passive = Bard.passive
+        self.activated = Bard.actiavted
+        self.actions = Bard.actions
+        self.spells = Bard.spells
         self.spoons = 5
         self.knives = 5
         self.potions = 3
         self.fences = 2
-    def heal(self,heal):
-        Player.heal(self,heal)
-    def damage(self,damage):
-        Player.damage(self,damage)
+    def heal(self,amount):
+        Player.heal(self,amount)
+    def damage(self,amount):
+        Player.damage(self,amount)
     def next_turn(self):
+        # Select new stat block
+        Player.next_turn(self)
+class Barbarian():
+    passive = "Healthy"
+    activated = "Brutal"
+    stats = {
+        'hp': 40,
+        'atk': 12,
+        'atkBON': 2,
+        'def': 15,
+        'mp': 2,
+        'mpREF': 2,
+        'spd': 1,
+        'items': 1,
+    }
+    actions = [
+        "Attack",
+        "Magic",
+        "Smash",
+        "Item",
+        "Pass",
+    ]
+    spells = [
+        "",
+        ",",
+    ]
+    def __init__(self):
+        Player.__init__(self,self.stats['hp'],self.stats['atk'],self.stats['atkBON'],self.stats['def'], \
+            self.stats['mp'],self.stats['mpREF'],self.stats['spd'],self.stats['items'],"Barbarian")
+        self.passive = Barbarian.passive
+        self.activated = Barbarian.passive
+        self.actions = Barbarian.actions
+        self.spells = Barbarian.spells
+    def heal(self,amount):
+        amount = round(amount*1.5)
+        Player.heal(self,amount)
+    def damage(self,amount):
+        Player.damage(self,amount)
+    def next_turn(self):
+        self.heal(2)
+        Player.next_turn(self)
+class Custom():
+    passive = None
+    activated = None
+    actions = [
+        "Attack",
+        "Item",
+        "Pass",
+    ]
+    spells = [
+        "",
+        ",",
+    ]
+    def __init__(self,h,a,aB,d,m,mB,s,i,n):
+        self.stats = {
+            'hp': h,
+            'atk': a,
+            'atkBON': aB,
+            'def': d,
+            'mp': m,
+            'mpREF': mB,
+            'spd': s,
+            'items': i,
+        }
+        self.passive = Custom.passive
+        self.activated = Custom.activated
+        Player.__init__(self,self.stats['hp'],self.stats['atk'],self.stats['atkBON'],self.stats['def'], \
+            self.stats['mp'],self.stats['mpREF'],self.stats['spd'],self.stats['items'],str(n))
+        self.actions = Custom.actions
+        self.spells = Custom.spells
+        if self.mp > 0:
+            self.actions = [
+                "Attack",
+                "Magic",
+                "Item",
+                "Pass",
+            ]
+    def heal(self,amount):
+        Player.heal(self,amount)
+    def damage(self,amount):
+        Player.damage(self,amount)
+    def next_turn(self):
+        Player.next_turn(self)
+class God():
+    passive = "Unkillable"
+    activated = "Destructive Hit"
+    stats = {
+        'hp': 88224646790,
+        'atk': 88224646790,
+        'atkBON': 88224646790,
+        'def': 88224646790,
+        'mp': 88224646790,
+        'mpREF': 88224646790,
+        'spd': 88224646790,
+        'items': 88224646790,
+    }
+    actions = [
+        "Attack",
+        "Magic",
+        "Destructive Hit",
+        "Item",
+        "Pass",
+    ]
+    spells = [
+        "Literally everything",
+        ",",
+    ]
+    def __init__(self):
+        self.stats = God.stats
+        Player.__init__(self,self.stats['hp'],self.stats['atk'],self.stats['atkBON'],self.stats['def'], \
+            self.stats['mp'],self.stats['mpREF'],self.stats['spd'],self.stats['items'],"-.- --- -. .- -- .. ....... -.-. --- -.. .")
+        self.passive = God.passive
+        self.activated = God.activated
+        self.actions = God.actions
+        self.spells = God.spells
+        self.spoons = 88224646790
+        self.knives = 88224646790
+        self.potions = 88224646790
+        self.fences = 88224646790
+    def heal(self,amount):
+        amount = self.hpMAX
+        Player.heal(self,amount)
+    def damage(self,amount):
+        amount = round(amount/10)
+        Player.damage(amount)
+    def next_turn(self):
+        self.heal(1)
+        self.adv = 1
+        self.advtr = 2
         Player.next_turn(self)
