@@ -314,6 +314,8 @@ class Player():
         self.itemuses = i
         self.classname = str(n)
         self.id = Player.numplayers
+        self.abil = False
+        self.abilTR = 0
         self.spoons = 0
         self.knives = 0
         self.potions = 0
@@ -322,8 +324,6 @@ class Player():
         self.defBON = 0
         self.fence_set = False
         self.alive = True
-        self.recharge = True
-        self.rechargelen = 0
         #Add status variables here
         self.adv = 0
         self.advtr = 0
@@ -373,6 +373,7 @@ class Knight():
         self.activated = Knight.activated
         self.actions = Knight.actions
         self.spells = Knight.spells
+        self.abilREF = 3
         self.knives = 3
         self.potions = 5
         self.fences = 1
@@ -1092,6 +1093,8 @@ def take_turn(atkP,defP):
             confirm("You passed your turn.")
             oc = False
         elif option == "Second Wind":
-            q(f"")
+            confirm(f"You activated your second wind. It is now on cooldown for {atkP.abilREF} turns.")
+            atkP.abil = True
+            atkP.abilTR = atkP.abilREF + 1
 
     return atkP, defP
