@@ -24,7 +24,7 @@ def confirm(str, t = .5):
     q(str)
     input(' >')
     wait(t)
-def random_num(minimum,maximum,ad,show):
+def random_num(minimum,maximum,ad):
 
     #Generates a random number, accounting for advantage
     num1 = random.randint(minimum,maximum)
@@ -35,8 +35,8 @@ def random_num(minimum,maximum,ad,show):
         critnumber = min(num1,num2)
     else:
         critnumber = random.randint(minimum,maximum)
-    if show:
-        confirm("You rolled a " + str(critnumber) + "!")
+    if print_random:
+        confirm(f"You rolled a {critnumber}!")
     return critnumber
 def ask(str,t = .5):
 
@@ -49,9 +49,9 @@ def ask(str,t = .5):
             ec = False
             time.sleep(t)
         except ValueError:
-            q("Please provide a number.")
+            q(f"Please provide a number.")
             time.sleep(t)
-            q("\n")
+            q(f"\n")
     return option
 def y_or_n(asking):
 
@@ -59,11 +59,11 @@ def y_or_n(asking):
     #Be sure to set it equal to a correct variable
     ync = True
     while ync:
-        q("1: Yes\n")
+        q(f"1: Yes\n")
         wait()
-        q("2: No\n")
+        q(f"2: No\n")
         wait()
-        option = ask(str(asking))
+        option = ask(asking)
         if option == 1:
             loop = False
             ync = False
@@ -71,17 +71,17 @@ def y_or_n(asking):
             loop = True
             ync = False
         else:
-            q("Please give a valid option\n")
+            q(f"Please give a valid option\n")
     return loop
-def diceroll(amount,sides):
+def diceroll(amount,sides,starting = 0):
 
     #Dice rolls
-    final_number = 0
-    printed = "You rolled values of : "
+    final_number = starting
+    printed = "You rolled values of: "
     for i in range (amount):
         added = random.randint(1,sides)
         final_number += added
-        if i == 1:
+        if i == 0:
             printed += str(added)
         else:
             printed += ", " + str(added)
@@ -100,9 +100,9 @@ def instant_kill(victim):
     return victim
 def qlist(list,returntype,asking = "What would you like to do? ",):
     for option in range(len(list)):
-        q(str(option) + " - " + str(list[option]) + "\n")
+        q(f"{option} - {list[option]}\n")
         wait()
-    option = ask(str(asking))
+    option = ask(asking)
     if returntype:
         try:
             option = list[option]
@@ -115,36 +115,36 @@ def qlist(list,returntype,asking = "What would you like to do? ",):
 #Spell commands
 def AntiMagicArea(user):
     if user.mp < 10:
-        confirm("You don't have enough MP for that.")
+        confirm(f"You don't have enough MP for that.")
         loop = True
     elif AntiMagic:
-        confirm("There is already an Antimagic Bubble up.")
+        confirm(f"There is already an Antimagic Bubble up.")
         loop = True
     else:
-        confirm("You set up an Antimagic Bubble. Spells are now uncastable for the next 2 turns.")
+        confirm(f"You set up an Antimagic Bubble. Spells are now uncastable for the next 2 turns.")
         user.mp -= 10
         AntiMagic = True
         AntiMagictr = 3
     return user,loop
 def BladeWard(user,target):
     if user.mp < 7:
-        confirm("You don't have enough MP for that.")
+        confirm(f"You don't have enough MP for that.")
         loop = True
     elif target.BladeWard:
-        confirm("Player " + str(target.id) + " is already under the effect of that spell.")
+        confirm(f"Player {target.id} is already under the effect of that spell.")
         loop = True
     else:
-        confirm("Player " + str(target.id) + " will take 1/2 damage the next time they are damaged by a physical attack.")
+        confirm(f"Player {str(target.id)} will take 1/2 damage the next time they are damaged by a physical attack.")
         target.BladeWard = True
         user.mp -= 7
         loop = False
     return user,target,loop
 def Frost(user,target):
     if user.mp < 3:
-        confirm("You don't have enough MP for that.")
+        confirm(f"You don't have enough MP for that.")
         loop = True
     else:
-        confirm("You slowed player " + str(target.id) + " for a turn.")
+        confirm(f"You slowed player {target.id} for a turn.")
         target.frost = True
         target.frostr = 2
         user.mp -= 3
@@ -152,37 +152,37 @@ def Frost(user,target):
     return user,target,loop
 def CounterSpell(user):
     if user.mp < 3:
-        confirm("You don't have enough MP for that.")
+        confirm(f"You don't have enough MP for that.")
         loop = True
     elif user.counterspell:
-        confirm("You are already under the effect of this spell.")
+        confirm(f"You are already under the effect of this spell.")
         loop = True
     else:
-        confirm("The next spell that you are the target of just won't work.")
+        confirm(f"The next spell that you are the target of just won't work.")
         user.counterspell = True
         loop = True
 def Fireball(user,target):
     if user.mp < 5:
-        confirm("You don't have enough MP for that.")
+        confirm(f"You don't have enough MP for that.")
         loop = True
     else:
         damage = diceroll(3,8)
         if damage < round(target.defence/2):
-            confirm("The magic was too weak, and it was blocked by player " + str(target.id) + "'s armor.")
+            confirm(f"The magic was too weak, and it was blocked by player {target.id}'s armor.")
             loop = True
         else:
-            confirm("You did " + str(damage) + " points of damage to player " + str(target.id) + ".")
+            confirm(f"You did {damage} points of damage to player {target.id}.")
             target.damage(damage)
             user.mp -= 5
             loop = False
     return user,target,loop
 def Frostshot(user,target):
     if user.mp < 5:
-        confirm("You don't have enough MP for that.")
+        confirm(f"You don't have enough MP for that.")
         loop = True
     else:
         damage = diceroll(2,4)
-        confirm("You did " + str(damage) + " damage to player " + str(target.id) + ", and slowed them for a turn.")
+        confirm(f"You did {damage} damage to player {target.id}, and slowed them for a turn.")
         target.damage(damage)
         target.frost = True
         target.frostr = 2
@@ -191,79 +191,79 @@ def Frostshot(user,target):
     return user,target,loop
 def Firebolt(user,target):
     if user.mp < 3:
-        confirm("You don't have enough MP for that.")
+        confirm(f"You don't have enough MP for that.")
         loop = True
     else:
         damage = diceroll(2,6)
-        confirm("You did " + str(damage) + " damage to player " + str(target.id) + ".")
+        confirm(f"You did {damage} damage to player {target.id}.")
         target.damage(damage)
         loop = False
     return user,target,loop
 def MagicArmor(user,target):
     if user.mp < 2:
-        confirm("You don't have enough MP for that.")
+        confirm(f"You don't have enough MP for that.")
         loop = True
     else:
         target.defBON = diceroll(2,4)
-        confirm("Player " + str(target.id) + " gained a defence bonus of " + str(target.defBON) + ".")
+        confirm(f"Player " + str(target.id) + " gained a defence bonus of " + str(target.defBON) + ".")
         user.mp -= 2
         loop = False
     return user,target,loop
 def DaggerCloud(user,target):
     if user.mp < 2:
-        confirm("You don't have enough MP for that.")
+        confirm(f"You don't have enough MP for that.")
         loop = True
     elif user.knives < 5:
-        confirm("You need at least 5 knives to cast this spell. You have " + str(user.knives) + ".")
+        confirm(f"You need at least 5 knives to cast this spell. You have " + str(user.knives) + ".")
     else:
         damage = diceroll(5,5)
-        confirm("You did " + str(damage) + " damage to player " + str(target.id) + ".")
+        confirm(f"You did " + str(damage) + " damage to player " + str(target.id) + ".")
         user.knives -= 5
         user.mp -= 2
         loop = False
     return user,target,loop
 def PoisonDart(user,target):
     if user.mp < 6:
-        confirm("You don't have enough MP for that.")
+        confirm(f"You don't have enough MP for that.")
         loop = True
     else:
         target.poison = diceroll(1,4)
         target.poisontr = random.randint + 1
-        confirm("You did " + str(target.poison + 2) + " damage to player " + str(target.id) + ".")
+        confirm(f"You did {target.poison + 2} damage to player {target.id}.")
         target.damage(target.poison)
         user.mp -= 6
         loop = False
     return user,target,loop
 def Dispel(user,target):
     if user.mp < 5:
-        confirm("You don't have enough MP for that.")
+        confirm(f"You don't have enough MP for that.")
         loop = True
     else:
         target.mp = round(target.mp/2)
-        confirm("You halved player " + str(target.id) + "'s MP, leaving them on " + str(target.mp) + "MP.")
+        confirm(f"You halved player {target.id}'s MP, leaving them on {target.mp}MP.")
         user.mp -= 5
         loop = False
     return user,target,loop
 def Slow(user,target):
     if user.mp < 7:
-        confirm("You don't have enough MP for that.")
+        confirm(f"You don't have enough MP for that.")
         loop = True
     else:
         target.spd = round(target.spd/2)
-        confirm("You halved player " + str(target.id) + "'s MP, leaving them with a speed of " + str(target.spd) + " for a turn.")
+        confirm(f"You halved player {target.id}'s MP, leaving them with a speed of {target.spd} for a turn.")
         target.slowtr = 2
         user.mp -= 7
         loop = False
     return user,target,loop
 def TrueStrike(user,target):
     if user.mp < 4:
-        confirm("You don't have enough MP for that.")
+        confirm(f"You don't have enough MP for that.")
         loop = True
     elif target.TrueHit:
-        confirm("The target is already guaranteed to hit their next attack.")
+        confirm(f"The target is already guaranteed to hit their next attack.")
         loop = True
     else:
-        confirm("You will hit your next attack, guarenteed.")
+        confirm(f"You will hit your next attack, guarenteed.")
         target.TrueHit = True
         user.mp -= 4
         loop = False
@@ -280,11 +280,11 @@ while CorrectVar:
 
     #Prints the list of options with a corrosponding number
     for action in range(len(attacker.actions)):
-        q(str(action + 1) + " - " + str(actions[action]) + "\n")
+        q(f{action + 1} - {actions[action]}\n")
         wait()
     
     #User input
-    option = ask("What would you like to do? ")
+    option = ask(f"What would you like to do? ")
 
     #Converts option to a string value
     option = str(attacker.actions[option - 1])
@@ -338,8 +338,11 @@ class Player():
         self.hp -= amount
         if self.hp <= 0:
             self.alive = False
+    def die(self):
+        self.hp -= self.hp
+        self.alive = False
     def next_turn(self):
-        print("Reset variables for next turn.")
+        print(f"Reset variables for next turn.")
 class Knight():
     passive = "Fortitude"
     activated = "Second Wind"
@@ -382,6 +385,8 @@ class Knight():
         if amount >= 3:
             amount -= 2
         Player.damage(self,amount)
+    def die(self):
+        Player.die(self)
     def next_turn(self):
         Player.next_turn(self)
 class Peashooter():
@@ -424,6 +429,8 @@ class Peashooter():
         Player.heal(self,amount)
     def damage(self,amount):
         Player.heal(self,amount)
+    def die(self):
+        Player.die(self)
     def next_turn(self):
         if self.mp == self.mpMAX:
             self.dmgBON += 3
@@ -468,6 +475,8 @@ class Rouge():
         Player.heal(self,amount)
     def damage(self,amount):
         Player.damage(self,amount)
+    def die(self):
+        Player.die(self)
     def next_turn(self):
         if self.spd >= 9:
             pass
@@ -514,6 +523,8 @@ class Mage():
         Player.heal(self,amount)
     def damage(self,amount):
         Player.damage(self,amount)
+    def die(self):
+        Player.die(self)
     def next_turn(self):
         if self.mp >= 10:
             pass
@@ -558,10 +569,11 @@ class Skele():
         Player.heal(self,amount)
     def damage(self,amount):
         if amount > 15:
-            confirm("But Impervious stops Skele from taking more than 15 damage at a time.")
-            amount = 0
-        else:
-            Player.damage(self,amount)
+            confirm(f"But Impervious stops Skele from taking more than 15 damage at a time.")
+            amount = 15
+        Player.damage(self,amount)
+    def die(self):
+        Player.die(self)
     def next_turn(self):
         Player.next_turn(self)
 class Bard():
@@ -604,6 +616,8 @@ class Bard():
         Player.heal(self,amount)
     def damage(self,amount):
         Player.damage(self,amount)
+    def die(self):
+        Player.die(self)
     def next_turn(self):
         # Select new stat block
         Player.next_turn(self)
@@ -643,6 +657,8 @@ class Barbarian():
         Player.heal(self,amount)
     def damage(self,amount):
         Player.damage(self,amount)
+    def die(self):
+        Player.die(self)
     def next_turn(self):
         self.heal(2)
         Player.next_turn(self)
@@ -686,6 +702,8 @@ class Custom():
         Player.heal(self,amount)
     def damage(self,amount):
         Player.damage(self,amount)
+    def die(self):
+        Player.die(self)
     def next_turn(self):
         Player.next_turn(self)
 class God():
@@ -730,6 +748,8 @@ class God():
     def damage(self,amount):
         amount = round(amount/10)
         Player.damage(amount)
+    def die(self):
+        confirm("This character has the 'Unkillable' trait, so even the coder of this game can't instantly kill them.")
     def next_turn(self):
         self.heal(1)
         self.adv = 1
@@ -754,7 +774,7 @@ def charselect(playernum):
         "Custom",
         "Random",
     ]
-        option = qlist(options,True,"Please select a class, player " + str(playernum) + ": ")
+        option = qlist(options,True, f"Please select a class, player {playernum}: ")
         rc = True
         while rc:
 
@@ -819,20 +839,20 @@ def charselect(playernum):
                 oc = True
                 while oc:
                     options = [
-                        "Back",
-                        "Health Points - " + str(hp),
-                        "Attack Damage - " + str(atk),
-                        "Attack Roll Bonus (can be up to 1/2 your Attack Damage) - " + str(atkBON),
-                        "Defence - " + str(de),
-                        "Magic Points (or magic power) - " + str(mp),
-                        "Magic Point Refresh (can be up to 1/2 your Magic Points) - " + str(mpBON),
-                        "Speed (minimum 1) - " + str(spd),
-                        "Item Uses (max 6) - " + str(itus),
-                        "I'm done",
+                        f"Back",
+                        f"Health Points - {hp}",
+                        f"Attack Damage - {atk}",
+                        f"Attack Roll Bonus (can be up to 1/2 your Attack Damage) - {atkBON}",
+                        f"Defence - " + str(de),
+                        f"Magic Points (or magic power) - " + str(mp),
+                        f"Magic Point Refresh (can be up to 1/2 your Magic Points) - {mpBON}",
+                        f"Speed (minimum 1) - {spd}",
+                        f"Item Uses (max 6) - {itus}",
+                        f"I'm done",
                     ]
-                    option = qlist(options,False,"What would you like to change (you have " + str(points) + " points left)? ")
+                    option = qlist(options,False, f"What would you like to change (you have {points} points left)? ")
                     if option >= 1 and option <= 7:
-                        spent = ask("How much would you like to spend on that? ")
+                        spent = ask(f"How much would you like to spend on that? ")
 
                         #Not enough points
                         if spent > points:
@@ -913,13 +933,13 @@ def charselect(playernum):
                         rc = True
                     elif option == 9:
                         if points > 0:
-                            rc = y_or_n("Are you sure you are done? You still have points to spend. ")
+                            rc = y_or_n(f"Are you sure you are done? You still have points to spend. ")
                         else:
                             rc = False
                     else:
-                        q("Please give a valid option.")
+                        q(f"Please give a valid option.")
                         wait(.5)
-                        q("\n")
+                        q(f"\n")
                 player = Custom()
                 rc = False
             
@@ -929,14 +949,14 @@ def charselect(playernum):
                 rc = False
             
             else:
-                q("Please choose a valid option")
+                q(f"Please choose a valid option")
                 rc = False
                 skip = True
         if skip:
             pass
         else:
-            cc = y_or_n("You have chosen the " + str(player.name) + " class, is this correct? ")
-def take_turn(atkP,defP,show):
+            cc = y_or_n(f"You have chosen the {player.name} class, is this correct? ")
+def take_turn(atkP,defP):
 
     #OptionCorrect
     oc = True
@@ -944,20 +964,20 @@ def take_turn(atkP,defP,show):
         option = qlist(atkP.options,True)
         if option == "Attack":
             if defP.fence_set:
-                confirm("You struck player " + str(defP.id) + "'s fence.")
+                confirm(f"You struck player {defP.id}'s fence.")
                 defP.fence_set = False
             else:
-                critnumber = random_num(1,20,atkP.adv,show)
+                critnumber = random_num(1,20,atkP.adv)
                 if critnumber == 20:
-                    q("IT'S A CRITICAL HIT!!!")
+                    q(f"IT'S A CRITICAL HIT!!!")
                     wait(.5)
-                    confirm("\nYou did " + str((atkP.atk*2) + atkP.dmgBON) + " to player " + str(defP.id) + ".")
+                    confirm(f"\nYou did {(atkP.atk*2) + atkP.dmgBON} to player {defP.id}.")
                     defP.damage((atkP.atk*2) + atkP.dmgBON)
                 elif critnumber + atkP.atkMOD >= defP.defence + defP.defBON:
-                    confirm("You landed a hit, doing " + str(atkP.atk + atkP.dmgBON))
+                    confirm(f"You landed a hit, doing {atkP.atk + atkP.dmgBON}")
                     defP.damage(atkP.atk + atkP.dmgBON)
                 elif critnumber + atkP.atkMOD < defP.defence + defP.defBON:
-                    confirm("You missed your attack.")
+                    confirm(f"You missed your attack.")
                 oc = False
                 atkP.dmgBON = 0
         elif option == "Magic":
@@ -965,9 +985,31 @@ def take_turn(atkP,defP,show):
             #MagicCorrect
             mc = True
             while mc:
-                q("0 - Back\n")
+                q(f"0 - Back\n")
                 wait()
-                option = qlist(atkP.spells,True,"What would you like to cast? ")
-
+                option = qlist(atkP.spells,True, f"What would you like to cast? ")
+                if option == "Fireball":
+                    mc = Fireball(atkP,defP)
+                #Repeat for list of spells
+        elif option == "Item":
+            ic = True
+            while ic:
+                options = []
+                if atkP.spoons > 0:
+                    options += f"Spoons - {atkP.spoons}"
+                if atkP.knives > 0:
+                    options += f"Knives - {atkP.knives}"
+                if atkP.potions > 0:
+                    options += f"Potions - {atkP.potions}"
+                if atkP.fences > 0:
+                    options += f"Fences - {atkP.fences}"
+                if atkP.glocks > 0:
+                    options += f"Glocks - {atkP.glocks}"
+                option = qlist(options,True, f"What would you like to use? ")
+                if option == "Spoons":
+                    critnumber = random.randint(1,1000)
+                    if critnumber == 1:
+                        instant_kill(atkP)
+                        confirm("You ran out of HP")
 
     return atkP, defP
