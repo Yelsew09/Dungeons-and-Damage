@@ -520,7 +520,7 @@ def charSelect(player):
                             spent = points
 
                         #Health Points
-                        elif option == 1:
+                        if option == 1:
                             if hp + spent < 0:
                                 spent = hp
                             hp += spent

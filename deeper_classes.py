@@ -98,6 +98,19 @@ def explode():
 def instant_kill(victim):
     victim.hp -= victim.hpMAX
     return victim
+def qlist(list,returntype,asking = "What would you like to do? ",):
+    for option in range(len(list)):
+        q(str(option) + " - " + str(list[option]) + "\n")
+        wait()
+    option = ask(str(asking))
+    if returntype:
+        try:
+            option = list[option]
+        except:
+            pass
+    else:
+        pass
+    return option
 
 #Spell commands
 def AntiMagicArea(user):
@@ -290,12 +303,12 @@ I also learned about pass from that
 
 class Player():
     numplayers = 0
-    def __init__(self,h,a,aB,d,m,mR,s,i,n):
+    def __init__(self,h,a,aM,d,m,mR,s,i,n):
         Player.numplayers += 1
         self.hp = h
         self.hpMAX = h
         self.atk = a
-        self.atkBON = aB
+        self.atkMOD = aM
         self.defence = d
         self.mp = m
         self.mpMAX = m
@@ -722,3 +735,239 @@ class God():
         self.adv = 1
         self.advtr = 2
         Player.next_turn(self)
+
+# FINALLY, THE ACTUAL GAME
+# Commands used as part of the actual game
+def charselect(playernum):
+    #CharacterCorrect
+    cc = True
+    while cc:
+        options = [
+        "Back",
+        "Knight",
+        "Peashooter",
+        "Rouge",
+        "Mage",
+        "Skele",
+        "Bard",
+        "Barbarian",
+        "Custom",
+        "Random",
+    ]
+        option = qlist(options,True,"Please select a class, player " + str(playernum) + ": ")
+        rc = True
+        while rc:
+
+            #Back
+            if option == "Back":
+                rc = False
+                cc = False
+                skip = True
+            
+            #Knight
+            elif option == "Knight":
+                player = Knight()
+                rc = False
+            
+            #Peashooter
+            elif option == "Peashooter":
+                player = Peashooter()
+                rc = False
+            
+            #Rouge
+            elif option == "Rouge":
+                player = Rouge()
+                rc = False
+            
+            #Mage
+            elif option == "Mage":
+                player = Mage()
+                rc = False
+            
+            #Skele
+            elif option == "Skele":
+                player = Skele()
+                rc = False
+            
+            #Bard
+            elif option == "Bard":
+                player = Bard()
+                rc = False
+            
+            #Barbarian
+            elif option == "Barbarian":
+                player = Barbarian()
+                rc = False
+            
+            #Random
+            elif option == "Random":
+                option = random.randint(1,7)
+                option = options[option]
+            
+            #Custom
+            elif option == "Custom":
+                hp = 10
+                atk = 0
+                atkBON = 0
+                de = 0
+                mp = 0
+                mpBON = 0
+                spd = 1
+                itus = 3
+                points = 35
+
+                oc = True
+                while oc:
+                    options = [
+                        "Back",
+                        "Health Points - " + str(hp),
+                        "Attack Damage - " + str(atk),
+                        "Attack Roll Bonus (can be up to 1/2 your Attack Damage) - " + str(atkBON),
+                        "Defence - " + str(de),
+                        "Magic Points (or magic power) - " + str(mp),
+                        "Magic Point Refresh (can be up to 1/2 your Magic Points) - " + str(mpBON),
+                        "Speed (minimum 1) - " + str(spd),
+                        "Item Uses (max 6) - " + str(itus),
+                        "I'm done",
+                    ]
+                    option = qlist(options,False,"What would you like to change (you have " + str(points) + " points left)? ")
+                    if option >= 1 and option <= 7:
+                        spent = ask("How much would you like to spend on that? ")
+
+                        #Not enough points
+                        if spent > points:
+                            spent = points
+
+                        #Health Points
+                        if option == 1:
+                            if hp + spent < 0:
+                                spent = hp
+                            hp += spent
+                            points -= spent
+
+                        #Attack Damage
+                        elif option == 2:
+                            if atk + spent < 0:
+                                spent = atk
+                            atk += spent
+                            points -= spent
+
+                        #Attack Roll Bonus
+                        elif option == 3:
+                            if atkBON + spent < 0:
+                                spent = atkBON
+                            if atkBON + spent > round(atk/2):
+                                difference = atkBON + spent - round(atk/2)
+                                atkBON = round(atk/2)
+                                points -= difference
+                            else:
+                                atkBON += spent
+                                points -= spent
+
+                        #Defence
+                        elif option == 4:
+                            if de + spent < 0:
+                                spent = de
+                            de += spent
+                            points -= spent
+                        
+                        #Magic Power (or Magic Points)
+                        elif option == 5:
+                            if mp + spent < 0:
+                                spent = mp
+                            mp += spent
+                            points -= spent
+
+                        #Magic Power Refresh
+                        elif option == 6:
+                            if mpBON + spent < 0:
+                                spent = mpBON
+                            if mpBON + spent > round(mp/2):
+                                difference = mpBON + spent - round(mp/2)
+                                atkBON = round(atk/2)
+                                points -= difference
+                            else:
+                                mpBON += spent
+                                points -= spent
+
+                        #Speed
+                        elif option == 7:
+                            if spd + spent < 0:
+                                spent = spd
+                            spd += spent
+                            points -= spent
+
+                        #Item Uses
+                        elif option == 8:
+                            if item_uses + spent < 1:
+                                spent = item_uses - 1
+                            elif item_uses + spent >= 6:
+                                difference = item_uses + spent - 6
+                                item_uses = 6
+                                points -= difference
+                            else:
+                                item_uses += spent
+                                points -= spent
+                else:
+                    if option == 0:
+                        rc = True
+                    elif option == 9:
+                        if points > 0:
+                            rc = y_or_n("Are you sure you are done? You still have points to spend. ")
+                        else:
+                            rc = False
+                    else:
+                        q("Please give a valid option.")
+                        wait(.5)
+                        q("\n")
+                player = Custom()
+                rc = False
+            
+            #GOD
+            elif option == 88224646790:
+                player = God()
+                rc = False
+            
+            else:
+                q("Please choose a valid option")
+                rc = False
+                skip = True
+        if skip:
+            pass
+        else:
+            cc = y_or_n("You have chosen the " + str(player.name) + " class, is this correct? ")
+def take_turn(atkP,defP,show):
+
+    #OptionCorrect
+    oc = True
+    while oc:
+        option = qlist(atkP.options,True)
+        if option == "Attack":
+            if defP.fence_set:
+                confirm("You struck player " + str(defP.id) + "'s fence.")
+                defP.fence_set = False
+            else:
+                critnumber = random_num(1,20,atkP.adv,show)
+                if critnumber == 20:
+                    q("IT'S A CRITICAL HIT!!!")
+                    wait(.5)
+                    confirm("\nYou did " + str((atkP.atk*2) + atkP.dmgBON) + " to player " + str(defP.id) + ".")
+                    defP.damage((atkP.atk*2) + atkP.dmgBON)
+                elif critnumber + atkP.atkMOD >= defP.defence + defP.defBON:
+                    confirm("You landed a hit, doing " + str(atkP.atk + atkP.dmgBON))
+                    defP.damage(atkP.atk + atkP.dmgBON)
+                elif critnumber + atkP.atkMOD < defP.defence + defP.defBON:
+                    confirm("You missed your attack.")
+                oc = False
+                atkP.dmgBON = 0
+        elif option == "Magic":
+            
+            #MagicCorrect
+            mc = True
+            while mc:
+                q("0 - Back\n")
+                wait()
+                option = qlist(atkP.spells,True,"What would you like to cast? ")
+
+
+    return atkP, defP
