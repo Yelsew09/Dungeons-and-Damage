@@ -95,9 +95,6 @@ def explode():
         explode()
     except:
         explode()
-def instant_kill(victim):
-    victim.hp -= victim.hpMAX
-    return victim
 def qlist(list,returntype,asking = "What would you like to do? ",):
     for option in range(len(list)):
         q(f"{option} - {list[option]}\n")
@@ -958,6 +955,7 @@ def charselect(playernum):
             cc = y_or_n(f"You have chosen the {player.name} class, is this correct? ")
 def take_turn(atkP,defP):
 
+    items_left = atkP.itus
     #OptionCorrect
     oc = True
     while oc:
@@ -991,25 +989,109 @@ def take_turn(atkP,defP):
                 if option == "Fireball":
                     mc = Fireball(atkP,defP)
                 #Repeat for list of spells
+                else:
+                    q(f"Please choose a valid option.")
+                    wait(.5)
+                    q("\n")
         elif option == "Item":
             ic = True
             while ic:
-                options = []
-                if atkP.spoons > 0:
-                    options += f"Spoons - {atkP.spoons}"
-                if atkP.knives > 0:
-                    options += f"Knives - {atkP.knives}"
-                if atkP.potions > 0:
-                    options += f"Potions - {atkP.potions}"
-                if atkP.fences > 0:
-                    options += f"Fences - {atkP.fences}"
-                if atkP.glocks > 0:
-                    options += f"Glocks - {atkP.glocks}"
-                option = qlist(options,True, f"What would you like to use? ")
-                if option == "Spoons":
-                    critnumber = random.randint(1,1000)
-                    if critnumber == 1:
-                        instant_kill(atkP)
-                        confirm("You ran out of HP")
+                if items_left == 0:
+                    confirm(f"You are out of item uses")
+                    ic = False
+                else:
+                    options = [
+                        "Back",
+                    ]
+                    if atkP.spoons > 0:
+                        options += f"Spoons - {atkP.spoons}"
+                    if atkP.knives > 0:
+                        options += f"Knives - {atkP.knives}"
+                    if atkP.potions > 0:
+                        options += f"Potions - {atkP.potions}"
+                    if atkP.fences > 0:
+                        options += f"Fences - {atkP.fences}"
+                    if atkP.glocks > 0:
+                        options += f"Glocks - {atkP.glocks}"
+                    
+                    while items_left > 0:
+                        option = qlist(options,True, f"What would you like to use? ")
+                        if option == f"Spoons - {atkP.spoons}":
+                            if defP.fence_set:
+                                confirm(f"You struck player {defP.id}'s fence.")
+                                defP.fence_set = False
+                            else:
+                                critnumber = random.randint(1,1000)
+                                if critnumber == 1:
+                                    q(f"The spoon infected you (player {atkP.id}) with tetanus.")
+                                    wait()
+                                    confirm(f"\nUnfortunatly, this game takes place before the tetanus shot, so you died instantly.")
+                                    atkP.die()
+                                elif critnumber == 1000:
+                                    q(f"The spoon infected player {defP.id} with tetanus.")
+                                    wait()
+                                    confirm(f"\nUnfortunatly, this game takes place before the tetanus shot, so they died instantly.")
+                                    defP.die()
+                                else:
+                                    confirm(f"You threw a spoon, doing 1 point of damage to player {defP.id}.")
+                                    defP.damage(1)
+                            atkP.spoons -= 1
+                            items_left -= 1
+                        elif option == f"Knives - {atkP.knives}":
+                            if defP.fence_set:
+                                confirm(f"You struck player {defP.id}'s fence.")
+                                defP.fence_set = False
+                            else:
+                                critnumber = random.randint(1,10)
+                                if critnumber == 1:
+                                    confirm(f"You missed your throw.")
+                                else:
+                                    critnumber = random.randint(1,5)
+                                    confirm(f"You threw a knife, doing {critnumber} damage to player {defP.id}.")
+                                    defP.damage(critnumber)
+                            atkP.knives -= 1
+                            items_left -= 1
+                        elif option == f"Potions - {atkP.Potions}":
+                            if atkP.hp == atkP.hpMAX:
+                                confirm(f"You are already at maximum hp")
+                            else:
+                                confirm(f"You healed {round(atkP.hpMAX/10)}HP.")
+                                atkP.heal(round(atkP.hpMAX/10))
+                                atkP.potions -= 1
+                                items_left -= 1
+                        elif option == f"Fences - {atkP.fences}":
+                            if atkP.fence_set:
+                                confirm(f"You already have a fence set up.")
+                            elif atkP.itus <= 3 and not items_left == atkP.itus:
+                                confirm(f"As a {atkP.classname}, you need all of your item uses to use a fence.")
+                            elif atkP.itus > 3 and not items_left >= 3:
+                                confirm(f"You need 3 item uses to use a fence.")
+                            else:
+                                confirm(f"You set up a fence.")
+                                atkP.fence_set = True
+                                atkP.fences -= 1
+                        elif option == f"Glocks - {atkP.glocks}":
+                            print(f"BANG")
+                            critnumber = random.randint(1,1000)
+                            if critnumber == 1:
+                                q(f"You missed your shot.")
+                                wait(2)
+                                confirm(f"\nMy man really conjured a one-shot weapon with one shot.")
+                            else:
+                                confirm(f"The shot landed, instantly killing player {defP.id}.")
+                                defP.die()
+                            atkP.glocks -= 1
+                            items_left = 0
+                            ic = False
+                            oc = False
+                        else:
+                            q(f"Please provide a valid option.")
+                            wait(.5)
+                            q("\n")
+        elif option == "Pass":
+            confirm("You passed your turn.")
+            oc = False
+        elif option == "Second Wind":
+            q(f"")
 
     return atkP, defP
