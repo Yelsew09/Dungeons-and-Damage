@@ -956,6 +956,7 @@ def charselect(playernum):
             cc = y_or_n(f"You have chosen the {player.name} class, is this correct? ")
 def take_turn(atkP,defP):
 
+    confirm(f"This is player {atkP.id}'s turn.")
     items_left = atkP.itus
     #OptionCorrect
     oc = True
@@ -1092,9 +1093,87 @@ def take_turn(atkP,defP):
         elif option == "Pass":
             confirm("You passed your turn.")
             oc = False
-        elif option == "Second Wind":
-            confirm(f"You activated your second wind. It is now on cooldown for {atkP.abilREF} turns.")
-            atkP.abil = True
-            atkP.abilTR = atkP.abilREF + 1
+        else:
+            q("Please choos a valid option.")
+            wait(.5)
+            q("\n")
 
     return atkP, defP
+
+##GAME LOGIC##
+confirm(f"If you are a new player, please consult the guide.",1)
+
+q(f"\n")
+q(f"Welcome to Dungeons and Damage")
+wait(1)
+q(f"\nNot to be confused with Dungeons and Dragons")
+wait(1)
+q(f"\nEven though this is a *somewhat* blatent rip-off")
+wait(.5)
+q(f"\n")
+wait(.5)
+
+#AllCorrect
+ac = True
+while ac:
+    roundnum = 1
+    options = [
+        "",
+        "Game Start",
+        "Guide",
+        "Options",
+        "Quit",
+    ]
+    option = qlist(options,True,f"Please select an option: ")
+    if option == "Guide":
+        confirm(f"Guide coming soon.")
+    elif option == "Options":
+        confirm(f"Options coming soon.")
+    elif option == "Quit":
+        ac = False
+    elif option == "Game Start":
+        player1 = charselect(1)
+        player2 = charselect(2)
+
+        #GameCorrect
+        gc = True
+        while gc:
+
+            #Player 1 is dead
+            if not player1.alive:
+                confirm(f"Player 1 is out of HP. They have lost.")
+                gc = False
+            
+            #Player 2 is dead
+            elif not player2.alive:
+                confirm(f"Player 2 is out of HP. They have lost.")
+                gc = False
+            
+            #Everyone's health
+            else:
+                #Player 1 is faster than player 2
+                if player1.spd > player2.spd:
+                    first = player1.id
+                
+                #Player 2 is faster than player 1
+                elif player2.spd > player1.spd:
+                    first = player2.id
+                
+                #Both players are tied for speed
+                else:
+                    confirm(f"Both players are tied for speed. Picking a random player to go first.")
+                    first = random.randint(player1.id,player2.id)
+                    confirm(f"Player {first} is going first")
+                if first == player1.id:
+                    confirm(f"This is the start of round {roundnum}.")
+                    confirm(f"Player 1 has {player1.hp}/{player1.hpMAX}HP remaining; {player1.mp}/{player1.mpMAX}MP remaining.")
+                    confirm(f"Player 2 has {player2.hp}/{player2.hpMAX}HP remaining; {player2.mp}/{player2.mpMAX}MP remaining.")
+                    player1,player2 = take_turn(player1,player2)
+
+                    if not player1.alive:
+                        confirm(f"Player 1 is out of HP. They have lost.")
+                        gc = False
+                    
+                    elif not player2.alive:
+                        confirm(f"Player 2 is out of HP. They have lost.")
+                        gc = False
