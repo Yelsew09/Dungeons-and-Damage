@@ -96,17 +96,26 @@ def explode():
     except:
         explode()
 def qlist(list,returntype,asking = "What would you like to do? ",):
-    for option in range(len(list)):
-        q(f"{option} - {list[option]}\n")
-        wait()
-    option = ask(asking)
-    if returntype:
-        try:
-            option = list[option]
-        except:
-            pass
+    if "Back" in list:
+        for option in range(len(list)):
+            q(f"{option} - {list[option]}\n")
+            wait()
+        option = ask(asking)
+        if returntype:
+            try:
+                option = list[option]
+            except:
+                pass
     else:
-        pass
+        for option in range(len(list)-1):
+            q(f"{option+1} - {list[option+1]}\n")
+            wait()
+        option = ask(asking)
+        if returntype:
+            try:
+                option = list[option]
+            except:
+                pass
     return option
 
 #Spell commands
@@ -773,6 +782,7 @@ def charselect(playernum):
         "Random",
     ]
         option = qlist(options,True, f"Please select a class, player {playernum}: ")
+        confirm(f"option has a value of {option}.")
         rc = True
         while rc:
 
@@ -926,19 +936,19 @@ def charselect(playernum):
                             else:
                                 item_uses += spent
                                 points -= spent
-                else:
-                    if option == 0:
-                        rc = True
-                    elif option == 9:
-                        if points > 0:
-                            rc = y_or_n(f"Are you sure you are done? You still have points to spend. ")
-                        else:
-                            rc = False
                     else:
-                        q(f"Please give a valid option.")
-                        wait(.5)
-                        q(f"\n")
-                player = Custom()
+                        if option == 0:
+                            rc = False
+                        elif option == 9:
+                            if points > 0:
+                                rc = y_or_n(f"Are you sure you are done? You still have points to spend. ")
+                            else:
+                                rc = False
+                        else:
+                            q(f"Please give a valid option.")
+                            wait(.5)
+                            q(f"\n")
+                player = Custom(hp,atk,atkBON,de,mp,mpBON,item_uses)
                 rc = False
             
             #GOD
@@ -954,6 +964,7 @@ def charselect(playernum):
             pass
         else:
             cc = y_or_n(f"You have chosen the {player.name} class, is this correct? ")
+    return player
 def take_turn(atkP,defP):
 
     confirm(f"This is player {atkP.id}'s turn.")
@@ -1112,6 +1123,8 @@ q(f"\nEven though this is a *somewhat* blatent rip-off")
 wait(.5)
 q(f"\n")
 wait(.5)
+q(f"\n")
+wait(.5)
 
 #AllCorrect
 ac = True
@@ -1177,3 +1190,6 @@ while ac:
                     elif not player2.alive:
                         confirm(f"Player 2 is out of HP. They have lost.")
                         gc = False
+    else:
+        q("Please give a valid option.")
+        wait(.5)
