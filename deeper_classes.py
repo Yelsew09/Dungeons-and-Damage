@@ -1,8 +1,5 @@
 import random,time,sys
-global print_random,AntiMagic,AntiMagictr
-print_random = True
-AntiMagic = False
-AntiMagictr = 0
+global print_random,no_magic_field,no_magic_fieldtr
 
 #Commands that help with the program
 def q(str, t = .02):
@@ -96,6 +93,8 @@ def explode():
     except:
         explode()
 def qlist(list,returntype,asking = "What would you like to do? ",):
+    #Thanks to Ian, I have made this. I also learned pass from his original block of code
+
     if "Back" in list:
         for option in range(len(list)):
             q(f"{option} - {list[option]}\n")
@@ -119,54 +118,14 @@ def qlist(list,returntype,asking = "What would you like to do? ",):
     return option
 
 #Spell commands
-def AntiMagicArea(user):
-    if user.mp < 10:
-        confirm(f"You don't have enough MP for that.")
-        loop = True
-    elif AntiMagic:
-        confirm(f"There is already an Antimagic Bubble up.")
-        loop = True
-    else:
-        confirm(f"You set up an Antimagic Bubble. Spells are now uncastable for the next 2 turns.")
-        user.mp -= 10
-        AntiMagic = True
-        AntiMagictr = 3
-    return user,loop
-def BladeWard(user,target):
-    if user.mp < 7:
-        confirm(f"You don't have enough MP for that.")
-        loop = True
-    elif target.BladeWard:
-        confirm(f"Player {target.id} is already under the effect of that spell.")
-        loop = True
-    else:
-        confirm(f"Player {str(target.id)} will take 1/2 damage the next time they are damaged by a physical attack.")
-        target.BladeWard = True
-        user.mp -= 7
+def AntiMagicField(user):
+    #Creates a "field" where it takes 1.5x as much MP to cast a spell
+    if user.cast(5):
+
+        confirm("You created a 'field' that makes spells cost 1.5x times their MP for 2 turns.")
+        no_magic_field = True
+        no_magic_fieldtr = 3
         loop = False
-    return user,target,loop
-def Frost(user,target):
-    if user.mp < 3:
-        confirm(f"You don't have enough MP for that.")
-        loop = True
-    else:
-        confirm(f"You slowed player {target.id} for a turn.")
-        target.frost = True
-        target.frostr = 2
-        user.mp -= 3
-        loop = False
-    return user,target,loop
-def CounterSpell(user):
-    if user.mp < 3:
-        confirm(f"You don't have enough MP for that.")
-        loop = True
-    elif user.counterspell:
-        confirm(f"You are already under the effect of this spell.")
-        loop = True
-    else:
-        confirm(f"The next spell that you are the target of just won't work.")
-        user.counterspell = True
-        loop = True
 def Fireball(user,target):
     if user.mp < 5:
         confirm(f"You don't have enough MP for that.")
@@ -182,131 +141,8 @@ def Fireball(user,target):
             user.mp -= 5
             loop = False
     return user,target,loop
-def Frostshot(user,target):
-    if user.mp < 5:
-        confirm(f"You don't have enough MP for that.")
-        loop = True
-    else:
-        damage = diceroll(2,4)
-        confirm(f"You did {damage} damage to player {target.id}, and slowed them for a turn.")
-        target.damage(damage)
-        target.frost = True
-        target.frostr = 2
-        user.mp -= 5
-        loop = False
-    return user,target,loop
-def Firebolt(user,target):
-    if user.mp < 3:
-        confirm(f"You don't have enough MP for that.")
-        loop = True
-    else:
-        damage = diceroll(2,6)
-        confirm(f"You did {damage} damage to player {target.id}.")
-        target.damage(damage)
-        loop = False
-    return user,target,loop
-def MagicArmor(user,target):
-    if user.mp < 2:
-        confirm(f"You don't have enough MP for that.")
-        loop = True
-    else:
-        target.defBON = diceroll(2,4)
-        confirm(f"Player " + str(target.id) + " gained a defence bonus of " + str(target.defBON) + ".")
-        user.mp -= 2
-        loop = False
-    return user,target,loop
-def DaggerCloud(user,target):
-    if user.mp < 2:
-        confirm(f"You don't have enough MP for that.")
-        loop = True
-    elif user.knives < 5:
-        confirm(f"You need at least 5 knives to cast this spell. You have " + str(user.knives) + ".")
-    else:
-        damage = diceroll(5,5)
-        confirm(f"You did " + str(damage) + " damage to player " + str(target.id) + ".")
-        user.knives -= 5
-        user.mp -= 2
-        loop = False
-    return user,target,loop
-def PoisonDart(user,target):
-    if user.mp < 6:
-        confirm(f"You don't have enough MP for that.")
-        loop = True
-    else:
-        target.poison = diceroll(1,4)
-        target.poisontr = random.randint + 1
-        confirm(f"You did {target.poison + 2} damage to player {target.id}.")
-        target.damage(target.poison)
-        user.mp -= 6
-        loop = False
-    return user,target,loop
-def Dispel(user,target):
-    if user.mp < 5:
-        confirm(f"You don't have enough MP for that.")
-        loop = True
-    else:
-        target.mp = round(target.mp/2)
-        confirm(f"You halved player {target.id}'s MP, leaving them on {target.mp}MP.")
-        user.mp -= 5
-        loop = False
-    return user,target,loop
-def Slow(user,target):
-    if user.mp < 7:
-        confirm(f"You don't have enough MP for that.")
-        loop = True
-    else:
-        target.spd = round(target.spd/2)
-        confirm(f"You halved player {target.id}'s MP, leaving them with a speed of {target.spd} for a turn.")
-        target.slowtr = 2
-        user.mp -= 7
-        loop = False
-    return user,target,loop
-def TrueStrike(user,target):
-    if user.mp < 4:
-        confirm(f"You don't have enough MP for that.")
-        loop = True
-    elif target.TrueHit:
-        confirm(f"The target is already guaranteed to hit their next attack.")
-        loop = True
-    else:
-        confirm(f"You will hit your next attack, guarenteed.")
-        target.TrueHit = True
-        user.mp -= 4
-        loop = False
-    return user,target,loop
 
-""" FORMAT FOR PRINTING AND USING ACTIONS
-
-#The list of actions
-actions = ["Attack","Magic",etc.]
-
-#Whatever correct variable is being used
-CorrectVar = True
-while CorrectVar:
-
-    #Prints the list of options with a corrosponding number
-    for action in range(len(attacker.actions)):
-        q(f{action + 1} - {actions[action]}\n")
-        wait()
-    
-    #User input
-    option = ask(f"What would you like to do? ")
-
-    #Converts option to a string value
-    option = str(attacker.actions[option - 1])
-    
-    #Compares string value to list of given actions
-    if option == "Attack":
-        #Attack
-    elif option == "Magic":
-        #Magic
-    elif option == "etc.":
-        #etc.
-
-Thanks Ian
-I also learned about pass from that
-"""
-
+#Classes
 class Player():
     numplayers = 0
     def __init__(self,h,a,aM,d,m,mR,s,i,n):
@@ -323,7 +159,9 @@ class Player():
         self.itemuses = i
         self.classname = str(n)
         self.id = Player.numplayers
-        self.abil = False
+
+        #True means it's avalible, false means it's on cooldown
+        self.abil = True
         self.abilTR = 0
         self.spoons = 0
         self.knives = 0
@@ -333,9 +171,12 @@ class Player():
         self.defBON = 0
         self.fence_set = False
         self.alive = True
+
         #Add status variables here
         self.adv = 0
-        self.advtr = 0
+        self.advTR = 0
+        self.slow = False
+        self.slowTR = 0
     def heal(self,amount):
         self.hp += amount
         if self.hp > self.hpMAX:
@@ -348,8 +189,18 @@ class Player():
         self.hp -= self.hp
         self.alive = False
     def next_turn(self):
-        print(f"Reset variables for next turn.")
-class Knight():
+        self.mp += self.mpREF
+        if self.mp > self.mpMAX:
+            self.mp = self.mpMAX
+        self.advTR -= 1
+        if self.advTR <= 0:
+            self.adv = 0
+            self.advTR = 0
+        self.abilTR -= 1
+        if self.abilTR <= 0:
+            self.abil = True
+            self.abilTR = 0
+class Knight(Player):
     passive = "Fortitude"
     activated = "Second Wind"
     stats = {
@@ -386,17 +237,11 @@ class Knight():
         self.knives = 3
         self.potions = 5
         self.fences = 1
-    def heal(self,amount):
-        Player.heal(self,amount)
     def damage(self,amount):
         if amount >= 3:
             amount -= 2
         Player.damage(self,amount)
-    def die(self):
-        Player.die(self)
-    def next_turn(self):
-        Player.next_turn(self)
-class Peashooter():
+class Peashooter(Player):
     passive = "Charge"
     activated = "Volley"
     stats = {
@@ -432,17 +277,11 @@ class Peashooter():
         self.spoons = 1
         self.knives = 2
         self.potions = 2
-    def heal(self,amount):
-        Player.heal(self,amount)
-    def damage(self,amount):
-        Player.heal(self,amount)
-    def die(self):
-        Player.die(self)
     def next_turn(self):
         if self.mp == self.mpMAX:
             self.dmgBON += 3
         Player.next_turn(self)
-class Rouge():
+class Rouge(Player):
     passive = "Accelerate"
     activated = "Sneak Attack"
     stats = {
@@ -478,19 +317,13 @@ class Rouge():
         self.knives = 3
         self.potions = 1
         self.fences = 1
-    def heal(self,amount):
-        Player.heal(self,amount)
-    def damage(self,amount):
-        Player.damage(self,amount)
-    def die(self):
-        Player.die(self)
     def next_turn(self):
         if self.spd >= 9:
             pass
         else:
             self.spd += 1
         Player.next_turn(self)
-class Mage():
+class Mage(Player):
     passive = "Zoning in"
     activated = "Magical Fury"
     stats = {
@@ -526,12 +359,6 @@ class Mage():
         self.knives = 1
         self.potions = 4
         self.fences = 2
-    def heal(self,amount):
-        Player.heal(self,amount)
-    def damage(self,amount):
-        Player.damage(self,amount)
-    def die(self):
-        Player.die(self)
     def next_turn(self):
         if self.mp >= 10:
             pass
@@ -539,7 +366,7 @@ class Mage():
             self.mp += 1
             self.mpMAX += 1
             self.mpREF = round(self.mpMAX/2)
-class Skele():
+class Skele(Player):
     passive = "Impervious"
     activated = "Swirling"
     stats = {
@@ -579,11 +406,7 @@ class Skele():
             confirm(f"But Impervious stops Skele from taking more than 15 damage at a time.")
             amount = 15
         Player.damage(self,amount)
-    def die(self):
-        Player.die(self)
-    def next_turn(self):
-        Player.next_turn(self)
-class Bard():
+class Bard(Player):
     passive = "Boosted"
     actiavted = "Jack of All Trades"
     stats = {
@@ -619,16 +442,10 @@ class Bard():
         self.knives = 5
         self.potions = 3
         self.fences = 2
-    def heal(self,amount):
-        Player.heal(self,amount)
-    def damage(self,amount):
-        Player.damage(self,amount)
-    def die(self):
-        Player.die(self)
     def next_turn(self):
         # Select new stat block
         Player.next_turn(self)
-class Barbarian():
+class Barbarian(Player):
     passive = "Healthy"
     activated = "Brutal"
     stats = {
@@ -662,14 +479,10 @@ class Barbarian():
     def heal(self,amount):
         amount = round(amount*1.5)
         Player.heal(self,amount)
-    def damage(self,amount):
-        Player.damage(self,amount)
-    def die(self):
-        Player.die(self)
     def next_turn(self):
         self.heal(2)
         Player.next_turn(self)
-class Custom():
+class Custom(Player):
     passive = None
     activated = None
     actions = [
@@ -696,7 +509,6 @@ class Custom():
         self.activated = Custom.activated
         Player.__init__(self,self.stats['hp'],self.stats['atk'],self.stats['atkBON'],self.stats['def'], \
             self.stats['mp'],self.stats['mpREF'],self.stats['spd'],self.stats['items'],str(n))
-        self.actions = Custom.actions
         self.spells = Custom.spells
         if self.mp > 0:
             self.actions = [
@@ -705,15 +517,9 @@ class Custom():
                 "Item",
                 "Pass",
             ]
-    def heal(self,amount):
-        Player.heal(self,amount)
-    def damage(self,amount):
-        Player.damage(self,amount)
-    def die(self):
-        Player.die(self)
-    def next_turn(self):
-        Player.next_turn(self)
-class God():
+        else:    
+            self.actions = Custom.actions
+class God(Player):
     passive = "Unkillable"
     activated = "Destructive Hit"
     stats = {
@@ -760,7 +566,7 @@ class God():
     def next_turn(self):
         self.heal(1)
         self.adv = 1
-        self.advtr = 2
+        self.advTR = 2
         Player.next_turn(self)
 
 # FINALLY, THE ACTUAL GAME
