@@ -160,9 +160,7 @@ class Player():
         self.classname = str(n)
         self.id = Player.numplayers
 
-        #True means it's avalible, false means it's on cooldown
-        self.abil = True
-        self.abilTR = 0
+        #Items
         self.spoons = 0
         self.knives = 0
         self.potions = 0
@@ -237,6 +235,8 @@ class Knight(Player):
         self.knives = 3
         self.potions = 5
         self.fences = 1
+        self.wind = True
+        self.windtr = 0
     def damage(self,amount):
         if amount >= 3:
             amount -= 2
@@ -277,6 +277,8 @@ class Peashooter(Player):
         self.spoons = 1
         self.knives = 2
         self.potions = 2
+        self.volley = True
+        self.volleytr = 0
     def next_turn(self):
         if self.mp == self.mpMAX:
             self.dmgBON += 3
@@ -317,6 +319,8 @@ class Rouge(Player):
         self.knives = 3
         self.potions = 1
         self.fences = 1
+        self.sneak = True
+        self.sneaktr = 0
     def next_turn(self):
         if self.spd >= 9:
             pass
@@ -359,6 +363,8 @@ class Mage(Player):
         self.knives = 1
         self.potions = 4
         self.fences = 2
+        self.fury = True
+        self.furytr = 0
     def next_turn(self):
         if self.mp >= 10:
             pass
@@ -368,7 +374,7 @@ class Mage(Player):
             self.mpREF = round(self.mpMAX/2)
 class Skele(Player):
     passive = "Impervious"
-    activated = "Swirling"
+    activated = "Swirl"
     stats = {
         'hp': 30,
         'atk': 7,
@@ -399,6 +405,8 @@ class Skele(Player):
         self.actions = Skele.actions
         self.spells = Skele.spells
         self.knives = 6
+        self.swirl = True
+        self.swirltr = 0
     def heal(self,amount):
         Player.heal(self,amount)
     def damage(self,amount):
@@ -442,6 +450,8 @@ class Bard(Player):
         self.knives = 5
         self.potions = 3
         self.fences = 2
+        self.jack = None
+        self.jacktr = None
     def next_turn(self):
         # Select new stat block
         Player.next_turn(self)
@@ -476,6 +486,8 @@ class Barbarian(Player):
         self.activated = Barbarian.passive
         self.actions = Barbarian.actions
         self.spells = Barbarian.spells
+        self.brutal = True
+        self.brutaltr = 0
     def heal(self,amount):
         amount = round(amount*1.5)
         Player.heal(self,amount)
@@ -510,6 +522,8 @@ class Custom(Player):
         Player.__init__(self,self.stats['hp'],self.stats['atk'],self.stats['atkBON'],self.stats['def'], \
             self.stats['mp'],self.stats['mpREF'],self.stats['spd'],self.stats['items'],str(n))
         self.spells = Custom.spells
+        self.ability = None
+        self.abilitytr = None
         if self.mp > 0:
             self.actions = [
                 "Attack",
@@ -555,6 +569,8 @@ class God(Player):
         self.knives = 88224646790
         self.potions = 88224646790
         self.fences = 88224646790
+        self.destructive = True
+        self.destructivetr = True
     def heal(self,amount):
         amount = self.hpMAX
         Player.heal(self,amount)
