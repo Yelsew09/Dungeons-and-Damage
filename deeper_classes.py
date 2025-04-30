@@ -142,6 +142,18 @@ def Fireball(user,target):
             loop = False
     return user,target,loop
 
+#Commands used once or twice
+def continue_with_wind(person):
+    try:
+        if not person.wind:
+            loop = False
+        else:
+            loop = True
+            person.wind = False
+    except:
+        loop = False
+    return loop
+
 #Classes
 class Player():
     numplayers = 0
@@ -236,11 +248,21 @@ class Knight(Player):
         self.potions = 5
         self.fences = 1
         self.wind = True
+        self.winded = False
         self.windtr = 0
     def damage(self,amount):
         if amount >= 3:
             amount -= 2
         Player.damage(self,amount)
+    def second_wind(self):
+        if self.winded and not self.wind:
+            confirm("You are on cooldown for this ability.")
+        elif self.winded and self.wind:
+            confirm("You are under the effect of this ability.")
+        else:
+            confirm("You activated your second wind ability.")
+            self.wind = False
+            self.windtr = 5
 class Peashooter(Player):
     passive = "Charge"
     activated = "Volley"
@@ -277,12 +299,26 @@ class Peashooter(Player):
         self.spoons = 1
         self.knives = 2
         self.potions = 2
-        self.volley = True
-        self.volleytr = 0
+        self.voll = True
+        self.volltr = 0
     def next_turn(self):
         if self.mp == self.mpMAX:
             self.dmgBON += 3
         Player.next_turn(self)
+    def volley(self):
+        if not self.voll:
+            confirm(f"You are on cooldown for this ability.")
+            loop = True
+        elif self.knives < 5:
+            confirm(f"You don't have enough knives to use this.")
+            loop = True
+        else:
+            confirm("You threw a bunch of knives at your opponent.")
+            self.voll = False
+            self.volltr = 4
+            self.knives -= 5
+            loop = False
+        return loop
 class Rouge(Player):
     passive = "Accelerate"
     activated = "Sneak Attack"
@@ -327,6 +363,17 @@ class Rouge(Player):
         else:
             self.spd += 1
         Player.next_turn(self)
+    def sneak_attack(self):
+        if not self.sneak:
+            confirm("You are on cooldown for this ability.")
+            loop = True
+        else:
+            critnumber = random_num(1,5)
+            if critnumber == 1:
+                confirm("Your sneak attack wasn't sneaky enough.")
+            else:
+                damage = self.atk * 2
+                confirm("You crit the defending player where they least expected it, doing .")
 class Mage(Player):
     passive = "Zoning in"
     activated = "Magical Fury"
@@ -811,8 +858,8 @@ def take_turn(atkP,defP):
                     defP.damage(atkP.atk + atkP.dmgBON)
                 elif critnumber + atkP.atkMOD < defP.defence + defP.defBON:
                     confirm(f"You missed your attack.")
-                oc = False
                 atkP.dmgBON = 0
+                oc = continue_with_wind(atkP)
         elif option == "Magic":
             
             #MagicCorrect
@@ -828,6 +875,8 @@ def take_turn(atkP,defP):
                     q(f"Please choose a valid option.")
                     wait(.5)
                     q("\n")
+                if not mc:
+                    oc = continue_with_wind(atkP)
         elif option == "Item":
             ic = True
             while ic:
@@ -926,6 +975,27 @@ def take_turn(atkP,defP):
         elif option == "Pass":
             confirm("You passed your turn.")
             oc = False
+        elif option == "Second Wind":
+            try:
+                atkP.second_wind()
+            except:
+                q("You somehow got access to this ability without being the proper class.")
+                wait(.5)
+                confirm("\nHow? I have no idea.")
+        elif option == "Volley":
+            try:
+                oc = atkP.volley()
+            except:
+                q("You somehow got access to this ability without being the proper class.")
+                wait(.5)
+                confirm("\nHow? I have no idea.")
+        elif option == "Sneak Attack":
+            try:
+                oc = atkP.sneak_attack()
+            except:
+                q("You somehow got access to this ability without being the proper class.")
+                wait(.5)
+                confirm("\nHow? I have no idea.")
         else:
             q("Please choos a valid option.")
             wait(.5)
