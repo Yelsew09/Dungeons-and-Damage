@@ -363,7 +363,7 @@ class Rouge(Player):
         else:
             self.spd += 1
         Player.next_turn(self)
-    def sneak_attack(self):
+    def sneak_attack(self,other):
         if not self.sneak:
             confirm("You are on cooldown for this ability.")
             loop = True
@@ -372,8 +372,9 @@ class Rouge(Player):
             if critnumber == 1:
                 confirm("Your sneak attack wasn't sneaky enough.")
             else:
-                damage = self.atk * 2
-                confirm("You crit the defending player where they least expected it, doing .")
+                amount = self.atk * 2
+                confirm(f"You hit player {other.id} when and where they least expected it, doing {amount} damage to player {other.id}.")
+                other.damage(amount)
 class Mage(Player):
     passive = "Zoning in"
     activated = "Magical Fury"
@@ -419,6 +420,26 @@ class Mage(Player):
             self.mp += 1
             self.mpMAX += 1
             self.mpREF = round(self.mpMAX/2)
+    def magical_fury(self,other):
+        if self.fury:
+            self.mp *= 2
+            spells_left = 3
+            while spells_left > 0:
+                option = self.spells[random.randint(0,len(self.spells)-1)]
+                if option == "":
+                    check = q("") #Supposed to be an actual spell
+                elif option == ",":
+                    check = q(",")
+                if check:
+                    spells_left -= 1
+                if self.mp <= 2:
+                    spells_left = 0
+            self.fury = False
+            self.furytr = 5
+            loop = True
+        else:
+            confirm("You are on cooldown for this ability.")
+            loop = False
 class Skele(Player):
     passive = "Impervious"
     activated = "Swirl"
@@ -453,7 +474,9 @@ class Skele(Player):
         self.spells = Skele.spells
         self.knives = 6
         self.swirl = True
+        self.swirling = False
         self.swirltr = 0
+        self.swirlingtr = 0
     def heal(self,amount):
         Player.heal(self,amount)
     def damage(self,amount):
@@ -461,6 +484,13 @@ class Skele(Player):
             confirm(f"But Impervious stops Skele from taking more than 15 damage at a time.")
             amount = 15
         Player.damage(self,amount)
+    def spain_without_the_a(self):
+        if self.swirl:
+            self.swirling = True
+            self.swirlingtr = 2
+            self.swril = False
+            self.swirltr = self.swirlingtr + 4
+
 class Bard(Player):
     passive = "Boosted"
     actiavted = "Jack of All Trades"
