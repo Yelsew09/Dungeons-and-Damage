@@ -107,7 +107,7 @@ def qlist(list,returntype,asking = "What would you like to do? ",):
                 pass
     else:
         for option in range(len(list)-1):
-            q(f"{option+1} - {list[option+1]}\n")
+            q(f"{option+1} - {list[option]}\n")
             wait()
         option = ask(asking)
         if returntype:
@@ -168,7 +168,7 @@ class Player():
         self.mpMAX = m
         self.mpREF = mR
         self.spd = s
-        self.itemuses = i
+        self.item_uses = i
         self.classname = str(n)
         self.id = Player.numplayers
 
@@ -665,6 +665,7 @@ class God(Player):
 # FINALLY, THE ACTUAL GAME
 # Commands used as part of the actual game
 def charselect(playernum):
+    skip = False
     #CharacterCorrect
     cc = True
     while cc:
@@ -740,7 +741,7 @@ def charselect(playernum):
                 mp = 0
                 mpBON = 0
                 spd = 1
-                itus = 3
+                item_uses = 3
                 points = 35
 
                 oc = True
@@ -754,7 +755,7 @@ def charselect(playernum):
                         f"Magic Points (or magic power) - " + str(mp),
                         f"Magic Point Refresh (can be up to 1/2 your Magic Points) - {mpBON}",
                         f"Speed (minimum 1) - {spd}",
-                        f"Item Uses (max 6) - {itus}",
+                        f"Item Uses (max 6) - {item_uses}",
                         f"I'm done",
                     ]
                     option = qlist(options,False, f"What would you like to change (you have {points} points left)? ")
@@ -862,16 +863,16 @@ def charselect(playernum):
         if skip:
             pass
         else:
-            cc = y_or_n(f"You have chosen the {player.name} class, is this correct? ")
+            cc = y_or_n(f"You have chosen the {player.classname} class, is this correct? ")
     return player
 def take_turn(atkP,defP):
 
     confirm(f"This is player {atkP.id}'s turn.")
-    items_left = atkP.itus
+    items_left = atkP.item_uses
     #OptionCorrect
     oc = True
     while oc:
-        option = qlist(atkP.options,True)
+        option = qlist(atkP.actions,True)
         if option == "Attack":
             if defP.fence_set:
                 confirm(f"You struck player {defP.id}'s fence.")
@@ -976,9 +977,9 @@ def take_turn(atkP,defP):
                         elif option == f"Fences - {atkP.fences}":
                             if atkP.fence_set:
                                 confirm(f"You already have a fence set up.")
-                            elif atkP.itus <= 3 and not items_left == atkP.itus:
+                            elif atkP.item_uses <= 3 and not items_left == atkP.item_uses:
                                 confirm(f"As a {atkP.classname}, you need all of your item uses to use a fence.")
-                            elif atkP.itus > 3 and not items_left >= 3:
+                            elif atkP.item_uses > 3 and not items_left >= 3:
                                 confirm(f"You need 3 item uses to use a fence.")
                             else:
                                 confirm(f"You set up a fence.")
