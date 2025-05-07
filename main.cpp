@@ -16,6 +16,23 @@ void roll(string text, int t = 15){ // Hopefully rolls text instead of shooting 
         wait(t);
     }
 }
+string rollList(string options,string asking = "What would you like to do? "){
+    string option = "option for now";
+    if (options.find("Back")){
+        for (int i = 0;i < options.length();i++){
+            roll(i + " - " + options[i]);
+            wait();
+        }
+        option = options[ask(asking)];
+    } else {
+        for (int i = 1;i <options.length();i++){
+            roll(i + " - " + options[i-1]);
+            wait();
+        }
+        option = options[ask(asking)-1];
+    }
+    return option;
+}
 int NOad_randint(int minimum, int maximum){ // Generates a random number; A dice roll
     default_random_engine generator;
     uniform_int_distribution<int> distribution(minimum,maximum);
@@ -92,7 +109,7 @@ bool Y_or_N(string question){
 class Player{
     public:
     int numplayers;
-    Player(int h,int a, int aB, int d,int m,int mB,int s,int i,string n){
+    Player(int h,int a,int aB,int d,int m,int mB,int s,int i,string n){
         int hp = h;
         int hpMAX = h;
         int atk = a;
@@ -130,6 +147,106 @@ class Player{
         }
     }
     void next_turn(int &mp, int &mpBON, int &mpMAX){
-        mp += mpMAX;
+        mp += mpBON;
+        if (mp > mpMAX){
+            mp = mpMAX;
+        }
     }
+};
+class Knight: public Player{
+    public:
+    const string passive = "Fortitude";
+    const int stats[8] = {
+        35, // hp
+        7,  // atk
+        5,  // atkBON
+        16, // def
+        5,  // mp
+        2,  // mpBON
+        3,  // spd
+        2,  // itus
+    };
+    const string actions[5] = {
+        "Attack",
+        "Magic",
+        "Items",
+        "Pass",
+        "Run",
+    };
+    Knight(int h,int a,int aB,int d,int m,int mB,int s,int i,string n)
+    : Player(h,a,aB,d,m,mB,s,i,n){
+        const string passive = Knight::passive;
+        const string (&actions)[5] = Knight::actions;
+    }
+    void damage(int amount,int &hp,int &hpMAX,bool &alive){
+        if (amount >= 3){
+            amount -= 2;
+        }
+        Player::damage(amount,hp,hpMAX,alive);
+    }
+};
+class Peashooter: public Player{
+    public:
+    const string passive = "Charge";
+    const int stats[8] = {
+        26, // hp
+        9,  // atk
+        4,  // atkBON
+        14, // def
+        7,  // mp
+        3,  // mpBON
+        5,  // spd
+        3,  // itus
+    };
+    const string actions[5] = {
+        "Attack",
+        "Magic",
+        "Items",
+        "Pass",
+        "Run"
+    };
+    Peashooter(int h,int a,int aB,int d,int m,int mB,int s,int i,string n)
+    : Player(h,a,aB,d,m,mB,s,i,n){
+        const string passive = Peashooter::passive;
+        const string (&actions)[5] = Peashooter::actions;
+        
+    };
+    void next_turn(int &mp,int &mpBON,int &mpMAX,int &dmgBON){
+        if (mp == mpMAX){
+            dmgBON += 2;
+        }
+        Player::next_turn(mp,mpBON,mpMAX);
+    };
+};
+class Rouge: public Player{
+    const string passive = "Accelerate";
+    const int stats[8] = {
+        20, // hp
+        10, // atk
+        3,  // atkBON
+        13, // def
+        6,  // mp
+        2,  // mpBON
+        4,  // spd
+        4,  // itus
+    };
+    const string actions[5] = {
+        "Attack",
+        "Magic",
+        "Items",
+        "Pass",
+        "Run",
+    };
+    Rouge(int h,int a,int aB,int d,int m,int mB,int s,int i,string n)
+    : Player(h,a,aB,d,m,mB,s,i,n){
+        const string passive = Rouge::passive;
+        const string (&actions)[5] = Rouge::actions;
+    }
+    void next_turn(int &mp,int &mpBON,int &mpMAX,int &spd){
+        spd++;
+        if (spd > 7){
+            spd = 7;
+        };
+        Player::next_turn(mp,mpBON,mpMAX);
+    };
 };
