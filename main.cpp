@@ -16,23 +16,6 @@ void roll(string text, int t = 15){ // Hopefully rolls text instead of shooting 
         wait(t);
     }
 }
-string rollList(string options,string asking = "What would you like to do? "){
-    string option = "option for now";
-    if (options.find("Back")){
-        for (int i = 0;i < options.length();i++){
-            roll(i + " - " + options[i]);
-            wait();
-        }
-        option = options[ask(asking)];
-    } else {
-        for (int i = 1;i <options.length();i++){
-            roll(i + " - " + options[i-1]);
-            wait();
-        }
-        option = options[ask(asking)-1];
-    }
-    return option;
-}
 int NOad_randint(int minimum, int maximum){ // Generates a random number; A dice roll
     default_random_engine generator;
     uniform_int_distribution<int> distribution(minimum,maximum);
@@ -56,14 +39,14 @@ int AD_randint(int minimum, int maximum, int advantage){ // Generates a random n
     }
     return numf;
 }
-void confirm(string text, int t = 50){
+void confirm(string text, int t = 50){ // Makes sure the user has read the text before continuing
     int w;
-    text += ' >';
     roll(text);
+    roll(" >");
     cin >> w;
     wait(t);
 }
-int ask(string question, int t = 50){
+int ask(string question, int t = 50){ // Asks a question and get a numberical input
     int answer;
     bool ec = true;
     while (ec){
@@ -78,10 +61,10 @@ int ask(string question, int t = 50){
             wait(t);
             ec = true;
         }
-    return answer;
     }
-}
-bool Y_or_N(string question){
+    return answer;
+};
+bool Y_or_N(string question){ // Asks yes or no. Set a correct variable to this and it will make sure the user is ready to continue
     int option;
     bool loop;
     bool ync = true;
@@ -102,8 +85,25 @@ bool Y_or_N(string question){
             wait(50);
             ync = true;
         }
-    return loop;
     }
+    return loop;
+};
+string rollList(string options,string asking = "What would you like to do? "){ // Provides a list of options and gives an output of one of those options
+    string option = "option for now";
+    if (options.find("Back")){
+        for (int i = 0;i < options.length();i++){
+            roll(i + " - " + options[i]);
+            wait();
+        }
+        option = options[ask(asking)];
+    } else {
+        for (int i = 1;i <options.length();i++){
+            roll(i + " - " + options[i-1]);
+            wait();
+        }
+        option = options[ask(asking)-1];
+    }
+    return option;
 }
 
 class Player{
@@ -238,7 +238,8 @@ class Rouge: public Player{
         "Run",
     };
     Rouge(int h,int a,int aB,int d,int m,int mB,int s,int i,string n)
-    : Player(h,a,aB,d,m,mB,s,i,n){
+    : Player(Rouge::stats[0],Rouge::stats[1],Rouge::stats[2],Rouge::stats[3],
+        Rouge::stats[4],Rouge::stats[5],Rouge::stats[6],Rouge::stats[7],"Rouge"){
         const string passive = Rouge::passive;
         const string (&actions)[5] = Rouge::actions;
     }
@@ -250,3 +251,47 @@ class Rouge: public Player{
         Player::next_turn(mp,mpBON,mpMAX);
     };
 };
+class Mage: public Player{
+    const string passive = "Zoning In";
+    const int stats[8] = {
+        21, // hp
+        5,  // atk
+        2,  // atkBON
+        11, // def
+        5,  // mp
+        2,  // mpBON
+        4,  // spd
+        2,  // itus
+    };
+    const string actions[5] = {
+        "Attack",
+        "Magic",
+        "Items",
+        "Pass",
+        "Run",
+    };
+    Mage(string stats): Player(stats[0],stats[1],stats[2],stats[3],
+        stats[4],stats[5],stats[6],stats[7],"Mage"){
+        const string passive = Mage::passive;
+        const string (&actions)[5] = Mage::actions;
+    };
+    void next_turn(int &mp,int &mpBON,int &mpMAX){
+        mpMAX++;
+        if (mpMAX > 10){
+            mpMAX = 10;
+        }
+        mpBON = round(mpMAX/2);
+        Player::next_turn(mp,mpBON,mpMAX);
+    };
+};
+
+
+
+
+
+
+
+
+int main(){
+    return 0;
+}
