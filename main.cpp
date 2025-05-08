@@ -108,7 +108,7 @@ string rollList(string options,string asking = "What would you like to do? "){ /
 
 class Player{
     public:
-    int numplayers;
+    int numplayers = 1;
     Player(int h,int a,int aB,int d,int m,int mB,int s,int i,string n){
         int hp = h;
         int hpMAX = h;
@@ -120,10 +120,6 @@ class Player{
         int mbBON = mB;
         int spd = s;
         int itus = i;
-        int spoons = 0;
-        int knives = 0;
-        int potions = 0;
-        int fences = 0;
         int glocks = 0;
         const string name = n;
         const int id = numplayers;
@@ -133,25 +129,27 @@ class Player{
         int adv = 0;
         int advTR = 0;
         int dmgBON = 0;
-    }
-    void damage(int amount, int &hp, int &hpMAX, bool &alive){
+    };
+    void damage(int amount, int &hp, bool &alive){
         hp -= amount;
-        if (hpMAX <= 0){
+        if (hp <= 0){
             alive = false;
-        }
-    }
+        };
+    };
     void heal(int amount, int &hp, int &hpMAX){
-        hp += amount;
-        if (hp > hpMAX){
-            hp = hpMAX;
-        }
-    }
+        if (hp+amount > hpMAX){
+            amount = hpMAX-hp;
+        };
+        roll("You healed " + amount);
+        confirm(" points of damage.\n");
+        hp+=amount;
+    };
     void next_turn(int &mp, int &mpBON, int &mpMAX){
         mp += mpBON;
         if (mp > mpMAX){
             mp = mpMAX;
-        }
-    }
+        };
+    };
 };
 class Knight: public Player{
     public:
@@ -173,17 +171,22 @@ class Knight: public Player{
         "Pass",
         "Run",
     };
-    Knight(int h,int a,int aB,int d,int m,int mB,int s,int i,string n)
-    : Player(h,a,aB,d,m,mB,s,i,n){
+    Knight(int s,int k,int p,int f):
+    Player(Knight::stats[0],Knight::stats[1],Knight::stats[2],Knight::stats[3],
+        Knight::stats[4],Knight::stats[5],Knight::stats[6],Knight::stats[7],"Knight"){
         const string passive = Knight::passive;
         const string (&actions)[5] = Knight::actions;
-    }
+        int spoons = s;
+        int knives = k;
+        int potions = p;
+        int fences = f;
+    };
     void damage(int amount,int &hp,int &hpMAX,bool &alive){
         if (amount >= 3){
             amount -= 2;
         }
-        Player::damage(amount,hp,hpMAX,alive);
-    }
+        Player::damage(amount,hp,alive);
+    };
 };
 class Peashooter: public Player{
     public:
@@ -205,11 +208,15 @@ class Peashooter: public Player{
         "Pass",
         "Run"
     };
-    Peashooter(int h,int a,int aB,int d,int m,int mB,int s,int i,string n)
-    : Player(h,a,aB,d,m,mB,s,i,n){
+    Peashooter(int s,int k,int p,int f):
+    Player(Peashooter::stats[0],Peashooter::stats[1],Peashooter::stats[2],Peashooter::stats[3],
+        Peashooter::stats[4],Peashooter::stats[5],Peashooter::stats[6],Peashooter::stats[7],"Peashooter"){
         const string passive = Peashooter::passive;
         const string (&actions)[5] = Peashooter::actions;
-        
+        int spoons = s;
+        int knives = k;
+        int potions = p;
+        int fences = f;
     };
     void next_turn(int &mp,int &mpBON,int &mpMAX,int &dmgBON){
         if (mp == mpMAX){
@@ -237,12 +244,16 @@ class Rouge: public Player{
         "Pass",
         "Run",
     };
-    Rouge(int h,int a,int aB,int d,int m,int mB,int s,int i,string n)
-    : Player(Rouge::stats[0],Rouge::stats[1],Rouge::stats[2],Rouge::stats[3],
+    Rouge(int s,int k,int p,int f):
+    Player(Rouge::stats[0],Rouge::stats[1],Rouge::stats[2],Rouge::stats[3],
         Rouge::stats[4],Rouge::stats[5],Rouge::stats[6],Rouge::stats[7],"Rouge"){
         const string passive = Rouge::passive;
         const string (&actions)[5] = Rouge::actions;
-    }
+        int spoons = s;
+        int knives = k;
+        int potions = p;
+        int fences = f;
+    };
     void next_turn(int &mp,int &mpBON,int &mpMAX,int &spd){
         spd++;
         if (spd > 7){
@@ -270,10 +281,15 @@ class Mage: public Player{
         "Pass",
         "Run",
     };
-    Mage(string stats): Player(stats[0],stats[1],stats[2],stats[3],
-        stats[4],stats[5],stats[6],stats[7],"Mage"){
+    Mage(int s,int k,int p,int f):
+    Player(Mage::stats[0],Mage::stats[1],Mage::stats[2],Mage::stats[3],
+        Mage::stats[4],Mage::stats[5],Mage::stats[6],Mage::stats[7],"Mage"){
         const string passive = Mage::passive;
         const string (&actions)[5] = Mage::actions;
+        int spoons = s;
+        int knives = k;
+        int potions = p;
+        int fences = f;
     };
     void next_turn(int &mp,int &mpBON,int &mpMAX){
         mpMAX++;
@@ -284,10 +300,161 @@ class Mage: public Player{
         Player::next_turn(mp,mpBON,mpMAX);
     };
 };
-
-
-
-
+class Skele: public Player{
+    const string passive = "Focused";
+    const int stats[8] = {
+        30, // hp
+        7,  // atk
+        3,  // atkBON
+        12, // def
+        7,  // mp
+        5,  // mpBON
+        6,  // spd
+        4,  // itus
+    };
+    const string actions[5] = {
+        "Attack",
+        "Magic",
+        "Items",
+        "Pass",
+        "Run",
+    };
+    Skele(int s,int k,int p,int f):
+    Player(Skele::stats[0],Skele::stats[1],Skele::stats[2],Skele::stats[3],
+        Skele::stats[4],Skele::stats[5],Skele::stats[6],Skele::stats[7],"Skele"){
+            const string passive = Skele::passive;
+            const string (&actions)[5] = Skele::actions;
+            int spoons = s;
+            int knives = k;
+            int potions = p;
+            int fences = f;
+        };
+    void damage(int amount,int &hp,bool &alive){
+        if (amount > 15){
+            confirm("Focused stops Skele from taking more than 15 damage at once.");
+        } else {
+            Player::damage(amount,hp,alive);
+        };
+    };
+};
+class Bard: public Player{
+    const string passive = "Jack of all Trades";
+    const int stats[8] = {
+        25, // hp
+        5,  // atk
+        5,  // atkBON
+        14, // def
+        4,  // mp
+        2,  // mpBON
+        2,  // spd
+        5,  // itus
+    };
+    const string actions[5] = {
+        "Attack",
+        "Magic",
+        "Items",
+        "Pass",
+        "Run",
+    };
+    Bard(int s,int k,int p,int f):
+    Player(Bard::stats[0],Bard::stats[1],Bard::stats[2],Bard::stats[3],
+        Bard::stats[4],Bard::stats[5],Bard::stats[6],Bard::stats[7],"Bard"){
+            const string passive = Bard::passive;
+            const string (&actions)[5] = Bard::actions;
+            int spoons = s;
+            int knives = k;
+            int potions = p;
+            int fences = f;
+    };
+    void next_turn(){
+        // HOOOO BOY THIS PART IS GONNA BE FUN FOR ME IN THE FUTURE
+        string options[5] = {};
+    };
+};
+class Barbarian: public Player{
+    const string passive = "Healthy";
+    const int stats[8] = {
+        40, // hp
+        12, // atk
+        2,  // atkBON
+        15, // def
+        2,  // mp
+        2,  // mpBON
+        1,  // spd
+        1,  // itus
+    };
+    const string actions[5] = {
+        "Attack",
+        "Magic",
+        "Items",
+        "Pass",
+        "Run",
+    };
+    Barbarian(int s,int k,int p,int f):
+    Player(Barbarian::stats[0],Barbarian::stats[1],Barbarian::stats[2],Barbarian::stats[3],
+        Barbarian::stats[4],Barbarian::stats[5],Barbarian::stats[6],Barbarian::stats[7],"Barbarian"){
+            const string passive = Barbarian::passive;
+            const string (&actions)[5] = Barbarian::actions;
+            int spoons = s;
+            int knives = k;
+            int potions = p;
+            int fences = f;
+        };
+    void heal(int amount,int &hp,int &hpMAX){
+        amount = round(amount*1.5);
+        Player::heal(amount,hp,hpMAX);
+    };
+    void next_turn(int &hp,int &hpMAX,int &mp,int &mpBON,int &mpMAX){
+        Barbarian::heal(2,hp,hpMAX);
+        Player::next_turn(mp,mpBON,mpMAX);
+    };
+};
+class God{
+    int &numplayers = Player::numplayers;
+    const string passive = "Unkillable";
+    const int stats[8] = {
+        88224646790,  // hp
+        88224646790,  // atk
+        88224646790,  // atkBON
+        88224646790,  // def
+        88224646790,  // mp
+        88224646790,  // mpBON
+        88224646790,  // spd
+        88224646790,  // itus
+    };
+    const string actions[5] = {
+        "Attack",
+        "Magic",
+        "Items",
+        "Destructive hit",
+        "Pass",
+    };
+    God(){
+        int hp = God::stats[0];
+        int hpMAX = God::stats[0];
+        int atk = God::stats[1];
+        int atkBON = God::stats[2];
+        int def = God::stats[3];
+        int mp = God::stats[4];
+        int mpMAX = God::stats[4];
+        int mbBON = God::stats[5];
+        int spd = God::stats[6];
+        int itus = God::stats[7];
+        int spoons = 88224646790;
+        int knives = 88224646790;
+        int potions = 88224646790;
+        int fences = 88224646790;
+        int glocks = 88224646790;
+        const string name = "God";
+        const int id = Player::numplayers;
+        Player::numplayers++;
+        bool fence_set = true;
+        bool alive = true;
+        int adv = 0;
+        int advTR = 0;
+        int dmgBON = 0;
+    };
+};
 
 
 
