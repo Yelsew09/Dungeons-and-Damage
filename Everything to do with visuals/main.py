@@ -7,6 +7,9 @@ fpsCounter = True
 class slider():
     def __init__(self,locX,locY,width,height,colorR,colorC):
         self.vector_loc = [locX,locY]
+        self.vector_size = [width,height]
+        self.locX = locX
+        self.locY = locY
         self.width = width
         self.height = height
         self.colorR = colorR
@@ -17,12 +20,9 @@ class slider():
     def get_value(self):
         return self.__value
     def adjust(self):
-        draw_rectangle(self.locX,self.locY,self.width,self.height,self.colorR)
-        draw_circle_v(self.vector_loc)
-        if control_scheme == "KBM":
-            if check_collision_point_circle() and is_mouse_button_down(MouseButton):
-                    draw_text("This works.",190, 200, 20, VIOLET)
-                    last_clicked = self.id
+        draw_rectangle_v(self.vector_loc)
+        self.circle_vector_loc = [5,5]
+        draw_circle_v(self.circle_vector_loc,self.width,self.colorC)
 init_window(1280,720, "dungeons_and_damage")
 set_target_fps(60)
 #toggle_borderless_windowed()
