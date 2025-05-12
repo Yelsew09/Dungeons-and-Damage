@@ -1,2 +1,0 @@
-from pyray import *
-
