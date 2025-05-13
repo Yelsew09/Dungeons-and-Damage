@@ -1,47 +1,45 @@
 import random
-from pyray import *
+from raylib import *
 global control_scheme,last_clicked
 last_clicked = ''
-control_scheme = 'KBM'
+control_scheme = 'Keyboard'
 fpsCounter = True
 class UI():
     def hide(self):
         self.hidden = True
     def show(self):
         self.hidden = False
-class Slider(UI):
-    def __init__(self,locX,locY,width,height,colorR,colorC):
-        self.vector_loc = [locX,locY]
-        self.vector_size = [width,height]
-        self.circle_vector_loc = [locX,locY]
-        self.locX = locX
-        self.locY = locY
-        self.width = width
-        self.height = height
-        self.colorR = colorR
-        self.colorC = colorC
-        self.__value = round(height/2)
-        self.__value_range = height
-        self.__id = "volume"
-        self.hidden = False
     def get_value(self):
-        return self.__value
-    def next_frame(self):
+        try:
+            return self.__value
+        except:
+            return None
+class Slider(UI): #A slider that gives a value that changes depending on user input
+    def __init__(self,l,s,rc,cc,sv,r):
+        self.location = l
+        self.size = s
+        self.rColor = rc
+        self.cColor = cc
+        self.__value = sv
+        self.rotated = r
+        self.id = str(self)
+    def next_frame(self,pointer):
         if not self.hidden:
-            draw_rectangle_v(self.vector_loc,self.vector_size,self.colorR)
-            if control_scheme == "KBM":
-                if check_collision_point_circle(get_mouse_position(),self.circle_vector_loc,self.width):
-                    if is_mouse_button_down("mouse_button_left"):
-                        temp_val = get_mouse_y()
-                        if temp_val > self.locY+(self.height/2):
-                            self.__value = 0
-                        elif temp_val < self.locY-(self.height/2):
-                            self.__value = 100
-                        else:
-                            self.__value = temp_val - (get_screen_height()-self.height)
-            self.circle_vector_loc = [self.locX+(self.width/2),self.locY+self.get_value()]
-            draw_circle_v(self.circle_vector_loc,self.width,self.colorC)
-class Button(UI):
+            if self.rotated:
+                if control_scheme == "Keyboard" and pointer.selecting == self.id:
+                        if IsKeyDown(KEY_D) or IsKeyDown(KEY_RIGHT):
+                            self.__value += 1
+                        elif IsKeyDown(KEY_A) or IsKeyDown(KEY_LEFT):
+                            self.__value -= 1
+            else:
+                if control_scheme == "Keyboard" and pointer.selecting == self.id:
+                        if IsKeyDown(KEY_W) or IsKeyDown(KEY_UP):
+                            self.__value += 1
+                        elif IsKeyDown(KEY_S) or IsKeyDown(KEY_DOWN):
+                            self.__value -= 1
+
+
+class Selection(UI): #Basically a button
     def __init__(self,locX,locY,width,height,color,colorC,colorT,text = ''):
         self.vector_loc = [locX,locY]
         self.vector_size = [width,height]
@@ -57,30 +55,27 @@ class Button(UI):
         self.hidden = False
     def next_frame(self):
         if not self.hidden:
-            if control_scheme == "KBM":
-                if check_collision_point_rec(get_mouse_position(),self.vector_loc):
-                    self.__clicked = True
-        if self.__clicked:
-            draw_rectangle_v(self.vector_loc,self.vector_size,self.colorC)
-        else:
-            draw_rectangle_v(self.vector_loc,self.vector_size,self.color)
-        draw_text(self.text,round(self.locX-(self.width/2)),round(self.locY-(self.height/2)),round(self.height*.75),self.colorT)
+            if control_scheme == "Keyboard":
+                pass
     def is_clicked(self):
         return self.__clicked
-init_window(1280,720, "dungeons_and_damage")
-set_target_fps(60)
+class Pointer(UI):
+    def __init__(self,color):
+        self.selecting = None
+InitWindow(1280,720, "dungeons_and_damage")
+SetTargetFPS(60)
 #toggle_borderless_windowed()
-volume = Slider(1265,310,10,100,BLUE,DARKBLUE)
-start = Button(640,360, 100,40, BLUE,DARKBLUE, YELLOW,"Game Start")
-while not window_should_close():
-    begin_drawing()
-    clear_background(WHITE)
+volume = Slider()
+start = Selection()
+while not WindowShouldClose():
+    BeginDrawing()
+    ClearBackground(WHITE)
     if fpsCounter:
-        draw_text(f"{get_fps()}\nFPS",10,10,50,VIOLET)
+        DrawText(f"{GetFPS()}\nFPS",10,10,50,VIOLET)
     start.next_frame()
     if start.is_clicked():
         start.hide()
-        draw_text("Starting game",640,360,20,BLUE)
+        DrawText("Starting game",640,360,20,BLUE)
     set_master_volume = volume.next_frame()
-    end_drawing()
-close_window()
+    EndDrawing()
+CloseWindow()
