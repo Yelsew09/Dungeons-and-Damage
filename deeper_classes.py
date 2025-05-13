@@ -107,7 +107,7 @@ def qlist(list,returntype,asking = "What would you like to do? ",):
                 pass
     else:
         for option in range(len(list)-1):
-            q(f"{option+1} - {list[option]}\n")
+            q(f"{option+1} - {list[option+1]}\n")
             wait()
         option = ask(asking)
         if returntype:
@@ -691,41 +691,49 @@ def charselect(playernum):
                 rc = False
                 cc = False
                 skip = True
+                player = None
             
             #Knight
             elif option == "Knight":
                 player = Knight()
                 rc = False
+                skip = False
             
             #Peashooter
             elif option == "Peashooter":
                 player = Peashooter()
                 rc = False
+                skip = False
             
             #Rouge
             elif option == "Rouge":
                 player = Rouge()
                 rc = False
+                skip = False
             
             #Mage
             elif option == "Mage":
                 player = Mage()
                 rc = False
+                skip = False
             
             #Skele
             elif option == "Skele":
                 player = Skele()
                 rc = False
+                skip = False
             
             #Bard
             elif option == "Bard":
                 player = Bard()
                 rc = False
+                skip = False
             
             #Barbarian
             elif option == "Barbarian":
                 player = Barbarian()
                 rc = False
+                skip = False
             
             #Random
             elif option == "Random":
@@ -864,7 +872,7 @@ def charselect(playernum):
             pass
         else:
             cc = y_or_n(f"You have chosen the {player.classname} class, is this correct? ")
-    return player
+    return player,skip
 def take_turn(atkP,defP):
 
     confirm(f"This is player {atkP.id}'s turn.")
@@ -1068,51 +1076,52 @@ while ac:
     elif option == "Quit":
         ac = False
     elif option == "Game Start":
-        player1 = charselect(1)
-        player2 = charselect(2)
+        player1,skip = charselect(1)
+        if not skip:
+            player2,skip = charselect(2)
+        if not skip:
+            #GameCorrect
+            gc = True
+            while gc:
 
-        #GameCorrect
-        gc = True
-        while gc:
-
-            #Player 1 is dead
-            if not player1.alive:
-                confirm(f"Player 1 is out of HP. They have lost.")
-                gc = False
-            
-            #Player 2 is dead
-            elif not player2.alive:
-                confirm(f"Player 2 is out of HP. They have lost.")
-                gc = False
-            
-            #Everyone's health
-            else:
-                #Player 1 is faster than player 2
-                if player1.spd > player2.spd:
-                    first = player1.id
+                #Player 1 is dead
+                if not player1.alive:
+                    confirm(f"Player 1 is out of HP. They have lost.")
+                    gc = False
                 
-                #Player 2 is faster than player 1
-                elif player2.spd > player1.spd:
-                    first = player2.id
+                #Player 2 is dead
+                elif not player2.alive:
+                    confirm(f"Player 2 is out of HP. They have lost.")
+                    gc = False
                 
-                #Both players are tied for speed
+                #Everyone's healthy
                 else:
-                    confirm(f"Both players are tied for speed. Picking a random player to go first.")
-                    first = random.randint(player1.id,player2.id)
-                    confirm(f"Player {first} is going first")
-                if first == player1.id:
-                    confirm(f"This is the start of round {roundnum}.")
-                    confirm(f"Player 1 has {player1.hp}/{player1.hpMAX}HP remaining; {player1.mp}/{player1.mpMAX}MP remaining.")
-                    confirm(f"Player 2 has {player2.hp}/{player2.hpMAX}HP remaining; {player2.mp}/{player2.mpMAX}MP remaining.")
-                    player1,player2 = take_turn(player1,player2)
-
-                    if not player1.alive:
-                        confirm(f"Player 1 is out of HP. They have lost.")
-                        gc = False
+                    #Player 1 is faster than player 2
+                    if player1.spd > player2.spd:
+                        first = player1.id
                     
-                    elif not player2.alive:
-                        confirm(f"Player 2 is out of HP. They have lost.")
-                        gc = False
+                    #Player 2 is faster than player 1
+                    elif player2.spd > player1.spd:
+                        first = player2.id
+                    
+                    #Both players are tied for speed
+                    else:
+                        confirm(f"Both players are tied for speed. Picking a random player to go first.")
+                        first = random.randint(player1.id,player2.id)
+                        confirm(f"Player {first} is going first")
+                    if first == player1.id:
+                        confirm(f"This is the start of round {roundnum}.")
+                        confirm(f"Player 1 has {player1.hp}/{player1.hpMAX}HP remaining; {player1.mp}/{player1.mpMAX}MP remaining.")
+                        confirm(f"Player 2 has {player2.hp}/{player2.hpMAX}HP remaining; {player2.mp}/{player2.mpMAX}MP remaining.")
+                        player1,player2 = take_turn(player1,player2)
+
+                        if not player1.alive:
+                            confirm(f"Player 1 is out of HP. They have lost.")
+                            gc = False
+                        
+                        elif not player2.alive:
+                            confirm(f"Player 2 is out of HP. They have lost.")
+                            gc = False
     else:
         q("Please give a valid option.")
         wait(.5)
