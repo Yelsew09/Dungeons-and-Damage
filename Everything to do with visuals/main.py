@@ -13,6 +13,7 @@ class Slider(UI):
     def __init__(self,locX,locY,width,height,colorR,colorC):
         self.vector_loc = [locX,locY]
         self.vector_size = [width,height]
+        self.circle_vector_loc = [locX,locY]
         self.locX = locX
         self.locY = locY
         self.width = width
@@ -22,7 +23,7 @@ class Slider(UI):
         self.__value = round(height/2)
         self.__value_range = height
         self.__id = "volume"
-        self.__hidden = False
+        self.hidden = False
     def get_value(self):
         return self.__value
     def next_frame(self):
@@ -57,13 +58,13 @@ class Button(UI):
     def next_frame(self):
         if not self.hidden:
             if control_scheme == "KBM":
-                if check_collision_point_rec(get_mouse_position(),self.vector_loc,self.vector_size):
+                if check_collision_point_rec(get_mouse_position(),self.vector_loc):
                     self.__clicked = True
         if self.__clicked:
             draw_rectangle_v(self.vector_loc,self.vector_size,self.colorC)
         else:
             draw_rectangle_v(self.vector_loc,self.vector_size,self.color)
-        draw_text(self.text,self.locX-(self.width/2),self.locY-(self.height/2),self.height*.75,self.colorT)
+        draw_text(self.text,round(self.locX-(self.width/2)),round(self.locY-(self.height/2)),round(self.height*.75),self.colorT)
     def is_clicked(self):
         return self.__clicked
 init_window(1280,720, "dungeons_and_damage")
