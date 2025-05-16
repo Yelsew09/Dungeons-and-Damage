@@ -60,33 +60,35 @@ class Slider(UI):
                 draw_circle_v([self.location[0],self.location[1]+self.__value],self.size[0],self.cColor)
     def get_value(self):
         return self.__value
-class Option(UI):
-    def __init__(self,lX,lY,h,c,Sc,Tc,s,t=''):
-        self.locX = lX
-        self.locY = lY
-        self.fontsize = h-4
-        self.width = measure_text(t,h)
-        self.height = h
+class OptionList(UI):
+    def __init__(self,li,di,lo,h,c,Sc,Tc):
+        self.options = li
+        self.tColor = Tc
+        self.dimensions = di
+        self.xLength = di[0]
+        self.yLength = di[1]
+        self.locX = lo[0]
+        self.locY = lo[1]
         self.Color = c
         self.sColor = Sc
-        self.tColor = Tc
-        self.text = t
-        self.id = str(self)
-        self.__hidden = s
-        self.__pressed = False
-    def next_frame(self,pointer):
-        if not self.__hidden:
-            if pointer.is_selecting() == self.id:
-                if control_scheme == "Keyboard" and IsKeyDown(A):
-                    self.__pressed = True
-            if self.__pressed == True:
-                draw_rectangle_lines(self.locX,self.locY,self.width,self.height,self.sColor)
-                draw_text(self.text,self.locX+2,self.locY+2,self.fontsize,self.tColor)
-            elif not self.__pressed == True:
-                draw_rectangle_lines(self.locX,self.locY,self.width,self.height,self.Color)
-                draw_text(self.text,self.locX+2,self.locY+2,self.fontsize,self.tColor)
-    def is_pressed(self):
-        return self.__pressed
+        self.__hidden = h
+    class Option(UI):
+        def __init__(self,t,):
+            self.text = t
+            self.id = str(self)
+        def next_frame(self,p):
+            if not self.__hidden:
+                if p.is_selecting() == self.id:
+                    if control_scheme == "Keyboard" and IsKeyDown(A):
+                        self.__pressed = True
+                if self.__pressed == True:
+                    draw_rectangle_lines(self.locX,self.locY,self.width,self.height,self.sColor)
+                    draw_text(self.text,self.locX+2,self.locY+2,self.fontsize,self.tColor)
+                elif not self.__pressed == True:
+                    draw_rectangle_lines(self.locX,self.locY,self.width,self.height,self.Color)
+                    draw_text(self.text,self.locX+2,self.locY+2,self.fontsize,self.tColor)
+        def is_pressed(self):
+            return self.__pressed
 class Pointer(UI):
     def __init__(self,p,s,r,c,h):
         self.__pointed_at = p
@@ -94,6 +96,7 @@ class Pointer(UI):
         self.id = str(self)
         self.rotated = r
         self.color = c
+        self.__locked = False
         self.__hidden = h
     def next_frame(self,options,oLength,oHeight):
         if not self.__hidden:
@@ -130,3 +133,20 @@ class Pointer(UI):
             draw_triangle(vert1,vert2,vert3,self.color)
     def is_selecting(self):
         return self.__pointed_at
+    def lock(self):
+        self.__locked = True
+    def unlock(self):
+        self.__locked = False
+class Screen():
+    def __init__(self,e,p,gr_lay):
+        self.elements = e
+        self.pointer = p
+        self.layout = gr_lay
+        self.yLength = gr_lay[1]
+    def next_frame(self):
+        if self.__is_active:
+            self.pointer.next_frame()
+            for element in self.elements:
+                element.next_frame(self.pointer)
+    def is_showing(self):
+        return self.__is_active
