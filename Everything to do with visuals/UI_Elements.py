@@ -79,4 +79,6 @@ class Options(UI):
             self.temp_id = f"option {self}"
         def next_frame(self,pointer):
             draw_rectangle_v(self.location,self.size,self.rColor)
-            border = Rectangle()
+            border = Rectangle(self.location[0],self.location[1],self.size[0],self.size[1])
+            draw_rectangle_lines_ex(border,self.size[1]/10,self.bColor)
+            
