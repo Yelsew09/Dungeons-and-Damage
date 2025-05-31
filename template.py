@@ -377,7 +377,7 @@ class Barbarian():
         self.heal(2)
         Player.next_turn(self)                     
 class Custom():
-    passive = "None"
+    passive = None
     def __init__(self,h,a,aB,d,m,mB,s,p,n,i):
         Player.__init__(self,h,a,aB,d,m,mB,s,p,n,i)
         self.passive = Custom.passive
