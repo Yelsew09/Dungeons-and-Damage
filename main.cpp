@@ -141,8 +141,8 @@ class Player{
     void next_turn(int &mp, int &mpMAX, int &mpBON, int &hp, bool &alive,
     int &adv, int &adtr){
         mp += mpBON;
-        if (mp > mpMAX){mp = mpMAX};
-        if (hp <= 0){alive = false};
+        if (mp > mpMAX){mp = mpMAX;};
+        if (hp <= 0){alive = false;};
         if (adtr > 0){
             adtr--;
         } else {
@@ -181,4 +181,4 @@ public Player{
 
 int main(){
     return 0;
-};
+}
