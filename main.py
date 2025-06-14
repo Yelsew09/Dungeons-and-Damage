@@ -13,6 +13,7 @@ class Hitbox():
         self.spot = Vector2(x,y)
         self.dimensions = Vector2(w,l)
         self.tag = t
+    def check_collision(self,current_position):
 
 class Player():
     def __init__(self,texture_folder,stats,collision_box):
@@ -27,6 +28,9 @@ class Player():
             texture = load_texture("textures/missing.png")
         draw_texture_ex(texture,position,rotation,scale,tint)
         unload_texture(texture)
+    def next_frame(self):
+        if is_key_down(Key.KEY_W):
+            self.collision_box.
 
 
 class Tile():
@@ -62,6 +66,7 @@ class Tile():
         else:
             self.texture = load_texture("textures/missing.png")
             grass.scale = 16
+
 
 
 grass = Tile("grass.png",[0,0],"overworld")
