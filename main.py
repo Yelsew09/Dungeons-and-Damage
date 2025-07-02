@@ -15,12 +15,12 @@ main_camera.target = player.position
 main_camera.offset = Vector2(get_screen_width()/2,get_screen_height()/2)
 
 init_window(320,180,"test")
-toggle_fullscreen()
+toggle_borderless_windowed()
 global global_scale
-global_scale = get_screen_width()/180
+global_scale = get_screen_width()/45
 hide_cursor()
 print(get_screen_width())
-set_target_fps(60)
+set_target_fps(get_monitor_refresh_rate(get_current_monitor()))
 tile = load_texture("textures/missing.png")
 while not window_should_close():
     begin_drawing()

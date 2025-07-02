@@ -1,6 +1,31 @@
 from pyray import KeyboardKey as Key
 from pyray import *
 
+loaded_texture_paths = []
+loaded_textures = []
+
+def list_load_texture(texture_path):
+    if not texture_path in loaded_texture_paths:
+        loaded_texture_paths.append(texture_path)
+        new_texture = load_texture(texture_path)
+        loaded_textures.append(new_texture)
+        return new_texture
+    else:
+        new_texture = load_texture(texture_path)
+        i = 0
+        old_texture = loaded_textures[i]
+        while not new_texture == old_texture:
+            i += 1
+            old_texture = loaded_textures[i]
+        unload_texture(new_texture)
+        return old_texture
+
+def list_unload_texture(texture):
+    if texture in loaded_textures:
+        unload_texture(texture)
+        loaded_textures.remove(texture)
+        
+
 class Hitbox():
     hitboxes = []
     def __init__(self,x,y,l,w,t = None,e = None):
@@ -29,8 +54,8 @@ class Hitbox():
 class Tile():
     def __init__(self,x,y,t,e):
         self.location = Vector2(x,y)
-        self.t = t
-        self.texture = load_texture(f"textures/tiles/{self.t}")
+        self.texture = None
+        self.texture_path = f"textures/tiles/{t}"
         self.extras = e
     def next_frame(self,current_location,draw):
         self.boxes = []
@@ -79,7 +104,7 @@ class Player():
             scale = 1
         draw_texture_ex(texture,position,rotation,scale,tint)
         unload_texture(texture)
-    def next_frame(self):
+    def next_frame(self,camera):
         if is_key_down(Key.KEY_W):
             self.position.y += 1
             self.collision_box.update_position(self.position)
@@ -109,3 +134,15 @@ class Player():
                 self.position.x += 1
                 self.collision_box.update_position(self.position)
         self.collision_box.update_position(self.position)
+
+class Zone():
+    def __init__(self,name,camera,tiles):
+        self.name = name
+        self.camera = camera
+        self.tiles = tiles
+    def load(self):
+        for tile in self.tiles:
+            tile.texture = list_load_texture(tile.texture_path)
+    def unload(self):
+        for tile in self.tiles:
+            list_unload_texture(tile.texture_path)
