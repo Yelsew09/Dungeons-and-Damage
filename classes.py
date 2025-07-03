@@ -1,6 +1,7 @@
 from pyray import KeyboardKey as Key
 from pyray import *
 
+"""
 loaded_texture_paths = []
 loaded_textures = []
 
@@ -24,12 +25,12 @@ def list_unload_texture(texture):
     if texture in loaded_textures:
         unload_texture(texture)
         loaded_textures.remove(texture)
-        
+"""
 
 class Hitbox():
     hitboxes = []
     def __init__(self,x,y,l,w,t = None,e = None):
-        self.location = Vector2(x,y)
+        self.position = Vector2(x,y)
         self.dimensions = Vector2(l,w)
         self.tags = t
         self.extras = e
@@ -40,49 +41,54 @@ class Hitbox():
             if tags in hitbox.extras and hitbox.extras['layer'] == layer:
                 valid_hitboxes.append(hitbox)
         for box in valid_hitboxes:
-            colliding = check_collision_recs(Rectangle(self.location.x,self.location.y,self.dimensions.x,self.dimensions.y),
-                                 Rectangle(box.location.x,box.location.y,box.dimensions.x,box.dimensions.y))
+            colliding = check_collision_recs(Rectangle(self.position.x,self.position.y,self.dimensions.x,self.dimensions.y),
+                                 Rectangle(box.position.x,box.position.y,box.dimensions.x,box.dimensions.y))
             if colliding:
                 return box
         return False
     def update_position(self,new_position):
-        self.location = new_position
+        self.position = new_position
     def delete(self):
         Hitbox.hitboxes.remove(self)
         del self
 
 class Tile():
-    def __init__(self,x,y,t,e):
-        self.location = Vector2(x,y)
+    def __init__(self,p,t,e):
+        self.position = p
         self.texture = None
         self.texture_path = f"textures/tiles/{t}"
         self.extras = e
-    def next_frame(self,current_location,draw):
+    def next_frame(self,current_position,draw):
         self.boxes = []
-        if self.extras[1]:
-            self.tileBox = Hitbox(current_location.x,current_location.y,16,16,["hitbox"],{'layer': self.extras[0]})
+        if self.extras[0]:
+            self.tileBox = Hitbox(current_position.x,current_position.y,16,16,["hitbox"],{'layer': self.extras[0]})
             self.boxes.append(self.tileBox)
-        if self.extras[2]:
-            self.topBox = Hitbox(current_location.x,current_location.y+15,16,1,["hitbox"],{'layer': self.extras[0]})
+        if self.extras[1]:
+            self.topBox = Hitbox(current_position.x,current_position.y+15,16,1,["hitbox"],{'layer': self.extras[0]})
             self.boxes.append(self.topBox)
-        if self.extras[3]:
-            self.rightBox = Hitbox(current_location.x+15,current_location.y,1,16,["hitbox"],{'layer': self.extras[0]})
+        if self.extras[2]:
+            self.rightBox = Hitbox(current_position.x+15,current_position.y,1,16,["hitbox"],{'layer': self.extras[0]})
             self.boxes.append(self.rightBox)
-        if self.extras[4]:
-            self.bottomBox = Hitbox(current_location.x,current_location.y,16,1,["hitbox"],{'layer': self.extras[0]})
+        if self.extras[3]:
+            self.bottomBox = Hitbox(current_position.x,current_position.y,16,1,["hitbox"],{'layer': self.extras[0]})
             self.boxes.append(self.bottomBox)
-        if self.extras[5]:
-            self.leftBox = Hitbox(current_location.x,current_location.y,1,16,["hitbox"],{'layer': self.extras[0]})
+        if self.extras[4]:
+            self.leftBox = Hitbox(current_position.x,current_position.y,1,16,["hitbox"],{'layer': self.extras[0]})
             self.boxes.append(self.leftBox)
         if draw:
-            self.draw(current_location)
+            self.draw(current_position)
     def draw(self,current_position,tint = WHITE):
-        draw_texture(self.texture,current_position.x,current_position.y,tint)
+        draw_texture_ex(self.texture,current_position,0.0,1,tint)
+    def load(self):
+        self.texture = load_texture(self.texture_path)
     def delete(self):
         for box in self.boxes:
             box.delete()
-        unload_texture(f"textures/tiles/{self.t}")
+        unload_texture(self.texture)
         del self
+    def is_on_screen(self,camera):
+        return check_collision_recs(Rectangle(self.position.x,self.position.y,16,16),
+                                    Rectangle(camera.target.x,camera.target.y,get_screen_width(),get_screen_height()))
 
 class Player():
     def __init__(self,stats,texture_folder,extras):
@@ -136,13 +142,18 @@ class Player():
         self.collision_box.update_position(self.position)
 
 class Zone():
-    def __init__(self,name,camera,tiles):
-        self.name = name
-        self.camera = camera
+    def __init__(self,tiles):
+        self.name = str(self)
         self.tiles = tiles
     def load(self):
         for tile in self.tiles:
-            tile.texture = list_load_texture(tile.texture_path)
+            tile.load()
+#            tile.texture = list_load_texture(tile.texture_path)
     def unload(self):
         for tile in self.tiles:
-            list_unload_texture(tile.texture_path)
+            tile.delete()
+            #list_unload_texture(tile.texture_path)
+    def next_frame(self,camera):
+        for tile in self.tiles:
+            #if tile.is_on_screen(camera):
+            tile.next_frame(get_world_to_screen_2d(tile.position,camera),True)
