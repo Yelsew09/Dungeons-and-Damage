@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/main.cpp" "CMakeFiles/dungeons_and_damgage.dir/src/main.cpp.o" "gcc" "CMakeFiles/dungeons_and_damgage.dir/src/main.cpp.o.d"
+  "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/main.cpp" "CMakeFiles/dungeons_and_damage.dir/src/main.cpp.o" "gcc" "CMakeFiles/dungeons_and_damage.dir/src/main.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

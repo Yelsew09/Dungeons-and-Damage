@@ -2,7 +2,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "dungeons_and_damgage"
+			"path" : "dungeons_and_damage"
 		}
 	],
 	"backtrace" : 1,
@@ -10,7 +10,8 @@
 	{
 		"commands" : 
 		[
-			"add_executable"
+			"add_executable",
+			"target_link_libraries"
 		],
 		"files" : 
 		[
@@ -25,6 +26,12 @@
 				"command" : 0,
 				"file" : 0,
 				"line" : 4,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 6,
 				"parent" : 0
 			}
 		]
@@ -45,7 +52,7 @@
 			]
 		}
 	],
-	"id" : "dungeons_and_damgage::@6890427a1f51a3e7e1df",
+	"id" : "dungeons_and_damage::@6890427a1f51a3e7e1df",
 	"link" : 
 	{
 		"commandFragments" : 
@@ -57,12 +64,17 @@
 			{
 				"fragment" : "",
 				"role" : "flags"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "-lglfw",
+				"role" : "libraries"
 			}
 		],
 		"language" : "CXX"
 	},
-	"name" : "dungeons_and_damgage",
-	"nameOnDisk" : "dungeons_and_damgage",
+	"name" : "dungeons_and_damage",
+	"nameOnDisk" : "dungeons_and_damage",
 	"paths" : 
 	{
 		"build" : ".",

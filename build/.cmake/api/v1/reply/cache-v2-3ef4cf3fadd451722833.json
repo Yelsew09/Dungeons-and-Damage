@@ -847,7 +847,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "dungeons_and_damgage"
+			"value" : "dungeons_and_damage"
 		},
 		{
 			"name" : "CMAKE_PROJECT_VERSION",
@@ -1206,6 +1206,42 @@
 			"value" : "FALSE"
 		},
 		{
+			"name" : "Project_BINARY_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build"
+		},
+		{
+			"name" : "Project_IS_TOP_LEVEL",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "ON"
+		},
+		{
+			"name" : "Project_SOURCE_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "/home/splitfish/Documents/GitHub/Dungeons-and-Damage"
+		},
+		{
 			"name" : "_CMAKE_LINKER_PUSHPOP_STATE_SUPPORTED",
 			"properties" : 
 			[
@@ -1218,7 +1254,7 @@
 			"value" : "TRUE"
 		},
 		{
-			"name" : "dungeons_and_damgage_BINARY_DIR",
+			"name" : "dungeons_BINARY_DIR",
 			"properties" : 
 			[
 				{
@@ -1230,7 +1266,7 @@
 			"value" : "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build"
 		},
 		{
-			"name" : "dungeons_and_damgage_IS_TOP_LEVEL",
+			"name" : "dungeons_IS_TOP_LEVEL",
 			"properties" : 
 			[
 				{
@@ -1242,7 +1278,43 @@
 			"value" : "ON"
 		},
 		{
-			"name" : "dungeons_and_damgage_SOURCE_DIR",
+			"name" : "dungeons_SOURCE_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "/home/splitfish/Documents/GitHub/Dungeons-and-Damage"
+		},
+		{
+			"name" : "dungeons_and_damage_BINARY_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build"
+		},
+		{
+			"name" : "dungeons_and_damage_IS_TOP_LEVEL",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "ON"
+		},
+		{
+			"name" : "dungeons_and_damage_SOURCE_DIR",
 			"properties" : 
 			[
 				{

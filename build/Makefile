@@ -117,24 +117,24 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named dungeons_and_damgage
+# Target rules for targets named dungeons_and_damage
 
 # Build rule for target.
-dungeons_and_damgage: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 dungeons_and_damgage
-.PHONY : dungeons_and_damgage
+dungeons_and_damage: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 dungeons_and_damage
+.PHONY : dungeons_and_damage
 
 # fast build rule for target.
-dungeons_and_damgage/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/dungeons_and_damgage.dir/build.make CMakeFiles/dungeons_and_damgage.dir/build
-.PHONY : dungeons_and_damgage/fast
+dungeons_and_damage/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dungeons_and_damage.dir/build.make CMakeFiles/dungeons_and_damage.dir/build
+.PHONY : dungeons_and_damage/fast
 
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
 
 # target to build an object file
 src/main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/dungeons_and_damgage.dir/build.make CMakeFiles/dungeons_and_damgage.dir/src/main.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dungeons_and_damage.dir/build.make CMakeFiles/dungeons_and_damage.dir/src/main.cpp.o
 .PHONY : src/main.cpp.o
 
 src/main.i: src/main.cpp.i
@@ -142,7 +142,7 @@ src/main.i: src/main.cpp.i
 
 # target to preprocess a source file
 src/main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/dungeons_and_damgage.dir/build.make CMakeFiles/dungeons_and_damgage.dir/src/main.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dungeons_and_damage.dir/build.make CMakeFiles/dungeons_and_damage.dir/src/main.cpp.i
 .PHONY : src/main.cpp.i
 
 src/main.s: src/main.cpp.s
@@ -150,7 +150,7 @@ src/main.s: src/main.cpp.s
 
 # target to generate assembly for a file
 src/main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/dungeons_and_damgage.dir/build.make CMakeFiles/dungeons_and_damgage.dir/src/main.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dungeons_and_damage.dir/build.make CMakeFiles/dungeons_and_damage.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
 # Help Target
@@ -161,7 +161,7 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... dungeons_and_damgage"
+	@echo "... dungeons_and_damage"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
