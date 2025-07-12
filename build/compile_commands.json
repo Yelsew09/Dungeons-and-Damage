@@ -1,0 +1,8 @@
+[
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build",
+  "command": "/usr/bin/c++   -g -o CMakeFiles/dungeons_and_damgage.dir/src/main.cpp.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/main.cpp",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/main.cpp",
+  "output": "CMakeFiles/dungeons_and_damgage.dir/src/main.cpp.o"
+}
+]
