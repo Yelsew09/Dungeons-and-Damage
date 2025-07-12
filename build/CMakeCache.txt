@@ -230,24 +230,6 @@ CMAKE_TAPI:FILEPATH=CMAKE_TAPI-NOTFOUND
 CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 
 //Value Computed by CMake
-Project_BINARY_DIR:STATIC=/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build
-
-//Value Computed by CMake
-Project_IS_TOP_LEVEL:STATIC=ON
-
-//Value Computed by CMake
-Project_SOURCE_DIR:STATIC=/home/splitfish/Documents/GitHub/Dungeons-and-Damage
-
-//Value Computed by CMake
-dungeons_BINARY_DIR:STATIC=/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build
-
-//Value Computed by CMake
-dungeons_IS_TOP_LEVEL:STATIC=ON
-
-//Value Computed by CMake
-dungeons_SOURCE_DIR:STATIC=/home/splitfish/Documents/GitHub/Dungeons-and-Damage
-
-//Value Computed by CMake
 dungeons_and_damage_BINARY_DIR:STATIC=/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build
 
 //Value Computed by CMake

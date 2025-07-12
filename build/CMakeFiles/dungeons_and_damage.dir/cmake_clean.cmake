@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/dungeons_and_damage.dir/src/glad.c.o"
+  "CMakeFiles/dungeons_and_damage.dir/src/glad.c.o.d"
   "CMakeFiles/dungeons_and_damage.dir/src/main.cpp.o"
   "CMakeFiles/dungeons_and_damage.dir/src/main.cpp.o.d"
   "dungeons_and_damage"
@@ -6,6 +8,6 @@ file(REMOVE_RECURSE
 )
 
 # Per-language clean rules from dependency scanning.
-foreach(lang CXX)
+foreach(lang C CXX)
   include(CMakeFiles/dungeons_and_damage.dir/cmake_clean_${lang}.cmake OPTIONAL)
 endforeach()

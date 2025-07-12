@@ -4,5 +4,11 @@
   "command": "/usr/bin/c++   -g -o CMakeFiles/dungeons_and_damage.dir/src/main.cpp.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/main.cpp",
   "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/main.cpp",
   "output": "CMakeFiles/dungeons_and_damage.dir/src/main.cpp.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build",
+  "command": "/usr/bin/cc   -g -o CMakeFiles/dungeons_and_damage.dir/src/glad.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/glad.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/glad.c",
+  "output": "CMakeFiles/dungeons_and_damage.dir/src/glad.c.o"
 }
 ]

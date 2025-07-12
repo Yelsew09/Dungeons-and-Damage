@@ -81,12 +81,12 @@ clean: CMakeFiles/dungeons_and_damage.dir/clean
 CMakeFiles/dungeons_and_damage.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/dungeons_and_damage.dir/build.make CMakeFiles/dungeons_and_damage.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/dungeons_and_damage.dir/build.make CMakeFiles/dungeons_and_damage.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/CMakeFiles --progress-num=1,2 "Built target dungeons_and_damage"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/CMakeFiles --progress-num=1,2,3 "Built target dungeons_and_damage"
 .PHONY : CMakeFiles/dungeons_and_damage.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/dungeons_and_damage.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/CMakeFiles 3
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/dungeons_and_damage.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/CMakeFiles 0
 .PHONY : CMakeFiles/dungeons_and_damage.dir/rule
