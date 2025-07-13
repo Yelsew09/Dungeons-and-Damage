@@ -118,6 +118,7 @@ CMakeFiles/dungeons_and_damage.dir/src/main.cpp.o: /home/splitfish/Documents/Git
   /usr/include/c++/13/bits/range_access.h \
   /usr/include/c++/13/bits/refwrap.h \
   /usr/include/c++/13/bits/requires_hosted.h \
+  /usr/include/c++/13/bits/specfun.h \
   /usr/include/c++/13/bits/std_abs.h \
   /usr/include/c++/13/bits/stl_algobase.h \
   /usr/include/c++/13/bits/stl_construct.h \
@@ -136,6 +137,7 @@ CMakeFiles/dungeons_and_damage.dir/src/main.cpp.o: /home/splitfish/Documents/Git
   /usr/include/c++/13/cctype \
   /usr/include/c++/13/cerrno \
   /usr/include/c++/13/clocale \
+  /usr/include/c++/13/cmath \
   /usr/include/c++/13/cstddef \
   /usr/include/c++/13/cstdio \
   /usr/include/c++/13/cstdlib \
@@ -154,6 +156,7 @@ CMakeFiles/dungeons_and_damage.dir/src/main.cpp.o: /home/splitfish/Documents/Git
   /usr/include/c++/13/iosfwd \
   /usr/include/c++/13/iostream \
   /usr/include/c++/13/istream \
+  /usr/include/c++/13/limits \
   /usr/include/c++/13/new \
   /usr/include/c++/13/ostream \
   /usr/include/c++/13/pstl/pstl_config.h \
@@ -162,6 +165,18 @@ CMakeFiles/dungeons_and_damage.dir/src/main.cpp.o: /home/splitfish/Documents/Git
   /usr/include/c++/13/string \
   /usr/include/c++/13/string_view \
   /usr/include/c++/13/system_error \
+  /usr/include/c++/13/tr1/bessel_function.tcc \
+  /usr/include/c++/13/tr1/beta_function.tcc \
+  /usr/include/c++/13/tr1/ell_integral.tcc \
+  /usr/include/c++/13/tr1/exp_integral.tcc \
+  /usr/include/c++/13/tr1/gamma.tcc \
+  /usr/include/c++/13/tr1/hypergeometric.tcc \
+  /usr/include/c++/13/tr1/legendre_function.tcc \
+  /usr/include/c++/13/tr1/modified_bessel_func.tcc \
+  /usr/include/c++/13/tr1/poly_hermite.tcc \
+  /usr/include/c++/13/tr1/poly_laguerre.tcc \
+  /usr/include/c++/13/tr1/riemann_zeta.tcc \
+  /usr/include/c++/13/tr1/special_function_util.h \
   /usr/include/c++/13/tuple \
   /usr/include/c++/13/type_traits \
   /usr/include/c++/13/typeinfo \
@@ -172,6 +187,7 @@ CMakeFiles/dungeons_and_damage.dir/src/main.cpp.o: /home/splitfish/Documents/Git
   /usr/include/features.h \
   /usr/include/linux/errno.h \
   /usr/include/locale.h \
+  /usr/include/math.h \
   /usr/include/pthread.h \
   /usr/include/sched.h \
   /usr/include/stdc-predef.h \
@@ -190,9 +206,18 @@ CMakeFiles/dungeons_and_damage.dir/src/main.cpp.o: /home/splitfish/Documents/Git
   /usr/include/x86_64-linux-gnu/bits/errno.h \
   /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
   /usr/include/x86_64-linux-gnu/bits/floatn.h \
+  /usr/include/x86_64-linux-gnu/bits/flt-eval-method.h \
+  /usr/include/x86_64-linux-gnu/bits/fp-fast.h \
+  /usr/include/x86_64-linux-gnu/bits/fp-logb.h \
+  /usr/include/x86_64-linux-gnu/bits/iscanonical.h \
   /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
+  /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
   /usr/include/x86_64-linux-gnu/bits/locale.h \
   /usr/include/x86_64-linux-gnu/bits/long-double.h \
+  /usr/include/x86_64-linux-gnu/bits/math-vector.h \
+  /usr/include/x86_64-linux-gnu/bits/mathcalls-helper-functions.h \
+  /usr/include/x86_64-linux-gnu/bits/mathcalls-narrow.h \
+  /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
   /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
@@ -267,8 +292,6 @@ CMakeFiles/dungeons_and_damage.dir/src/main.cpp.o: /home/splitfish/Documents/Git
 
 /usr/include/x86_64-linux-gnu/c++/13/bits/gthr-default.h:
 
-/usr/include/x86_64-linux-gnu/c++/13/bits/error_constants.h:
-
 /usr/include/x86_64-linux-gnu/c++/13/bits/ctype_inline.h:
 
 /usr/include/x86_64-linux-gnu/c++/13/bits/ctype_base.h:
@@ -281,8 +304,6 @@ CMakeFiles/dungeons_and_damage.dir/src/main.cpp.o: /home/splitfish/Documents/Git
 
 /usr/include/x86_64-linux-gnu/bits/types/struct___jmp_buf_tag.h:
 
-/usr/include/x86_64-linux-gnu/bits/types/error_t.h:
-
 /usr/include/x86_64-linux-gnu/c++/13/bits/cpu_defines.h:
 
 /usr/include/x86_64-linux-gnu/bits/timex.h:
@@ -291,7 +312,17 @@ CMakeFiles/dungeons_and_damage.dir/src/main.cpp.o: /home/splitfish/Documents/Git
 
 /usr/include/x86_64-linux-gnu/bits/sched.h:
 
+/usr/include/x86_64-linux-gnu/bits/types/error_t.h:
+
+/usr/include/x86_64-linux-gnu/bits/mathcalls-helper-functions.h:
+
 /usr/include/x86_64-linux-gnu/bits/locale.h:
+
+/usr/include/x86_64-linux-gnu/bits/iscanonical.h:
+
+/usr/include/x86_64-linux-gnu/bits/fp-logb.h:
+
+/usr/include/x86_64-linux-gnu/bits/fp-fast.h:
 
 /usr/include/x86_64-linux-gnu/bits/cpu-set.h:
 
@@ -305,13 +336,29 @@ CMakeFiles/dungeons_and_damage.dir/src/main.cpp.o: /home/splitfish/Documents/Git
 
 /usr/include/ctype.h:
 
+/usr/include/c++/13/tr1/poly_hermite.tcc:
+
+/usr/include/c++/13/tr1/legendre_function.tcc:
+
 /usr/include/x86_64-linux-gnu/sys/single_threaded.h:
 
 /usr/include/c++/13/type_traits:
 
+/usr/include/c++/13/tr1/hypergeometric.tcc:
+
+/usr/include/c++/13/tr1/exp_integral.tcc:
+
+/usr/include/c++/13/tr1/ell_integral.tcc:
+
+/usr/include/c++/13/tr1/bessel_function.tcc:
+
 /usr/include/c++/13/string:
 
 /usr/include/c++/13/stdexcept:
+
+/usr/include/c++/13/limits:
+
+/usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h:
 
 /usr/include/c++/13/istream:
 
@@ -343,11 +390,19 @@ CMakeFiles/dungeons_and_damage.dir/src/main.cpp.o: /home/splitfish/Documents/Git
 
 /usr/include/c++/13/cstdlib:
 
+/usr/include/x86_64-linux-gnu/c++/13/bits/error_constants.h:
+
+/usr/include/c++/13/cmath:
+
 /usr/include/c++/13/clocale:
+
+/usr/include/c++/13/tr1/gamma.tcc:
 
 /usr/include/c++/13/ext/atomicity.h:
 
 /usr/include/c++/13/cctype:
+
+/usr/include/c++/13/tr1/modified_bessel_func.tcc:
 
 /usr/include/x86_64-linux-gnu/bits/waitstatus.h:
 
@@ -364,6 +419,8 @@ CMakeFiles/dungeons_and_damage.dir/src/main.cpp.o: /home/splitfish/Documents/Git
 /usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h:
 
 /usr/include/c++/13/bits/move.h:
+
+/usr/include/c++/13/tr1/beta_function.tcc:
 
 /usr/include/c++/13/bits/utility.h:
 
@@ -395,9 +452,13 @@ CMakeFiles/dungeons_and_damage.dir/src/main.cpp.o: /home/splitfish/Documents/Git
 
 /usr/include/x86_64-linux-gnu/bits/struct_mutex.h:
 
+/usr/include/c++/13/tr1/special_function_util.h:
+
 /usr/include/stdc-predef.h:
 
 /home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/glad.h:
+
+/usr/include/c++/13/bits/specfun.h:
 
 /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h:
 
@@ -420,6 +481,8 @@ CMakeFiles/dungeons_and_damage.dir/src/main.cpp.o: /home/splitfish/Documents/Git
 /usr/include/x86_64-linux-gnu/bits/time64.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/clockid_t.h:
+
+/usr/include/c++/13/tr1/riemann_zeta.tcc:
 
 /usr/include/c++/13/ostream:
 
@@ -489,6 +552,8 @@ CMakeFiles/dungeons_and_damage.dir/src/main.cpp.o: /home/splitfish/Documents/Git
 
 /usr/include/c++/13/bits/stl_construct.h:
 
+/usr/include/c++/13/tr1/poly_laguerre.tcc:
+
 /usr/include/c++/13/bits/basic_string.h:
 
 /usr/include/x86_64-linux-gnu/bits/endianness.h:
@@ -502,6 +567,8 @@ CMakeFiles/dungeons_and_damage.dir/src/main.cpp.o: /home/splitfish/Documents/Git
 /usr/include/endian.h:
 
 /usr/include/c++/13/bits/streambuf.tcc:
+
+/usr/include/x86_64-linux-gnu/bits/mathcalls.h:
 
 /usr/include/c++/13/bits/locale_classes.h:
 
@@ -551,6 +618,8 @@ CMakeFiles/dungeons_and_damage.dir/src/main.cpp.o: /home/splitfish/Documents/Git
 
 /usr/include/asm-generic/errno-base.h:
 
+/usr/include/x86_64-linux-gnu/bits/math-vector.h:
+
 /usr/include/c++/13/bits/hash_bytes.h:
 
 /usr/include/c++/13/bits/basic_string.tcc:
@@ -587,7 +656,11 @@ CMakeFiles/dungeons_and_damage.dir/src/main.cpp.o: /home/splitfish/Documents/Git
 
 /usr/include/c++/13/bits/stl_pair.h:
 
+/usr/include/math.h:
+
 /usr/include/c++/13/bits/exception_defines.h:
+
+/usr/include/x86_64-linux-gnu/bits/flt-eval-method.h:
 
 /usr/include/c++/13/bits/localefwd.h:
 
@@ -619,13 +692,15 @@ CMakeFiles/dungeons_and_damage.dir/src/main.cpp.o: /home/splitfish/Documents/Git
 
 /usr/include/c++/13/bits/memoryfwd.h:
 
-/usr/include/x86_64-linux-gnu/bits/long-double.h:
-
 /usr/include/c++/13/bits/uses_allocator_args.h:
+
+/usr/include/x86_64-linux-gnu/bits/long-double.h:
 
 /usr/include/c++/13/bits/new_allocator.h:
 
 /usr/include/c++/13/bits/ostream_insert.h:
+
+/usr/include/x86_64-linux-gnu/bits/mathcalls-narrow.h:
 
 /usr/include/c++/13/bits/std_abs.h:
 
