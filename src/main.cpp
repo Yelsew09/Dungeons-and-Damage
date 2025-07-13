@@ -33,7 +33,16 @@ int main(int, char**){
     GLfloat verticies[] = {
         -0.5f, -0.5f * float(std::sqrt(3)) / 3, 0.0f,
         0.5f, -0.5f * float(std::sqrt(3)) / 3, 0.0f,
-        0.0f, 0.5f * float(std::sqrt(3)) * 2 / 3, 0.0f
+        0.0f, 0.5f * float(std::sqrt(3)) * 2 / 3, 0.0f,
+        -0.5f / 2, 0.5f * float(std::sqrt(3)) / 6, 0.0f,
+        0.5f / 2, 0.5f * float(std::sqrt(3)) / 6, 0.0f,
+        0.0f, 0.5f * float(std::sqrt(3)) / 3, 0.0f,
+    };
+
+    GLuint indecies[] = {
+        0, 3, 5,
+        3, 2, 4,
+        5, 4, 1,
     };
 
     //Setting window details
@@ -96,11 +105,13 @@ int main(int, char**){
     // Create reference containers for:
     // VAO (Vertex Array Object)
     // VBO (Vertex Buffer Object)
-    GLuint VAO, VBO;
+    // EBO (Element Buffer Object)
+    GLuint VAO, VBO, EBO;
 
-    // Generate VAO and VBO with only one object each
+    // Generate VAO, VBO, and EBO with only one object each
     glGenVertexArrays(1, &VAO);
     glGenBuffers(1, &VBO);
+    glGenBuffers(1, &EBO);
     
     // Make the VAO the current Vertex Array object
     glBindVertexArray(VAO);
@@ -109,6 +120,7 @@ int main(int, char**){
     glBindBuffer(GL_ARRAY_BUFFER, VBO);
     // Intoduce the verticies into the VBO
     glBufferData(GL_ARRAY_BUFFER, sizeof(verticies), verticies, GL_STATIC_DRAW);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
 
     // Configure the Vertex Attribute so that openGL knows how to read the VBO
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
