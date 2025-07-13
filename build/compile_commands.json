@@ -1,14 +1,1130 @@
 [
 {
-  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build",
-  "command": "/usr/bin/c++   -g -o CMakeFiles/dungeons_and_damage.dir/src/main.cpp.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/main.cpp",
-  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/main.cpp",
-  "output": "CMakeFiles/dungeons_and_damage.dir/src/main.cpp.o"
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/raylib",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/raylib.dir/raudio.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/raudio.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/raudio.c",
+  "output": "raylib/CMakeFiles/raylib.dir/raudio.c.o"
 },
 {
-  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build",
-  "command": "/usr/bin/cc   -g -o CMakeFiles/dungeons_and_damage.dir/src/glad.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/glad.c",
-  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/glad.c",
-  "output": "CMakeFiles/dungeons_and_damage.dir/src/glad.c.o"
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/raylib",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/raylib.dir/rcore.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/rcore.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/rcore.c",
+  "output": "raylib/CMakeFiles/raylib.dir/rcore.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/raylib",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/raylib.dir/rmodels.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/rmodels.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/rmodels.c",
+  "output": "raylib/CMakeFiles/raylib.dir/rmodels.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/raylib",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/raylib.dir/rshapes.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/rshapes.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/rshapes.c",
+  "output": "raylib/CMakeFiles/raylib.dir/rshapes.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/raylib",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/raylib.dir/rtext.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/rtext.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/rtext.c",
+  "output": "raylib/CMakeFiles/raylib.dir/rtext.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/raylib",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/raylib.dir/rtextures.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/rtextures.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/rtextures.c",
+  "output": "raylib/CMakeFiles/raylib.dir/rtextures.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/raylib",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/raylib.dir/utils.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/utils.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/utils.c",
+  "output": "raylib/CMakeFiles/raylib.dir/utils.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/raylib/external/glfw/src",
+  "command": "/usr/bin/cc -D_DEFAULT_SOURCE -D_GLFW_X11 -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/raylib/external/glfw/src -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=c99 -fPIC -Wall -o CMakeFiles/glfw.dir/context.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/src/context.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/src/context.c",
+  "output": "raylib/external/glfw/src/CMakeFiles/glfw.dir/context.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/raylib/external/glfw/src",
+  "command": "/usr/bin/cc -D_DEFAULT_SOURCE -D_GLFW_X11 -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/raylib/external/glfw/src -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=c99 -fPIC -Wall -o CMakeFiles/glfw.dir/init.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/src/init.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/src/init.c",
+  "output": "raylib/external/glfw/src/CMakeFiles/glfw.dir/init.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/raylib/external/glfw/src",
+  "command": "/usr/bin/cc -D_DEFAULT_SOURCE -D_GLFW_X11 -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/raylib/external/glfw/src -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=c99 -fPIC -Wall -o CMakeFiles/glfw.dir/input.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/src/input.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/src/input.c",
+  "output": "raylib/external/glfw/src/CMakeFiles/glfw.dir/input.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/raylib/external/glfw/src",
+  "command": "/usr/bin/cc -D_DEFAULT_SOURCE -D_GLFW_X11 -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/raylib/external/glfw/src -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=c99 -fPIC -Wall -o CMakeFiles/glfw.dir/monitor.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/src/monitor.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/src/monitor.c",
+  "output": "raylib/external/glfw/src/CMakeFiles/glfw.dir/monitor.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/raylib/external/glfw/src",
+  "command": "/usr/bin/cc -D_DEFAULT_SOURCE -D_GLFW_X11 -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/raylib/external/glfw/src -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=c99 -fPIC -Wall -o CMakeFiles/glfw.dir/platform.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/src/platform.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/src/platform.c",
+  "output": "raylib/external/glfw/src/CMakeFiles/glfw.dir/platform.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/raylib/external/glfw/src",
+  "command": "/usr/bin/cc -D_DEFAULT_SOURCE -D_GLFW_X11 -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/raylib/external/glfw/src -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=c99 -fPIC -Wall -o CMakeFiles/glfw.dir/vulkan.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/src/vulkan.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/src/vulkan.c",
+  "output": "raylib/external/glfw/src/CMakeFiles/glfw.dir/vulkan.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/raylib/external/glfw/src",
+  "command": "/usr/bin/cc -D_DEFAULT_SOURCE -D_GLFW_X11 -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/raylib/external/glfw/src -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=c99 -fPIC -Wall -o CMakeFiles/glfw.dir/window.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/src/window.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/src/window.c",
+  "output": "raylib/external/glfw/src/CMakeFiles/glfw.dir/window.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/raylib/external/glfw/src",
+  "command": "/usr/bin/cc -D_DEFAULT_SOURCE -D_GLFW_X11 -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/raylib/external/glfw/src -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=c99 -fPIC -Wall -o CMakeFiles/glfw.dir/egl_context.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/src/egl_context.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/src/egl_context.c",
+  "output": "raylib/external/glfw/src/CMakeFiles/glfw.dir/egl_context.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/raylib/external/glfw/src",
+  "command": "/usr/bin/cc -D_DEFAULT_SOURCE -D_GLFW_X11 -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/raylib/external/glfw/src -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=c99 -fPIC -Wall -o CMakeFiles/glfw.dir/osmesa_context.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/src/osmesa_context.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/src/osmesa_context.c",
+  "output": "raylib/external/glfw/src/CMakeFiles/glfw.dir/osmesa_context.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/raylib/external/glfw/src",
+  "command": "/usr/bin/cc -D_DEFAULT_SOURCE -D_GLFW_X11 -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/raylib/external/glfw/src -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=c99 -fPIC -Wall -o CMakeFiles/glfw.dir/null_init.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/src/null_init.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/src/null_init.c",
+  "output": "raylib/external/glfw/src/CMakeFiles/glfw.dir/null_init.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/raylib/external/glfw/src",
+  "command": "/usr/bin/cc -D_DEFAULT_SOURCE -D_GLFW_X11 -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/raylib/external/glfw/src -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=c99 -fPIC -Wall -o CMakeFiles/glfw.dir/null_monitor.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/src/null_monitor.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/src/null_monitor.c",
+  "output": "raylib/external/glfw/src/CMakeFiles/glfw.dir/null_monitor.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/raylib/external/glfw/src",
+  "command": "/usr/bin/cc -D_DEFAULT_SOURCE -D_GLFW_X11 -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/raylib/external/glfw/src -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=c99 -fPIC -Wall -o CMakeFiles/glfw.dir/null_window.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/src/null_window.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/src/null_window.c",
+  "output": "raylib/external/glfw/src/CMakeFiles/glfw.dir/null_window.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/raylib/external/glfw/src",
+  "command": "/usr/bin/cc -D_DEFAULT_SOURCE -D_GLFW_X11 -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/raylib/external/glfw/src -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=c99 -fPIC -Wall -o CMakeFiles/glfw.dir/null_joystick.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/src/null_joystick.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/src/null_joystick.c",
+  "output": "raylib/external/glfw/src/CMakeFiles/glfw.dir/null_joystick.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/raylib/external/glfw/src",
+  "command": "/usr/bin/cc -D_DEFAULT_SOURCE -D_GLFW_X11 -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/raylib/external/glfw/src -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=c99 -fPIC -Wall -o CMakeFiles/glfw.dir/posix_module.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/src/posix_module.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/src/posix_module.c",
+  "output": "raylib/external/glfw/src/CMakeFiles/glfw.dir/posix_module.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/raylib/external/glfw/src",
+  "command": "/usr/bin/cc -D_DEFAULT_SOURCE -D_GLFW_X11 -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/raylib/external/glfw/src -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=c99 -fPIC -Wall -o CMakeFiles/glfw.dir/posix_time.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/src/posix_time.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/src/posix_time.c",
+  "output": "raylib/external/glfw/src/CMakeFiles/glfw.dir/posix_time.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/raylib/external/glfw/src",
+  "command": "/usr/bin/cc -D_DEFAULT_SOURCE -D_GLFW_X11 -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/raylib/external/glfw/src -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=c99 -fPIC -Wall -o CMakeFiles/glfw.dir/posix_thread.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/src/posix_thread.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/src/posix_thread.c",
+  "output": "raylib/external/glfw/src/CMakeFiles/glfw.dir/posix_thread.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/raylib/external/glfw/src",
+  "command": "/usr/bin/cc -D_DEFAULT_SOURCE -D_GLFW_X11 -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/raylib/external/glfw/src -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=c99 -fPIC -Wall -o CMakeFiles/glfw.dir/x11_init.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/src/x11_init.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/src/x11_init.c",
+  "output": "raylib/external/glfw/src/CMakeFiles/glfw.dir/x11_init.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/raylib/external/glfw/src",
+  "command": "/usr/bin/cc -D_DEFAULT_SOURCE -D_GLFW_X11 -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/raylib/external/glfw/src -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=c99 -fPIC -Wall -o CMakeFiles/glfw.dir/x11_monitor.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/src/x11_monitor.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/src/x11_monitor.c",
+  "output": "raylib/external/glfw/src/CMakeFiles/glfw.dir/x11_monitor.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/raylib/external/glfw/src",
+  "command": "/usr/bin/cc -D_DEFAULT_SOURCE -D_GLFW_X11 -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/raylib/external/glfw/src -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=c99 -fPIC -Wall -o CMakeFiles/glfw.dir/x11_window.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/src/x11_window.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/src/x11_window.c",
+  "output": "raylib/external/glfw/src/CMakeFiles/glfw.dir/x11_window.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/raylib/external/glfw/src",
+  "command": "/usr/bin/cc -D_DEFAULT_SOURCE -D_GLFW_X11 -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/raylib/external/glfw/src -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=c99 -fPIC -Wall -o CMakeFiles/glfw.dir/xkb_unicode.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/src/xkb_unicode.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/src/xkb_unicode.c",
+  "output": "raylib/external/glfw/src/CMakeFiles/glfw.dir/xkb_unicode.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/raylib/external/glfw/src",
+  "command": "/usr/bin/cc -D_DEFAULT_SOURCE -D_GLFW_X11 -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/raylib/external/glfw/src -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=c99 -fPIC -Wall -o CMakeFiles/glfw.dir/glx_context.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/src/glx_context.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/src/glx_context.c",
+  "output": "raylib/external/glfw/src/CMakeFiles/glfw.dir/glx_context.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/raylib/external/glfw/src",
+  "command": "/usr/bin/cc -D_DEFAULT_SOURCE -D_GLFW_X11 -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/raylib/external/glfw/src -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=c99 -fPIC -Wall -o CMakeFiles/glfw.dir/linux_joystick.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/src/linux_joystick.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/src/linux_joystick.c",
+  "output": "raylib/external/glfw/src/CMakeFiles/glfw.dir/linux_joystick.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/raylib/external/glfw/src",
+  "command": "/usr/bin/cc -D_DEFAULT_SOURCE -D_GLFW_X11 -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/raylib/external/glfw/src -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=c99 -fPIC -Wall -o CMakeFiles/glfw.dir/posix_poll.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/src/posix_poll.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/src/posix_poll.c",
+  "output": "raylib/external/glfw/src/CMakeFiles/glfw.dir/posix_poll.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/audio_mixed_processor.dir/audio/audio_mixed_processor.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/audio/audio_mixed_processor.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/audio/audio_mixed_processor.c",
+  "output": "examples/CMakeFiles/audio_mixed_processor.dir/audio/audio_mixed_processor.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/audio_module_playing.dir/audio/audio_module_playing.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/audio/audio_module_playing.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/audio/audio_module_playing.c",
+  "output": "examples/CMakeFiles/audio_module_playing.dir/audio/audio_module_playing.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/audio_music_stream.dir/audio/audio_music_stream.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/audio/audio_music_stream.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/audio/audio_music_stream.c",
+  "output": "examples/CMakeFiles/audio_music_stream.dir/audio/audio_music_stream.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/audio_raw_stream.dir/audio/audio_raw_stream.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/audio/audio_raw_stream.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/audio/audio_raw_stream.c",
+  "output": "examples/CMakeFiles/audio_raw_stream.dir/audio/audio_raw_stream.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/audio_sound_loading.dir/audio/audio_sound_loading.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/audio/audio_sound_loading.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/audio/audio_sound_loading.c",
+  "output": "examples/CMakeFiles/audio_sound_loading.dir/audio/audio_sound_loading.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/audio_sound_multi.dir/audio/audio_sound_multi.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/audio/audio_sound_multi.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/audio/audio_sound_multi.c",
+  "output": "examples/CMakeFiles/audio_sound_multi.dir/audio/audio_sound_multi.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/audio_sound_positioning.dir/audio/audio_sound_positioning.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/audio/audio_sound_positioning.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/audio/audio_sound_positioning.c",
+  "output": "examples/CMakeFiles/audio_sound_positioning.dir/audio/audio_sound_positioning.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/audio_stream_effects.dir/audio/audio_stream_effects.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/audio/audio_stream_effects.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/audio/audio_stream_effects.c",
+  "output": "examples/CMakeFiles/audio_stream_effects.dir/audio/audio_stream_effects.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/core_2d_camera.dir/core/core_2d_camera.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/core/core_2d_camera.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/core/core_2d_camera.c",
+  "output": "examples/CMakeFiles/core_2d_camera.dir/core/core_2d_camera.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/core_2d_camera_mouse_zoom.dir/core/core_2d_camera_mouse_zoom.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/core/core_2d_camera_mouse_zoom.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/core/core_2d_camera_mouse_zoom.c",
+  "output": "examples/CMakeFiles/core_2d_camera_mouse_zoom.dir/core/core_2d_camera_mouse_zoom.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/core_2d_camera_platformer.dir/core/core_2d_camera_platformer.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/core/core_2d_camera_platformer.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/core/core_2d_camera_platformer.c",
+  "output": "examples/CMakeFiles/core_2d_camera_platformer.dir/core/core_2d_camera_platformer.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/core_2d_camera_split_screen.dir/core/core_2d_camera_split_screen.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/core/core_2d_camera_split_screen.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/core/core_2d_camera_split_screen.c",
+  "output": "examples/CMakeFiles/core_2d_camera_split_screen.dir/core/core_2d_camera_split_screen.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/core_3d_camera_first_person.dir/core/core_3d_camera_first_person.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/core/core_3d_camera_first_person.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/core/core_3d_camera_first_person.c",
+  "output": "examples/CMakeFiles/core_3d_camera_first_person.dir/core/core_3d_camera_first_person.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/core_3d_camera_free.dir/core/core_3d_camera_free.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/core/core_3d_camera_free.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/core/core_3d_camera_free.c",
+  "output": "examples/CMakeFiles/core_3d_camera_free.dir/core/core_3d_camera_free.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/core_3d_camera_mode.dir/core/core_3d_camera_mode.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/core/core_3d_camera_mode.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/core/core_3d_camera_mode.c",
+  "output": "examples/CMakeFiles/core_3d_camera_mode.dir/core/core_3d_camera_mode.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/core_3d_camera_split_screen.dir/core/core_3d_camera_split_screen.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/core/core_3d_camera_split_screen.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/core/core_3d_camera_split_screen.c",
+  "output": "examples/CMakeFiles/core_3d_camera_split_screen.dir/core/core_3d_camera_split_screen.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/core_3d_picking.dir/core/core_3d_picking.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/core/core_3d_picking.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/core/core_3d_picking.c",
+  "output": "examples/CMakeFiles/core_3d_picking.dir/core/core_3d_picking.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/core_automation_events.dir/core/core_automation_events.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/core/core_automation_events.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/core/core_automation_events.c",
+  "output": "examples/CMakeFiles/core_automation_events.dir/core/core_automation_events.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/core_basic_screen_manager.dir/core/core_basic_screen_manager.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/core/core_basic_screen_manager.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/core/core_basic_screen_manager.c",
+  "output": "examples/CMakeFiles/core_basic_screen_manager.dir/core/core_basic_screen_manager.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/core_basic_window.dir/core/core_basic_window.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/core/core_basic_window.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/core/core_basic_window.c",
+  "output": "examples/CMakeFiles/core_basic_window.dir/core/core_basic_window.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/core_basic_window_web.dir/core/core_basic_window_web.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/core/core_basic_window_web.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/core/core_basic_window_web.c",
+  "output": "examples/CMakeFiles/core_basic_window_web.dir/core/core_basic_window_web.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/core_custom_frame_control.dir/core/core_custom_frame_control.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/core/core_custom_frame_control.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/core/core_custom_frame_control.c",
+  "output": "examples/CMakeFiles/core_custom_frame_control.dir/core/core_custom_frame_control.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/core_custom_logging.dir/core/core_custom_logging.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/core/core_custom_logging.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/core/core_custom_logging.c",
+  "output": "examples/CMakeFiles/core_custom_logging.dir/core/core_custom_logging.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/core_drop_files.dir/core/core_drop_files.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/core/core_drop_files.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/core/core_drop_files.c",
+  "output": "examples/CMakeFiles/core_drop_files.dir/core/core_drop_files.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/core_high_dpi.dir/core/core_high_dpi.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/core/core_high_dpi.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/core/core_high_dpi.c",
+  "output": "examples/CMakeFiles/core_high_dpi.dir/core/core_high_dpi.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/core_input_gamepad.dir/core/core_input_gamepad.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/core/core_input_gamepad.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/core/core_input_gamepad.c",
+  "output": "examples/CMakeFiles/core_input_gamepad.dir/core/core_input_gamepad.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/core_input_gestures.dir/core/core_input_gestures.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/core/core_input_gestures.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/core/core_input_gestures.c",
+  "output": "examples/CMakeFiles/core_input_gestures.dir/core/core_input_gestures.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/core_input_gestures_web.dir/core/core_input_gestures_web.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/core/core_input_gestures_web.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/core/core_input_gestures_web.c",
+  "output": "examples/CMakeFiles/core_input_gestures_web.dir/core/core_input_gestures_web.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/core_input_keys.dir/core/core_input_keys.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/core/core_input_keys.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/core/core_input_keys.c",
+  "output": "examples/CMakeFiles/core_input_keys.dir/core/core_input_keys.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/core_input_mouse.dir/core/core_input_mouse.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/core/core_input_mouse.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/core/core_input_mouse.c",
+  "output": "examples/CMakeFiles/core_input_mouse.dir/core/core_input_mouse.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/core_input_mouse_wheel.dir/core/core_input_mouse_wheel.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/core/core_input_mouse_wheel.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/core/core_input_mouse_wheel.c",
+  "output": "examples/CMakeFiles/core_input_mouse_wheel.dir/core/core_input_mouse_wheel.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/core_input_multitouch.dir/core/core_input_multitouch.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/core/core_input_multitouch.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/core/core_input_multitouch.c",
+  "output": "examples/CMakeFiles/core_input_multitouch.dir/core/core_input_multitouch.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/core_input_virtual_controls.dir/core/core_input_virtual_controls.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/core/core_input_virtual_controls.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/core/core_input_virtual_controls.c",
+  "output": "examples/CMakeFiles/core_input_virtual_controls.dir/core/core_input_virtual_controls.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/core_loading_thread.dir/core/core_loading_thread.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/core/core_loading_thread.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/core/core_loading_thread.c",
+  "output": "examples/CMakeFiles/core_loading_thread.dir/core/core_loading_thread.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/core_random_sequence.dir/core/core_random_sequence.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/core/core_random_sequence.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/core/core_random_sequence.c",
+  "output": "examples/CMakeFiles/core_random_sequence.dir/core/core_random_sequence.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/core_random_values.dir/core/core_random_values.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/core/core_random_values.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/core/core_random_values.c",
+  "output": "examples/CMakeFiles/core_random_values.dir/core/core_random_values.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/core_scissor_test.dir/core/core_scissor_test.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/core/core_scissor_test.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/core/core_scissor_test.c",
+  "output": "examples/CMakeFiles/core_scissor_test.dir/core/core_scissor_test.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/core_smooth_pixelperfect.dir/core/core_smooth_pixelperfect.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/core/core_smooth_pixelperfect.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/core/core_smooth_pixelperfect.c",
+  "output": "examples/CMakeFiles/core_smooth_pixelperfect.dir/core/core_smooth_pixelperfect.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/core_storage_values.dir/core/core_storage_values.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/core/core_storage_values.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/core/core_storage_values.c",
+  "output": "examples/CMakeFiles/core_storage_values.dir/core/core_storage_values.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/core_vr_simulator.dir/core/core_vr_simulator.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/core/core_vr_simulator.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/core/core_vr_simulator.c",
+  "output": "examples/CMakeFiles/core_vr_simulator.dir/core/core_vr_simulator.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/core_window_flags.dir/core/core_window_flags.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/core/core_window_flags.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/core/core_window_flags.c",
+  "output": "examples/CMakeFiles/core_window_flags.dir/core/core_window_flags.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/core_window_letterbox.dir/core/core_window_letterbox.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/core/core_window_letterbox.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/core/core_window_letterbox.c",
+  "output": "examples/CMakeFiles/core_window_letterbox.dir/core/core_window_letterbox.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/core_window_should_close.dir/core/core_window_should_close.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/core/core_window_should_close.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/core/core_window_should_close.c",
+  "output": "examples/CMakeFiles/core_window_should_close.dir/core/core_window_should_close.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/core_world_screen.dir/core/core_world_screen.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/core/core_world_screen.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/core/core_world_screen.c",
+  "output": "examples/CMakeFiles/core_world_screen.dir/core/core_world_screen.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/models_animation.dir/models/models_animation.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/models/models_animation.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/models/models_animation.c",
+  "output": "examples/CMakeFiles/models_animation.dir/models/models_animation.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/models_billboard.dir/models/models_billboard.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/models/models_billboard.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/models/models_billboard.c",
+  "output": "examples/CMakeFiles/models_billboard.dir/models/models_billboard.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/models_bone_socket.dir/models/models_bone_socket.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/models/models_bone_socket.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/models/models_bone_socket.c",
+  "output": "examples/CMakeFiles/models_bone_socket.dir/models/models_bone_socket.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/models_box_collisions.dir/models/models_box_collisions.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/models/models_box_collisions.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/models/models_box_collisions.c",
+  "output": "examples/CMakeFiles/models_box_collisions.dir/models/models_box_collisions.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/models_cubicmap.dir/models/models_cubicmap.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/models/models_cubicmap.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/models/models_cubicmap.c",
+  "output": "examples/CMakeFiles/models_cubicmap.dir/models/models_cubicmap.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/models_draw_cube_texture.dir/models/models_draw_cube_texture.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/models/models_draw_cube_texture.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/models/models_draw_cube_texture.c",
+  "output": "examples/CMakeFiles/models_draw_cube_texture.dir/models/models_draw_cube_texture.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/models_first_person_maze.dir/models/models_first_person_maze.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/models/models_first_person_maze.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/models/models_first_person_maze.c",
+  "output": "examples/CMakeFiles/models_first_person_maze.dir/models/models_first_person_maze.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/models_geometric_shapes.dir/models/models_geometric_shapes.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/models/models_geometric_shapes.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/models/models_geometric_shapes.c",
+  "output": "examples/CMakeFiles/models_geometric_shapes.dir/models/models_geometric_shapes.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/models_gpu_skinning.dir/models/models_gpu_skinning.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/models/models_gpu_skinning.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/models/models_gpu_skinning.c",
+  "output": "examples/CMakeFiles/models_gpu_skinning.dir/models/models_gpu_skinning.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/models_heightmap.dir/models/models_heightmap.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/models/models_heightmap.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/models/models_heightmap.c",
+  "output": "examples/CMakeFiles/models_heightmap.dir/models/models_heightmap.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/models_loading.dir/models/models_loading.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/models/models_loading.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/models/models_loading.c",
+  "output": "examples/CMakeFiles/models_loading.dir/models/models_loading.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/models_loading_gltf.dir/models/models_loading_gltf.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/models/models_loading_gltf.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/models/models_loading_gltf.c",
+  "output": "examples/CMakeFiles/models_loading_gltf.dir/models/models_loading_gltf.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/models_loading_m3d.dir/models/models_loading_m3d.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/models/models_loading_m3d.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/models/models_loading_m3d.c",
+  "output": "examples/CMakeFiles/models_loading_m3d.dir/models/models_loading_m3d.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/models_loading_vox.dir/models/models_loading_vox.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/models/models_loading_vox.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/models/models_loading_vox.c",
+  "output": "examples/CMakeFiles/models_loading_vox.dir/models/models_loading_vox.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/models_mesh_generation.dir/models/models_mesh_generation.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/models/models_mesh_generation.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/models/models_mesh_generation.c",
+  "output": "examples/CMakeFiles/models_mesh_generation.dir/models/models_mesh_generation.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/models_mesh_picking.dir/models/models_mesh_picking.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/models/models_mesh_picking.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/models/models_mesh_picking.c",
+  "output": "examples/CMakeFiles/models_mesh_picking.dir/models/models_mesh_picking.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/models_orthographic_projection.dir/models/models_orthographic_projection.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/models/models_orthographic_projection.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/models/models_orthographic_projection.c",
+  "output": "examples/CMakeFiles/models_orthographic_projection.dir/models/models_orthographic_projection.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/models_point_rendering.dir/models/models_point_rendering.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/models/models_point_rendering.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/models/models_point_rendering.c",
+  "output": "examples/CMakeFiles/models_point_rendering.dir/models/models_point_rendering.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/models_rlgl_solar_system.dir/models/models_rlgl_solar_system.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/models/models_rlgl_solar_system.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/models/models_rlgl_solar_system.c",
+  "output": "examples/CMakeFiles/models_rlgl_solar_system.dir/models/models_rlgl_solar_system.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/models_skybox.dir/models/models_skybox.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/models/models_skybox.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/models/models_skybox.c",
+  "output": "examples/CMakeFiles/models_skybox.dir/models/models_skybox.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/models_tesseract_view.dir/models/models_tesseract_view.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/models/models_tesseract_view.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/models/models_tesseract_view.c",
+  "output": "examples/CMakeFiles/models_tesseract_view.dir/models/models_tesseract_view.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/models_waving_cubes.dir/models/models_waving_cubes.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/models/models_waving_cubes.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/models/models_waving_cubes.c",
+  "output": "examples/CMakeFiles/models_waving_cubes.dir/models/models_waving_cubes.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/models_yaw_pitch_roll.dir/models/models_yaw_pitch_roll.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/models/models_yaw_pitch_roll.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/models/models_yaw_pitch_roll.c",
+  "output": "examples/CMakeFiles/models_yaw_pitch_roll.dir/models/models_yaw_pitch_roll.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/easings_testbed.dir/others/easings_testbed.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/easings_testbed.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/easings_testbed.c",
+  "output": "examples/CMakeFiles/easings_testbed.dir/others/easings_testbed.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/embedded_files_loading.dir/others/embedded_files_loading.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/embedded_files_loading.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/embedded_files_loading.c",
+  "output": "examples/CMakeFiles/embedded_files_loading.dir/others/embedded_files_loading.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/raylib_opengl_interop.dir/others/raylib_opengl_interop.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/raylib_opengl_interop.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/raylib_opengl_interop.c",
+  "output": "examples/CMakeFiles/raylib_opengl_interop.dir/others/raylib_opengl_interop.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/raymath_vector_angle.dir/others/raymath_vector_angle.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/raymath_vector_angle.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/raymath_vector_angle.c",
+  "output": "examples/CMakeFiles/raymath_vector_angle.dir/others/raymath_vector_angle.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/rlgl_compute_shader.dir/others/rlgl_compute_shader.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/rlgl_compute_shader.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/rlgl_compute_shader.c",
+  "output": "examples/CMakeFiles/rlgl_compute_shader.dir/others/rlgl_compute_shader.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/rlgl_standalone.dir/others/rlgl_standalone.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/rlgl_standalone.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/rlgl_standalone.c",
+  "output": "examples/CMakeFiles/rlgl_standalone.dir/others/rlgl_standalone.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/shaders_basic_lighting.dir/shaders/shaders_basic_lighting.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/shaders/shaders_basic_lighting.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/shaders/shaders_basic_lighting.c",
+  "output": "examples/CMakeFiles/shaders_basic_lighting.dir/shaders/shaders_basic_lighting.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/shaders_basic_pbr.dir/shaders/shaders_basic_pbr.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/shaders/shaders_basic_pbr.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/shaders/shaders_basic_pbr.c",
+  "output": "examples/CMakeFiles/shaders_basic_pbr.dir/shaders/shaders_basic_pbr.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/shaders_custom_uniform.dir/shaders/shaders_custom_uniform.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/shaders/shaders_custom_uniform.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/shaders/shaders_custom_uniform.c",
+  "output": "examples/CMakeFiles/shaders_custom_uniform.dir/shaders/shaders_custom_uniform.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/shaders_deferred_render.dir/shaders/shaders_deferred_render.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/shaders/shaders_deferred_render.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/shaders/shaders_deferred_render.c",
+  "output": "examples/CMakeFiles/shaders_deferred_render.dir/shaders/shaders_deferred_render.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/shaders_eratosthenes.dir/shaders/shaders_eratosthenes.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/shaders/shaders_eratosthenes.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/shaders/shaders_eratosthenes.c",
+  "output": "examples/CMakeFiles/shaders_eratosthenes.dir/shaders/shaders_eratosthenes.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/shaders_fog.dir/shaders/shaders_fog.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/shaders/shaders_fog.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/shaders/shaders_fog.c",
+  "output": "examples/CMakeFiles/shaders_fog.dir/shaders/shaders_fog.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/shaders_hot_reloading.dir/shaders/shaders_hot_reloading.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/shaders/shaders_hot_reloading.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/shaders/shaders_hot_reloading.c",
+  "output": "examples/CMakeFiles/shaders_hot_reloading.dir/shaders/shaders_hot_reloading.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/shaders_hybrid_render.dir/shaders/shaders_hybrid_render.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/shaders/shaders_hybrid_render.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/shaders/shaders_hybrid_render.c",
+  "output": "examples/CMakeFiles/shaders_hybrid_render.dir/shaders/shaders_hybrid_render.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/shaders_julia_set.dir/shaders/shaders_julia_set.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/shaders/shaders_julia_set.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/shaders/shaders_julia_set.c",
+  "output": "examples/CMakeFiles/shaders_julia_set.dir/shaders/shaders_julia_set.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/shaders_lightmap.dir/shaders/shaders_lightmap.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/shaders/shaders_lightmap.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/shaders/shaders_lightmap.c",
+  "output": "examples/CMakeFiles/shaders_lightmap.dir/shaders/shaders_lightmap.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/shaders_mesh_instancing.dir/shaders/shaders_mesh_instancing.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/shaders/shaders_mesh_instancing.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/shaders/shaders_mesh_instancing.c",
+  "output": "examples/CMakeFiles/shaders_mesh_instancing.dir/shaders/shaders_mesh_instancing.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/shaders_model_shader.dir/shaders/shaders_model_shader.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/shaders/shaders_model_shader.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/shaders/shaders_model_shader.c",
+  "output": "examples/CMakeFiles/shaders_model_shader.dir/shaders/shaders_model_shader.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/shaders_multi_sample2d.dir/shaders/shaders_multi_sample2d.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/shaders/shaders_multi_sample2d.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/shaders/shaders_multi_sample2d.c",
+  "output": "examples/CMakeFiles/shaders_multi_sample2d.dir/shaders/shaders_multi_sample2d.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/shaders_palette_switch.dir/shaders/shaders_palette_switch.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/shaders/shaders_palette_switch.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/shaders/shaders_palette_switch.c",
+  "output": "examples/CMakeFiles/shaders_palette_switch.dir/shaders/shaders_palette_switch.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/shaders_postprocessing.dir/shaders/shaders_postprocessing.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/shaders/shaders_postprocessing.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/shaders/shaders_postprocessing.c",
+  "output": "examples/CMakeFiles/shaders_postprocessing.dir/shaders/shaders_postprocessing.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/shaders_raymarching.dir/shaders/shaders_raymarching.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/shaders/shaders_raymarching.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/shaders/shaders_raymarching.c",
+  "output": "examples/CMakeFiles/shaders_raymarching.dir/shaders/shaders_raymarching.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/shaders_rounded_rectangle.dir/shaders/shaders_rounded_rectangle.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/shaders/shaders_rounded_rectangle.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/shaders/shaders_rounded_rectangle.c",
+  "output": "examples/CMakeFiles/shaders_rounded_rectangle.dir/shaders/shaders_rounded_rectangle.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/shaders_shadowmap.dir/shaders/shaders_shadowmap.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/shaders/shaders_shadowmap.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/shaders/shaders_shadowmap.c",
+  "output": "examples/CMakeFiles/shaders_shadowmap.dir/shaders/shaders_shadowmap.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/shaders_shapes_textures.dir/shaders/shaders_shapes_textures.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/shaders/shaders_shapes_textures.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/shaders/shaders_shapes_textures.c",
+  "output": "examples/CMakeFiles/shaders_shapes_textures.dir/shaders/shaders_shapes_textures.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/shaders_simple_mask.dir/shaders/shaders_simple_mask.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/shaders/shaders_simple_mask.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/shaders/shaders_simple_mask.c",
+  "output": "examples/CMakeFiles/shaders_simple_mask.dir/shaders/shaders_simple_mask.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/shaders_spotlight.dir/shaders/shaders_spotlight.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/shaders/shaders_spotlight.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/shaders/shaders_spotlight.c",
+  "output": "examples/CMakeFiles/shaders_spotlight.dir/shaders/shaders_spotlight.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/shaders_texture_drawing.dir/shaders/shaders_texture_drawing.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/shaders/shaders_texture_drawing.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/shaders/shaders_texture_drawing.c",
+  "output": "examples/CMakeFiles/shaders_texture_drawing.dir/shaders/shaders_texture_drawing.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/shaders_texture_outline.dir/shaders/shaders_texture_outline.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/shaders/shaders_texture_outline.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/shaders/shaders_texture_outline.c",
+  "output": "examples/CMakeFiles/shaders_texture_outline.dir/shaders/shaders_texture_outline.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/shaders_texture_tiling.dir/shaders/shaders_texture_tiling.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/shaders/shaders_texture_tiling.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/shaders/shaders_texture_tiling.c",
+  "output": "examples/CMakeFiles/shaders_texture_tiling.dir/shaders/shaders_texture_tiling.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/shaders_texture_waves.dir/shaders/shaders_texture_waves.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/shaders/shaders_texture_waves.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/shaders/shaders_texture_waves.c",
+  "output": "examples/CMakeFiles/shaders_texture_waves.dir/shaders/shaders_texture_waves.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/shaders_vertex_displacement.dir/shaders/shaders_vertex_displacement.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/shaders/shaders_vertex_displacement.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/shaders/shaders_vertex_displacement.c",
+  "output": "examples/CMakeFiles/shaders_vertex_displacement.dir/shaders/shaders_vertex_displacement.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/shaders_view_depth.dir/shaders/shaders_view_depth.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/shaders/shaders_view_depth.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/shaders/shaders_view_depth.c",
+  "output": "examples/CMakeFiles/shaders_view_depth.dir/shaders/shaders_view_depth.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/shaders_write_depth.dir/shaders/shaders_write_depth.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/shaders/shaders_write_depth.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/shaders/shaders_write_depth.c",
+  "output": "examples/CMakeFiles/shaders_write_depth.dir/shaders/shaders_write_depth.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/shapes_basic_shapes.dir/shapes/shapes_basic_shapes.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/shapes/shapes_basic_shapes.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/shapes/shapes_basic_shapes.c",
+  "output": "examples/CMakeFiles/shapes_basic_shapes.dir/shapes/shapes_basic_shapes.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/shapes_bouncing_ball.dir/shapes/shapes_bouncing_ball.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/shapes/shapes_bouncing_ball.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/shapes/shapes_bouncing_ball.c",
+  "output": "examples/CMakeFiles/shapes_bouncing_ball.dir/shapes/shapes_bouncing_ball.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/shapes_collision_area.dir/shapes/shapes_collision_area.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/shapes/shapes_collision_area.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/shapes/shapes_collision_area.c",
+  "output": "examples/CMakeFiles/shapes_collision_area.dir/shapes/shapes_collision_area.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/shapes_colors_palette.dir/shapes/shapes_colors_palette.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/shapes/shapes_colors_palette.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/shapes/shapes_colors_palette.c",
+  "output": "examples/CMakeFiles/shapes_colors_palette.dir/shapes/shapes_colors_palette.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/shapes_digital_clock.dir/shapes/shapes_digital_clock.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/shapes/shapes_digital_clock.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/shapes/shapes_digital_clock.c",
+  "output": "examples/CMakeFiles/shapes_digital_clock.dir/shapes/shapes_digital_clock.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/shapes_draw_circle_sector.dir/shapes/shapes_draw_circle_sector.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/shapes/shapes_draw_circle_sector.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/shapes/shapes_draw_circle_sector.c",
+  "output": "examples/CMakeFiles/shapes_draw_circle_sector.dir/shapes/shapes_draw_circle_sector.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/shapes_draw_rectangle_rounded.dir/shapes/shapes_draw_rectangle_rounded.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/shapes/shapes_draw_rectangle_rounded.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/shapes/shapes_draw_rectangle_rounded.c",
+  "output": "examples/CMakeFiles/shapes_draw_rectangle_rounded.dir/shapes/shapes_draw_rectangle_rounded.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/shapes_draw_ring.dir/shapes/shapes_draw_ring.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/shapes/shapes_draw_ring.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/shapes/shapes_draw_ring.c",
+  "output": "examples/CMakeFiles/shapes_draw_ring.dir/shapes/shapes_draw_ring.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/shapes_easings_ball_anim.dir/shapes/shapes_easings_ball_anim.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/shapes/shapes_easings_ball_anim.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/shapes/shapes_easings_ball_anim.c",
+  "output": "examples/CMakeFiles/shapes_easings_ball_anim.dir/shapes/shapes_easings_ball_anim.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/shapes_easings_box_anim.dir/shapes/shapes_easings_box_anim.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/shapes/shapes_easings_box_anim.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/shapes/shapes_easings_box_anim.c",
+  "output": "examples/CMakeFiles/shapes_easings_box_anim.dir/shapes/shapes_easings_box_anim.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/shapes_easings_rectangle_array.dir/shapes/shapes_easings_rectangle_array.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/shapes/shapes_easings_rectangle_array.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/shapes/shapes_easings_rectangle_array.c",
+  "output": "examples/CMakeFiles/shapes_easings_rectangle_array.dir/shapes/shapes_easings_rectangle_array.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/shapes_following_eyes.dir/shapes/shapes_following_eyes.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/shapes/shapes_following_eyes.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/shapes/shapes_following_eyes.c",
+  "output": "examples/CMakeFiles/shapes_following_eyes.dir/shapes/shapes_following_eyes.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/shapes_lines_bezier.dir/shapes/shapes_lines_bezier.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/shapes/shapes_lines_bezier.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/shapes/shapes_lines_bezier.c",
+  "output": "examples/CMakeFiles/shapes_lines_bezier.dir/shapes/shapes_lines_bezier.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/shapes_logo_raylib.dir/shapes/shapes_logo_raylib.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/shapes/shapes_logo_raylib.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/shapes/shapes_logo_raylib.c",
+  "output": "examples/CMakeFiles/shapes_logo_raylib.dir/shapes/shapes_logo_raylib.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/shapes_logo_raylib_anim.dir/shapes/shapes_logo_raylib_anim.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/shapes/shapes_logo_raylib_anim.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/shapes/shapes_logo_raylib_anim.c",
+  "output": "examples/CMakeFiles/shapes_logo_raylib_anim.dir/shapes/shapes_logo_raylib_anim.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/shapes_rectangle_advanced.dir/shapes/shapes_rectangle_advanced.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/shapes/shapes_rectangle_advanced.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/shapes/shapes_rectangle_advanced.c",
+  "output": "examples/CMakeFiles/shapes_rectangle_advanced.dir/shapes/shapes_rectangle_advanced.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/shapes_rectangle_scaling.dir/shapes/shapes_rectangle_scaling.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/shapes/shapes_rectangle_scaling.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/shapes/shapes_rectangle_scaling.c",
+  "output": "examples/CMakeFiles/shapes_rectangle_scaling.dir/shapes/shapes_rectangle_scaling.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/shapes_splines_drawing.dir/shapes/shapes_splines_drawing.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/shapes/shapes_splines_drawing.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/shapes/shapes_splines_drawing.c",
+  "output": "examples/CMakeFiles/shapes_splines_drawing.dir/shapes/shapes_splines_drawing.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/shapes_top_down_lights.dir/shapes/shapes_top_down_lights.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/shapes/shapes_top_down_lights.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/shapes/shapes_top_down_lights.c",
+  "output": "examples/CMakeFiles/shapes_top_down_lights.dir/shapes/shapes_top_down_lights.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/text_codepoints_loading.dir/text/text_codepoints_loading.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/text/text_codepoints_loading.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/text/text_codepoints_loading.c",
+  "output": "examples/CMakeFiles/text_codepoints_loading.dir/text/text_codepoints_loading.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/text_draw_3d.dir/text/text_draw_3d.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/text/text_draw_3d.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/text/text_draw_3d.c",
+  "output": "examples/CMakeFiles/text_draw_3d.dir/text/text_draw_3d.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/text_font_filters.dir/text/text_font_filters.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/text/text_font_filters.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/text/text_font_filters.c",
+  "output": "examples/CMakeFiles/text_font_filters.dir/text/text_font_filters.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/text_font_loading.dir/text/text_font_loading.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/text/text_font_loading.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/text/text_font_loading.c",
+  "output": "examples/CMakeFiles/text_font_loading.dir/text/text_font_loading.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/text_font_sdf.dir/text/text_font_sdf.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/text/text_font_sdf.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/text/text_font_sdf.c",
+  "output": "examples/CMakeFiles/text_font_sdf.dir/text/text_font_sdf.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/text_font_spritefont.dir/text/text_font_spritefont.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/text/text_font_spritefont.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/text/text_font_spritefont.c",
+  "output": "examples/CMakeFiles/text_font_spritefont.dir/text/text_font_spritefont.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/text_format_text.dir/text/text_format_text.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/text/text_format_text.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/text/text_format_text.c",
+  "output": "examples/CMakeFiles/text_format_text.dir/text/text_format_text.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/text_input_box.dir/text/text_input_box.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/text/text_input_box.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/text/text_input_box.c",
+  "output": "examples/CMakeFiles/text_input_box.dir/text/text_input_box.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/text_raylib_fonts.dir/text/text_raylib_fonts.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/text/text_raylib_fonts.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/text/text_raylib_fonts.c",
+  "output": "examples/CMakeFiles/text_raylib_fonts.dir/text/text_raylib_fonts.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/text_rectangle_bounds.dir/text/text_rectangle_bounds.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/text/text_rectangle_bounds.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/text/text_rectangle_bounds.c",
+  "output": "examples/CMakeFiles/text_rectangle_bounds.dir/text/text_rectangle_bounds.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/text_unicode.dir/text/text_unicode.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/text/text_unicode.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/text/text_unicode.c",
+  "output": "examples/CMakeFiles/text_unicode.dir/text/text_unicode.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/text_writing_anim.dir/text/text_writing_anim.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/text/text_writing_anim.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/text/text_writing_anim.c",
+  "output": "examples/CMakeFiles/text_writing_anim.dir/text/text_writing_anim.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/textures_background_scrolling.dir/textures/textures_background_scrolling.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/textures/textures_background_scrolling.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/textures/textures_background_scrolling.c",
+  "output": "examples/CMakeFiles/textures_background_scrolling.dir/textures/textures_background_scrolling.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/textures_blend_modes.dir/textures/textures_blend_modes.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/textures/textures_blend_modes.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/textures/textures_blend_modes.c",
+  "output": "examples/CMakeFiles/textures_blend_modes.dir/textures/textures_blend_modes.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/textures_bunnymark.dir/textures/textures_bunnymark.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/textures/textures_bunnymark.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/textures/textures_bunnymark.c",
+  "output": "examples/CMakeFiles/textures_bunnymark.dir/textures/textures_bunnymark.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/textures_draw_tiled.dir/textures/textures_draw_tiled.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/textures/textures_draw_tiled.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/textures/textures_draw_tiled.c",
+  "output": "examples/CMakeFiles/textures_draw_tiled.dir/textures/textures_draw_tiled.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/textures_fog_of_war.dir/textures/textures_fog_of_war.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/textures/textures_fog_of_war.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/textures/textures_fog_of_war.c",
+  "output": "examples/CMakeFiles/textures_fog_of_war.dir/textures/textures_fog_of_war.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/textures_gif_player.dir/textures/textures_gif_player.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/textures/textures_gif_player.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/textures/textures_gif_player.c",
+  "output": "examples/CMakeFiles/textures_gif_player.dir/textures/textures_gif_player.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/textures_image_channel.dir/textures/textures_image_channel.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/textures/textures_image_channel.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/textures/textures_image_channel.c",
+  "output": "examples/CMakeFiles/textures_image_channel.dir/textures/textures_image_channel.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/textures_image_drawing.dir/textures/textures_image_drawing.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/textures/textures_image_drawing.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/textures/textures_image_drawing.c",
+  "output": "examples/CMakeFiles/textures_image_drawing.dir/textures/textures_image_drawing.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/textures_image_generation.dir/textures/textures_image_generation.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/textures/textures_image_generation.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/textures/textures_image_generation.c",
+  "output": "examples/CMakeFiles/textures_image_generation.dir/textures/textures_image_generation.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/textures_image_kernel.dir/textures/textures_image_kernel.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/textures/textures_image_kernel.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/textures/textures_image_kernel.c",
+  "output": "examples/CMakeFiles/textures_image_kernel.dir/textures/textures_image_kernel.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/textures_image_loading.dir/textures/textures_image_loading.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/textures/textures_image_loading.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/textures/textures_image_loading.c",
+  "output": "examples/CMakeFiles/textures_image_loading.dir/textures/textures_image_loading.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/textures_image_processing.dir/textures/textures_image_processing.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/textures/textures_image_processing.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/textures/textures_image_processing.c",
+  "output": "examples/CMakeFiles/textures_image_processing.dir/textures/textures_image_processing.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/textures_image_rotate.dir/textures/textures_image_rotate.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/textures/textures_image_rotate.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/textures/textures_image_rotate.c",
+  "output": "examples/CMakeFiles/textures_image_rotate.dir/textures/textures_image_rotate.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/textures_image_text.dir/textures/textures_image_text.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/textures/textures_image_text.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/textures/textures_image_text.c",
+  "output": "examples/CMakeFiles/textures_image_text.dir/textures/textures_image_text.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/textures_logo_raylib.dir/textures/textures_logo_raylib.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/textures/textures_logo_raylib.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/textures/textures_logo_raylib.c",
+  "output": "examples/CMakeFiles/textures_logo_raylib.dir/textures/textures_logo_raylib.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/textures_mouse_painting.dir/textures/textures_mouse_painting.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/textures/textures_mouse_painting.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/textures/textures_mouse_painting.c",
+  "output": "examples/CMakeFiles/textures_mouse_painting.dir/textures/textures_mouse_painting.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/textures_npatch_drawing.dir/textures/textures_npatch_drawing.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/textures/textures_npatch_drawing.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/textures/textures_npatch_drawing.c",
+  "output": "examples/CMakeFiles/textures_npatch_drawing.dir/textures/textures_npatch_drawing.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/textures_particles_blending.dir/textures/textures_particles_blending.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/textures/textures_particles_blending.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/textures/textures_particles_blending.c",
+  "output": "examples/CMakeFiles/textures_particles_blending.dir/textures/textures_particles_blending.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/textures_polygon.dir/textures/textures_polygon.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/textures/textures_polygon.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/textures/textures_polygon.c",
+  "output": "examples/CMakeFiles/textures_polygon.dir/textures/textures_polygon.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/textures_raw_data.dir/textures/textures_raw_data.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/textures/textures_raw_data.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/textures/textures_raw_data.c",
+  "output": "examples/CMakeFiles/textures_raw_data.dir/textures/textures_raw_data.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/textures_sprite_anim.dir/textures/textures_sprite_anim.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/textures/textures_sprite_anim.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/textures/textures_sprite_anim.c",
+  "output": "examples/CMakeFiles/textures_sprite_anim.dir/textures/textures_sprite_anim.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/textures_sprite_button.dir/textures/textures_sprite_button.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/textures/textures_sprite_button.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/textures/textures_sprite_button.c",
+  "output": "examples/CMakeFiles/textures_sprite_button.dir/textures/textures_sprite_button.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/textures_sprite_explosion.dir/textures/textures_sprite_explosion.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/textures/textures_sprite_explosion.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/textures/textures_sprite_explosion.c",
+  "output": "examples/CMakeFiles/textures_sprite_explosion.dir/textures/textures_sprite_explosion.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/textures_srcrec_dstrec.dir/textures/textures_srcrec_dstrec.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/textures/textures_srcrec_dstrec.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/textures/textures_srcrec_dstrec.c",
+  "output": "examples/CMakeFiles/textures_srcrec_dstrec.dir/textures/textures_srcrec_dstrec.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/textures_textured_curve.dir/textures/textures_textured_curve.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/textures/textures_textured_curve.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/textures/textures_textured_curve.c",
+  "output": "examples/CMakeFiles/textures_textured_curve.dir/textures/textures_textured_curve.c.o"
+},
+{
+  "directory": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/examples",
+  "command": "/usr/bin/cc -DGRAPHICS_API_OPENGL_33 -DPLATFORM_DESKTOP -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src -I/home/splitfish/Documents/GitHub/Dungeons-and-Damage/src/external/glfw/include -isystem /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/others/external/include -std=c11 -fno-strict-aliasing -Werror=implicit-function-declaration -Werror=pointer-arith  -g -std=gnu99 -o CMakeFiles/textures_to_image.dir/textures/textures_to_image.c.o -c /home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/textures/textures_to_image.c",
+  "file": "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/examples/textures/textures_to_image.c",
+  "output": "examples/CMakeFiles/textures_to_image.dir/textures/textures_to_image.c.o"
 }
 ]

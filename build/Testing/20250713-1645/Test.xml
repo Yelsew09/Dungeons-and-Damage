@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Site BuildName="(empty)"
+	BuildStamp="20250713-1645-Experimental"
+	Name="(empty)"
+	Generator="ctest-3.28.3"
+	CompilerName=""
+	CompilerVersion=""
+	OSName="Linux"
+	Hostname="secondary-fishtank"
+	OSRelease="6.8.0-63-generic"
+	OSVersion="#66-Ubuntu SMP PREEMPT_DYNAMIC Fri Jun 13 20:25:30 UTC 2025"
+	OSPlatform="x86_64"
+	Is64Bits="1"
+	VendorString="GenuineIntel"
+	VendorID="Intel Corporation"
+	FamilyID="6"
+	ModelID="122"
+	ProcessorCacheSize="4096"
+	NumberOfLogicalCPU="2"
+	NumberOfPhysicalCPU="2"
+	TotalVirtualMemory="3119"
+	TotalPhysicalMemory="3731"
+	LogicalProcessorsPerPhysical="1"
+	ProcessorClockFrequency="1779.3"
+	>
+	<Testing>
+		<StartDateTime>Jul 13 11:47 CDT</StartDateTime>
+		<StartTestTime>1752425269</StartTestTime>
+		<TestList/>
+		<EndDateTime>Jul 13 11:47 CDT</EndDateTime>
+		<EndTestTime>1752425269</EndTestTime>
+		<ElapsedMinutes>0</ElapsedMinutes>
+	</Testing>
+</Site>

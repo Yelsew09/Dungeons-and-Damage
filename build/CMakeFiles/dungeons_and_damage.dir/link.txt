@@ -1,1 +1,0 @@
-/usr/bin/c++ -g CMakeFiles/dungeons_and_damage.dir/src/main.cpp.o CMakeFiles/dungeons_and_damage.dir/src/glad.c.o -o dungeons_and_damage  -lglfw 
