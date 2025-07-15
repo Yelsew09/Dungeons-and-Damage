@@ -103,5 +103,5 @@ class Zone():
     def next_frame(self,camera):
         for tile in self.details:
             if check_collision_recs(Rectangle(tile.position.x,tile.position.y,32,32),camera.view_area):
-                tile.next_frame
-                tile.draw(get_world_to_screen_2d(tile.position,camera),)
+                tile.next_frame()
+                tile.draw(get_world_to_screen_2d(tile.position,camera))
