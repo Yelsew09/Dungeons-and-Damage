@@ -49,8 +49,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build",
-		"source" : "/home/splitfish/Documents/GitHub/Dungeons-and-Damage"
+		"build" : "/workspaces/Dungeons-and-Damage/build",
+		"source" : "/workspaces/Dungeons-and-Damage"
 	},
 	"version" : 
 	{

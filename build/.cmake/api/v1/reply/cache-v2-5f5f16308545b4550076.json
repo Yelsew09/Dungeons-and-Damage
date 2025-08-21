@@ -55,7 +55,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build"
+			"value" : "/workspaces/Dungeons-and-Damage/build"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -543,7 +543,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/CMakeFiles/pkgRedirects"
+			"value" : "/workspaces/Dungeons-and-Damage/build/CMakeFiles/pkgRedirects"
 		},
 		{
 			"name" : "CMAKE_GENERATOR",
@@ -603,7 +603,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/splitfish/Documents/GitHub/Dungeons-and-Damage"
+			"value" : "/workspaces/Dungeons-and-Damage"
 		},
 		{
 			"name" : "CMAKE_INSTALL_PREFIX",
@@ -1227,7 +1227,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build"
+			"value" : "/workspaces/Dungeons-and-Damage/build"
 		},
 		{
 			"name" : "dungeons_and_damage_IS_TOP_LEVEL",
@@ -1251,7 +1251,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/splitfish/Documents/GitHub/Dungeons-and-Damage"
+			"value" : "/workspaces/Dungeons-and-Damage"
 		}
 	],
 	"kind" : "cache",

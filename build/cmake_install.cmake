@@ -1,4 +1,4 @@
-# Install script for directory: /home/splitfish/Documents/GitHub/Dungeons-and-Damage
+# Install script for directory: /workspaces/Dungeons-and-Damage
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -50,5 +50,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/splitfish/Documents/GitHub/Dungeons-and-Damage/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/workspaces/Dungeons-and-Damage/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
