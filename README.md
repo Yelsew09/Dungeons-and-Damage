@@ -93,7 +93,7 @@
 <p>Damage Boost - 2MP: Add 1/3 of your ATK to your next attack, hit or miss</p>
 
 ## Items:
-<p>Note - the % is the chance of appearing from the Summon Random Item spell</p>
+### Note - the % is the chance of appearing from the Summon Random Item spell
 <p>Rusty Spoon - 10%: Do 1 point of unblockable damage. Has a .1% chance to kill either player instantly from tetanus</p>
 <p>Knives - 40%: Do 1-5 points of unblockable damage, with a 1/10 chance to miss</p>
 <p>Healing Potion - 40%: Heal 10% of your maximum HP</p>
