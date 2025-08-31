@@ -1,8 +1,0 @@
-[
-{
-  "directory": "/workspaces/Dungeons-and-Damage/build",
-  "command": "/usr/bin/c++   -g -o CMakeFiles/dungeons_and_damage.dir/main.cpp.o -c /workspaces/Dungeons-and-Damage/main.cpp",
-  "file": "/workspaces/Dungeons-and-Damage/main.cpp",
-  "output": "CMakeFiles/dungeons_and_damage.dir/main.cpp.o"
-}
-]

@@ -1,3 +1,0 @@
-/workspaces/Dungeons-and-Damage/build/CMakeFiles/dungeons_and_damage.dir
-/workspaces/Dungeons-and-Damage/build/CMakeFiles/edit_cache.dir
-/workspaces/Dungeons-and-Damage/build/CMakeFiles/rebuild_cache.dir
