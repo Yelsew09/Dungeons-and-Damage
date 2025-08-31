@@ -850,8 +850,8 @@ def combat(atkP,defP,show):
                             else:
                                 explode()
                             atkP.glocks += 1
-                            oc = False
-                            mc = False
+                    oc = False
+                    mc = False
                 
                 #Gain advantage - 3MP
                 elif option == 3:
