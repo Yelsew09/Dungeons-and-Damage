@@ -157,6 +157,38 @@ class Knight: public Player{
         }
     }
 };
+class Peashooter: public Player{
+    int s[10] = {26,26,9,4,14,7,7,3,3,5};
+    int i[5] = {1,1,1,1,0};
+    std::string p = "Charge";
+    std::string a = "";
+    Peashooter(): Player(s,i,p,a){
+        delete[] s;
+        delete[] i;
+        p.erase();
+        a.erase();
+    }
+    void damage(int amount){
+        stats[0] -= amount;
+        if (stats[0] <= 0){
+            alive = false;
+        }
+    }
+    void heal(int amount){
+        stats[0] += amount;
+        if (stats[0] > stats[1]){
+            stats[0] = stats[1];
+        }
+    }
+    void next_turn(){
+        effects.adtr--;
+        if (effects.adtr == 0){effects.adv = 0;}
+        stats[5] += stats[7];
+        if (stats[5] > stats[6]){
+            stats[5] = stats[6];
+        }
+    }
+};
 
 int main(){
     return 0;
