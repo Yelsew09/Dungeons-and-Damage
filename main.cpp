@@ -1,4 +1,5 @@
 #include <iostream>
+#include <algorithm>
 #include <random>
 #include <thread>
 #include <chrono>
@@ -13,6 +14,9 @@ void roll(std::string text, int delay = 20){
         std::cout << text[i];
         std::this_thread::sleep_for(std::chrono::milliseconds(delay));
     }
+}
+std::string remove_special_characters(std::string input, std::string special_char){
+    return input.erase(std::remove(input.begin(), input.end(), '\n'), input.cend());
 }
 void wait(int miliseconds = 150){
     std::this_thread::sleep_for(std::chrono::milliseconds(miliseconds));
@@ -37,7 +41,11 @@ int ask(std::string question, int t = 500){
     }
     return option;
 }
-std::string roll_list(std::vector<std::string> list, std::string question = "What would you like to do?", int delay = 500){
+std::string roll_list(
+    std::vector<std::string> list,
+    std::string question = "What would you like to do?",
+    int delay = 500
+){
     int option;
     if (list[0] != "Back"){
         for (int i = 0; i > list.size(); i++){
@@ -88,7 +96,7 @@ class Player{
     *  8: Item Uses
     *  9: Speed
     */
-    int items[5];
+    short items[5];
     std::vector<std::string> options;
     std::string passive;
     std::string activated;
@@ -102,7 +110,7 @@ class Player{
         int ability_cooldown;
     } effects;
     public:
-    Player(int s[10], int i[5], std::string p, std::string a){
+    Player(int s[10], short i[5], std::string p, std::string a){
         stats[10] = s[10];
         items[5] = i[5];
         passive = p;
@@ -111,22 +119,18 @@ class Player{
             "Attack",
             "Magic",
             "Item",
-            activated + " (" + std::to_string(effects.ability_cooldown_current) + "/" + std::to_string(effects.ability_cooldown) + ")",
+            activated + " (" + std::to_string(effects.ability_cooldown_current) +
+                "/" + std::to_string(effects.ability_cooldown) + ")",
             "Pass",
             "Run",
         };
         fence_set = false;
         alive = true;
-        effects = {
-            0,
-            0,
-            0
-        };
     }
 };
 class Knight: public Player{
     int s[10] = {35,35,7,5,16,5,5,3,2,3};
-    int i[5] = {3,3,3,3,0};
+    short i[5] = {3,3,3,1,0};
     std::string p = "Fortitude";
     std::string a = "";
     Knight(): Player(s,i,p,a){
@@ -136,7 +140,6 @@ class Knight: public Player{
         a.erase();
     }
     void damage(int amount){
-        amount -= 2;
         stats[0] -= amount;
         if (stats[0] <= 0){
             alive = false;
@@ -149,8 +152,10 @@ class Knight: public Player{
         }
     }
     void next_turn(){
-        effects.adtr--;
-        if (effects.adtr == 0){effects.adv = 0;}
+        if (effects.adtr > 0){
+            effects.adtr--;
+            if (effects.adtr == 0){effects.adv = 0;}
+        }
         stats[5] += stats[7];
         if (stats[5] > stats[6]){
             stats[5] = stats[6];
@@ -159,7 +164,7 @@ class Knight: public Player{
 };
 class Peashooter: public Player{
     int s[10] = {26,26,9,4,14,7,7,3,3,5};
-    int i[5] = {1,1,1,1,0};
+    short i[5] = {1,1,1,1,0};
     std::string p = "Charge";
     std::string a = "";
     Peashooter(): Player(s,i,p,a){
@@ -181,8 +186,241 @@ class Peashooter: public Player{
         }
     }
     void next_turn(){
-        effects.adtr--;
-        if (effects.adtr == 0){effects.adv = 0;}
+        if (effects.adtr > 0){
+            effects.adtr--;
+            if (effects.adtr == 0){effects.adv = 0;}
+        }
+        stats[5] += stats[7];
+        if (stats[5] > stats[6]){
+            stats[5] = stats[6];
+        }
+    }
+};
+class Rouge: public Player{
+    int s[10] = {20,20,10,3,13,6,6,2,4,4};
+    short i[5] = {0,5,2,0,0};
+    std::string p = "Accelerate";
+    std::string a = "";
+    Rouge(): Player(s,i,p,a){
+        delete[] s;
+        delete[] i;
+        p.erase();
+        a.erase();
+    }
+    void damage(int amount){
+        stats[0] -= amount;
+        if (stats[0] <= 0){
+            alive = false;
+        }
+    }
+    void heal(int amount){
+        stats[0] += amount;
+        if (stats[0] > stats[1]){
+            stats[0] = stats[1];
+        }
+    }
+    void next_turn(){
+        if (effects.adtr > 0){
+            effects.adtr--;
+            if (effects.adtr == 0){effects.adv = 0;}
+        }
+        stats[5] += stats[7];
+        if (stats[5] > stats[6]){
+            stats[5] = stats[6];
+        }
+    }
+};
+class Mage: public Player{
+    int s[10] = {21,21,5,2,11,5,5,2,2,4};
+    short i[5] = {2,2,3,1,0};
+    std::string p = "Zoning In";
+    std::string a = "";
+    Mage(): Player(s,i,p,a){
+        delete[] s;
+        delete[] i;
+        p.erase();
+        a.erase();
+    }
+    void damage(int amount){
+        stats[0] -= amount;
+        if (stats[0] <= 0){
+            alive = false;
+        }
+    }
+    void heal(int amount){
+        stats[0] += amount;
+        if (stats[0] > stats[1]){
+            stats[0] = stats[1];
+        }
+    }
+    void next_turn(){
+        if (effects.adtr > 0){
+            effects.adtr--;
+            if (effects.adtr == 0){effects.adv = 0;}
+        }
+        stats[5] += stats[7];
+        if (stats[5] > stats[6]){
+            stats[5] = stats[6];
+        }
+    }
+};
+class Skele: public Player{
+    int s[10] = {30,30,7,3,12,7,7,5,4,6};
+    short i[5] = {3,4,0,0,0};
+    std::string p = "Resilient";
+    std::string a = "";
+    Skele(): Player(s,i,p,a){
+        delete[] s;
+        delete[] i;
+        p.erase();
+        a.erase();
+    }
+    void damage(int amount){
+        if (amount > 14){
+            amount = 14;
+        }
+        stats[0] -= amount;
+        if (stats[0] <= 0){
+            alive = false;
+        }
+    }
+    void heal(int amount){
+        stats[0] += amount;
+        if (stats[0] > stats[1]){
+            stats[0] = stats[1];
+        }
+    }
+    void next_turn(){
+        if (effects.adtr > 0){
+            effects.adtr--;
+            if (effects.adtr == 0){effects.adv = 0;}
+        }
+        stats[5] += stats[7];
+        if (stats[5] > stats[6]){
+            stats[5] = stats[6];
+        }
+    }
+};
+class Bard: public Player{
+    int s[10] = {27,27,6,4,14,4,4,2,5,2};
+    short i[5] = {3,2,2,1,0};
+    std::string p = "Jack of all Trades";
+    std::string a = "";
+    Bard(): Player(s,i,p,a){
+        delete[] s;
+        delete[] i;
+        p.erase();
+        a.erase();
+    }
+    void damage(int amount){
+        stats[0] -= amount;
+        if (stats[0] <= 0){
+            alive = false;
+        }
+    }
+    void heal(int amount){
+        stats[0] += amount;
+        if (stats[0] > stats[1]){
+            stats[0] = stats[1];
+        }
+    }
+    void next_turn(){
+        if (effects.adtr > 0){
+            effects.adtr--;
+            if (effects.adtr == 0){effects.adv = 0;}
+        }
+        stats[5] += stats[7];
+        if (stats[5] > stats[6]){
+            stats[5] = stats[6];
+        }
+    }
+};
+class Barbarian: public Player{
+    int s[10] = {40,40,12,2,15,2,2,1,1,1};
+    short i[5] = {};
+    std::string p = "";
+    std::string a = "";
+    Barbarian(): Player(s,i,p,a){
+        delete[] s;
+        delete[] i;
+        p.erase();
+        a.erase();
+    }
+    void damage(int amount){
+        stats[0] -= amount;
+        if (stats[0] <= 0){
+            alive = false;
+        }
+    }
+    void heal(int amount){
+        amount = round(1.5*amount);
+        stats[0] += amount;
+        if (stats[0] > stats[1]){
+            stats[0] = stats[1];
+        }
+    }
+    void next_turn(){
+        heal(2);
+        if (effects.adtr > 0){
+            effects.adtr--;
+            if (effects.adtr == 0){effects.adv = 0;}
+        }
+        stats[5] += stats[7];
+        if (stats[5] > stats[6]){
+            stats[5] = stats[6];
+        }
+    }
+};
+class Narrator: public Player{
+    int s[10] = {
+        2147483647,
+        2147483647,
+        2147483647,
+        2147483647,
+        2147483647,
+        2147483647,
+        2147483647,
+        2147483647,
+        2147483647,
+        2147483647
+    };
+    short i[5] = {
+        2147483647,
+        2147483647,
+        2147483647,
+        2147483647,
+        2147483647
+    };
+    std::string p = "Godlike";
+    std::string a = "You must die";
+    Narrator(): Player(s,i,p,a){
+        delete[] s;
+        delete[] i;
+        p.erase();
+        a.erase();
+    }
+    void damage(int amount){
+        amount -= 2147483647;
+        if (amount < 0){
+            amount = 0;
+        }
+        stats[0] -= amount;
+        if (stats[0] <= 0){
+            alive = false;
+        }
+    }
+    void heal(int amount){
+        amount = 2147483647;
+        stats[0] += amount;
+        if (stats[0] > stats[1]){
+            stats[0] = stats[1];
+        }
+    }
+    void next_turn(){
+        if (effects.adtr > 0){
+            effects.adtr--;
+            if (effects.adtr == 0){effects.adv = 0;}
+        }
         stats[5] += stats[7];
         if (stats[5] > stats[6]){
             stats[5] = stats[6];
@@ -191,5 +429,19 @@ class Peashooter: public Player{
 };
 
 int main(){
-    return 0;
+    bool ac = true;
+    std::vector<std::string> current_list;
+    while(ac){
+        current_list.clear();
+        current_list = {
+            "Game Start\n",
+            "Guide\n",
+            "Options\n",
+            "Quit\n"
+        };
+        std::string option = roll_list(current_list,"Please select an option: ");
+        if (option == "Game Start"){
+
+        }
+    }
 }
