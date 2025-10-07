@@ -1,5 +1,4 @@
 #include <iostream>
-#include <algorithm>
 #include <random>
 #include <thread>
 #include <chrono>
@@ -14,9 +13,6 @@ void roll(std::string text, int delay = 20){
         std::cout << text[i];
         std::this_thread::sleep_for(std::chrono::milliseconds(delay));
     }
-}
-std::string remove_special_characters(std::string input, std::string special_char){
-    return input.erase(std::remove(input.begin(), input.end(), '\n'), input.cend());
 }
 void wait(int miliseconds = 150){
     std::this_thread::sleep_for(std::chrono::milliseconds(miliseconds));
