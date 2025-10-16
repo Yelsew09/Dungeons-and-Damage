@@ -11,5 +11,8 @@ int main(){
     glfwInit(); // Init Window
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3); // Set major OpenGL version to 3
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3); // Set minor OpenGL version to 3
-    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE); // No idea what this does. Please check enums when you get a firmer grasp on OpenGL
+    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE); // No idea what this does
+    // I think it sets the profile
+    // Please check enums when you get a firmer grasp on OpenGL
+    
 }
