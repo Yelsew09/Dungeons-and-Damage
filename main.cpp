@@ -43,11 +43,16 @@ std::string roll_list(
     int delay = 500
 ){
     int option;
-    if (list[0] != "Back"){
+    if (list[0] != "Back\n"){
         for (int i = 0; i > list.size(); i++){
-        roll((i+1) + " - " + list[i]);
+            roll((i+1) + " - " + list[i]);
         }
-        option = ask(question,delay) - 1;
+        option = ask(question, delay) - 1;
+    } else {
+        for (int i = 0; i > list.size(); i++){
+            roll(i + " - " + list[i]);
+        }
+        option = ask(question, delay) - 1;
     }
     return list[option];
 }
@@ -436,8 +441,16 @@ int main(){
             "Quit\n"
         };
         std::string option = roll_list(current_list,"Please select an option: ");
-        if (option == "Game Start"){
+        if (option == "Game Start\n"){
 
+        } else if (option == "Guide\n"){
+            confirm("Guide coming soon");
+        } else if (option == "Options\n"){
+            confirm("Options coming soon");
+        } else if (option == "Quit\n"){
+            std::terminate();
+        } else {
+            confirm("Please choose a valid option");
         }
     }
 }
