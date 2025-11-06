@@ -5,6 +5,8 @@
 #include <vector>
 #include <random>
 
+#include "include/classes.hpp"
+
 std::random_device rd;
 std::mt19937 gen(rd());
 
@@ -386,11 +388,11 @@ class Narrator: public Player{
         2147483647
     };
     short i[5] = {
-        2147483647,
-        2147483647,
-        2147483647,
-        2147483647,
-        2147483647
+        32767,
+        32767,
+        32767,
+        32767,
+        32767
     };
     std::string p = "Godlike";
     std::string a = "You must die";
