@@ -5,7 +5,6 @@ add_executable(
     dungeons_and_damage
     main.cpp
     include/classes.hpp
-    include/commands.cpp
     include/Player.cpp
     include/Knight.cpp
     include/Peashooter.cpp

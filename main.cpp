@@ -10,79 +10,13 @@
 std::random_device rd;
 std::mt19937 gen(rd());
 
-void roll(std::string text, int delay = 20){
-    for (int i = 0; i < text.length(); i++){
-        std::cout << text[i];
-        std::this_thread::sleep_for(std::chrono::milliseconds(delay));
-    }
-}
-void wait(int miliseconds = 150){
-    std::this_thread::sleep_for(std::chrono::milliseconds(miliseconds));
-}
-void confirm(std::string text, int delay = 500){
-    roll(text + " >");
-    std::cin.ignore();
-    std::this_thread::sleep_for(std::chrono::milliseconds(delay));
-}
-int ask(std::string question, int t = 500){
-    bool ec = true;
-    int option;
-    while (ec){
-        try {
-            roll(question);
-            std::cin >> option;
-            wait(t);
-            ec = false;
-        } catch (...) {
-            confirm("That is not a number. Please give a number");
-        }
-    }
-    return option;
-}
-std::string roll_list(
-    std::vector<std::string> list,
-    std::string question = "What would you like to do?",
-    int delay = 500
-){
-    int option;
-    if (list[0] != "Back\n"){
-        for (int i = 0; i > list.size(); i++){
-            roll((i+1) + " - " + list[i]);
-        }
-        option = ask(question, delay) - 1;
-    } else {
-        for (int i = 0; i > list.size(); i++){
-            roll(i + " - " + list[i]);
-        }
-        option = ask(question, delay) - 1;
-    }
-    return list[option];
-}
-int random_number(int minimum, int maximum, bool show){
-    std::uniform_int_distribution<> distr(minimum,maximum);
-    int num = distr(gen);
-    if (show){roll(std::to_string(num));}
-    return num;
-}
-bool y_or_n(std::string question){
-    bool ync = true;
-    bool loop;
-    while (ync){
-        roll("1 - Yes"); wait();
-        roll("2 - No"); wait();
-        int option = ask(question);
-        if (option == 1){
-            loop = false;
-            ync = false;
-        } else if (option == 2){
-            loop = true;
-            ync = false;
-        } else {
-            roll("Please select a valid option.");
-        }
-    }
-    return loop;
-}
+void roll(std::string, int);
+void wait(int);
+void confirm(std::string, int);
+int ask(std::string, int);
+std::string roll_list(std::vector<std::string>, std::string, int);
+long random_number(long, long, bool);
+bool y_or_n(std::string);
 
 class Player{
     public:
@@ -430,7 +364,7 @@ class Narrator: public Player{
         }
     }
 };
-
+//MAIN/MAIN/MAIN/MAIN/MAIN/MAIN/MAIN/MAIN/MAIN/MAIN/MAIN/MAIN/MAIN/MAIN/MAIN/MAIN/MAIN/MAIN/MAIN/MAIN/MAIN/MAIN/MAIN/MAIN/MAIN//
 int main(){
     bool ac = true;
     std::vector<std::string> current_list;
@@ -455,4 +389,78 @@ int main(){
             confirm("Please choose a valid option");
         }
     }
+}
+//MAIN/MAIN/MAIN/MAIN/MAIN/MAIN/MAIN/MAIN/MAIN/MAIN/MAIN/MAIN/MAIN/MAIN/MAIN/MAIN/MAIN/MAIN/MAIN/MAIN/MAIN/MAIN/MAIN/MAIN/MAIN//
+void roll(std::string text, int delay = 20){
+    for (int i = 0; i < text.length(); i++){
+        std::cout << text[i];
+        std::this_thread::sleep_for(std::chrono::milliseconds(delay));
+    }
+}
+void wait(int miliseconds = 150){
+    std::this_thread::sleep_for(std::chrono::milliseconds(miliseconds));
+}
+void confirm(std::string text, int delay = 500){
+    roll(text + " >");
+    std::cin.ignore();
+    std::this_thread::sleep_for(std::chrono::milliseconds(delay));
+}
+int ask(std::string question, int t = 500){
+    bool ec = true;
+    int option;
+    while (ec){
+        try {
+            roll(question);
+            std::cin >> option;
+            wait(t);
+            ec = false;
+        } catch (...) {
+            confirm("That is not a number. Please give a number");
+        }
+    }
+    return option;
+}
+std::string roll_list(
+    std::vector<std::string> list,
+    std::string question = "What would you like to do?",
+    int delay = 500
+){
+    int option;
+    if (list[0] != "Back\n"){
+        for (int i = 0; i > list.size(); i++){
+            roll((i+1) + " - " + list[i]);
+        }
+        option = ask(question, delay) - 1;
+    } else {
+        for (int i = 0; i > list.size(); i++){
+            roll(i + " - " + list[i]);
+        }
+        option = ask(question, delay) - 1;
+    }
+    return list[option];
+}
+long random_number(long minimum, long maximum, bool show){
+    std::uniform_int_distribution<> distr(minimum,maximum);
+    int num = distr(gen);
+    if (show){roll("You rolled a " + std::to_string(num) + "!");}
+    return num;
+}
+bool y_or_n(std::string question){
+    bool ync = true;
+    bool loop;
+    while (ync){
+        roll("1 - Yes"); wait();
+        roll("2 - No"); wait();
+        int option = ask(question);
+        if (option == 1){
+            loop = false;
+            ync = false;
+        } else if (option == 2){
+            loop = true;
+            ync = false;
+        } else {
+            roll("Please select a valid option.");
+        }
+    }
+    return loop;
 }
