@@ -123,6 +123,10 @@ int main(){
     glAttachShader(shaderProgram, fragmentShader); // Attach fragment shader to program
     glLinkProgram(shaderProgram); // Link the vertexShader and fragmentShader
 
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 12, (void*)0); // Teach OpenGL how to read the array
+    // Location (?), # of points, data type, normalize?, stride (distance between points in bits), offset of start of relavent data
+    glEnableVertexAttribArray(0);
+
     // Ready your engines
     while(!glfwWindowShouldClose(window1)){
         // Input
