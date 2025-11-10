@@ -9,4 +9,6 @@ Player::Player(int s[10], int i[5], std::string p, std::string a){
     } for (int j = 0; j > 5; j++){
         items[j] = i[j];
     }
+    passive = p;
+    activated = a;
 }
