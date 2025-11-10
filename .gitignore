@@ -1,0 +1,83 @@
+# Unity
+.DS_Store
+*.meta
+*.unityproj
+*.suo
+*.user
+*.pidb
+*.booproj
+*.sln
+*.csproj
+*.vspscc
+*.vssscc
+*.tmp
+*.log
+*.bak
+*.orig
+*.rej
+
+# Build results
+/Build/
+/Temp/
+/Library/
+/Obj/
+/Logs/
+/Assets/AssetStoreTools/
+/Assets/Standard Assets/Editor/
+/Assets/ProCore/ProBuilder/Editor/
+/Assets/ProCore/ProBuilder/ProBuilderCore/
+/Assets/ProCore/ProBuilder/ProBuilderMeshOps/
+/Assets/ProCore/ProBuilder/ProBuilderEditor/
+/Assets/ProCore/ProBuilder/Shared/
+/Assets/ProCore/Polybrush/
+/Assets/TextMesh Pro/
+/Assets/TextMesh Pro/Editor/
+/Assets/TextMesh Pro/Resources/
+/Assets/TextMesh Pro/Examples & Extras/
+/Assets/TextMesh Pro/Fonts/
+/Assets/TextMesh Pro/Materials/
+/Assets/TextMesh Pro/Mobile/
+/Assets/TextMesh Pro/Shaders/
+
+# Visual Studio / Rider
+.vs/
+.idea/
+*.userprefs
+
+# macOS
+.DS_Store
+
+# Package Manager
+/Packages/manifest.json
+/Packages/packages-lock.json
+
+# Local configurations
+/ProjectSettings/ProjectVersion.txt
+/ProjectSettings/EditorSettings.asset
+/ProjectSettings/GraphicsSettings.asset
+/ProjectSettings/InputManager.asset
+/ProjectSettings/NavMeshAreas.asset
+/ProjectSettings/NavMeshLayers.asset
+/ProjectSettings/Physics2DSettings.asset
+/ProjectSettings/PhysicsManager.asset
+/ProjectSettings/ProjectSettings.asset
+/ProjectSettings/TagManager.asset
+/ProjectSettings/TimeManager.asset
+/ProjectSettings/VFXManager.asset
+/ProjectSettings/XRSettings.asset
+
+# Generated Assets
+*.asset
+*.unity
+*.prefab
+*.mat
+*.playable
+*.spriteatlas
+*.rendertexture
+*.guiskin
+*.mask
+*.controller
+*.anim
+
+# Crash Reports
+/CrashReports/
