@@ -1,6 +1,6 @@
 package the_player;
 import java.util.ArrayList;
-public interface Player { 
+public class Player {
     int stats[] = new int[10];
     int effects[] = new int[5];
     ArrayList<String> options = new ArrayList<>();
