@@ -5,18 +5,20 @@
 #include <vector>
 #include <random>
 
-#include "include/classes.hpp"
+//#include "include/classes.hpp"
 
-std::random_device rd;
-std::mt19937 gen(rd());
+using namespace std;
 
-void roll(std::string, int);
-void wait(int);
-void confirm(std::string, int);
-int ask(std::string, int);
-std::string roll_list(std::vector<std::string>, std::string, int);
-long random_number(long, long, bool);
-bool y_or_n(std::string);
+random_device rd;
+mt19937 gen(rd());
+
+void roll(string, int = 20);
+void wait(int = 500);
+void confirm(string, int = 500);
+int ask(string, int = 500);
+string roll_list(vector<string>, string, int = 500);
+long random_number(long, long, bool = false);
+bool y_or_n(string);
 
 class Player{
     public:
@@ -34,9 +36,9 @@ class Player{
     *  9: Speed
     */
     short items[5];
-    std::vector<std::string> options;
-    std::string passive;
-    std::string activated;
+    vector<string> options;
+    string passive;
+    string activated;
     bool fence_set;
     bool alive;
     struct Effects{
@@ -47,7 +49,7 @@ class Player{
         int ability_cooldown;
     } effects;
     public:
-    Player(int s[10], short i[5], std::string p, std::string a){
+    Player(int s[10], short i[5], string p, string a){
         stats[10] = s[10];
         items[5] = i[5];
         passive = p;
@@ -56,8 +58,8 @@ class Player{
             "Attack",
             "Magic",
             "Item",
-            activated + " (" + std::to_string(effects.ability_cooldown_current) +
-                "/" + std::to_string(effects.ability_cooldown) + ")",
+            activated + " (" + to_string(effects.ability_cooldown_current) +
+                "/" + to_string(effects.ability_cooldown) + ")",
             "Pass",
             "Run",
         };
@@ -68,8 +70,8 @@ class Player{
 class Knight: public Player{
     int s[10] = {35,35,7,5,16,5,5,3,2,3};
     short i[5] = {3,3,3,1,0};
-    std::string p = "Fortitude";
-    std::string a = "";
+    string p = "Fortitude";
+    string a = "";
     Knight(): Player(s,i,p,a){
         delete[] s;
         delete[] i;
@@ -102,8 +104,8 @@ class Knight: public Player{
 class Peashooter: public Player{
     int s[10] = {26,26,9,4,14,7,7,3,3,5};
     short i[5] = {1,1,1,1,0};
-    std::string p = "Charge";
-    std::string a = "";
+    string p = "Charge";
+    string a = "";
     Peashooter(): Player(s,i,p,a){
         delete[] s;
         delete[] i;
@@ -136,8 +138,8 @@ class Peashooter: public Player{
 class Rouge: public Player{
     int s[10] = {20,20,10,3,13,6,6,2,4,4};
     short i[5] = {0,5,2,0,0};
-    std::string p = "Accelerate";
-    std::string a = "";
+    string p = "Accelerate";
+    string a = "";
     Rouge(): Player(s,i,p,a){
         delete[] s;
         delete[] i;
@@ -170,8 +172,8 @@ class Rouge: public Player{
 class Mage: public Player{
     int s[10] = {21,21,5,2,11,5,5,2,2,4};
     short i[5] = {2,2,3,1,0};
-    std::string p = "Zoning In";
-    std::string a = "";
+    string p = "Zoning In";
+    string a = "";
     Mage(): Player(s,i,p,a){
         delete[] s;
         delete[] i;
@@ -204,8 +206,8 @@ class Mage: public Player{
 class Skele: public Player{
     int s[10] = {30,30,7,3,12,7,7,5,4,6};
     short i[5] = {3,4,0,0,0};
-    std::string p = "Resilient";
-    std::string a = "";
+    string p = "Resilient";
+    string a = "";
     Skele(): Player(s,i,p,a){
         delete[] s;
         delete[] i;
@@ -241,8 +243,8 @@ class Skele: public Player{
 class Bard: public Player{
     int s[10] = {27,27,6,4,14,4,4,2,5,2};
     short i[5] = {3,2,2,1,0};
-    std::string p = "Jack of all Trades";
-    std::string a = "";
+    string p = "Jack of all Trades";
+    string a = "";
     Bard(): Player(s,i,p,a){
         delete[] s;
         delete[] i;
@@ -275,8 +277,8 @@ class Bard: public Player{
 class Barbarian: public Player{
     int s[10] = {40,40,12,2,15,2,2,1,1,1};
     short i[5] = {};
-    std::string p = "";
-    std::string a = "";
+    string p = "";
+    string a = "";
     Barbarian(): Player(s,i,p,a){
         delete[] s;
         delete[] i;
@@ -328,8 +330,8 @@ class Narrator: public Player{
         32767,
         32767
     };
-    std::string p = "Godlike";
-    std::string a = "You must die";
+    string p = "Godlike";
+    string a = "You must die";
     Narrator(): Player(s,i,p,a){
         delete[] s;
         delete[] i;
@@ -367,7 +369,7 @@ class Narrator: public Player{
 //MAIN/MAIN/MAIN/MAIN/MAIN/MAIN/MAIN/MAIN/MAIN/MAIN/MAIN/MAIN/MAIN/MAIN/MAIN/MAIN/MAIN/MAIN/MAIN/MAIN/MAIN/MAIN/MAIN/MAIN/MAIN//
 int main(){
     bool ac = true;
-    std::vector<std::string> current_list;
+    vector<string> current_list;
     while(ac){
         current_list.clear();
         current_list = {
@@ -376,7 +378,7 @@ int main(){
             "Options\n",
             "Quit\n"
         };
-        std::string option = roll_list(current_list,"Please select an option: ");
+        string option = roll_list(current_list,"Please select an option: ");
         if (option == "Game Start\n"){
 
         } else if (option == "Guide\n"){
@@ -384,34 +386,34 @@ int main(){
         } else if (option == "Options\n"){
             confirm("Options coming soon");
         } else if (option == "Quit\n"){
-            std::terminate();
+            terminate();
         } else {
             confirm("Please choose a valid option");
         }
     }
 }
 //MAIN/MAIN/MAIN/MAIN/MAIN/MAIN/MAIN/MAIN/MAIN/MAIN/MAIN/MAIN/MAIN/MAIN/MAIN/MAIN/MAIN/MAIN/MAIN/MAIN/MAIN/MAIN/MAIN/MAIN/MAIN//
-void roll(std::string text, int delay = 20){
+void roll(string text, int delay){
     for (int i = 0; i < text.length(); i++){
-        std::cout << text[i];
-        std::this_thread::sleep_for(std::chrono::milliseconds(delay));
+        cout << text[i];
+        this_thread::sleep_for(chrono::milliseconds(delay));
     }
 }
-void wait(int miliseconds = 150){
-    std::this_thread::sleep_for(std::chrono::milliseconds(miliseconds));
+void wait(int miliseconds){
+    this_thread::sleep_for(chrono::milliseconds(miliseconds));
 }
-void confirm(std::string text, int delay = 500){
+void confirm(string text, int delay){
     roll(text + " >");
-    std::cin.ignore();
-    std::this_thread::sleep_for(std::chrono::milliseconds(delay));
+    cin.ignore();
+    this_thread::sleep_for(chrono::milliseconds(delay));
 }
-int ask(std::string question, int t = 500){
+int ask(string question, int t){
     bool ec = true;
     int option;
     while (ec){
         try {
             roll(question);
-            std::cin >> option;
+            cin >> option;
             wait(t);
             ec = false;
         } catch (...) {
@@ -420,10 +422,10 @@ int ask(std::string question, int t = 500){
     }
     return option;
 }
-std::string roll_list(
-    std::vector<std::string> list,
-    std::string question = "What would you like to do?",
-    int delay = 500
+string roll_list(
+    vector<string> list,
+    string question = "What would you like to do?",
+    int delay
 ){
     int option;
     if (list[0] != "Back\n"){
@@ -440,12 +442,12 @@ std::string roll_list(
     return list[option];
 }
 long random_number(long minimum, long maximum, bool show){
-    std::uniform_int_distribution<> distr(minimum,maximum);
+    uniform_int_distribution<> distr(minimum,maximum);
     int num = distr(gen);
-    if (show){roll("You rolled a " + std::to_string(num) + "!");}
+    if (show){roll("You rolled a " + to_string(num) + "!");}
     return num;
 }
-bool y_or_n(std::string question){
+bool y_or_n(string question){
     bool ync = true;
     bool loop;
     while (ync){
