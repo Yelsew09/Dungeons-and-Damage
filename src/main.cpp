@@ -101,8 +101,8 @@ int main(){
     glBindBuffer(GL_ARRAY_BUFFER, VBO); // Bind the id of VBO to the GL_ARRAY_BUFFER
     glBufferData(GL_ARRAY_BUFFER, sizeof(verticies), verticies, GL_STATIC_DRAW); // Actually send the buffer over to the GPU
                // Which buffer, size of the buffer, data being sent, type of buffer (see below)
-              // GL_STATIC_DRAW - Data is set once and used once
-             // GL_STREAM_DRAW  - Data is set once and used at most a few times
+              // GL_STREAM_DRAW  - Data is set once and used at most a few times
+             // GL_STATIC_DRAW  - Data is set once and used many times
             // GL_DYNAMIC_DRAW  - Data is set many times and used many times
     
     GLuint vertexShader = glCreateShader(GL_VERTEX_SHADER); // Create and assign the vertex shader
@@ -124,7 +124,7 @@ int main(){
     glLinkProgram(shaderProgram); // Link the vertexShader and fragmentShader
 
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 12, (void*)0); // Teach OpenGL how to read the array
-    // Location (?), # of points, data type, normalize?, stride (distance between points in bits), offset of start of relavent data
+    // Which vertex attribute we want to configure (the ID I'd assume), # of points, data type, normalize?, stride (distance between points in bytes), offset of start of relavent data
     glEnableVertexAttribArray(0);
 
     // Ready your engines
