@@ -105,16 +105,16 @@ class Peashooter: public Player{
 class Rouge: public Player{
     public:
     Rouge(int[10], short[5], vector<string>, vector<string>, string, string);
-    void damage(int) override;
-    void heal(int) override;
+    using Player::damage;
+    using Player::heal;
     void next_turn() override;
 };
 
 class Mage: public Player{
     public:
     Mage(int[10], short[5], vector<string>, vector<string>, string, string);
-    void damage(int) override;
-    void heal(int) override;
+    using Player::damage;
+    using Player::heal;
     void next_turn() override;
 };
 
@@ -122,22 +122,22 @@ class Skele: public Player{
     public:
     Skele(int[10], short[5], vector<string>, vector<string>, string, string);
     void damage(int) override;
-    void heal(int) override;
-    void next_turn() override;
+    using Player::heal;
+    using Player::next_turn;
 };
 
 class Bard: public Player{
     public:
     Bard(int[10], short[5], vector<string>, vector<string>, string, string);
-    void damage(int) override;
-    void heal(int) override;
+    using Player::damage;
+    using Player::heal;
     void next_turn() override;
 };
 
 class Barbarian: public Player{
     public:
     Barbarian(int[10], short[5], vector<string>, vector<string>, string, string);
-    void damage(int) override;
+    using Player::damage;
     void heal(int) override;
     void next_turn() override;
 };
@@ -147,7 +147,7 @@ class Narrator: public Player{
     Narrator(int[10], short[5], vector<string>, vector<string>, string, string);
     void damage(int) override;
     void heal(int) override;
-    void next_turn() override;
+    using Player::next_turn;
 };
 
 #endif
