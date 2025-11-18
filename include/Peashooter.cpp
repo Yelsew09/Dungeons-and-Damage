@@ -5,7 +5,7 @@
 
 using namespace std;
 
-Peashooter::Peashooter(int s[10], int i[5], string p, string a): Player(s, i, p, a){}
+Peashooter::Peashooter(int s[10], short i[5], string p, string a): Player(s, i, p, a){}
 void Peashooter::damage(int amount){
     stats[CURRENT_HP] -= amount;
     dead = (stats[CURRENT_HP] <= 0);

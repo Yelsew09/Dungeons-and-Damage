@@ -5,7 +5,7 @@
 
 using namespace std;
 
-Player::Player(int s[10], int i[5], string p, string a){
+Player::Player(int s[10], short i[5], string p, string a){
     for (int j = 0; j < 10; j++){stats[j] = s[j];}
     for (int j = 0; j < 5; j++){items[j] = i[j];}
     passive = p;

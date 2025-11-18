@@ -5,7 +5,7 @@
 
 using namespace std;
 
-Knight::Knight(int s[10], int i[5], string p, string a): Player(s, i, p, a){}
+Knight::Knight(int s[10], short i[5], string p, string a): Player(s, i, p, a){}
 void Knight::damage(int amount){
     amount -= 2;
     stats[0] -= amount;
