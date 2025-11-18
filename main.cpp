@@ -2,9 +2,8 @@
 #include <vector>
 #include <random>
 
-using namespace std;
+#include "include/classes.hpp"
 
-random_device rd;
-mt19937 gen(rd());
+using namespace std;
 
 int main(){return 0;}
