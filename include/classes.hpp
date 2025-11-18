@@ -15,6 +15,14 @@ struct Effects{
     int ability_cooldown;
 };
 
+void roll(string, int = 20);
+void wait(int = 500);
+void confirm(string, int = 500);
+int ask(string, int = 500);
+string roll_list(vector<string>, string, int = 500);
+long random_number(long, long, bool = false);
+bool y_or_n(string);
+
 #define CURRENT_HP (int) 0
 #define MAX_HP (int) 1
 #define ATTACK (int) 2

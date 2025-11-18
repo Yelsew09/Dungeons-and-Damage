@@ -6,4 +6,10 @@
 
 using namespace std;
 
-int main(){return 0;}
+std::random_device rd;
+std::mt19937 gen(rd());
+
+int main(){
+    confirm("If you are new to this game, please consult the guide");
+    return 0;
+}

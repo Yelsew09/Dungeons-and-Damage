@@ -4,7 +4,7 @@ project(dungeons_and_damage VERSION 0.1.0)
 add_executable(
     dungeons_and_damage
     main.cpp
-    include/classes.hpp
+    include/Commands.cpp
     include/Player.cpp
     include/Knight.cpp
     include/Peashooter.cpp
