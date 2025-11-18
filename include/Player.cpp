@@ -13,13 +13,13 @@ Player::Player(int s[10], int i[5], string p, string a){
 }
 
 void Player::damage(int amount){
-    stats[0] -= amount;
-    dead = stats[0] <= 0;
+    stats[CURRENT_HP] -= amount;
+    dead = stats[CURRENT_HP] <= 0;
 }
 
 void Player::heal(int amount){
-    stats[0] += amount;
-    stats[0] = (getHP() > stats[1]) ? stats[1] : stats[0];
+    stats[CURRENT_HP] += amount;
+    stats[CURRENT_HP] = (stats[CURRENT_HP] > stats[MAX_HP]) ? stats[MAX_HP] : stats[CURRENT_HP];
 }
 
 void Player::next_turn(){
@@ -27,6 +27,6 @@ void Player::next_turn(){
         effects.adtr--;
         effects.adv = (effects.adtr == 0) ? 0 : effects.adv;
     }
-    stats[5] += stats[7];
-    stats[5] = (stats[5] > stats[6]) ? stats[6] : stats[5];
+    stats[CURRENT_MP] += stats[MP_REFRESH];
+    stats[CURRENT_MP] = (stats[CURRENT_MP] > stats[MAX_MP]) ? stats[MAX_MP] : stats[CURRENT_MP];
 }

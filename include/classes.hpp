@@ -14,17 +14,40 @@ struct Effects{
     int ability_cooldown;
 };
 
-#define KNIGHT_STATS {35,35,7,5,16,5,5,3,2,3};
-#define KNIGHT_ITEMS {3,3,3,1,0};
-#define KNIGHT_PASSIVE "Fortitude";
-#define KNIGHT_ACTIVATED "";
-#define KNIGHT_EFFECTS (Effects){0,0,0,0,0};
+#define KNIGHT_STATS (int[10]){35,35,7,5,16,5,5,3,2,3}
+#define KNIGHT_ITEMS (int[5]){3,3,3,1,0}
+#define KNIGHT_PASSIVE (string)"Fortitude"
+#define KNIGHT_ACTIVATED (string)""
+#define KNIGHT_EFFECTS (Effects){0,0,0,0,0}
 
-#define PEASHOOTER_STATS {26,26,9,4,14,7,7,3,3,5};
-#define PEASHOOTER_ITEMS {1,1,1,1,0};
-#define PEASHOOTER_PASSIVE "Charge";
-#define PEASHOOTER_ACTIVATED "";
+#define PEASHOOTER_STATS (int[10]){26,26,9,4,14,7,7,3,3,5}
+#define PEASHOOTER_ITEMS (int[5]){1,1,1,1,0}
+#define PEASHOOTER_PASSIVE (string)"Charge"
+#define PEASHOOTER_ACTIVATED (string)""
 
+#define CURRENT_HP (int) 0
+#define MAX_HP (int) 1
+#define ATTACK (int) 2
+#define ATTACK_BONUS (int) 3
+#define DEFENCE (int) 4
+#define CURRENT_MP (int) 5
+#define MAX_MP (int) 6
+#define MP_REFRESH (int) 7
+#define ITEM_USES (int) 8
+#define SPEED (int) 9
+
+/* Index values for stats are as follows:
+    *  0: Current HP
+    *  1: Maximum HP
+    *  2: Attack damage
+    *  3: Attack roll bonus
+    *  4: Defence
+    *  5: Current MP
+    *  6: Maximum MP
+    *  7: MP refresh
+    *  8: Item Uses
+    *  9: Speed
+    */
 
 class Player{
     public:
@@ -35,10 +58,6 @@ class Player{
     bool dead;
     Effects effects;
     Player(int[10], int[5], string, string);
-    int getHP(){return stats[0];}
-    void setHP(int i){stats[0] = i;}
-    int getMaxHP(){return stats[1];}
-    void setMaxHP(int i){stats[1] = i;}
     virtual void damage(int);
     virtual void heal(int) ;
     virtual void next_turn();
