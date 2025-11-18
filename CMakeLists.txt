@@ -13,5 +13,5 @@ add_executable(
     include/Skele.cpp
     include/Bard.cpp
     include/Barbarian.cpp
-    include/God.cpp
+    include/Narrator.cpp
 )

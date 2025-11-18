@@ -6,12 +6,14 @@
 
 using namespace std;
 
-Player::Player(int s[10], short i[5], string p, string a){
+Player::Player(int s[10], short i[5], vector<string> o, vector<string> l, string p, string a){
     for (int j = 0; j < 10; j++){
         stats[j] = s[j];
     } for (int j = 0; j < 5; j++){
         items[j] = i[j];
-    }
+}
+    options = o;
+    spells = l;
     passive = p;
     activated = a;
 }
