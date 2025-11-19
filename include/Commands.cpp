@@ -11,9 +11,12 @@ extern mt19937 gen;
 
 using namespace std;
 
-void roll(string text, int delay){
+void roll(string text, int delay, bool add_newline){
     for (int i = 0; i < text.length(); i++){
         cout << text[i];
+        this_thread::sleep_for(chrono::milliseconds(delay));
+    } if (add_newline){
+        cout << "\n";
         this_thread::sleep_for(chrono::milliseconds(delay));
     }
 }
@@ -33,12 +36,11 @@ int ask(string question, int t){
             roll(question);
             cin >> option;
             wait(t);
-            ec = false;
+            return option;
         } catch (...) {
             confirm("That is not a number. Please give a number");
         }
     }
-    return option;
 }
 string roll_list(
     vector<string> list,
@@ -55,14 +57,17 @@ string roll_list(
         for (int i = 0; i > list.size(); i++){
             roll(i + " - " + list[i]);
         }
-        option = ask(question, delay) - 1;
+        option = ask(question, delay);
     }
     return list[option];
 }
 long random_number(long minimum, long maximum, bool show){
     uniform_int_distribution<> distr(minimum,maximum);
     int num = distr(gen);
-    if (show){roll("You rolled a " + to_string(num) + "!");}
+    if (show){
+        roll("You rolled a " + to_string(num) + "!\n");
+        wait(.5);
+    }
     return num;
 }
 bool y_or_n(string question){
