@@ -96,7 +96,9 @@ int main(){
     }
 
     //////////////////////////// VERTEX SHADER SHENANAGIANS ////////////////////////////
-    GLuint VBO; // Create space the Vertex Buffer Object (id for a buffer)
+    GLuint VAO, VBO; // Create id the Vertex Buffer and Array Objects
+    glGenVertexArrays(1, &VAO); // Give the VAO an id
+    glBindVertexArray(VAO);
     glGenBuffers(1, &VBO); // Give the var VBO a value, serving as an ID
     glBindBuffer(GL_ARRAY_BUFFER, VBO); // Bind the id of VBO to the GL_ARRAY_BUFFER
     glBufferData(GL_ARRAY_BUFFER, sizeof(verticies), verticies, GL_STATIC_DRAW); // Actually send the buffer over to the GPU
@@ -105,6 +107,14 @@ int main(){
              // GL_STATIC_DRAW  - Data is set once and used many times
             // GL_DYNAMIC_DRAW  - Data is set many times and used many times
     
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 12, (void*)0); // Teach OpenGL how to read the VAO
+    // Which vertex attribute we want to configure (the ID I'd assume), # of points, data type, only matters if coordnates are int, stride (distance between points in bytes), offset of start of relavent data
+    glEnableVertexAttribArray(0); // Activate VAO with a location of 0
+
+    glBindBuffer(GL_ARRAY_BUFFER, 0);
+    glBindVertexArray(0);
+
+    ///////////////////////////// VERTEX SHADER SHENANAGAINS /////////////////////////////
     GLuint vertexShader = glCreateShader(GL_VERTEX_SHADER); // Create and assign the vertex shader
     glShaderSource(vertexShader, 1, &vertexShaderSource, NULL); // Attach vertexShader source code to vertexShader object
     // Shader object to be compiled, #of strings in source code, shader source code, IDK
@@ -123,8 +133,7 @@ int main(){
     glAttachShader(shaderProgram, fragmentShader); // Attach fragment shader to program
     glLinkProgram(shaderProgram); // Link the vertexShader and fragmentShader
 
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 12, (void*)0); // Teach OpenGL how to read the array
-    // Which vertex attribute we want to configure (the ID I'd assume), # of points, data type, normalize?, stride (distance between points in bytes), offset of start of relavent data
+    
     glEnableVertexAttribArray(0);
 
     // Ready your engines
@@ -138,12 +147,19 @@ int main(){
                                      // on the GL_COLOR_BUFFER_BIT
 
         glUseProgram(shaderProgram);
+        glBindVertexArray(VAO);
+        glDrawArrays(GL_TRIANGLES, 0, 3);
 
         // Check and call events and swap the buffers
         glfwSwapBuffers(window1); // Swap front and back buffers
         glfwPollEvents(); // Checks for events (ex. keyboard input, mouse movement)
         // If this isn't here, the window will constantly not being responding
     }
+
+    glDeleteVertexArrays(1, &VAO);
+    glDeleteBuffers(1, &VBO);
+    glDeleteProgram(shaderProgram);
+
     glfwTerminate(); // If all goes well, close the window and free up resources
     return 0; // End the program with 0
 }
