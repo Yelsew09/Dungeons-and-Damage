@@ -159,4 +159,13 @@ class Narrator: public Player{
     using Player::next_turn;
 };
 
+Player& convert_player(Knight);
+Player& convert_player(Peashooter&);
+Player& convert_player(Rouge&);
+Player& convert_player(Mage&);
+Player& convert_player(Skele&);
+Player& convert_player(Bard&);
+Player& convert_player(Barbarian&);
+Player& convert_player(Narrator&);
+
 #endif

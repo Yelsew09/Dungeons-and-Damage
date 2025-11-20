@@ -41,6 +41,7 @@ int ask(string question, int t){
             confirm("That is not a number. Please give a number");
         }
     }
+    return -1;
 }
 string roll_list(
     vector<string> list,
