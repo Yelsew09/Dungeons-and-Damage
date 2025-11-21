@@ -96,7 +96,7 @@ int main(){
     }
 
     //////////////////////////// VERTEX SHADER SHENANAGIANS ////////////////////////////
-    GLuint VAO, VBO; // Create id the Vertex Buffer and Array Objects
+    GLuint VAO, VBO, EBO; // Create id the Vertex Buffer and Array Objects
     glGenVertexArrays(1, &VAO); // Give the VAO an id
     glBindVertexArray(VAO);
     glGenBuffers(1, &VBO); // Give the var VBO a value, serving as an ID
