@@ -67,10 +67,15 @@ int main(){
     /* Tell GLFW we are using the CORE profile
     This means we only have modern functions */
 
-    GLfloat verticies[9] = {
+    GLfloat verticies[] = {
+         0.5f,  0.5f, 0.0f,
+         0.5f, -0.5f, 0.0f,
         -0.5f, -0.5f, 0.0f,
-        0.5f, -0.5f, 0.0f,
-        0.5f, 0.5f, 0.0f
+        -0.5f,  0.5f, 0.0f
+    };
+    GLuint indecies[] = {
+        0, 1, 3,
+        1, 2, 3
     };
 
 // Extra config for MacOS
@@ -97,6 +102,7 @@ int main(){
 
     //////////////////////////// VERTEX SHADER SHENANAGIANS ////////////////////////////
     GLuint VAO, VBO, EBO; // Create id the Vertex Buffer and Array Objects
+
     glGenVertexArrays(1, &VAO); // Give the VAO an id
     glBindVertexArray(VAO);
     glGenBuffers(1, &VBO); // Give the var VBO a value, serving as an ID
