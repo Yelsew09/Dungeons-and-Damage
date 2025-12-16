@@ -19,14 +19,14 @@
 import random, time, sys
 
 #Commands used everywhere
-def q(str, t = 0.02):
+def q(text, delay = 0.02):
 
     #Not sure how this works, all I know is that it does
     #Lets the text roll instead of being printed all at once
-    for char in str:
-        print(char, end='')
+    for t in text:
+        print(t, end='')
         sys.stdout.flush()
-        time.sleep(t)
+        time.sleep(delay)
 def explode():
 
     #Basically a self destruct button
