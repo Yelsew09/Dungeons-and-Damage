@@ -1101,7 +1101,7 @@ def combat(atkP,defP,show):
                         
                         #Gun if possible
                         elif option == 5 and atkP.glocks >= 1:
-                            critnumber = random_num(1,1000)
+                            critnumber = random_num(1,1000,show)
                             
                             #Miss
                             if critnumber == 1:
