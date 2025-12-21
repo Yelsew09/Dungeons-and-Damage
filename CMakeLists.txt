@@ -8,8 +8,4 @@ add_executable(
     src/glad.c
 )
 
-set(CMAKE_CXX_STANDARD 23)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(CMAKE_CXX_EXTENSIONS OFF)
-
 target_link_libraries(dungeons_and_damage glfw)
