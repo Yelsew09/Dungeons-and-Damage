@@ -41,7 +41,6 @@ bool y_or_n(string);
 #define KNIGHT_EFFECTS (Effects){0,0,0,0,0}
 #define KNIGHT_OPTIONS (vector<string>) {"Attack", "Magic", "Item", "Pass", "Run"}
 
-
 #define PEASHOOTER_STATS (int[10]) {26,26,9,4,14,7,7,3,3,5}
 #define PEASHOOTER_ITEMS (short[5]){1,1,1,1,0}
 #define PEASHOOTER_PASSIVE (string) "Charge"
