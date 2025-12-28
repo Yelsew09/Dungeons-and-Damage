@@ -13,14 +13,10 @@ int main(){
     vector<string> current_options;
     string selected_option;
     confirm("If you are new to this game, please consult the guide");
-    roll("Welcome to Dungeons and Damage!");
-    wait(.5);
-    roll("Not to be confused with Dungeons and Dragons.");
-    wait(.5);
-    roll("Although this game does feel like it.");
-    wait(.5);
-    roll("After some time, the not awaited c++ version of the game is released, and this is it.");
-    wait(.5);
+    roll("Welcome to Dungeons and Damage!"); wait(.5);
+    roll("Not to be confused with Dungeons and Dragons."); wait(.5);
+    roll("Although this game does feel like it."); wait(.5);
+    roll("After some time, the not awaited c++ version of the game is released, and this is it."); wait(.5);
     current_options = {
         "Game Start",
         "Guide",
