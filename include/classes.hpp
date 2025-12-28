@@ -88,83 +88,10 @@ class Player{
     Effects effects;
     bool dead = false;
     Player(int[10], short[5], vector<string>, vector<string>, string, string);
-    virtual void damage(int);
-    virtual void heal(int);
-    virtual void next_turn();
-    //virtual Player* take_turn(Player*);
+    void damage(int);
+    void heal(int);
+    void next_turn();
+    Player take_turn(Player);
 };
-
-class Knight: public Player{
-    public:
-    Knight(int[10], short[5], vector<string>, vector<string>, string, string);
-    void damage(int) override;
-    using Player::heal;
-    using Player::next_turn;
-};
-
-class Peashooter: public Player{
-    public:
-    Peashooter(int[10], short[5], vector<string>, vector<string>, string, string);
-    using Player::damage;
-    using Player::heal;
-    void next_turn() override;
-};
-
-class Rouge: public Player{
-    public:
-    Rouge(int[10], short[5], vector<string>, vector<string>, string, string);
-    using Player::damage;
-    using Player::heal;
-    void next_turn() override;
-};
-
-class Mage: public Player{
-    public:
-    Mage(int[10], short[5], vector<string>, vector<string>, string, string);
-    using Player::damage;
-    using Player::heal;
-    void next_turn() override;
-};
-
-class Skele: public Player{
-    public:
-    Skele(int[10], short[5], vector<string>, vector<string>, string, string);
-    void damage(int) override;
-    using Player::heal;
-    using Player::next_turn;
-};
-
-class Bard: public Player{
-    public:
-    Bard(int[10], short[5], vector<string>, vector<string>, string, string);
-    using Player::damage;
-    using Player::heal;
-    void next_turn() override;
-};
-
-class Barbarian: public Player{
-    public:
-    Barbarian(int[10], short[5], vector<string>, vector<string>, string, string);
-    using Player::damage;
-    void heal(int) override;
-    void next_turn() override;
-};
-
-class Narrator: public Player{
-    public:
-    Narrator(int[10], short[5], vector<string>, vector<string>, string, string);
-    void damage(int) override;
-    void heal(int) override;
-    using Player::next_turn;
-};
-
-Player& convert_player(Knight);
-Player& convert_player(Peashooter&);
-Player& convert_player(Rouge&);
-Player& convert_player(Mage&);
-Player& convert_player(Skele&);
-Player& convert_player(Bard&);
-Player& convert_player(Barbarian&);
-Player& convert_player(Narrator&);
 
 #endif

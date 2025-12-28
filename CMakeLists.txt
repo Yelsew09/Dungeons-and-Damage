@@ -14,12 +14,4 @@ add_executable(
     main.cpp
     include/commands.cpp
     include/Player.cpp
-    include/Knight.cpp
-    include/Peashooter.cpp
-    include/Rouge.cpp
-    include/Mage.cpp
-    include/Skele.cpp
-    include/Bard.cpp
-    include/Barbarian.cpp
-    include/Narrator.cpp
 )
