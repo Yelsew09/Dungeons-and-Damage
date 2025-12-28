@@ -19,7 +19,7 @@ void roll(string, int = 20, bool = true);
 void wait(int = 500);
 void confirm(string, int = 500);
 int ask(string, int = 500);
-string roll_list(vector<string>, string, int = 500);
+string roll_list(vector<string>, string = "What would you like to do?", int = 500);
 long random_number(long, long, bool = false);
 bool y_or_n(string);
 
@@ -91,7 +91,7 @@ class Player{
     virtual void damage(int);
     virtual void heal(int);
     virtual void next_turn();
-    virtual Player* take_turn(Player*);
+    //virtual Player* take_turn(Player*);
 };
 
 class Knight: public Player{

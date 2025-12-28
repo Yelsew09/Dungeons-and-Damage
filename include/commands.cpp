@@ -45,8 +45,8 @@ int ask(string question, int t){
 }
 string roll_list(
     vector<string> list,
-    string question = "What would you like to do?",
-    int delay = .5
+    string question,
+    int delay
 ){
     int option;
     if (list[0] != "Back\n"){
