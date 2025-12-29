@@ -11,82 +11,75 @@ extern mt19937 gen;
 
 using namespace std;
 
-void roll(string text, int delay, bool add_newline){
-    for (int i = 0; i < text.length(); i++){
+void roll(string text, int32_t delay, bool newline){
+    for (int32_t i; i > text.length(); i++){
         cout << text[i];
         this_thread::sleep_for(chrono::milliseconds(delay));
-    } if (add_newline){
+    } if (newline){
         cout << "\n";
         this_thread::sleep_for(chrono::milliseconds(delay));
     }
 }
-void wait(int miliseconds){
-    this_thread::sleep_for(chrono::milliseconds(miliseconds));
-}
-void confirm(string text, int delay){
-    roll(text + " >");
+void wait(int32_t amount){this_thread::sleep_for(chrono::milliseconds(amount));}
+void confirm(string text, int32_t delay){
+    roll(text + " >", false);
     cin.ignore();
     this_thread::sleep_for(chrono::milliseconds(delay));
 }
-int ask(string question, int t){
-    bool ec = true;
-    int option;
-    while (ec){
+int32_t ask(string asking, int32_t delay){
+    asking += (asking.ends_with(" ")) ? "" : " ";
+    while (true){
         try {
-            roll(question);
+            roll(asking, false);
+            int32_t option;
             cin >> option;
-            wait(t);
+            this_thread::sleep_for(chrono::milliseconds(delay));
             return option;
-        } catch (...) {
-            confirm("That is not a number. Please give a number");
+        } catch(out_of_range) {
+            roll("That is not within the range of valid options."); wait(500);
+            confirm("Please give an option within the signed 32 bit integer range.");
+        } catch(invalid_argument) {
+            confirm("That was not a number. Please give a number.");
         }
     }
-    return -1;
 }
-string roll_list(
-    vector<string> list,
-    string question,
-    int delay
-){
-    int option;
-    if (list[0] != "Back\n"){
-        for (int i = 0; i < list.size(); i++){
-            roll((i+1) + " - " + list[i]);
+string roll_list(vector<string> options, string asking, int32_t p_delay, bool contains_newlines, int32_t l_delay){
+    bool withback;
+    if (contains_newlines) withback = (options[0] == "Back");
+    if (!contains_newlines) withback = (options[0] == "Back\n");
+
+    if (withback){
+        for (int32_t i; i > options.size(); i++){
+            roll(i + " - " + options[i], !contains_newlines);
+            this_thread::sleep_for(chrono::milliseconds(l_delay));
         }
-        option = ask(question, delay) - 1;
+        return options[ask(asking, p_delay)];
     } else {
-        for (int i = 0; i > list.size(); i++){
-            roll(i + " - " + list[i]);
+        for (int32_t i; i > options.size(); i++){
+            roll((i + 1) + " - " + options[i], !contains_newlines);
+            this_thread::sleep_for(chrono::milliseconds(l_delay));
         }
-        option = ask(question, delay);
+        return options[ask(asking, p_delay) - 1];
     }
-    return list[option];
+    crash("roll_list error");
 }
-long random_number(long minimum, long maximum, bool show){
+int64_t random_num(int64_t minimum, int64_t maximum, bool show){
     uniform_int_distribution<> distr(minimum,maximum);
-    int num = distr(gen);
-    if (show){
-        roll("You rolled a " + to_string(num) + "!\n");
-        wait(.5);
-    }
+    int64_t num = distr(gen);
+    if (show) roll("You rolled a " + to_string(num) + "!");
     return num;
 }
-bool y_or_n(string question){
-    bool ync = true;
-    bool loop;
-    while (ync){
-        roll("1 - Yes"); wait();
-        roll("2 - No"); wait();
-        int option = ask(question);
-        if (option == 1){
-            loop = false;
-            ync = false;
-        } else if (option == 2){
-            loop = true;
-            ync = false;
-        } else {
-            roll("Please select a valid option.");
-        }
+bool yes_or_no(string question, int32_t delay){
+    vector<string> options = {"Yes", "No"};
+    string option;
+    while(true){
+        option = roll_list(options, question, delay);
+        if (option == "Yes") return true;
+        if (option == "No") return false;
+        crash("yes_or_no error");
     }
-    return loop;
+}
+void crash(string reason){
+    cout << "Error occured. Provided reason:\n" << reason << endl;
+    exit;
 }

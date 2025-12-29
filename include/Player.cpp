@@ -6,22 +6,12 @@
 
 using namespace std;
 
-Player::Player(int s[10], short i[5], vector<string> o, vector<string> l, String* p, String* a){
-    for (int j = 0; j < 10; j++){
-        stats[j] = s[j];
-    } for (int j = 0; j < 5; j++){
-        items[j] = i[j];
-}
-    options = o;
-    spells = l;
-    passive = p;
-    activated = a;
-}
-void Player::damage(int amount){
+Player::Player(array<int32_t, 10> s, array<int16_t, 5> i, vector<string> o, vector<string> l, string p, string a): stats(s), items(i), options(o), spells(l), passive(p), activated(a){}
+void Player::damage(int32_t amount){
     stats[CURRENT_HP] -= amount;
     dead = (stats[CURRENT_HP] <= 0);
 }
-void Player::heal(int amount){
+void Player::heal(int32_t amount){
     stats[CURRENT_HP] += amount;
     stats[CURRENT_HP] = (stats[CURRENT_HP] > stats[MAX_HP]) ? stats[MAX_HP] : stats[CURRENT_HP];
 }
