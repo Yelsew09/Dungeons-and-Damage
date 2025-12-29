@@ -2,23 +2,24 @@
 
 #include "glad.h"
 #include <GLFW/glfw3.h>
+#include "the_include.hpp"
 
 
-const GLchar* vertexShaderSource = "#version 330 core\n"
+const char* vertexShaderSource = "#version 330 core\n"
 "layout (location = 0) in vec3 aPos;\n"
 "void main(){\n"
 "   gl_Position = vec4(aPos.x, aPos.y, aPos.z, 1.0);\n"
 "}\0";
 
-const GLchar* fragmentShaderSource = "#version 330 core\n"
+const char* fragmentShaderSource = "#version 330 core\n"
 "out vec4 FragColor;\n"
 "void main(){\n"
 "   FragColor = vec4(0.8f, 0.3f, 0.02f, 1.0f);\n"
 "}\n\0";
 
 // Did stuff work
-void did_shader_compile(GLuint& shader){
-    GLint success;
+void did_shader_compile(uint32_t& shader){
+    int32_t success;
     GLchar infoLog[512];
     glGetShaderiv(shader, GL_COMPILE_STATUS, &success);
     if (!success){
@@ -26,8 +27,8 @@ void did_shader_compile(GLuint& shader){
         std::cout << "ERROR::SHADER::COMPILATION_FAILED\n" << infoLog;
     }
 }
-void did_program_work(GLuint& program){
-    GLint success;
+void did_program_work(uint32_t& program){
+    int32_t success;
     GLchar infoLog[512];
     glGetProgramiv(program, GL_LINK_STATUS, &success);
     if (!success){
@@ -36,7 +37,7 @@ void did_program_work(GLuint& program){
     }
 }
 
-void framebuffer_size_callback(GLFWwindow* window, GLint width, GLint height){ // If the window is to ever be resized,
+void framebuffer_size_callback(GLFWwindow* window, int32_t width, int32_t height){ // If the window is to ever be resized,
     glViewport(0, 0, width, height);                                      // resize the viewport with it
     // Bottom left corner of window in px, top right corner of window in px
 }
@@ -46,8 +47,8 @@ void proccessInput(GLFWwindow* window){
 }
 
 // Window Settings
-const GLuint window1_width = 1280;
-const GLuint window1_height = 720;
+const uint32_t window1_width = 1280;
+const uint32_t window1_height = 720;
 
 int main(){
 
@@ -58,13 +59,13 @@ int main(){
     /* Tell GLFW we are using the CORE profile
     This means we only have modern functions */
 
-    GLfloat verticies[] = {
+    __float128 verticies[] = {
          0.5f,  0.5f, 0.0f,
          0.5f, -0.5f, 0.0f,
         -0.5f, -0.5f, 0.0f,
         -0.5f,  0.5f, 0.0f
     };
-    GLuint indecies[] = {
+    uint32_t indecies[] = {
         0, 1, 3,
         1, 2, 3
     };
@@ -92,7 +93,7 @@ int main(){
     }
 
     //////////////////////////// VERTEX SHADER SHENANAGIANS ////////////////////////////
-    GLuint VAO, VBO, EBO; // Create id the Vertex Buffer and Array Objects
+    uint32_t VAO, VBO, EBO; // Create id the Vertex Buffer and Array Objects
 
     glGenVertexArrays(1, &VAO); // Give the VAO an id
     glBindVertexArray(VAO);
@@ -112,20 +113,20 @@ int main(){
     glBindVertexArray(0);
 
     ///////////////////////////// VERTEX SHADER SHENANAGAINS /////////////////////////////
-    GLuint vertexShader = glCreateShader(GL_VERTEX_SHADER); // Create and assign the vertex shader
+    uint32_t vertexShader = glCreateShader(GL_VERTEX_SHADER); // Create and assign the vertex shader
     glShaderSource(vertexShader, 1, &vertexShaderSource, NULL); // Attach vertexShader source code to vertexShader object
     // Shader object to be compiled, #of strings in source code, shader source code, IDK
     glCompileShader(vertexShader); // Compile the shader
     did_shader_compile(vertexShader);
 
     //////////////////////////// FRAGMENT SHADER SHENANAGAINS ////////////////////////////
-    GLuint fragmentShader = glCreateShader(GL_FRAGMENT_SHADER); // Create and assign the fragment shader
+    uint32_t fragmentShader = glCreateShader(GL_FRAGMENT_SHADER); // Create and assign the fragment shader
     glShaderSource(fragmentShader, 1, &fragmentShaderSource, NULL); // Set the fragmentShader source to be the fragmentShaderSource
     glCompileShader(fragmentShader); // Compile the shader
     did_shader_compile(fragmentShader);
 
     //////////////////////////// SHADER PROGRAMS ////////////////////////////
-    GLuint shaderProgram = glCreateProgram(); // Create and assign the shaderProgram
+    uint32_t shaderProgram = glCreateProgram(); // Create and assign the shaderProgram
     glAttachShader(shaderProgram, vertexShader);    // Attach vertex shader to program
     glAttachShader(shaderProgram, fragmentShader); // Attach fragment shader to program
     glLinkProgram(shaderProgram); // Link the vertexShader and fragmentShader
