@@ -7,6 +7,8 @@ using namespace std;
 #ifndef _CLASSES_MAIN
 #define _CLASSES_MAIN
 
+typedef const char8_t String;
+
 struct Effects{
     int adv;
     int adtr;
@@ -81,13 +83,13 @@ class Player{
     public:
     int stats[10];
     short items[5];
-    vector<string> options;
-    vector<string> spells;
-    string passive;
-    string activated;
+    String* options[];
+    String* spells[];
+    String* passive;
+    String* activated;
     Effects effects;
     bool dead = false;
-    Player(int[10], short[5], vector<string>, vector<string>, string, string);
+    Player(int[10], short[5], vector<string>, vector<string>, String*, String*);
     void damage(int);
     void heal(int);
     void next_turn();
