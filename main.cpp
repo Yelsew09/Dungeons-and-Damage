@@ -6,8 +6,9 @@
 
 using namespace std;
 
-std::random_device rd;
-std::mt19937 gen(rd());
+random_device rd;
+mt19937 gen(rd());
+bool debug = false;
 
 int main(){
     return 0;

@@ -15,13 +15,13 @@ struct Effects{
     int32_t ability_cooldown;
 };
 
-void roll(string text, int32_t delay = 20, bool = true);
-void wait(int32_t time = 500);
-void confirm(string, int32_t = 500);
-int32_t ask(string = "What would you like to do? ", int32_t = 500);
-string roll_list(vector<string>, string = "What would you like to do? ", int32_t = 500, bool = true, int32_t = 150);
+void roll(string text, uint32_t delay = 20, bool = true);
+void wait(uint32_t time = 500);
+void confirm(string, uint32_t = 500);
+uint32_t ask(string = "What would you like to do? ", uint32_t = 500);
+string roll_list(vector<string>, string = "What would you like to do? ", bool = true, uint32_t = 500, uint32_t = 150);
 int64_t random_num(int64_t, int64_t, bool);
-bool yes_or_no(string, int32_t = 500);
+bool yes_or_no(string, uint32_t = 500);
 void crash(string);
 
 #define CURRENT_HP (int8_t) 0
