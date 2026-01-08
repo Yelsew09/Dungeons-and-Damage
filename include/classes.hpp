@@ -48,35 +48,35 @@ void crash(string);
 #define PEASHOOTER_ACTIVATED (string) ""
 #define PEASHOOTER_EFFECTS (Effects){0,0,0,0,0}
 
-#define MAGE_STATS (int32_t[10]){21,21,5,2,11,5,5,2,2,4};
-#define MAGE_ITEMS (int16_t[5]){2,2,3,1,0};
-#define MAGE_PASSIVE (string) "Zoning In";
-#define MAGE_ACTIVATED (string) "";
-#define MAGE_EFFECTS (Effects){0,0,0,0,0};
+#define MAGE_STATS (int32_t[10]){21,21,5,2,11,5,5,2,2,4}
+#define MAGE_ITEMS (int16_t[5]){2,2,3,1,0}
+#define MAGE_PASSIVE (string) "Zoning In"
+#define MAGE_ACTIVATED (string) ""
+#define MAGE_EFFECTS (Effects){0,0,0,0,0}
 
-#define SKELE_STATS (int32_t[10]){30,30,7,3,12,7,7,5,4,6};
-#define SKELE_ITEMS (int16_t[5]){3,4,0,0,0};
-#define SKELE_PASSIVE (string) "Resilient";
-#define SKELE_ACTIVATED (string) "";
-#define SKELE_EFFECTS (Effects){0,0,0,0,0};
+#define SKELE_STATS (int32_t[10]){30,30,7,3,12,7,7,5,4,6}
+#define SKELE_ITEMS (int16_t[5]){3,4,0,0,0}
+#define SKELE_PASSIVE (string) "Resilient"
+#define SKELE_ACTIVATED (string) ""
+#define SKELE_EFFECTS (Effects){0,0,0,0,0}
 
-#define BARD_STATS (int32_t[10]){27,27,6,4,14,4,4,2,5,2};
-#define BARD_ITEMS (int16_t[5]){3,2,2,1,0};
-#define BARD_PASSIVE (string) "Jack of all Trades";
-#define BARD_ACTIVATED (string) "";
-#define BARD_EFFECTS (Effects){0,0,0,0,0};
+#define BARD_STATS (int32_t[10]){27,27,6,4,14,4,4,2,5,2}
+#define BARD_ITEMS (int16_t[5]){3,2,2,1,0}
+#define BARD_PASSIVE (string) "Jack of all Trades"
+#define BARD_ACTIVATED (string) ""
+#define BARD_EFFECTS (Effects){0,0,0,0,0}
 
-#define BARBARIAN_STATS (int32_t[10]){40,40,12,2,15,2,2,1,1,1};
-#define BARBARIAN_ITEMS (int16_t[5]){4,2,2,0,0};
-#define BARBARIAN_PASSIVE (string) "Rage";
+#define BARBARIAN_STATS (int32_t[10]){40,40,12,2,15,2,2,1,1,1}
+#define BARBARIAN_ITEMS (int16_t[5]){4,2,2,0,0}
+#define BARBARIAN_PASSIVE (string) "Rage"
 #define BARBARIAN_ACTIVATED (string) "";
-#define BARBARIAN_EFFECTS (Effects){0,0,0,0,0};
+#define BARBARIAN_EFFECTS (Effects){0,0,0,0,0}
 
-#define NARRATOR_STATS (int32_t[10]){2147483647,2147483647,2147483647,2147483647,2147483647,2147483647,2147483647,2147483647,2147483647,2147483647};
-#define NARRATOR_ITEMS (int16_t[5]){32767,32767,32767,32767,32767};
-#define NARRATOR_PASSIVE (string) "Godlike";
-#define NARRATOR_ACTIVATED (string) "You must die";
-#define NARRATOR_EFFECTS (Effects){0,0,0,0,0};
+#define NARRATOR_STATS (int32_t[10]){2147483647,2147483647,2147483647,2147483647,2147483647,2147483647,2147483647,2147483647,2147483647,2147483647}
+#define NARRATOR_ITEMS (int16_t[5]){32767,32767,32767,32767,32767}
+#define NARRATOR_PASSIVE (string) "Godlike"
+#define NARRATOR_ACTIVATED (string) "You must die"
+#define NARRATOR_EFFECTS (Effects){0,0,0,0,0}
 
 class Player{
     public:
@@ -86,6 +86,7 @@ class Player{
     vector<string> spells;
     string passive;
     string activated;
+    string classname;
     Effects effects;
     bool dead = false;
     Player(array<int32_t, 10>, array<int16_t, 5>, vector<string>, vector<string>, string, string);
