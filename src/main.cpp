@@ -2,7 +2,6 @@
 
 #include "glad.h"
 #include <GLFW/glfw3.h>
-#include "the_include.hpp"
 
 
 const char* vertexShaderSource = "#version 330 core\n"
