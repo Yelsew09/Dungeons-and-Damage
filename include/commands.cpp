@@ -99,6 +99,7 @@ string roll_list(vector<string> options, string asking, bool contains_newlines, 
         }
     }
     crash("roll_list ending error"); // Error out atp b/c the command shouldn't be here
+    return "uh oh";
 }
 int64_t random_num(int64_t minimum, int64_t maximum, bool show){
     if (debug) cout << "random_num(" << minimum << ", " << maximum << ", " << show << ", " << ")";
