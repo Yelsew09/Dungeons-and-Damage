@@ -11,7 +11,7 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 
 add_executable(
     dungeons_and_damage
-    src/attempt_2.cpp 
+    src/the_cherno.cpp 
     src/glad.c
 )
 
