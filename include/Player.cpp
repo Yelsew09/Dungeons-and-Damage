@@ -67,7 +67,8 @@ void Player::next_turn(){
             else if (selected_option == "Well rounded\n") stat_block = BARD_DEFAULT_STATS;
             else {
                 if (selected_option == "See current stats\n"){
-                    roll("HP: " + current_hp + "/"); wait();
+                    roll("HP: " + to_string(current_hp) + "/" + to_string(stats[MAX_HP])); wait();
+                    roll(""); wait();
                 }
                 else if (selected_option == "See stats of each\n"){
                     
