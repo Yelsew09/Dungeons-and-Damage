@@ -1,32 +1,90 @@
 #include <iostream>
 #include <vector>
 #include <random>
+#include <array>
 
 #include "classes.hpp"
 
 using namespace std;
 
+vector<string> options;
+string selected_option;
+
 // Oh boy I love this new thing that I already forgot the name of
-Player::Player(array<int32_t, 10> s, array<int16_t, 5> i, vector<string> o, vector<string> l, string p, string a): stats(s), items(i), options(o), spells(l), passive(p), activated(a){}
+Player::Player(array<int32_t, 8> s, array<int16_t, 5> i, vector<string> o, vector<string> l, string p, string a):
+stats(s), items(i), options(o), spells(l), passive(p), activated(a),
+current_hp(s[MAX_HP]), current_mp(s[MAX_MP])
+{}
 
 // Subtract health from the player and change dead to match being over 0HP
 void Player::damage(int32_t amount){
-    stats[CURRENT_HP] -= amount;
-    dead = (stats[CURRENT_HP] <= 0);
+    if (passive == KNIGHT_PASSIVE){
+        if (amount < 0) amount--;
+        else {
+            amount -= 2;
+            if (amount < 0) amount = 0;
+        }
+    }
+    current_hp -= amount;
+    dead = (current_hp <= 0);
 }
 
 // Add health to the player and don't let it go over its max HP
 void Player::heal(int32_t amount){
-    stats[CURRENT_HP] += amount;
-    stats[CURRENT_HP] = (stats[CURRENT_HP] > stats[MAX_HP]) ? stats[MAX_HP] : stats[CURRENT_HP];
+    if (passive == BARBARIAN_PASSIVE) amount = ceil(amount * 1.5);
+    current_hp += amount;
+    if (current_hp > stats[MAX_HP]) current_hp = stats[MAX_HP];
 }
 
 // Advance to the next turn
 void Player::next_turn(){
+    if (passive == BARBARIAN_PASSIVE) heal(2);
     if (effects.adtr > 0){
         effects.adtr--;
-        effects.adv = (effects.adtr == 0) ? 0 : effects.adv;
+        if (effects.adtr == 0) effects.adv = 0;
     }
-    stats[CURRENT_MP] += stats[MP_REFRESH];
-    stats[CURRENT_MP] = (stats[CURRENT_MP] > stats[MAX_MP]) ? stats[MAX_MP] : stats[CURRENT_MP];
+    current_mp += stats[MP_REFRESH];
+    if (current_mp > stats[MAX_MP]) current_mp = stats[MAX_MP];
+    if (passive == BARD_PASSIVE){
+        array<int32_t, 8> stat_block;
+        while (true){
+            options = {
+                "Keep current stats\n",
+                "Offensive\n",
+                "Defensive\n",
+                "Subsidiary\n",
+                "Magical\n",
+                "Well rounded (default)\n",
+                "See current stats\n",
+                "See stats of each\n"
+            };
+            selected_option = roll_list(options, "What set of stats would you like to change to? ", true, (bool*)true);
+            if (selected_option == "Keep current stats\n") break;
+            else if (selected_option == "Offensive\n") stat_block = BARD_OFFENSIVE_STATS;
+            else if (selected_option == "Defensive\n") stat_block = BARD_DEFENSIVE_STATS;
+            else if (selected_option == "Subsidary\n") stat_block = BARD_SUBSIDIARY_STATS;
+            else if (selected_option == "Magical\n") stat_block = BARD_MAGICAL_STATS;
+            else if (selected_option == "Well rounded\n") stat_block = BARD_DEFAULT_STATS;
+            else {
+                if (selected_option == "See current stats\n"){
+                    roll("HP: " + current_hp + "/"); wait();
+                }
+                else if (selected_option == "See stats of each\n"){
+                    
+                }
+                continue;
+            }
+            int32_t damage, mp_used;
+            damage = stats[MAX_HP] - current_hp;
+            mp_used = stats[MAX_MP] - current_mp;
+            if (damage >= stat_block[MAX_HP]){
+                confirm("You cannot switch to that set of stats, as that would put you at or below 0 HP.");
+                continue;
+            }
+            stats = stat_block;
+            current_hp = stats[MAX_HP] - damage;
+            current_mp = stats[MAX_MP] - mp_used;
+            if (current_mp < 0) current_mp = 0;
+        }
+    }
 }
