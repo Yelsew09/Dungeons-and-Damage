@@ -61,7 +61,7 @@ void confirm(string text, uint32_t delay){
 // Repeats until a valid response is given
 uint32_t ask(string asking, uint32_t delay){
     if (debug) cout << "ask(" << asking << ", " << delay << ", " << ")" << endl;
-    asking += (asking.ends_with(" ")) ? "" : " "; // If I forgot to put a space at the end of the question, do that automatically
+    if (!asking.ends_with(" ")) asking += " "; // If I forgot to put a space at the end of the question, do that automatically
     while (true){ // Control loop
         try {
             roll(asking, false); // Roll the question, don't add a newline
