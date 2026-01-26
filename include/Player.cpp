@@ -7,7 +7,6 @@
 
 using namespace std;
 
-vector<string> options;
 string selected_option;
 
 // Oh boy I love this new thing that I already forgot the name of
@@ -64,14 +63,41 @@ void Player::next_turn(){
             else if (selected_option == "Defensive\n") stat_block = BARD_DEFENSIVE_STATS;
             else if (selected_option == "Subsidary\n") stat_block = BARD_SUBSIDIARY_STATS;
             else if (selected_option == "Magical\n") stat_block = BARD_MAGICAL_STATS;
-            else if (selected_option == "Well rounded\n") stat_block = BARD_DEFAULT_STATS;
+            else if (selected_option == "Well-rounded\n") stat_block = BARD_DEFAULT_STATS;
             else {
                 if (selected_option == "See current stats\n"){
                     roll("HP: " + to_string(current_hp) + "/" + to_string(stats[MAX_HP])); wait();
-                    roll(""); wait();
+                    roll("Attack Damage: " + to_string(stats[ATTACK])); wait();
+                    roll("Attack (To Hit) Bonus: " + to_string(stats[ATTACK_BONUS])); wait();
+                    roll("Defense: " + to_string(stats[DEFENSE])); wait();
+                    roll("MP: " + to_string(current_mp) + "/" + to_string(stats[MAX_MP])); wait();
+                    roll("Item Uses: " + to_string(stats[ITEM_USES])); wait();
+                    roll("Speed: " + to_string(stats[SPEED])); wait();
+                    confirm("Above, you will find your stats.\nPress enter to continue");
                 }
                 else if (selected_option == "See stats of each\n"){
-                    
+                    array<array<int32_t, 8>, 5> array_mess = {
+                        BARD_OFFENSIVE_STATS,
+                        BARD_DEFENSIVE_STATS,
+                        BARD_SUBSIDIARY_STATS,
+                        BARD_MAGICAL_STATS,
+                        BARD_DEFAULT_STATS
+                    };
+                    roll("HP, ATK, ATKBON, DEF, MP, ITUS, SPD"); wait();
+                    for (uint32_t i; i < 5; i++){
+                        switch (i){
+                            case 0: roll("Offensive: ");
+                            case 1: roll("Defensive: ");
+                            case 2: roll("Subsidiary: ");
+                            case 3: roll("Magical: ");
+                            case 4: roll("Well-rounded: ");
+                        }
+                        for (uint32_t j; j < 8; j++){
+                            roll(to_string(array_mess[i][j]));
+                            if (j != 7) roll(", ");
+                        }
+                        roll("\n"); wait();
+                    }
                 }
                 continue;
             }

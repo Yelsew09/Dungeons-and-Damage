@@ -44,7 +44,7 @@ void roll(string text, uint32_t delay, bool newline){
 }
 
 // Halts the program for 'amount' miliseconds
-void wait(int32_t amount){
+void wait(uint32_t amount){
     if (debug) cout << "wait(" << amount << ")";
     this_thread::sleep_for(chrono::milliseconds(amount));
 }
@@ -140,6 +140,7 @@ bool yes_or_no(string question, uint32_t delay){
         if (option == "No") return false;
     }
     crash("yes_or_no error");
+    return NULL;
 }
 void crash(string reason){
     cout << "Error occured. Provided reason:\n" << reason << endl;
