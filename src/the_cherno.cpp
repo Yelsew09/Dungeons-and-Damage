@@ -74,8 +74,10 @@ int main(){
         0.5f, -0.5f
     };
 
-    uint32_t buffer;
+    uint32_t buffer, array_object;
 
+    glGenVertexArrays(1, &array_object);
+    glBindVertexArray(array_object);
     glGenBuffers(1, &buffer);
     glBindBuffer(GL_ARRAY_BUFFER, buffer);
     glBufferData(GL_ARRAY_BUFFER, sizeof(positions), &buffer, GL_STATIC_DRAW);
@@ -83,10 +85,23 @@ int main(){
     glEnableVertexAttribArray(0);
     glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 2 * sizeof(float), nullptr);
 
+    std::string vertex_shader = "#version 330 core\n"
+    "layout(location = 0) in vec4 position;\n"
+    "void main(){\n"
+    "   gl_Position = position;\n"
+    "}\n";
+    std::string fragment_shader = "#version 330 core\n"
+    "out vec4 color;\n"
+    "void main(){\n"
+    "   color = vec4(1.0, 0.0, 0.0, 1.0);\n"
+    "}\n";
+    uint32_t program = createShader(vertex_shader, fragment_shader);
+
     while (!glfwWindowShouldClose(window1)){
         glClear(GL_COLOR_BUFFER_BIT);
 
         glDrawArrays(GL_TRIANGLES, 0, 6);
+        glUseProgram(program);
 
         glfwSwapBuffers(window1);
 
