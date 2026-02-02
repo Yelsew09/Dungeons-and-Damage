@@ -2,7 +2,15 @@
 #include <GLFW/glfw3.h>
 
 #include <iostream>
+#include <string>
 #include <math.h>
+
+struct ShaderSource {
+    std::string vertex_shader;
+    std::string fragment_shader;
+};
+
+
 
 static uint32_t compileShader(uint32_t type, const std::string& source){
     uint32_t id = glCreateShader(type);
@@ -12,7 +20,7 @@ static uint32_t compileShader(uint32_t type, const std::string& source){
 
     int32_t result, length;
     glGetShaderiv(id, GL_COMPILE_STATUS, &result);
-    if (result == GL_FALSE){
+    if (!result){
         glGetShaderiv(id, GL_INFO_LOG_LENGTH, &length);
         char* message = (char*)alloca(length * sizeof(char));
         glGetShaderInfoLog(id, length, &length, message);
@@ -23,7 +31,6 @@ static uint32_t compileShader(uint32_t type, const std::string& source){
         
         std::cout << message << std::endl;
     }
-
     return id;
 }
 
@@ -52,6 +59,13 @@ int main(){
 
     if (!glfwInit()) return -1;
 
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+    #ifdef __APPLE__
+        glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
+    #endif
+
     GLFWwindow* window1 = glfwCreateWindow(window_width, window_height, "TheCherno Tutorial", NULL, NULL);
     if (!window1){
         glfwTerminate();
@@ -60,17 +74,19 @@ int main(){
 
     glfwMakeContextCurrent(window1);
 
-    if (!gladLoadGL()) {
-        std::cout << "Failed to load OpenGL" << std::endl;
+    if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)){
+        std::cout << "Failed to initialize GLAD" << std::endl;
         glfwTerminate();
         return -1;
     }
+
+    glViewport(0, 0, window_width, window_height);
 
     std::cout << "OPENGL VERSION:\n" << glGetString(GL_VERSION) << std::endl;
 
     float_t positions[] = {
         -0.5f, -0.5f,
-        0.0f, 0.0f,
+        0.0f, 0.5f,
         0.5f, -0.5f
     };
 
@@ -80,33 +96,26 @@ int main(){
     glBindVertexArray(array_object);
     glGenBuffers(1, &buffer);
     glBindBuffer(GL_ARRAY_BUFFER, buffer);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(positions), &buffer, GL_STATIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(positions), positions, GL_STATIC_DRAW);
 
-    glEnableVertexAttribArray(0);
     glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 2 * sizeof(float), nullptr);
+    glEnableVertexAttribArray(0);
 
-    std::string vertex_shader = "#version 330 core\n"
-    "layout(location = 0) in vec4 position;\n"
-    "void main(){\n"
-    "   gl_Position = position;\n"
-    "}\n";
-    std::string fragment_shader = "#version 330 core\n"
-    "out vec4 color;\n"
-    "void main(){\n"
-    "   color = vec4(1.0, 0.0, 0.0, 1.0);\n"
-    "}\n";
     uint32_t program = createShader(vertex_shader, fragment_shader);
 
     while (!glfwWindowShouldClose(window1)){
         glClear(GL_COLOR_BUFFER_BIT);
 
-        glDrawArrays(GL_TRIANGLES, 0, 6);
         glUseProgram(program);
+        glDrawArrays(GL_TRIANGLES, 0, 6);
 
         glfwSwapBuffers(window1);
 
         glfwPollEvents();
     }
+
+    glDeleteProgram(program);
+
     glfwTerminate();
     return 0;
 }
