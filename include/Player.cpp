@@ -8,6 +8,8 @@
 using namespace std;
 
 // Oh boy I love this new thing that I already forgot the name of
+// Me several weeks later: instantiation
+// Hope I spelled that right
 Player::Player(array<int32_t, 8> s, array<int16_t, 5> i, vector<string> o, vector<string> l, string p, string a):
 stats(s), items(i), options(o), spells(l), passive(p), activated(a),
 current_hp(s[MAX_HP]), current_mp(s[MAX_MP])
