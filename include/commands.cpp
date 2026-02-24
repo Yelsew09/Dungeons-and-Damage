@@ -14,6 +14,9 @@ extern bool debug;
 
 using namespace std;
 
+#ifndef _COMMANDS
+#define _COMMANDS
+
 // All the if (debug) statments are there for debugging
 // They print out the command being used, and the arguments being used in it
 
@@ -146,3 +149,5 @@ void crash(string reason){
     cout << "Error occured. Provided reason:\n" << reason << endl;
     exit;
 }
+
+#endif

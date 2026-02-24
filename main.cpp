@@ -12,6 +12,8 @@ mt19937 gen(rd());
 bool debug = false;
 vector<string> options;
 string selected_option;
+uint32_t players;
+string option;
 
 int main(){
     bool game_correct;
@@ -34,7 +36,13 @@ int main(){
         } else if (selected_option == "Quit\n"){
             game_correct = false;
         } else if (selected_option == "Game Start\n"){
-            // Start the game. I'm going to bed now
+            bool player_correct = true;
+            while (player_correct){
+                players = ask("How many players are there? (2 or 4)");
+                if (players != 2 && players != 4){ roll("Please select 2 or 4"); wait(500); }
+                else { player_correct = false; }
+            }
+            
         }
     }
     return 0;
