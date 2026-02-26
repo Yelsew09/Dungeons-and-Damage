@@ -103,10 +103,14 @@ int main(){
 
     uint32_t program = createShader(vertex_shader, fragment_shader);
 
+    glBindVertexArray(0);
+    glBindBuffer(GL_ARRAY_BUFFER, 0);
+
     while (!glfwWindowShouldClose(window1)){
         glClear(GL_COLOR_BUFFER_BIT);
 
         glUseProgram(program);
+        glBindVertexArray(array_object);
         glDrawArrays(GL_TRIANGLES, 0, 6);
 
         glfwSwapBuffers(window1);
