@@ -6,12 +6,16 @@ set(CMAKE_CXX_STANDARD 17)
 find_package(Vulkan REQUIRED)
 find_package(glfw3 3.3 REQUIRED)
 
-add_subdirectory(glm)
+add_subdirectory(external/glm)
 
-add_executable(vulkanLearning main.cpp)
+add_executable(
+    vulkanLearning
+    src/main.cpp
+)
 
 target_link_libraries(
     vulkanLearning
     PRIVATE glfw
     PRIVATE Vulkan::Vulkan
+    PRIVATE glm::glm-header-only
 )
