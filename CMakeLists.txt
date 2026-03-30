@@ -1,5 +1,8 @@
 cmake_minimum_required(VERSION 3.16)
 
+set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
+set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Release>:Release")
+
 project(
     vulkanLearning
     VERSION 1.0
@@ -17,8 +20,9 @@ add_subdirectory(external/glm)
 add_executable(
     vulkanLearning
     src/main.cpp
-    src/everything_else.cpp
 )
+
+target_include_directories(vulkanLearning PUBLIC "${CMAKE_CURRENT_SOURCE_DIRECTORY}/include/")
 
 target_link_libraries(
     vulkanLearning

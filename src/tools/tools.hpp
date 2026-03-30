@@ -1,9 +1,6 @@
 #pragma once
 
-#include <iostream>
-#include <thread>
 #include <chrono>
-#include <GLFW/glfw3.h>
 
 class Timer{
 private:
