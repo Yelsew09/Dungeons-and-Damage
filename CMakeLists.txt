@@ -17,6 +17,7 @@ add_subdirectory(external/glm)
 add_executable(
     vulkanLearning
     src/main.cpp
+    src/everything_else.cpp
 )
 
 target_link_libraries(

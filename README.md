@@ -1,7 +1,8 @@
 # Vulkan
 
-<p>Idk if this will last</p>
+Idk if this will last
 
-## Using the following links:
-<p>https://vulkan-tutorial.com</p>
-<p>https://paroj.github.io/gltut</p>
+## Using the following links
+
+https://vulkan-tutorial.com
+https://paroj.github.io/gltut
