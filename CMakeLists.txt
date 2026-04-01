@@ -27,7 +27,14 @@ add_executable(
 #target_compile_definitions("${CMAKE_PROJECT_NAME}" PUBLIC RESOURCES_PATH="${CMAKE_CURRENT_SOURCE_DIR}/resources/") # Development Line
 target_compile_definitions("${CMAKE_PROJECT_NAME}" PUBLIC RESOURCES_PATH="./resources/") # Release line
 
-target_include_directories(themain PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/src/include" "${CMAKE_CURRENT_SOURCE_DIR}/src/include/tools")
+file(GLOB MY_INCLUDE_DIRS CONFIGURE_DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/src/include/*/")
+
+target_include_directories(
+    themain
+    PUBLIC
+    "${CMAKE_CURRENT_SOURCE_DIR}/src/include"
+    ${MY_INCLUDE_DIRS}
+)
 
 target_link_libraries(
     themain
