@@ -4,7 +4,7 @@ set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
 set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Release>:Release")
 
 project(
-    vulkanLearning
+    themain
     VERSION 1.0
     DESCRIPTION "A place for me to learn how to use vulkan"
     LANGUAGES CXX
@@ -17,15 +17,20 @@ find_package(glfw3 3.3 REQUIRED)
 
 add_subdirectory(external/glm)
 
+file(GLOB_RECURSE MY_SOURCES CONFIGURE_DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp")
+
 add_executable(
-    vulkanLearning
-    src/main.cpp
+    themain
+    "${MY_SOURCES}"
 )
 
-target_include_directories(vulkanLearning PUBLIC "${CMAKE_CURRENT_SOURCE_DIRECTORY}/include/")
+#target_compile_definitions("${CMAKE_PROJECT_NAME}" PUBLIC RESOURCES_PATH="${CMAKE_CURRENT_SOURCE_DIR}/resources/") # Development Line
+target_compile_definitions("${CMAKE_PROJECT_NAME}" PUBLIC RESOURCES_PATH="./resources/") # Release line
+
+target_include_directories(themain PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/src/include" "${CMAKE_CURRENT_SOURCE_DIR}/src/include/tools")
 
 target_link_libraries(
-    vulkanLearning
+    themain
     PRIVATE glfw
     PRIVATE Vulkan::Vulkan
     PRIVATE glm::glm-header-only

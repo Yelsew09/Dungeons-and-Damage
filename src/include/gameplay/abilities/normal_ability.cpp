@@ -1,5 +1,5 @@
 #include <iostream>
-#include "inclusions.hpp"
+#include <tools.hpp>
 #include "abilities.hpp"
 
 Ability::Ability(uint8_t ch, double co, double bc, std::string n, int32_t k):
@@ -12,6 +12,10 @@ Ability::Ability(uint8_t ch, double co, double bc, std::string n, int32_t k):
     {}
 
 bool Ability::usable(){ return cooldown_timer.is_finished(*cooldown); }
+
+void Ability::cast(){
+    return;
+}
 
 Ability::~Ability(){
     delete charges, cooldown, between_cooldown, name, key;

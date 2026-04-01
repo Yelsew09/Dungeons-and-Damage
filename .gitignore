@@ -1,5 +1,10 @@
-# Build Folder
+# CMake
 build*
+bin*
+out*
+.vs/
+.idea/
+CMakeSettings.json
 
 # Prerequisites
 *.d

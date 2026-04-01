@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../abilities/abilities.hpp"
+#include <abilities.hpp>
 
 class Character{
     

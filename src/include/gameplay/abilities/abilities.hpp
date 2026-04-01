@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../../tools/tools.hpp"
+#include <tools.hpp>
 
 class Ability {
     const uint8_t* charges;
