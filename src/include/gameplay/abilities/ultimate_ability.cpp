@@ -8,6 +8,4 @@ Ultimate::Ultimate(uint32_t mc, double du):
     duration(new double(du))
     {}
 
-void Ultimate::cast(){
-    return;
-}
+void Ultimate::cast(){ return; }
