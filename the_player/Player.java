@@ -1,14 +1,27 @@
 package the_player;
 import java.util.ArrayList;
 public class Player {
-    int stats[] = new int[10];
-    int effects[] = new int[5];
-    ArrayList<String> options = new ArrayList<>();
-    String passive = new String();
-    String activated = new String();
-    boolean fence_set = false;
-    boolean alive = true;
-    void damage(int amount);
-    void heal(int amount);
-    void next_turn();
+    int stats[];
+    int effects[];
+    ArrayList<String> options;
+    String passive;
+    String activated;
+    boolean fence_set;
+    boolean alive;
+    Player(){
+
+    }
+    void damage(int amount){
+        stats[0] -= amount;
+        if (stats[0] <= 0){
+            alive = false;
+        }
+    }
+    void heal(int amount){
+        stats[0] += amount;
+        if (stats[0] > stats[1]){
+            stats[0] = stats[1];
+        }
+    }
+    void next_turn(){}
 }
