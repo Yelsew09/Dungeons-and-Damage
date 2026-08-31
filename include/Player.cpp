@@ -15,13 +15,21 @@ stats(s), items(i), options(o), spells(l), passive(p), activated(a),
 current_hp(s[MAX_HP]), current_mp(s[MAX_MP])
 {}
 
+Player::Player(){
+    exit(-1);
+}
+
 // Subtract health from the player and change dead to match being over 0HP
-void Player::damage(int32_t amount){
+void Player::damage(int32_t amount, string type){
     if (passive == KNIGHT_PASSIVE){
-        if (amount < 0) amount--;
+        if (amount < 0) amount--; // ?
         else {
             amount -= 2;
             if (amount < 0) amount = 0;
+        }
+    } else if (passive == ROUGE_PASSIVE){
+        if (type == "magic" && amount <= (stats[SPEED] + stats[ATTACK_BONUS])){
+            amount = round(amount / 2);
         }
     }
     current_hp -= amount;
